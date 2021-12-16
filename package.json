@@ -1,0 +1,52 @@
+{
+  "name": "nuxt-tulala",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "core-js": "^3.19.3",
+    "layui-layer": "^1.0.9",
+    "nuxt": "^2.15.8",
+    "url-loader": "^4.1.1",
+    "vue": "^2.6.14",
+    "swiper": "^3.4.2",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^4.46.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
+    "autoprefixer": "^9.8.6",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "concurrently": "^5.3.0",
+    "css-loader": "^4.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-loader": "^0.5.5",
+    "image-webpack-loader": "^7.0.0",
+    "jquery": "^3.6.0",
+    "less": "^3.12.2",
+    "less-loader": "^5.0.0",
+    "memory-fs": "^0.5.0",
+    "mini-css-extract-plugin": "^1.3.0",
+    "nodemon": "^2.0.6",
+    "postcss-loader": "^3.0.0",
+    "qrcode": "^1.4.4",
+    "rimraf": "^3.0.2",
+    "style-loader": "^1.2.1",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "vue-datepicker": "^1.3.0",
+    "vue-loader": "^15.9.5",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12"
+  }
+}

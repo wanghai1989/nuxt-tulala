@@ -1,0 +1,19 @@
+<template>
+<ul class="design-nav clearfix">
+	  	<li><router-link to="/enter">入驻图啦啦</router-link></li>
+	  	<li><router-link to="/designer">设计师</router-link> </li>
+	  	<li><router-link to="/task">外包任务</router-link> </li>
+	  </ul>
+</template>
+<script>
+export default {
+  
+}
+</script>
+<style lang="less" scoped>
+.design-nav{margin-top: 25px; text-align: right;
+ li{display: inline-block;}
+ li a{padding: 0 20px; color: #333; font-size: 18px; }
+ li a.active-link, li a:hover{padding: 0 20px; color: #e60012; font-size: 18px; }
+}
+</style>
