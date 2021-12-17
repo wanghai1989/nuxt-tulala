@@ -73,7 +73,7 @@ components: {Login},
         width: @width;
         height: @height;
         position: relative;
-        background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
+        background: url(../../assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
 .btn(@width,@height,@bordercolor,@background,@color){
@@ -93,7 +93,7 @@ components: {Login},
 }
 .login-box{width: 840px; position: fixed; height: 500px; top: 50%; left: 50%; margin-top: -250px; margin-left: -420px; z-index: 5; 
 background: #fff; border-radius: 5px; accelerator: false; position: relative;
-.login-l{width: 360px; float: left;overflow: hidden; height: 500px; background: url(~/assets/images/pic09.png) no-repeat; 
+.login-l{width: 360px; float: left;overflow: hidden; height: 500px; background: url(../../assets/images/pic09.png) no-repeat; 
 background-size: cover; padding: 50px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
 .login-l h3{font-size: 24px; margin-bottom: 60px;}
 .login-l p{

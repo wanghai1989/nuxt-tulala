@@ -45,10 +45,10 @@ export default {
         width: @width;
         height: @height;
         position: relative;
-        background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
+        background: url(../../assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
-.banner.person{height: 168px;padding-top: 42px; box-sizing: border-box; background: url(~/assets/images/banner05.png) no-repeat center center; color: #fff;
+.banner.person{height: 168px;padding-top: 42px; box-sizing: border-box; background: url(../../assets/images/banner05.png) no-repeat center center; color: #fff;
 .vip-img{width: 84px; height: 84px; border-radius: 42px;  position: relative;}
 .vip-img>div{width: 84px; height: 84px; border-radius: 42px; overflow: hidden; display: flex;align-items: center;}
 .vip-img img{width: 100%; min-height: 100%;}

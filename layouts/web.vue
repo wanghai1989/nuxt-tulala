@@ -1,7 +1,7 @@
 <template>
-<div>
-  
+<div class="container">
 <webHeader></webHeader>
+<webPendant></webPendant>
   <nuxt />
   <webFooter></webFooter>
 </div>
@@ -13,9 +13,9 @@ import {
 } from 'vuex'
 import webHeader from '~/components/layout/web-header.vue'
 import webFooter from '~/components/layout/web-footer.vue'
-
+import webPendant from '~/components/layout/web-pendant.vue'
 export default {
-components:{webHeader,webFooter}
+components:{webHeader,webFooter,webPendant}
 }
 </script>
   <style lang="less" scoped>

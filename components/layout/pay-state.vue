@@ -83,7 +83,7 @@ export default {
         width: @width;
         height: @height;
         position: relative;
-        background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
+        background: url(../../assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
 .btn(@width,@height,@bordercolor,@background,@color){

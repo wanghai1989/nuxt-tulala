@@ -41,7 +41,7 @@ export default {
         width: @width;
         height: @height;
         position: relative;
-        background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
+        background: url(../../assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
 .btn(@width,@height,@bordercolor,@background,@color){
@@ -62,7 +62,7 @@ export default {
 
 .vip-box{
   position: fixed;width: 360px;  height: 500px; top: 50%; left: 50%; margin-top: -250px; margin-left: -180px; z-index: 5; 
-   background: url(~/assets/images/pic09.png) no-repeat; position: relative; border-radius: 5px;
+   background: url(../../assets/images/pic09.png) no-repeat; position: relative; border-radius: 5px;
 background-size: cover; padding: 30px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
 .vip-box h3{font-size: 24px; margin-bottom: 42px; color: #f5cd08;}
 .vip-box p{

@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -23,7 +24,7 @@ export default {
   }],
 
   script: [
-    {src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js'} 
+    // {src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js'} 
  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -42,6 +43,11 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+          '$' : 'jquery' 
+      })
+  ]
     // loaders:[
     //   {
     //     test:/\.(png|jpe?g|gif|svg)$/,

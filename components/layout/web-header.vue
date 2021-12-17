@@ -2,7 +2,7 @@
 <div>
 <header class="header" :class="prodclass"> 
 			<div class="logo">
-                <router-link to="/index">
+                <router-link to="/">
                     <img src="~/assets/images/logo01.png" v-if="prodclass=='index'" >
                     <img src="~/assets/images/logo02.png" v-else >
               </router-link>

@@ -103,13 +103,11 @@
 import {mapState, mapActions} from 'vuex'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
-import myDatepicker from 'vue-datepicker'
+
 export default {
+	
   metaInfo: {
     title: '会员基本信息'
-  },
-  components:{
-  	myDatepicker
   },
   data () {
     return {
