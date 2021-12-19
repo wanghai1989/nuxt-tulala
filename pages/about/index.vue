@@ -13,8 +13,6 @@ export default {
          console.log(22)
  }
 }
-
-
 </script>
 <style lang="less" scoped>
 .bg-map(@width:25px,@height:25px,@x:0px,@y:0px){
