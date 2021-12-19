@@ -6,7 +6,7 @@
 		 		<div class="newtask">
 		 			<div class="title">最新任务</div>
 		 			<ul class="ul-list mt10">
-		 				<li v-for="item in workorder" :key="item.id"><router-link  :to="{ name: 'taskdetail', params:{ id: item.id }}" >{{item.name}}</router-link> </li>
+		 				<li v-for="item in workorder" :key="item.id"><router-link  :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</router-link> </li>
 		 			</ul>
 		 		</div>
 		 	</div>

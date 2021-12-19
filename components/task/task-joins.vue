@@ -124,9 +124,9 @@ import MoPaging  from '~/components/layout/web-pagination.vue'
 import workStep from '~/components/layout/work-step.vue'
 export default {
 	components: {MoPaging,workStep},
-	props:["taskID"],
   data () {
     return {
+	taskID:'',//任务ID 
     join_id:'',//竞价id
     popupShow:0, //安全雇佣窗口是否显示
     real_money:'', //项目总额
@@ -140,6 +140,7 @@ export default {
     }
   },
   mounted(){  
+	  this.taskID=this.$route.params.id
 	  this.fetchWorkinf(this.taskID)
 	  this.fetchEmploy()
 		},

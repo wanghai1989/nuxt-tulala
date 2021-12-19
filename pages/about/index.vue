@@ -8,6 +8,9 @@
 export default {
   created(){
     this.$router.push('/about/about-us') // 页面加载时跳转 
+ },
+ mounted(){
+         console.log(22)
  }
 }
 

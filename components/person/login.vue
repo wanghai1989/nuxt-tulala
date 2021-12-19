@@ -65,7 +65,6 @@ export default {
    if(this.$route.query.code){
      this.wechatSubmit(this.$route.query.code)
    }
-    // import('layui-layer')
   },
   computed:{
      ...mapState(['showLogin'])
@@ -100,7 +99,7 @@ export default {
               const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(!preRouter && !this.showLogin){
                 setTimeout(() => {
-                  this.$router.replace('/person/person-info') 
+                  this.$router.replace('/mine') 
                 }, 1000);
               }
               else if(this.showLogin){
@@ -139,7 +138,7 @@ export default {
               if(!preRouter && !this.showLogin){
                 console.log(111)
                 setTimeout(() => {
-                  this.$router.replace('/person/person-info') 
+                  this.$router.replace('/mine') 
                 }, 1000);
               }
               else if(this.showLogin){

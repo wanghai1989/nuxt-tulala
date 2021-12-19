@@ -29,6 +29,13 @@ import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
    components: {swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch},
+   created(){
+    //    console.log(localStorage.getItem("token"))
+   },
+   mounted(){
+       
+    //    alert(this.comsys.val(1));
+   }
 
 }
 </script>

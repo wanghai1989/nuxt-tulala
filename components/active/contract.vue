@@ -489,7 +489,7 @@ export default {
 .contract-type{ padding-bottom: 25px; border-bottom: 1px solid #eee;
   li a{font-size: 18px; color: var(--backColor); text-align: center; height: 18px; line-height: 18px; border-right: 1px solid #333;
    float: left; cursor: pointer; padding: 0px 20px;}
-  a.exact-active-link {color: var(--redColor);}
+  a.nuxt-link-exact-active {color: var(--redColor);}
   li:last-child a{border-right: none;}
 }
 .contract-info{

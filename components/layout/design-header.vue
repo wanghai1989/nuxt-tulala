@@ -5,7 +5,7 @@
 					图啦啦欢迎您！  &nbsp;<i class="i-phone"></i>&nbsp;<span class="f16 cf5f5">0755-2382-3043</span>
 				</div>
 				<div class="fr" v-if="userToken">
-					<router-link to="/index"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;
+					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;
 					<div class="userimg-head">
 					 <router-link to="/person/person-info" ><img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" /></router-link>
            <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="fr" v-else >
-					<router-link to="/index"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;|&nbsp;&nbsp;
+					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;|&nbsp;&nbsp;
 					 <router-link to="/user/login" >登录</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <router-link to="/user/register" >免费注册</router-link>
 				</div>

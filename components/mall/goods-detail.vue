@@ -61,10 +61,11 @@ import {
     mapState,mapMutations,mapActions
 } from 'vuex'
 export default {
-  props:["prodId"],
+  // props:["prodId"],
     data(){
 	return { 
     // userInfo: {},
+    prodId:0,
 		 goodnum:1,
      maxnum:10
   }
@@ -72,7 +73,11 @@ export default {
   computed:{
 	  ...mapState(['gooddetail','personInfo','userToken'])
   },
-  mounted(){  
+  created(){
+  //  console.log (this.$route.params.id) 
+  },
+  mounted(){ 
+      this.prodId=this.$route.params.id
 	  	this.goodDetailinfo()  //商品列表
   },
   methods:{ //页面进来发送请求
@@ -187,7 +192,8 @@ height: 80px; line-height: 80px; background: #fff; font-size: 18px; color:var(--
 .input{width: 58px; border:none; border-left: 1px solid #d4d4d4;border-right: 1px solid #d4d4d4; height: 32px; line-height: 32px;}
 .reduce i{.bg-map(16px,16px,-716px, -83px);}
 .plus i{.bg-map(16px,16px,-752px, -80px);    vertical-align: text-bottom;}
-.btn-exchange{.btn(138px,48px,var(--redColor),linear-gradient(90deg, #c53a1d 0%, #b23016 100%),#fff); }
+.btn-exchange{.btn(138px,48px,var(--redColor),linear-gradient(90deg, #c53a1d 0%, #b23016 100%),#fff); opacity: 1;}
+.btn-exchange:hover{opacity: 0.9;}
 }
 }
 .shop-detail{width: 100%; padding: 40px 50px; background: #fff;margin-top: 30px;

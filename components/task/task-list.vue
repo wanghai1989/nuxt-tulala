@@ -53,7 +53,7 @@
 	  </div>
 <ul class="ul-task" v-if="workorder.length>0">
 	  	<li  v-for="item in workorder" :key="item.id">
-	  		<div class=""><router-link  class="cmain f18 fw" :to="{ name: 'taskdetail', params:{ id: item.id }}" >{{item.name}}</router-link></div>
+	  		<div class=""><router-link  class="cmain f18 fw" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</router-link></div>
 	  		<div class="work-box clearfix">
 				<div class="work-item">类别&nbsp;<span class="cblack f16 fw">{{item.category_name?item.category_name:"--"}}</span></div>  
 				<div class="work-item">预算&nbsp;<span class="cblack f16 fw">{{item.money}}</span></div>  

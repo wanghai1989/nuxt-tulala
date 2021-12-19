@@ -14,6 +14,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+    	{ src: '/js/jquery-3.2.1.min.js' }
     ]
   },
 
@@ -43,11 +46,11 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    plugins: [
-      new webpack.ProvidePlugin({
-          '$' : 'jquery' 
-      })
-  ]
+  //   plugins: [
+  //     new webpack.ProvidePlugin({
+  //         '$' : 'jquery' 
+  //     })
+  // ]
     // loaders:[
     //   {
     //     test:/\.(png|jpe?g|gif|svg)$/,
@@ -59,6 +62,12 @@ export default {
     //   }
     // ]
   },  
+  plugins: [
+    // { src: '~plugins/jquery.js', ssr: false }
+    {src: '~plugins/layui.js', ssr: false},
+    {src: '~plugins/common.js', ssr: false}
+  ],
+
   loading:{  //加载异步页面的样式
     color:"#ff0000"
   }, 

@@ -39,7 +39,7 @@
                        <router-link to="/task">任务</router-link>
 				   </li>
 				   <li>
-                        <router-link to="/integral-mall">积分商城</router-link>
+                        <router-link to="/mall">积分商城</router-link>
 				   </li>
 				</ul>
 
@@ -53,7 +53,7 @@
                    </ul>
                   </router-link>
 					<div class="logined"  v-if="userToken">
-                        <router-link to="/person/person-info" ><img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" /></router-link>
+                        <router-link to="/mine" ><img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" /></router-link>
                         <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
                         <div class="u-detail">
 	          				<div class="u-info">
@@ -77,7 +77,7 @@
 	                                          </div>
 	                   
 	                     <ul>
-	                       <li> <router-link  to="/person/person-info"><i></i><span>个人中心</span></router-link> </li>
+	                       <li> <router-link  to="/mine"><i></i><span>个人中心</span></router-link> </li>
 	                       <li> <router-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></router-link></li>
 	                       <li><router-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></router-link></li>
 	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
