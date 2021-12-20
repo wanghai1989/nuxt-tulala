@@ -11,7 +11,7 @@
 				 <ul class="fl nav-list">
                    
                     <li v-for="item in navigation" :key="item.id"> 
-                        <router-link :to="{ name: item.type_class, params:{id: item.id }}">{{item.name}}</router-link>
+                        <router-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</router-link>
                         <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
                             <div class="pd-top">
                                 <h3>{{item.name}}<span>近期新增1596张</span></h3>
@@ -47,7 +47,7 @@
                   <router-link to="/notice" class="btn-notice" :class="prodclass" title="公告">
                    <ul class="ul-notice" v-if="notice.length>0">
                      <li v-for="item in notice" :key="item.id">
-                    <router-link  :to="{ name: 'noticeDetail', params:{ id: item.id }}"  :title="item.title">{{item.title}}</router-link> 
+                    <router-link  :to="{ name: 'notice-id', params:{ id: item.id }}"  :title="item.title">{{item.title}}</router-link> 
                    </li>
                      <li class="all"> <router-link to="/notice" >查看全部</router-link> </li>
                    </ul>

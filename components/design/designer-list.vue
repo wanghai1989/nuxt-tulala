@@ -2,7 +2,7 @@
 <div>
 <ul class="design-list clearfix">
 	  	<li   v-for="item in designer" :key="item.id">
-			<router-link  :to="{ name: 'designerhome', params:{ id: item.member_id }}">
+			<router-link  :to="{ name: 'designer-id', params:{ id: item.member_id }}">
 	  		<div class="pic">
 	  			<img :src="item.avatar" />
 	  		</div>

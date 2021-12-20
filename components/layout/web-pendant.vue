@@ -16,7 +16,7 @@
 				<a href="person-vip.html"> <i></i><br /> <span>全站<br />vip</span></a>
 			</div> -->
 			<div class="vip-pend2">
-                <router-link to="/vip-introduce"><i></i><br /> <span>全站<br />vip</span></router-link>
+                <router-link to="/vip"><i></i><br /> <span>全站<br />vip</span></router-link>
 				<!-- <a href="enterprise-vip.html"> <i></i><br /> <span>全站<br />vip</span></a> -->
 			</div>
             <div class="item-pend qd"  @mouseover="qdOver()" @mouseout="qdOut()">

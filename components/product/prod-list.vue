@@ -1,9 +1,9 @@
 <template>
 <div>
 	<div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/index">图啦啦</router-link> &nbsp;/&nbsp;{{typeName[typeClass]}} 
+	  	<i class="icon i-location"></i> <router-link to="/index">图啦啦</router-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
 	  </div>
-    <ul class="waterfall-col clearfix" :class="typeClass" v-if="productlist.length>0">
+    <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0">
 			<li class="item"  v-for="item in productlist" :key="item.id">
 				<router-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
 				<div class="prod-img" :style="'backgroundImage: url('+item.list_img_path+');'">
@@ -40,7 +40,6 @@
 import {mapState, mapActions, mapMutations} from 'vuex'
 import MoPaging  from '~/components/layout/web-pagination.vue'
 export default {
-	props:["typeClass"],
 	components: {MoPaging},
 	data () {
     return {
@@ -61,7 +60,7 @@ export default {
            this.fetchProduct()
       },
 	  '$store.state.productlist'(){
-		  if(this.typeClass=='png' || this.typeClass=='ui' || this.typeClass=='mbsc' || this.typeClass=='all'){
+		  if(this.categoryId==1 || this.categoryId==3 || this.categoryId==3 || this.categoryId==0){
 			  let promiseAll = [], img = [], imgTotal = this.productlist.length;
 			for(let i = 0 ; i < imgTotal ; i++){
 				promiseAll[i] = new Promise((resolve, reject)=>{
@@ -87,7 +86,7 @@ mounted(){
   },
 
 	computed:{
-	  ...mapState(['pageSize','countfile','productlist','personInfo','userToken','typeName'])
+	  ...mapState(['pageSize','countfile','productlist','personInfo','userToken','idClass','idName'])
   },
 	methods:{
 		...mapMutations(['setShowLogin']),

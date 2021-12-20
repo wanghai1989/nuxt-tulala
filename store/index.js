@@ -69,7 +69,9 @@ pageSize:10,  //每页条数
   designlevel:{1:'设计助理',2:'设计师',3:'资深设计师',4:'设计指导'},
   publicStateName:{1:'安全雇佣',2:'审核拒绝',3:'待确认',4:'支付定金',5:'支付尾款',6:'已完成',7:'已过期',8:'已结算'},  //我的发布状态名
   acceptStateName:{1:'已竞价',3:'接受雇佣',4:'待付定金',5:'工单进行中',6:'已完成',8:'已结算'},  //我的接单状态名
-  typeName:{'png':'免抠元素','ui':'网站UI','mbsc':'模板素材','bjtp':'背景图片','syt':'摄影图','word':'WORD','ppt':'PPT','excel':'EXCEL','all':'全部'},
+  idClass:{0:'all',1:'png',2:'bjtp',3:'ui',4:'mbsc',5:'ppt',6:'syt',50:'word',51:'excel'},
+  className:{'png':'免抠元素','ui':'网站UI','mbsc':'模板素材','bjtp':'背景图片','syt':'摄影图','word':'WORD','ppt':'PPT','excel':'EXCEL','all':'全部'},
+  idName:{1:'免抠元素',3:'网站UI',4:'模板素材',2:'背景图片',6:'摄影图',50:'WORD',5:'PPT',51:'EXCEL',0:'全部'},
   auditRealName:{0:'未认证',1:'审核通过',2:'待审核',3:'审核拒绝'},  //实名审核状态  
   auditQQName:{0:'待审核',1:'审核拒绝',2:'未满',3:'已满'},  //QQ联盟群状态 
   softName:{'PSD':'Photoshop','AI':'Illustrator','EPS':'PostScript','CDR':'CorelDraw','SKETCE':'sketch','AE':'After Effects','C4D':'Cinema 4D','MAX':'3Dmax'},  //文件所使用软件 

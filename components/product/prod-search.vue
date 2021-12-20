@@ -40,18 +40,18 @@ export default {
   props: ['dataClass'],
   data () {
     return {
-      route_name:'all',
-	  input_keyword:''
+	  input_keyword:'',
+      category_id:0
     }
   },
   computed:{
-	  ...mapState(['category','typeName'])
+	  ...mapState(['category','idName','idClass'])
   },
   watch :{
       '$route': function (to, from) {
           const id=this.$route.params.id
-          const type_class=this.$route.name
-          const name=this.typeName[this.$route.name]
+          const type_class=this.idClass[this.$route.params.id] 
+          const name=this.idName[this.$route.params.id]
           this.selectCategory(id,type_class,name)
       }
     },
@@ -69,13 +69,12 @@ export default {
           fetchCategory: 'fetchCategory'
       }),
       doSearch(){
-        //   console.log('urlname'+this.$route.name,'searchname'+this.route_name)
-          if(this.$route.name==this.route_name){
+          if(this.$route.params.id==this.route_name){
               this.$router.push({
                 query:merge(this.$route.query,{'keyword':this.input_keyword})
             })
           }else{
-              this.$router.push({name: this.route_name,params:{id:$("#inputselect").val()},query:{keyword:this.input_keyword}});
+              this.$router.push({name: 'material-id',params:{id:$("#inputselect").val()},query:{keyword:this.input_keyword}});
           }
         
       },
@@ -91,7 +90,7 @@ export default {
                 },
         selectCategory:function(id,type_class,name){
             $("#divselect cite").html(name); 
-            this.route_name=type_class
+            this.category_id=id
             $("#inputselect").val(id)
             $("#divselect  ul").hide(); 
             $("#divselect cite").removeClass("rota90");

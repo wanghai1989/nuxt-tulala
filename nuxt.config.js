@@ -31,6 +31,10 @@ export default {
  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // { src: '~plugins/jquery.js', ssr: false }
+    {src: '~plugins/layui.js', ssr: false},
+    {src: '~plugins/common.js', ssr: false},
+    {src: '~/plugins/route',ssr: false}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -62,11 +66,7 @@ export default {
     //   }
     // ]
   },  
-  plugins: [
-    // { src: '~plugins/jquery.js', ssr: false }
-    {src: '~plugins/layui.js', ssr: false},
-    {src: '~plugins/common.js', ssr: false}
-  ],
+  
 
   loading:{  //加载异步页面的样式
     color:"#ff0000"

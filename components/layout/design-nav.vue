@@ -14,6 +14,6 @@ export default {
 .design-nav{margin-top: 25px; text-align: right;
  li{display: inline-block;}
  li a{padding: 0 20px; color: #333; font-size: 18px; }
- li a.active-link, li a:hover{padding: 0 20px; color: #e60012; font-size: 18px; }
+ li a.nuxt-link-active, li a:hover{padding: 0 20px; color: #e60012; font-size: 18px; }
 }
 </style>
