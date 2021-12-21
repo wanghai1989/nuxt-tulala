@@ -27,7 +27,8 @@
 		 </div>
 	 </div>
 	  		<div class="pic">
-	  			<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'"/>
+	  			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                <img src='~/assets/images/defaultVip.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
 	  			{{personInfo.nickname}} 

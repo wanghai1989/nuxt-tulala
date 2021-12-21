@@ -1,7 +1,7 @@
 <template>
     <footer class="navbar-fixed-bottom clearfix">
 			<div class="col-4 file focus">
-			<router-link to="/m/product-list/1">
+			<router-link :to="{ name: 'm-material-id', params:{id:1 }}">
 				<h3><i class="iconfont">&#xe603;</i>作品</h3>
 			</router-link>
 		</div>

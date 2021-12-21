@@ -11,7 +11,12 @@ const requireLogin=[
     '/mine/vip-info',
     '/mine/basic-info',
     '/mine/basic-info',
-    '/mine/mobile-bind'
+    '/mine/mobile-bind',
+
+    '/m/mobile-mine',
+    '/m/mobile-taskpublic',
+    '/m/mobile-taskaccept',
+    '/m/mobile-invite'
 ]
 export default ({
     app,
@@ -22,11 +27,15 @@ export default ({
         // next 是一个函数，表示放行 next（'/login'） 强制跳转
     app.router.beforeEach((to, from, next) => {
         const token =localStorage.getItem('token')
-        if(requireLogin.indexOf(to.path)>-1){
-            if(!token) next({path: '/user/login'})
+        const isMobile=to.path.indexOf('/m/')==-1?false:true
+        
+        if(requireLogin.indexOf(to.path)>-1){  //需要登录的页面
+            if(to.path=='/user/login' || to.path=='/m/mobile-login') next()  //去登录
+            if(!token && !isMobile) next({path: '/user/login'}) //没有token，是电脑页面，去电脑登录页
+            if(!token && isMobile) next({path: '/m/mobile-login'}) //没有token，是手机页面，去手机登录页
             store.dispatch('verifyToken',token).then(data => { 
                 if(data.code==1){
-                    store.state.userToken=token
+                    store.commit('setToken', token)
                     const designState=store.state.personInfo.designer_status
                     if(designState==104 && to.path=='/enter/design-basic')
                     {next({path: '/enter/design-egg'})} 
@@ -34,15 +43,15 @@ export default ({
                     {next({path: '/enter/design-result'})} 
                         next()
                 }else{
-                    // localStorage.setItem('preRoute', to.fullPath);
-                    // if(isMobile)
-                    // next({path: '/m/mobile-login'})
-                    // else
+                    localStorage.setItem('preRoute', to.path);
+                    if(isMobile)
+                    next({path: '/m/mobile-login'})
+                    else
                     next({path: '/user/login'})
                 }
                 })
+        }else{
+            next()
         }
-        
-        next()
     })
   }

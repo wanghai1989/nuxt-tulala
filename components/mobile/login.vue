@@ -24,6 +24,7 @@
 					v-model="password"
 					>
           <input v-else
+          autocomplete="off"
           type="password"
 					class="input-login"
 					placeholder="密码(6-12位字母数字组合)"

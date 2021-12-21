@@ -10,7 +10,10 @@
 		      <div class="swiper-slide clearfix"  v-for="item in evaluation" :key="item.id" >
 		      	<img :src="item.url" />
 		      	<div class="swiper-txt">
-		      		<div class="username"><img  :src="item.avatar?item.avatar:'/static/defaultVip.png'">{{item.nickname}} </div>
+		      		<div class="username">
+		      			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                        <img src='~/assets/images/defaultVip.png' v-else /> 
+		      			{{item.nickname}} </div>
 		      		<div class="font">
 		      			{{item.content}}
 		      		</div>

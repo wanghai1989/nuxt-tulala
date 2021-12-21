@@ -132,6 +132,7 @@ doLogin (state, userInfo) {
 // }, 
 //设置token
 setToken(state, token) {
+  // console.log('mutation',token)
     state.userToken = token;
     localStorage.setItem('token', token);
   },
@@ -784,7 +785,7 @@ export const actions = {
       commit('startLoading')
       return model.fullCoupon(formData)
           .then(data => {
-            console.log(data)
+            // console.log(data)
             commit('endLoading')
             commit('fillCoupon', data.data)
           })

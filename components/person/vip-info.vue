@@ -109,6 +109,7 @@ export default {
     }
   },
   mounted(){  
+	  console.log('userToken',this.userToken)
 			// this.userInfo=JSON.parse(window.localStorage.getItem("userInfo"))
 			this.fetchCommis(1)
 			this.fetchCoup()

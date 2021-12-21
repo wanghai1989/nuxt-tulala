@@ -19,15 +19,15 @@
                           <div v-if="item.name=='办公文档'">
                             <div v-for="item2 in item.child" :key="item2.id">
                             <div class="pd-name" >
-                              <router-link :to="{ name: item2.type_class, params:{type:item.type_class,id: item2.id }}">{{item2.name}}</router-link>
+                              <router-link :to="{ name: 'material-id', params:{type:item.type_class,id: item2.id }}">{{item2.name}}</router-link>
                             </div>
                             <div class="pd-list clearfix">
-                              <router-link class="main-sort" v-for="item3 in item2.scenarios" :key="item3.id" :to="{ name: item2.type_class, params:{type:item.type_class, id: item2.id },query:{scenarios_id:item3.id}}">{{item3.name}}</router-link>
+                              <router-link class="main-sort" v-for="item3 in item2.scenarios" :key="item3.id" :to="{ name: 'material-id', params:{type:item.type_class, id: item2.id },query:{scenarios_id:item3.id}}">{{item3.name}}</router-link>
                             </div> 
                             </div>
                           </div>
                             <div class="pd-list clearfix" v-else> 
-                              <router-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: item.type_class, params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</router-link>
+                              <router-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: 'material-id', params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</router-link>
                             </div>                                                                               
 				   	  </div>
                     </li>
@@ -53,12 +53,16 @@
                    </ul>
                   </router-link>
 					<div class="logined"  v-if="userToken">
-                        <router-link to="/mine" ><img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" /></router-link>
+                        <router-link to="/mine" >
+                        <img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                        <img src='~/assets/images/defaultVip.png' v-else /> 
+                        </router-link>
                         <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
                         <div class="u-detail">
 	          				<div class="u-info">
 	                        <div class="userimg">
-	                          <img class="lazy-nodelay" :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" style="display: inline-block;">
+                            <img :src="personInfo.avatar" v-if="personInfo.avatar" class="lazy-nodelay"  style="display: inline-block;" />
+                            <img src='~/assets/images/defaultVip.png'  class="lazy-nodelay"  style="display: inline-block;" v-else /> 
 	                        </div>
 	                        <div class="u-name">
 	                          <span>{{personInfo.nickname}}</span>
@@ -101,19 +105,20 @@ import {
 } from 'vuex'
 
 export default {
-  props: ['dataClass'],
+  props:["pageclass"],
     data(){
 	return { 
     params:{},
     route_name:'',
     category_id:0,
-     prodclass: this.dataClass,
+     prodclass: this.pageclass,
   }
   },
   created(){
    
   },
   mounted(){
+    console.log('pageclass',this.pageclass)
   	// //页面刷新，如果存在token，页面保持登录状态
      this.fetchNavigation()
      this.fetchNoticeList()

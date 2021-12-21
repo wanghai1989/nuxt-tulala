@@ -30,7 +30,7 @@
 					</span>
 				</div>
 				<div class="tc mt50">
-          <router-link class="btn-openvip" to="/user/pay-vip">开通会员</router-link>
+          <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@
 		      <li class="jsao-more more-two">
 		        <span class="taoc">终身VIP</span>
 		        <span class="qian"><em>￥</em>199<b>原价299</b></span>
-            <router-link class="btn-openvip" to="/user/pay-vip">开通会员</router-link>
+            <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
 				<span class="gou"><i></i></span>
@@ -61,7 +61,7 @@
 		       <li class="jsao-more ">
 		        <span class="taoc">包年VIP</span>
 		        <span class="qian"><em>￥</em>99</span>
-            <router-link class="btn-openvip" to="/user/pay-vip">开通会员</router-link>
+            <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
 				<span class="gou"><i></i></span>
@@ -73,7 +73,7 @@
 		       <li class="jsao-more">
 		        <span class="taoc">包月VIP</span>
 		        <span class="qian"><em>￥</em>49</span>
-            <router-link class="btn-openvip" to="/user/pay-vip">开通会员</router-link>
+            <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
 				<span class="gou"><i></i></span>
@@ -85,7 +85,7 @@
 		       <li class="jsao-more">
 		       <span class="taoc">普通用户</span>
 		        <span class="qian"><em>￥</em>0</span>
-            <router-link class="btn-regist" to="/user/pay-vip">注册即可</router-link>
+            <router-link class="btn-regist" to="/vip/pay-vip">注册即可</router-link>
 		        <span class="pt jc">0个/天</span>
 		        <span class="xia"><i></i></span>
 				<span class="xia"><i></i></span>
@@ -123,7 +123,7 @@
 				</span>
 			</div>
 			<div class="mt50 tc">
-                <router-link class="btn-openvip" to="/user/pay-vip">开通会员</router-link>
+                <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 			</div>
 			
 		</div>

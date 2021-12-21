@@ -3,7 +3,8 @@
 			<div class="wrapper df">
 				<div class="vip-img">
 					<div>
-					<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'">
+					<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                    <img src='~/assets/images/defaultVip.png' v-else /> 
 					</div>
 					<i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
 				</div>

@@ -18,6 +18,3 @@ export default {
 components:{designHeader,webFooter,webPendant}
 }
 </script>
-  <style lang="less" scoped>
-
-  </style>

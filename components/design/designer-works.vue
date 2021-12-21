@@ -13,7 +13,7 @@
 	  		</div>
 	  		<ul class="ul-prod"  v-if="designproduct.length>0">
 				<li  v-for="item in designproduct" :key="item.id">
-					<router-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
+					<router-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 					<div class="prod-img">
 						<img  :src="item.list_img_path">
 						<div class="prod-txt">

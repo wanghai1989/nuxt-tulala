@@ -7,12 +7,16 @@
 				<div class="fr" v-if="userToken">
 					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;
 					<div class="userimg-head">
-					 <router-link to="/person/person-info" ><img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" /></router-link>
+					 <router-link to="/person/person-info" >
+					 	<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                        <img src='~/assets/images/defaultVip.png' v-else /> 
+					 </router-link>
            <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
 					  <div class="u-detail">
 	          				<div class="u-info">
 	                        <div class="userimg">
-	                          <img class="lazy-nodelay" :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" style="display: inline-block;">
+	                        <img :src="personInfo.avatar" v-if="personInfo.avatar"  class="lazy-nodelay" style="display: inline-block;"/>
+                        	<img src='~/assets/images/defaultVip.png' v-else   class="lazy-nodelay" style="display: inline-block;"/> 
 	                        </div>
 	                        <div class="u-name">
 	                          <span>{{personInfo.nickname}}</span>

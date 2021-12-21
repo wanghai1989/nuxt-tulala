@@ -6,7 +6,8 @@
 					<div class="vam-r">
 						<div class="vipimg">
 							<input type="file" class="filepath" id="img_photo" @change="changepic()"  accept="image/jpeg,image/jpg,image/peg,image/png">
-							<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" class="userimg" id="vipimg"/> 
+							<img :src="personInfo.avatar" v-if="personInfo.avatar" class="userimg" id="vipimg"/>
+                        	<img src='~/assets/images/defaultVip.png' v-else class="userimg" id="vipimg"/>
 							<em class="btn-upload">更换头像</em>
 						</div>
 					</div>
@@ -118,7 +119,7 @@ export default {
 	// personInfo:{},
 	// token:'',
 	blob:'',
-	vipimg:'/static/defaultVip.png',
+	vipimg:'~/assets/images/defaultVip.png',
 	province:'',
 	province_code:'',
 	city:'',

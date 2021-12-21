@@ -3,7 +3,8 @@
   <div class="mine-head">
      <div class="vip-head">
        <div class="vip-img">
-         <img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" />
+         <img :src="personInfo.avatar" v-if="personInfo.avatar" />
+         <img src='~/assets/images/defaultVip.png' v-else /> 
        </div>
        <div class="vip-txt">
          <div  class="username">{{personInfo.nickname}}(ID:{{personInfo.num}})</div>
@@ -96,7 +97,7 @@ export default {
       },
       updatePersoninfo:function(){
 		  let formDatas = new FormData();
-      console.log(this.userToken)
+      // console.log(this.userToken)
 		  formDatas.append('token', this.userToken);
 		  this.fetchPersoninfo(formDatas)
 	  },

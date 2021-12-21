@@ -5,7 +5,7 @@
 	  </div>
     <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0">
 			<li class="item"  v-for="item in productlist" :key="item.id">
-				<router-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
+				<router-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 				<div class="prod-img" :style="'backgroundImage: url('+item.list_img_path+');'">
 				  <img :src="item.list_img_path" class="lazy_img">
 					<div class="prod-txt">

@@ -3,7 +3,7 @@
     <indexAnim></indexAnim>
     <webLogin></webLogin>
     <indexAnchor></indexAnchor>
-    <webHeader data-class="index"></webHeader>
+    <webHeader pageclass="index"></webHeader>
     <swiperIndex position='home'></swiperIndex>
     <prodSearch data-class="index"></prodSearch>
     <div class="wrapper">
@@ -25,17 +25,9 @@ import indexSearch from '~/components/index/index-search.vue'
 import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
-import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   components: {swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch},
-   created(){
-    //    console.log(localStorage.getItem("token"))
-   },
-   mounted(){
-       
-    //    alert(this.comsys.val(1));
-   }
+   components: {swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch}, 
 
 }
 </script>

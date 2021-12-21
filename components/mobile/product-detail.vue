@@ -27,7 +27,7 @@
   </div>
 
   <div class="details-bottom">
-      <router-link :to="{ name: 'prodList', params:{id: productinfo.category_id }}" class="bottom-l">返回列表</router-link>
+      <router-link :to="{ name: 'm-material-id', params:{id: productinfo.category_id }}" class="bottom-l">返回列表</router-link>
      <a href="javascript:void(0)" class="bottom-r" @click="downLoad()">下载</a>
   </div>
 	</div>
