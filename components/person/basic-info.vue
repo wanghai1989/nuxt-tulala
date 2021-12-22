@@ -376,6 +376,14 @@ export default {
     vertical-align: middle;
     cursor: pointer;
 }
+
+.about-contain {
+    padding: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 20px;
+    min-height: 400px;
+}
 .vam-basic{width: 560px; margin: 0 auto;
    .vipimg{
        width: 60px; height: 60px; border-radius: 30px; vertical-align: middle; overflow: hidden;position: relative;
