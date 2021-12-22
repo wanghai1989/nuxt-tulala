@@ -15,12 +15,12 @@
                         </div>
                 </div>
                 <div class="vip-amount">
-                        <i class="i-sheng" v-if="couponAmount">{{couponAmount}}元满减券</i> 
+                        <i class="i-sheng" v-show="couponAmount">{{couponAmount}}元满减券</i> 
                         支付金额：<span class="cred f24 fw">{{orderPrice}} </span>元</div>
                 <div class="pay-style">
                         <div class="wechat">
                                 <div class="box" :class="{'unlogin':!this.userToken}">
-                                        <a href="javascript:void(0)" v-if="!this.userToken" @click="gologin()">
+                                        <a href="javascript:void(0)" v-show="!this.userToken" @click="gologin()">
                                                 点击登录
                                         </a>
 

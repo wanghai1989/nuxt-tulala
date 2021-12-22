@@ -27,7 +27,6 @@ export const state = () => ({
   userToken:'',
   showLogin:0,  //弹框登录默认隐藏
   showVip:0,  //非会员下载弹框
-  // isLogin: false,
   category:[],//作品分类
   defaultchannel:[], //获知渠道
   myproduct:[], //我的作品列表

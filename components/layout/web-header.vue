@@ -52,7 +52,8 @@
                      <li class="all"> <router-link to="/notice" >查看全部</router-link> </li>
                    </ul>
                   </router-link>
-					<div class="logined"  v-if="userToken">
+                  
+					 <div class="logined"  v-show="userToken">
                         <router-link to="/mine" >
                         <img :src="personInfo.avatar" v-if="personInfo.avatar" />
                         <img src='~/assets/images/defaultVip.png' v-else /> 
@@ -88,10 +89,10 @@
 	                     </ul>
 	     			</div>
 					</div>
-				 <!-- <div class="unlogin" v-else>
+				 <div class="unlogin" v-show="!userToken">
                     <router-link class="btn login-lg" to="/user/login" >登录</router-link>
                     <router-link class="btn login-reg" to="/user/register" >注册</router-link>
-				</div> -->
+				</div> 
         </div>
                
 		</div>
@@ -125,7 +126,7 @@ export default {
      }
   },
   computed:{
-      ...mapState(['navigation','notice','personInfo','userToken'])
+      ...mapState(['navigation','notice','personInfo','userToken','isLogin'])
   },
   
   methods:{ //页面进来发送请求
