@@ -26,7 +26,7 @@ export default {
     ...mapMutations(['setShowVip']),
     goOpen:function() {
       this.setShowVip(0)
-      this.$router.push('/user/pay-vip') 
+      this.$router.push('/vip/pay-vip') 
     },
     close(){
     this.setShowVip(0)

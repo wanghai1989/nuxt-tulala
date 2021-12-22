@@ -86,6 +86,7 @@ metaInfo: {
     }
   },
   mounted(){  
+       
         this.fetchVipType()
         let interVip=  setInterval(() => { 
                 if(JSON.stringify(this.firstVip) != "{}"){
@@ -146,7 +147,7 @@ payVip:function(type,price){
         formDatas.append('type', type);
         formDatas.append('token', this.userToken);
         this.payVipQd(formDatas).then((data) => {
-                console.log(data)
+                // console.log(data)
                 this.orderId=data.data.orderId
                  this.QRCodeMsg = data.data.payUrl; 
                  this.couponAmount=data.data.memberCouponTotal

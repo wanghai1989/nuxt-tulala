@@ -137,7 +137,6 @@ export default {
               this.fetchPerson(data.data.token)
               const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(!preRouter && !this.showLogin){
-                console.log(111)
                 setTimeout(() => {
                   this.$router.replace('/mine') 
                 }, 1000);

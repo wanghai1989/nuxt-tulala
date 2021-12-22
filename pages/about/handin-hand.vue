@@ -1,5 +1,9 @@
 <template>
-<form class="hund-contain" @submit="doSubmit">
+<div>
+    <webBanner position='hand_in_hand'></webBanner>
+    <aboutNav></aboutNav>
+    <div class="wrapper">
+       <form class="hund-contain" @submit="doSubmit">
 		<div class="laymshade hand" v-if="show_hand">
 			<div class="hand-box clearfix">
 				<div class="hand-head">
@@ -74,14 +78,21 @@
 			</div>
 		</div>
 </form>
+    </div>
+    
+</div>
 </template>
 <script>
+
+import webBanner from '~/components/layout/web-banner'
+import aboutNav from '~/components/layout/about-nav'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
 import MoPaging  from '~/components/layout/web-pagination.vue'
 import {mapState, mapActions} from 'vuex'
 export default {
- components: {MoPaging},
+	layout: 'web',
+ components: {MoPaging,webBanner,aboutNav},
   data () {
     return {
      errorMsg: '',

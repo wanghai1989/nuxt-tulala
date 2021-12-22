@@ -25,6 +25,6 @@ export default {
 .about-nav{height: 80px; background: #fff;  box-shadow: 0px 3px 8px 0px rgba(92, 92, 92, 0.2);
 ul li{height: 80px; width: 112px; text-align: center; float: left; margin: 0px 10px;}
 ul li a{display: block; height: 80px; line-height: 80px; border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-size: 16px;}
-ul li a.exact-active-link,  ul li a:hover{color: var(--color);  border-bottom: 3px solid var(--color);}
+ul li a.nuxt-link-exact-active,  ul li a:hover{color: var(--color);  border-bottom: 3px solid var(--color);}
 }
 </style>

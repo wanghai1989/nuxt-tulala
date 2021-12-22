@@ -1,5 +1,9 @@
 <template>
-<div class="about-contain">
+<div>
+    <webBanner position='corporate_team'></webBanner>
+    <aboutNav></aboutNav>
+    <div class="wrapper">
+       <div class="about-contain">
 			<div class="clearfix">
 			<div class="team-item">
 				<div class="pic">
@@ -59,13 +63,36 @@
 			</div>
 			</div>
 		</div>
+    </div>
+    
+</div>
 </template>
 <script>
+
+import webBanner from '~/components/layout/web-banner'
+import aboutNav from '~/components/layout/about-nav'
 export default {
-  
+  layout: 'web',
+  props:['position'],
+components: {webBanner,aboutNav},
+  data () {
+    return {
+      pageName: '',
+      pageKeyword:'',
+      pageDesc:'',
+    }
+  },
+ 
+mounted(){
 }
+}
+
+  
+
 </script>
 <style lang="less" scoped>
+.about-contain{padding: 40px; box-sizing: border-box; background: #fff; margin-top: 20px; min-height: 400px;
+}
 .team-item{width: 50%; float: left; display: flex;margin-bottom: 25px;
 .pic{width: 213px; margin-right: 30px;}
 .pic img{width: 100%;}
@@ -73,3 +100,13 @@ export default {
 .name{padding-bottom: 15px; border-bottom: 1px solid #d4d4d4;}
 }
 </style>
+
+
+
+
+
+
+
+
+
+

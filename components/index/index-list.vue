@@ -3,11 +3,11 @@
    <div class="prod-list" :class="item.type_class"  v-for="item in homeproductlist" :key="item.id" :id="item.type_class">
 		<div class="prod-tit">
 			<h3><i></i>{{item.name}}</h3>
-			<router-link class="viewmore" :to="{ name: item.type_class, params:{ id: item.id }}">更多作品<i></i></router-link>
+			<router-link class="viewmore" :to="{ name: 'material-id', params:{ id: item.id }}">更多作品<i></i></router-link>
 		</div>
 			<ul class="ul-prod">
 				<li   v-for="child in item.products" :key="child.id">
-                    <router-link  :to="{ name: 'materialDetail', params:{ id: child.id }}">
+                    <router-link  :to="{ name: 'material-detail-id', params:{ id: child.id }}">
 					<div class="prod-img">
 						<img :src='child.list_img_path'>
 						<div class="prod-txt">

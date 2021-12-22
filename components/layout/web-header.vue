@@ -1,9 +1,9 @@
 <template>
 <div>
-<header class="header" :class="prodclass"> 
+<header class="header" :class="pageclass"> 
 			<div class="logo">
                 <router-link to="/">
-                    <img src="~/assets/images/logo01.png" v-if="prodclass=='index'" >
+                    <img src="~/assets/images/logo01.png" v-if="pageclass=='index'" >
                     <img src="~/assets/images/logo02.png" v-else >
               </router-link>
 			</div>
@@ -44,7 +44,7 @@
 				</ul>
 
                 <div class="login fr">
-                  <router-link to="/notice" class="btn-notice" :class="prodclass" title="公告">
+                  <router-link to="/notice" class="btn-notice" :class="pageclass" title="公告">
                    <ul class="ul-notice" v-if="notice.length>0">
                      <li v-for="item in notice" :key="item.id">
                     <router-link  :to="{ name: 'notice-id', params:{ id: item.id }}"  :title="item.title">{{item.title}}</router-link> 
@@ -88,10 +88,10 @@
 	                     </ul>
 	     			</div>
 					</div>
-				 <div class="unlogin" v-else>
+				 <!-- <div class="unlogin" v-else>
                     <router-link class="btn login-lg" to="/user/login" >登录</router-link>
                     <router-link class="btn login-reg" to="/user/register" >注册</router-link>
-				</div>
+				</div> -->
         </div>
                
 		</div>
@@ -111,14 +111,12 @@ export default {
     params:{},
     route_name:'',
     category_id:0,
-     prodclass: this.pageclass,
   }
   },
   created(){
    
   },
   mounted(){
-    console.log('pageclass',this.pageclass)
   	// //页面刷新，如果存在token，页面保持登录状态
      this.fetchNavigation()
      this.fetchNoticeList()
@@ -196,7 +194,7 @@ fetchNoticeList:function(){
 
     .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 8px; height: 88px; line-height: 88px;
      border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-weight: bold;}
-    .nav-list>li>a.active-link{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
+    .nav-list>li>a.nuxt-link-exact-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
     .nav-list>li>a.focus{color: var(--color); border-bottom: 3px solid  var(--color); font-size: 16px;}
     .nav-list>li>a:hover{color:  var(--color); border-bottom: 3px solid transparent; font-size: 16px;}
     .nav-list>li:hover .pull-down-box{display: block;}

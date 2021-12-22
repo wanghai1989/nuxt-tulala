@@ -1,5 +1,9 @@
 <template>
-<div class="qq-contain">
+<div>
+    <webBanner position='qq_alliance'></webBanner>
+    <aboutNav></aboutNav>
+    <div class="wrapper">
+      <div class="qq-contain">
 	        <a class="btn-apply" href="#location">我<br/> 是<br/>群<br/>主<br/>申<br/>请<br/>加<br/>入<br/>联<br/>盟</a>
 			<div class="qq-list clearfix">
 				<div class="qq-item"  v-for="item in alliance" :key="item.id">
@@ -85,16 +89,24 @@
 
 			</form>
 		</div>
+    </div>
+    
+</div>
 </template>
+
+
 <script>
 
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
 import MoPaging  from '~/components/layout/web-pagination.vue'
+import webBanner from '~/components/layout/web-banner'
+import aboutNav from '~/components/layout/about-nav'
 import {mapState, mapActions} from 'vuex'
 
 export default {
-  components: {MoPaging},
+	layout: 'web',
+  components: {MoPaging,webBanner,aboutNav},
   metaInfo: {
     title: '图啦口碑-图啦啦'
   },

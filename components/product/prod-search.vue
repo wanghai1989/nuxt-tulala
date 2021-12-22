@@ -1,5 +1,5 @@
 <template>
-    <div class="search-box" :class="dataClass">
+    <div class="search-box" :class="pageclass">
 		<div class="divsearch clearfix">
 	  	<div id="divselect"  class="searchtype fl"> 
         <cite>全部</cite> 
@@ -18,7 +18,7 @@
         	<i></i>搜索
         </a>
 	  </div>
-	  <div class="search-hot" v-if="dataClass!='index'">
+	  <div class="search-hot" v-if="pageclass!='index'">
 	  	热门搜索 : <a class="cred">春天</a> 
 	  	<a href="#">疫情</a>
 	  	<a href="#">简历</a>
@@ -37,7 +37,7 @@ import {
     mapState,mapMutations,mapActions
 } from 'vuex'
 export default {
-  props: ['dataClass'],
+  props: ['pageclass'],
   data () {
     return {
 	  input_keyword:'',
