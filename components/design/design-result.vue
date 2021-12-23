@@ -7,7 +7,7 @@
             <div class="result-tit">您的申请已受理</div>
             <div class="result-subtit">非常荣幸收到您的入驻申请，审核人员将在1-2个工作日完成审核</div>
             <div class="result-operat">
-            	<router-link to="/index">返回首页</router-link>
+            	<router-link to="/">返回首页</router-link>
             </div>
         </div>
         <div v-if="designcode=='102'">

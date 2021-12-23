@@ -4,19 +4,19 @@
 				<div class="fl">
 					图啦啦欢迎您！  &nbsp;<i class="i-phone"></i>&nbsp;<span class="f16 cf5f5">0755-2382-3043</span>
 				</div>
-				<div class="fr" v-if="userToken">
+				<div class="fr" v-show="userToken">
 					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;
 					<div class="userimg-head">
 					 <router-link to="/person/person-info" >
-					 	<img :src="personInfo.avatar" v-if="personInfo.avatar" />
-                        <img src='~/assets/images/defaultVip.png' v-else /> 
+					 	<img :src="personInfo.avatar" v-show="personInfo.avatar" />
+            <img src='~/assets/images/defaultVip.png' v-show="!personInfo.avatar" /> 
 					 </router-link>
-           <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
+           <i class="i-design" v-show="personInfo.designer_status==102" title="平台设计师"></i>
 					  <div class="u-detail">
 	          				<div class="u-info">
 	                        <div class="userimg">
-	                        <img :src="personInfo.avatar" v-if="personInfo.avatar"  class="lazy-nodelay" style="display: inline-block;"/>
-                        	<img src='~/assets/images/defaultVip.png' v-else   class="lazy-nodelay" style="display: inline-block;"/> 
+	                        <img :src="personInfo.avatar" v-show="personInfo.avatar"  class="lazy-nodelay" style="display: inline-block;"/>
+                        	<img src='~/assets/images/defaultVip.png'  v-show="!personInfo.avatar"   class="lazy-nodelay" style="display: inline-block;"/> 
 	                        </div>
 	                        <div class="u-name">
 	                          <span>{{personInfo.nickname}}</span>
@@ -42,7 +42,7 @@
 	     			</div>
 					</div>
 				</div>
-				<div class="fr" v-else >
+				<div class="fr" v-show="!userToken" >
 					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;|&nbsp;&nbsp;
 					 <router-link to="/user/login" >登录</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <router-link to="/user/register" >免费注册</router-link>

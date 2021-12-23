@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "axois": "^0.0.1-security",
     "core-js": "^3.19.3",
     "file-loader": "^4.3.0",
     "jsdom": "^19.0.0",

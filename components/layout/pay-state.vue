@@ -9,7 +9,7 @@
   </div>
   <div class="part03">
 	  您还可以
-    &nbsp;&nbsp;&nbsp;&nbsp; <router-link to="/index" class="back">返回首页</router-link>
+    &nbsp;&nbsp;&nbsp;&nbsp; <router-link to="/" class="back">返回首页</router-link>
     &nbsp;&nbsp;&nbsp;&nbsp; <router-link to="/person/my-works" class="order" v-if="type==1 || type==2">查看订单</router-link> 
     &nbsp;&nbsp;&nbsp;&nbsp; <router-link to="/person/vip-info" class="order" v-if="type==3">查看订单</router-link> 
   </div>

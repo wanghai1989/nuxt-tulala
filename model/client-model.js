@@ -277,12 +277,8 @@ export default {
         }
     }))
    },    
-   getProductinfo (formData) { //获取素材详情
-    return handleRequest(request.post('/api/product/detail',formData,{
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    }))
+   getProductinfo (id) { //获取素材详情
+    return handleRequest(request.post('/api/product/detail',{id},{}))
    },   
    confirmOrder (formData) { //设计师确认订单
     return handleRequest(request.post('/api/work-order/confirmTheAmount',formData,{

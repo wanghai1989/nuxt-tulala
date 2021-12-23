@@ -4,7 +4,7 @@
     <webUnvip></webUnvip>
     <div class="wrapper">
         <div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/index">图啦啦</router-link> &nbsp;/&nbsp;
+	  	<i class="icon i-location"></i> <router-link to="/">图啦啦</router-link> &nbsp;/&nbsp;
 		  <router-link :to="{ name: 'material-id', params:{id: productinfo.category_id }}">{{idName[productinfo.category_id]}}</router-link>
 		  &nbsp;/&nbsp;{{productinfo.name}}
 	  </div>
@@ -120,24 +120,39 @@ export default {
    components: {webLogin,webUnvip},
   data () {
     return {
-    	id:'',
+		info:'',
 		type_name:'',
+		listimg:{},
 		isCollect:1 
     }
   },
+  head(){
+	   return {
+			title: this.productinfo.meta_title,
+			meta: [{
+			hid: "description",
+			name: "description",
+			content: this.productinfo.meta_description
+			},{
+			hid: 'keywords',
+			name: 'keywords',
+			content: this.productinfo.meta_keywords
+			}]
+			}
+  },
   created(){
-      this.id=this.$route.params.id
   },
   mounted(){ 
-			this.fetchProdinfo(this.id)
 		},
 		
  computed:{
-	  ...mapState(['productinfo','userToken','softName','idName','personInfo'])
+	  ...mapState(['userToken','softName','idName','personInfo','productinfo'])
+  },
+   async asyncData ({ store, params}) {  //服务器渲染
+	await  store.dispatch('fetchProductinfo',{id:params.id});
   },
   methods:{
  ...mapActions({
-		  fetchProductinfo:'fetchProductinfo',
 		  operateCollect:'operateCollect',
 		  downFile:'downFile'
       }),
@@ -235,12 +250,7 @@ doSearch(val){
 				link.click()
 				URL.revokeObjectURL(link.href)
 				document.body.removeChild(link)
-　　　　　　},
-fetchProdinfo:function(){
-		  let formDatas = new FormData();
-		  formDatas.append('id', this.id);
-		  this.fetchProductinfo(formDatas)
-	  }
+　　　　　　}
 } 
 
 }

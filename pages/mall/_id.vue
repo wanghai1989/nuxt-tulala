@@ -6,12 +6,24 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import webBanner from '~/components/layout/web-banner.vue'
 import goodsDetail from '~/components/mall/goods-detail.vue'
 export default {
 components: {webBanner,goodsDetail},
    layout: 'web',
+   head(){
+	   return {
+			title: this.gooddetail.goods_name+'_图啦啦91tula.com'
+			}
+  },
    components: {webBanner,goodsDetail},
+    async asyncData ({ store, params}) {  //服务器渲染
+	await  store.dispatch('fetchGoodDetail',{goods_id:params.id});
+  },
+  computed:{
+	  ...mapState(['gooddetail'])
+  },
 //   created(){
 //    console.log(this.$route.params.id)
 //   },

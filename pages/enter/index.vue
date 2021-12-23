@@ -2,7 +2,7 @@
 <div>
    <webBanner position='designer'></webBanner>
      <div class="wrapper">
-      <router-link class="sjs-logo" to="/index">
+      <router-link class="sjs-logo" to="/">
 				<img src="~/assets/images/logo02.png">
 			</router-link>
 		<designNav></designNav>

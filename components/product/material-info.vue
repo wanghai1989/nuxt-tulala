@@ -2,7 +2,7 @@
 <div>
 	{{productinfo}}
     <div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/index">图啦啦</router-link> &nbsp;/&nbsp;
+	  	<i class="icon i-location"></i> <router-link to="/">图啦啦</router-link> &nbsp;/&nbsp;
 		  <router-link :to="{ name: productinfo.type_class, params:{id: productinfo.category_id }}">{{typeName[productinfo.type_class]}}</router-link>
 		  &nbsp;/&nbsp;{{productinfo.name}}
 	  </div>

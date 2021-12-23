@@ -32,7 +32,6 @@ import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
 export default {
-   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch}, 
-
+   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch}
 }
 </script>

@@ -5,7 +5,7 @@
 				<router-link to="/about/handin-hand">牵手图啦</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
 				<router-link :to="{ path:'/agreement', query:{id:5}}">常见问题</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
 				<router-link to="/task">招兵买马</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link to="/integral-mall">任务列表</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<router-link to="/about/find-job">任务列表</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
 				<router-link to="/enter">设计师入驻</router-link>
 			</div>
 			<div class="copyright">

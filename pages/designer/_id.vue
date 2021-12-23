@@ -3,7 +3,7 @@
     <webBanner position='designer'></webBanner>
     <div class="wrapper">
       <div class="sjs-logo">
-        <router-link to="/index"><img src="~/assets/images/logo02.png"></router-link>
+        <router-link to="/"><img src="~/assets/images/logo02.png"></router-link>
 			</div>
       <designNav></designNav>
       <div class="desig-info clearfix">

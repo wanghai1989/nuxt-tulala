@@ -1,7 +1,7 @@
 <template>
 <div>
 	<div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/index">图啦啦</router-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
+	  	<i class="icon i-location"></i> <router-link to="/">图啦啦</router-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
 	  </div>
     <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0">
 			<li class="item"  v-for="item in productlist" :key="item.id">

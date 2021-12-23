@@ -87,21 +87,13 @@ export default {
     }
   },
   mounted(){  
-	  this.id=this.$route.params.id
-			this.fetchWorkinf(this.id)
+
 		},
-	watch :{
-      '$route': function (to, from) {
-		  this.id=this.$route.params.id
-		   this.fetchWorkinf(this.id)
-      }
-    },
  computed:{
 	  ...mapState(['workinfo','personInfo','userToken'])
   },
   methods:{
  ...mapActions({
-		  fetchWorkinfo:'fetchWorkinfo',
 		  createOffer:'createOffer'
       }),
 	  getLength(){
@@ -157,12 +149,12 @@ closeBigImg:function(){
 			})
 		  }
 		  },
-fetchWorkinf:function(id){
-		  let formDatas = new FormData();
-		  formDatas.append('id',id);
+// fetchWorkinf:function(id){
+// 		  let formDatas = new FormData();
+// 		  formDatas.append('id',id);
 
-		  this.fetchWorkinfo(formDatas)
-	  }
+// 		  this.fetchWorkinfo(formDatas)
+// 	  }
 }
 }
 

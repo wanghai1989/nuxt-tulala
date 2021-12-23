@@ -427,7 +427,7 @@ export const actions = {
       fetchGoodDetail ({ commit },{goods_id}) {
         commit('startLoading')
         return model.getGoodDetail(goods_id)
-          .then(data => {
+          .then(data => { 
             commit('endLoading')
             commit('fillGoodDetail', data.data)
           })
@@ -566,9 +566,9 @@ export const actions = {
             handleError(err)
           })
     },
-    fetchProductinfo({commit},formData){
+    fetchProductinfo({commit},{id}){
       commit('startLoading')
-      return model.getProductinfo(formData)
+      return model.getProductinfo(id)
           .then(data => {
             commit('endLoading')
             commit('fillProductinfo', data.data)

@@ -65,7 +65,7 @@ export default {
     data(){
 	return { 
     // userInfo: {},
-    prodId:0,
+    // id:0,
 		 goodnum:1,
      maxnum:10
   }
@@ -74,15 +74,13 @@ export default {
 	  ...mapState(['gooddetail','personInfo','userToken'])
   },
   created(){
+    // this.id=this.$route.params.id
   //  console.log (this.$route.params.id) 
   },
   mounted(){ 
-      this.prodId=this.$route.params.id
-	  	this.goodDetailinfo()  //商品列表
   },
   methods:{ //页面进来发送请求
 	 ...mapActions({
-          fetchGoodDetail: 'fetchGoodDetail',
           placeOrder:'placeOrder'
       }),
       add:function(){
@@ -105,7 +103,7 @@ export default {
               return false;
       }
       let formDatas = new FormData();
-		  formDatas.append('goods_id',this.prodId);
+		  formDatas.append('goods_id',this.$route.params.id);
 		  formDatas.append('count', this.goodnum);
       formDatas.append('token', this.userToken);
         // 调用接口
@@ -120,10 +118,7 @@ export default {
               layer.msg(data.msg, {icon: 1});
               }
           })
-    },
-	  goodDetailinfo:function(){
-			 this.fetchGoodDetail({goods_id:this.prodId})
-	  }
+    }
 }
 }
 </script>
