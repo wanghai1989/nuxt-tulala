@@ -7159,7 +7159,7 @@
 
 "moment@^2.11.1":
   "integrity" "sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M="
-  "resolved" "https://registry.nlark.com/moment/download/moment-2.29.1.tgz"
+  "resolved" "https://registry.npmmirror.com/moment/download/moment-2.29.1.tgz"
   "version" "2.29.1"
 
 "move-concurrently@^1.0.1":
@@ -10804,6 +10804,11 @@
   "resolved" "https://registry.nlark.com/vm-browserify/download/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-calendar-component@^2.8.2":
+  "integrity" "sha1-j2DAWnLIqsvdIkAW9OGpZmSr2Ko="
+  "resolved" "https://registry.npm.taobao.org/vue-calendar-component/download/vue-calendar-component-2.8.2.tgz"
+  "version" "2.8.2"
+
 "vue-client-only@^2.0.0":
   "integrity" "sha1-Gmeke47Kz6htdYMBc//+47+KTuM="
   "resolved" "https://registry.nlark.com/vue-client-only/download/vue-client-only-2.1.0.tgz?cache=0&sync_timestamp=1622713628563&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-client-only%2Fdownload%2Fvue-client-only-2.1.0.tgz"
@@ -10811,7 +10816,7 @@
 
 "vue-datepicker@^1.3.0":
   "integrity" "sha1-EvNfRNj5m3uTjFc13L6gJYsL+Aw="
-  "resolved" "https://registry.nlark.com/vue-datepicker/download/vue-datepicker-1.3.0.tgz"
+  "resolved" "https://registry.npm.taobao.org/vue-datepicker/download/vue-datepicker-1.3.0.tgz"
   "version" "1.3.0"
   dependencies:
     "moment" "^2.11.1"

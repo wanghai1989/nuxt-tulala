@@ -732,6 +732,7 @@ export const actions = {
       commit('startLoading')
       return model.getSetting(formData)
           .then(data => {
+            // console.log('data',data)
             commit('endLoading')
             commit('fillSetting', data.data)
           })

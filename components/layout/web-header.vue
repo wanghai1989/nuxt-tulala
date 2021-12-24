@@ -2,16 +2,16 @@
 <div>
 <header class="header" :class="pageclass"> 
 			<div class="logo">
-                <router-link to="/">
+                <nuxt-link to="/">
                     <img src="~/assets/images/logo01.png" v-if="pageclass=='index'" >
                     <img src="~/assets/images/logo02.png" v-else >
-              </router-link>
+              </nuxt-link>
 			</div>
 			<div class="wrapper clearfix">
 				 <ul class="fl nav-list">
                    
                     <li v-for="item in navigation" :key="item.id"> 
-                        <router-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</router-link>
+                        <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</nuxt-link>
                         <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
                             <div class="pd-top">
                                 <h3>{{item.name}}<span>近期新增1596张</span></h3>
@@ -19,45 +19,45 @@
                           <div v-if="item.name=='办公文档'">
                             <div v-for="item2 in item.child" :key="item2.id">
                             <div class="pd-name" >
-                              <router-link :to="{ name: 'material-id', params:{type:item.type_class,id: item2.id }}">{{item2.name}}</router-link>
+                              <nuxt-link :to="{ name: 'material-id', params:{type:item.type_class,id: item2.id }}">{{item2.name}}</nuxt-link>
                             </div>
                             <div class="pd-list clearfix">
-                              <router-link class="main-sort" v-for="item3 in item2.scenarios" :key="item3.id" :to="{ name: 'material-id', params:{type:item.type_class, id: item2.id },query:{scenarios_id:item3.id}}">{{item3.name}}</router-link>
+                              <nuxt-link class="main-sort" v-for="item3 in item2.scenarios" :key="item3.id" :to="{ name: 'material-id', params:{type:item.type_class, id: item2.id },query:{scenarios_id:item3.id}}">{{item3.name}}</nuxt-link>
                             </div> 
                             </div>
                           </div>
                             <div class="pd-list clearfix" v-else> 
-                              <router-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: 'material-id', params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</router-link>
+                              <nuxt-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: 'material-id', params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</nuxt-link>
                             </div>                                                                               
 				   	  </div>
                     </li>
                     <li>
                       <i class="i-hot"></i>
-                       <router-link to="/enter">设计师入驻</router-link>
+                       <nuxt-link to="/enter">设计师入驻</nuxt-link>
 				   </li>
             <li>
-                       <router-link to="/task">任务</router-link>
+                       <nuxt-link to="/task">任务</nuxt-link>
 				   </li>
 				   <li>
-                        <router-link to="/mall">积分商城</router-link>
+                        <nuxt-link to="/mall">积分商城</nuxt-link>
 				   </li>
 				</ul>
 
                 <div class="login fr">
-                  <router-link to="/notice" class="btn-notice" :class="pageclass" title="公告">
+                  <nuxt-link to="/notice" class="btn-notice" :class="pageclass" title="公告">
                    <ul class="ul-notice" v-if="notice.length>0">
                      <li v-for="item in notice" :key="item.id">
-                    <router-link  :to="{ name: 'notice-id', params:{ id: item.id }}"  :title="item.title">{{item.title}}</router-link> 
+                    <nuxt-link  :to="{ name: 'notice-id', params:{ id: item.id }}"  :title="item.title">{{item.title}}</nuxt-link> 
                    </li>
-                     <li class="all"> <router-link to="/notice" >查看全部</router-link> </li>
+                     <li class="all"> <nuxt-link to="/notice" >查看全部</nuxt-link> </li>
                    </ul>
-                  </router-link>
+                  </nuxt-link>
                   
 					 <div class="logined"  v-show="userToken">
-                        <router-link to="/mine" >
+                        <nuxt-link to="/mine" >
                         <img :src="personInfo.avatar" v-if="personInfo.avatar" />
                         <img src='~/assets/images/defaultVip.png' v-else /> 
-                        </router-link>
+                        </nuxt-link>
                         <i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
                         <div class="u-detail">
 	          				<div class="u-info">
@@ -74,24 +74,24 @@
 	
 	                           <span class="qyvip " title=""></span>
 	                                                 </div>
-                                      <router-link to="/user/pay-vip" >开通终身VIP</router-link>
+                                      <nuxt-link to="/user/pay-vip" >开通终身VIP</nuxt-link>
 	                                             </div>
 	  
 	                                         <div class="opengimg">
-                                             <router-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></router-link>
+                                             <nuxt-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
 	                                          </div>
 	                   
 	                     <ul>
-	                       <li> <router-link  to="/mine"><i></i><span>个人中心</span></router-link> </li>
-	                       <li> <router-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></router-link></li>
-	                       <li><router-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></router-link></li>
+	                       <li> <nuxt-link  to="/mine"><i></i><span>个人中心</span></nuxt-link> </li>
+	                       <li> <nuxt-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></nuxt-link></li>
+	                       <li><nuxt-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
 	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
 	                     </ul>
 	     			</div>
 					</div>
 				 <div class="unlogin" v-show="!userToken">
-                    <router-link class="btn login-lg" to="/user/login" >登录</router-link>
-                    <router-link class="btn login-reg" to="/user/register" >注册</router-link>
+                    <nuxt-link class="btn login-lg" to="/user/login" >登录</nuxt-link>
+                    <nuxt-link class="btn login-reg" to="/user/register" >注册</nuxt-link>
 				</div> 
         </div>
                
@@ -117,13 +117,16 @@ export default {
   created(){
    
   },
+  beforeMount(){
+    if(this.userToken){
+       this.updatePersoninfo()
+     }
+  },
   mounted(){
   	// //页面刷新，如果存在token，页面保持登录状态
      this.fetchNavigation()
      this.fetchNoticeList()
-     if(this.userToken){
-       this.updatePersoninfo()
-     }
+     
   },
   computed:{
       ...mapState(['navigation','notice','personInfo','userToken','isLogin'])

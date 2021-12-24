@@ -5,12 +5,12 @@
 					图啦啦欢迎您！  &nbsp;<i class="i-phone"></i>&nbsp;<span class="f16 cf5f5">0755-2382-3043</span>
 				</div>
 				<div class="fr" v-show="userToken">
-					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;
+					<nuxt-link to="/"><i class="i-home"></i>图啦啦首页</nuxt-link> &nbsp;&nbsp;
 					<div class="userimg-head">
-					 <router-link to="/person/person-info" >
+					 <nuxt-link to="/person/person-info" >
 					 	<img :src="personInfo.avatar" v-show="personInfo.avatar" />
             <img src='~/assets/images/defaultVip.png' v-show="!personInfo.avatar" /> 
-					 </router-link>
+					 </nuxt-link>
            <i class="i-design" v-show="personInfo.designer_status==102" title="平台设计师"></i>
 					  <div class="u-detail">
 	          				<div class="u-info">
@@ -26,26 +26,26 @@
 	                             <span class="marfivepx znvip " title=""></span>
 	                           <span class="qyvip " title=""></span>
 	                                                 </div>
-                                      <router-link to="/user/pay-vip" >开通终身VIP</router-link>
+                                      <nuxt-link to="/user/pay-vip" >开通终身VIP</nuxt-link>
 	                                             </div>
 	  
 	                                         <div class="opengimg">
-                                             <router-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></router-link>
+                                             <nuxt-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
 	                                          </div>
 	                   
 	                     <ul>
-	                       <li> <router-link  to="/person/person-info"><i></i><span>个人中心</span></router-link> </li>
-	                       <li> <router-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></router-link></li>
-	                       <li><router-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></router-link></li>
+	                       <li> <nuxt-link  to="/person/person-info"><i></i><span>个人中心</span></nuxt-link> </li>
+	                       <li> <nuxt-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></nuxt-link></li>
+	                       <li><nuxt-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
 	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
 	                     </ul>
 	     			</div>
 					</div>
 				</div>
 				<div class="fr" v-show="!userToken" >
-					<router-link to="/"><i class="i-home"></i>图啦啦首页</router-link> &nbsp;&nbsp;|&nbsp;&nbsp;
-					 <router-link to="/user/login" >登录</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-                    <router-link to="/user/register" >免费注册</router-link>
+					<nuxt-link to="/"><i class="i-home"></i>图啦啦首页</nuxt-link> &nbsp;&nbsp;|&nbsp;&nbsp;
+					 <nuxt-link to="/user/login" >登录</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <nuxt-link to="/user/register" >免费注册</nuxt-link>
 				</div>
 			</div>
 		</div>

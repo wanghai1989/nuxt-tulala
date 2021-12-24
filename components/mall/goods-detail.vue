@@ -42,7 +42,7 @@
 				</div>
 				<div class="mt40">
           <button class="btn-exchange" type="submit">立即兑换</button>
-					<!-- <router-link class="btn-exchange" to="integral-exchange">立即兑换</router-link> -->
+					<!-- <nuxt-link class="btn-exchange" to="integral-exchange">立即兑换</nuxt-link> -->
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
 <template>
 <ul class="design-nav clearfix">
-	  	<li><router-link to="/enter">入驻图啦啦</router-link></li>
-	  	<li><router-link to="/designer">设计师</router-link> </li>
-	  	<li><router-link to="/task">外包任务</router-link> </li>
+	  	<li><nuxt-link to="/enter">入驻图啦啦</nuxt-link></li>
+	  	<li><nuxt-link to="/designer">设计师</nuxt-link> </li>
+	  	<li><nuxt-link to="/task">外包任务</nuxt-link> </li>
 	  </ul>
 </template>
 <script>

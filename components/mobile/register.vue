@@ -73,11 +73,11 @@
       
         <label class="my_protocol">
               <input class="input_agreement_protocol" type="checkbox" @click = "checkbox($event)"/>
-              <span></span>阅读并同意  <router-link :to="{ path:'/m/mobile-agreement', query:{id:1}}" target="_blank" tag="a">《图啦啦用户协议》</router-link> 
-              <router-link :to="{ path:'/m/mobile-agreement', query:{id:2}}" target="_blank" tag="a" >《版权声明》</router-link>
+              <span></span>阅读并同意  <nuxt-link :to="{ path:'/m/mobile-agreement', query:{id:1}}" target="_blank" tag="a">《图啦啦用户协议》</nuxt-link> 
+              <nuxt-link :to="{ path:'/m/mobile-agreement', query:{id:2}}" target="_blank" tag="a" >《版权声明》</nuxt-link>
         </label>
       <button type="submit" class="btn-login">注册</button>
-      <div class="tr"><span class="goreg">已有账户，<router-link to="/m/mobile-login" class="cmain"  >立即登录</router-link></span></div>
+      <div class="tr"><span class="goreg">已有账户，<nuxt-link to="/m/mobile-login" class="cmain"  >立即登录</nuxt-link></span></div>
 		</div>
 </form>
 </div>

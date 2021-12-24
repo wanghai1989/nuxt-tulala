@@ -44,7 +44,7 @@
        <button type="submit" class="btn-login">确定</button>
 		</div>
 		<div class="tip">
-      <span class="goreg">没有账户，<router-link to="/user/login">去登录</router-link></span>
+      <span class="goreg">没有账户，<nuxt-link to="/user/login">去登录</nuxt-link></span>
 		</div>
 </form>
 </template>

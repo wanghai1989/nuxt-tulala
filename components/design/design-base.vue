@@ -1,13 +1,13 @@
 <template>
     <div class="step-cont">
       <div class="tip" v-show="!personInfo.is_complete_my_info">
-		 				<i></i>您的个人信息还未完善，请先前往<router-link class="cmain" to="/person/basic-info">完善个人信息</router-link>
+		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain" to="/person/basic-info">完善个人信息</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.is_binding_mobile">
-		 				<i></i>您的手机号还未认证，请先前往<router-link class="cmain" to="/person/mobile-bind">手机认证</router-link>
+		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" to="/person/mobile-bind">手机认证</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.certification">
-		 				<i></i>您的身份证还未认证，请先前往<router-link to="/person/real-name"  class="cmain">实名认证</router-link>
+		 				<i></i>您的身份证还未认证，请先前往<nuxt-link to="/person/real-name"  class="cmain">实名认证</nuxt-link>
 		 	</div>
     	<form @submit="doSubmit">
           
@@ -74,8 +74,8 @@
 	  					<div class="r">
 	  						<label class="my_protocol">
 							      <input class="input_agreement_protocol" type="checkbox" @click = "checkbox($event)"/>
-							      <span></span>阅读并同意<router-link :to="{ path:'/agreement', query:{id:10}}" class="cmain"  target="_blank">《上传声明》</router-link>和
-                     <router-link :to="{ path:'/agreement', query:{id:7}}" class="cmain"  target="_blank">《供稿协议》</router-link>
+							      <span></span>阅读并同意<nuxt-link :to="{ path:'/agreement', query:{id:10}}" class="cmain"  target="_blank">《上传声明》</nuxt-link>和
+                     <nuxt-link :to="{ path:'/agreement', query:{id:7}}" class="cmain"  target="_blank">《供稿协议》</nuxt-link>
                     
 							</label>
 	  						

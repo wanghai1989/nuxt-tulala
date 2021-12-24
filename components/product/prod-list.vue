@@ -1,11 +1,11 @@
 <template>
 <div>
 	<div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/">图啦啦</router-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
+	  	<i class="icon i-location"></i> <nuxt-link to="/">图啦啦</nuxt-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
 	  </div>
     <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0">
 			<li class="item"  v-for="item in productlist" :key="item.id">
-				<router-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
+				<nuxt-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 				<div class="prod-img" :style="'backgroundImage: url('+item.list_img_path+');'">
 				  <img :src="item.list_img_path" class="lazy_img">
 					<div class="prod-txt">
@@ -19,14 +19,14 @@
 					</div>
 				</div>
 				</div>
-				</router-link>
+				</nuxt-link>
 				
 			</li>
 		</ul>
     <div class="nodata" v-else>
 		<img src="~/assets/images/pic32.png" />
 		<p>抱歉 Sorry！~ 没有找到符合条件的素材</p>
-		<router-link to="/advice" class="btn-advice">提交素材建议</router-link>
+		<nuxt-link to="/advice" class="btn-advice">提交素材建议</nuxt-link>
 	</div>
 		 <MoPaging 
             :page-index="page" 

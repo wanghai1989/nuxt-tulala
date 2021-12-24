@@ -7,7 +7,7 @@
         </ul>
         <ul class="new-list"> 
                 <li v-for="item in notice" :key="item.id">
-                    <router-link  :to="{ name: 'notice-id', params:{ id: item.id }}" >{{item.title}}</router-link> <em>{{item.created_at}}</em> 
+                    <nuxt-link  :to="{ name: 'notice-id', params:{ id: item.id }}" >{{item.title}}</nuxt-link> <em>{{item.created_at}}</em> 
                 </li>
                 
         </ul>

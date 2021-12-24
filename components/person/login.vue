@@ -32,8 +32,8 @@
         <a class="btn-login wechat" href="javascript:void(0)" target="_bank" @click="webchatLogin()"><i></i> 微信登录</a>
 			</div>
 			<div class="tip">
-        <router-link to="/user/forget-pwd"  class="smslogin">忘记密码？</router-link>
-				<span class="goreg">没有账户，<router-link to="/user/register">立即注册</router-link></span>
+        <nuxt-link to="/user/forget-pwd"  class="smslogin">忘记密码？</nuxt-link>
+				<span class="goreg">没有账户，<nuxt-link to="/user/register">立即注册</nuxt-link></span>
 			</div>
 			<!-- <div class="quick-login">
 				<a class="login-wechat" href="person-info.html">

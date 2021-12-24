@@ -7,7 +7,7 @@
 	</ul>
 	<ul class="ul-prodfile clearfix" v-if="collectlist.length>0">
 		<li   v-for="item in collectlist" :key="item.id">
-			<router-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
+			<nuxt-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
 			<div class="prod-img">
 				<img :src="item.list_img_path">
 				<div class="prod-txt">
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			</div>
-			</router-link>
+			</nuxt-link>
 		</li>
 	</ul>
 	<div class="nodata" v-else>

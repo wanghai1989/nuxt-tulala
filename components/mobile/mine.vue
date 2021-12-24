@@ -32,14 +32,14 @@
  </div>
  <ul class="ul-menu">
     <li class="public">
-    <router-link to="/m/mobile-taskpublic">
+    <nuxt-link to="/m/mobile-taskpublic">
       <i class="iconfont">&#xec46;</i> 我的发布
-      </router-link>
+      </nuxt-link>
     </li>
     <li class="accept">
-    <router-link to="/m/mobile-taskaccept">
+    <nuxt-link to="/m/mobile-taskaccept">
       <i class="iconfont">&#xe683;</i> 我的接单
-      </router-link>
+      </nuxt-link>
     </li>
     <li class="file" @click="downLoad('person/my-file')">
       <i class="iconfont">&#xe603;</i> 我的作品

@@ -50,6 +50,13 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // extend(config, ctx) {
+    //   // Run ESLint on save
+    //   if (ctx.isDev && ctx.isClient) {
+    //     config.module.rules.push()
+    //   }
+    //   config.resolve.alias['$json'] = path.resolve(__dirname, 'static/json')
+    // }
   //   plugins: [
   //     new webpack.ProvidePlugin({
   //         '$' : 'jquery' 
@@ -69,7 +76,7 @@ export default {
   
 
   loading:{  //加载异步页面的样式
-    color:"#ff0000"
+    color:"#3ebb2b"
   }, 
   router:{
     middleware:'index'  //中间件js名字要对应

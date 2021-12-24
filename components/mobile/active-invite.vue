@@ -8,7 +8,7 @@
 	</div>
 	<div class="invite03"></div>
 	<div class="invite04">
-		<router-link class="btn goinvite" to="/"></router-link>
+		<nuxt-link class="btn goinvite" to="/"></nuxt-link>
 	</div>
 	<div class="logo">
 		<img src="~/assets/images/logo02.png" />

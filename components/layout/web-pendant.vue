@@ -6,7 +6,7 @@
 				<div class="sign01">恭喜获得积分+{{addIntegral}}</div>
 				<div class="sign02">我的积分<b>{{integral}}</b> </div>
 				<div class="sign03">
-                    <router-link  class="btn btn-go"  to="/integral-mall">去购物</router-link>
+                    <nuxt-link  class="btn btn-go"  to="/integral-mall">去购物</nuxt-link>
                     <a href="javascript:void(0)"  class="btn btn-go"   @click="goLuckDraw()">去抽奖</a>
 				</div>
 			</div>
@@ -16,7 +16,7 @@
 				<a href="person-vip.html"> <i></i><br /> <span>全站<br />vip</span></a>
 			</div> -->
 			<div class="vip-pend2">
-                <router-link to="/vip"><i></i><br /> <span>全站<br />vip</span></router-link>
+                <nuxt-link to="/vip"><i></i><br /> <span>全站<br />vip</span></nuxt-link>
 				<!-- <a href="enterprise-vip.html"> <i></i><br /> <span>全站<br />vip</span></a> -->
 			</div>
             <div class="item-pend qd"  @mouseover="qdOver()" @mouseout="qdOut()">
@@ -32,25 +32,25 @@
 				<a href="#"> <i></i><br /> <span>福利</span></a>
 				<div class="welfare"  v-show="welfareShow">
 					<div class="invite">
-                     <router-link class="btn-go" to="/active/invite-friend">马上邀请</router-link>
+                     <nuxt-link class="btn-go" to="/active/invite-friend">马上邀请</nuxt-link>
 				</div>
 				<div class="wheel">
                     <!-- <a class="btn-go" href="/active/big-wheel">去抽奖</a> -->
-                    <router-link class="btn-go" to="/active/big-wheel">去抽奖</router-link>
+                    <nuxt-link class="btn-go" to="/active/big-wheel">去抽奖</nuxt-link>
 				</div>
 				</div>
 			</div>
 			<div class="item-pend lm">
-                <router-link to="/about/qq-group"><i></i><br /> <span>联盟</span></router-link>
+                <nuxt-link to="/about/qq-group"><i></i><br /> <span>联盟</span></nuxt-link>
 			</div>
 			<div class="item-pend zq">
-				<router-link to="/enter"> <i></i><br /> <span>入驻</span></router-link>
+				<nuxt-link to="/enter"> <i></i><br /> <span>入驻</span></nuxt-link>
 			</div>
 			<div class="item-pend jy">
-			<router-link to="/advice"><i></i><br /><span>建议</span></router-link>	
+			<nuxt-link to="/advice"><i></i><br /><span>建议</span></nuxt-link>	
 			</div>
 			<div class="item-pend rw">
-				<router-link to="/task"> <i></i><br /> <span>任务</span></router-link>	
+				<nuxt-link to="/task"> <i></i><br /> <span>任务</span></nuxt-link>	
 			</div>
 			<div class="item-top" id="holdtop" @click="holdTop()">
 				<i></i>

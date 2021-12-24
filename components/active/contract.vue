@@ -2,17 +2,17 @@
 <div class="active-contain">
 			<div class="wrapper contract-box">
                 <ul class="contract-type clearfix">
-                    <li :class="{'focus':showCont==1}"><router-link :to="{ path:'/agreement', query:{id:1}}">用户协议</router-link></li>
-                    <li :class="{'focus':showCont==2}"><router-link :to="{ path:'/agreement', query:{id:2}}">版权申明</router-link></li>
-                    <!-- <li :class="{'focus':showCont==3}"><router-link :to="{ path:'/agreement', query:{id:3}}">售后服务</router-link></li> -->
-                    <!-- <li :class="{'focus':showCont==4}"><router-link :to="{ path:'/agreement', query:{id:4}}">隐私政策</router-link></li> -->
+                    <li :class="{'focus':showCont==1}"><nuxt-link :to="{ path:'/agreement', query:{id:1}}">用户协议</nuxt-link></li>
+                    <li :class="{'focus':showCont==2}"><nuxt-link :to="{ path:'/agreement', query:{id:2}}">版权申明</nuxt-link></li>
+                    <!-- <li :class="{'focus':showCont==3}"><nuxt-link :to="{ path:'/agreement', query:{id:3}}">售后服务</nuxt-link></li> -->
+                    <!-- <li :class="{'focus':showCont==4}"><nuxt-link :to="{ path:'/agreement', query:{id:4}}">隐私政策</nuxt-link></li> -->
                     
-                    <li :class="{'focus':showCont==6}"><router-link :to="{ path:'/agreement', query:{id:6}}">交易违规说明</router-link></li>
-                    <li :class="{'focus':showCont==7}"><router-link :to="{ path:'/agreement', query:{id:7}}">供稿协议</router-link></li>
-                    <!-- <li :class="{'focus':showCont==8}"><router-link :to="{ path:'/agreement', query:{id:8}}">交易服务协议</router-link></li> -->
-                    <!-- <li :class="{'focus':showCont==9}"><router-link :to="{ path:'/agreement', query:{id:9}}">免责声明</router-link></li> -->
-                    <li :class="{'focus':showCont==10}"><router-link :to="{ path:'/agreement', query:{id:10}}">上传声明</router-link></li>
-                    <li :class="{'focus':showCont==5}"><router-link :to="{ path:'/agreement', query:{id:5}}">常见问题</router-link></li>
+                    <li :class="{'focus':showCont==6}"><nuxt-link :to="{ path:'/agreement', query:{id:6}}">交易违规说明</nuxt-link></li>
+                    <li :class="{'focus':showCont==7}"><nuxt-link :to="{ path:'/agreement', query:{id:7}}">供稿协议</nuxt-link></li>
+                    <!-- <li :class="{'focus':showCont==8}"><nuxt-link :to="{ path:'/agreement', query:{id:8}}">交易服务协议</nuxt-link></li> -->
+                    <!-- <li :class="{'focus':showCont==9}"><nuxt-link :to="{ path:'/agreement', query:{id:9}}">免责声明</nuxt-link></li> -->
+                    <li :class="{'focus':showCont==10}"><nuxt-link :to="{ path:'/agreement', query:{id:10}}">上传声明</nuxt-link></li>
+                    <li :class="{'focus':showCont==5}"><nuxt-link :to="{ path:'/agreement', query:{id:5}}">常见问题</nuxt-link></li>
                 </ul>
                 <div class="part" v-show="showCont==1">
                     <h3>用户协议</h3> 

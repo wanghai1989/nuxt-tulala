@@ -7,7 +7,7 @@
             <div class="result-tit">您的申请已受理</div>
             <div class="result-subtit">非常荣幸收到您的入驻申请，审核人员将在1-2个工作日完成审核</div>
             <div class="result-operat">
-            	<router-link to="/">返回首页</router-link>
+            	<nuxt-link to="/">返回首页</nuxt-link>
             </div>
         </div>
         <div v-if="designcode=='102'">
@@ -17,7 +17,7 @@
             <div class="result-tit">您的申请已通过</div>
             <div class="result-subtit">恭喜您成为图啦啦设计师团队的一员，您可以去上传您的作品啦</div>
             <div class="result-operat">
-                <router-link to="/person/upload-file">上传作品</router-link>
+                <nuxt-link to="/person/upload-file">上传作品</nuxt-link>
             </div>
         </div>
         <div v-if="designcode=='103'">
@@ -27,7 +27,7 @@
             <div class="result-tit">您的申请被拒绝</div>
             <div class="result-subtit">非常抱歉您的申请未能通过，您可以尝试重新提交您的作品再次申请</div>
             <div class="result-operat">
-                <router-link to="/enter/design-egg">重新提交作品</router-link>
+                <nuxt-link to="/enter/design-egg">重新提交作品</nuxt-link>
             </div>
         </div>
 	  </div>

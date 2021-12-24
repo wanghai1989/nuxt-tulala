@@ -2,8 +2,8 @@
 <div>
 	{{productinfo}}
     <div class="location">
-	  	<i class="icon i-location"></i> <router-link to="/">图啦啦</router-link> &nbsp;/&nbsp;
-		  <router-link :to="{ name: productinfo.type_class, params:{id: productinfo.category_id }}">{{typeName[productinfo.type_class]}}</router-link>
+	  	<i class="icon i-location"></i> <nuxt-link to="/">图啦啦</nuxt-link> &nbsp;/&nbsp;
+		  <nuxt-link :to="{ name: productinfo.type_class, params:{id: productinfo.category_id }}">{{typeName[productinfo.type_class]}}</nuxt-link>
 		  &nbsp;/&nbsp;{{productinfo.name}}
 	  </div>
     <div class="material-info clearfix">
@@ -95,9 +95,9 @@
 			</div>
 		</div>
 		<div class="ad-pic mt20">
-			<router-link to="/enter">
+			<nuxt-link to="/enter">
 				<img src="~/assets/images/pic08.png" />
-			</router-link>
+			</nuxt-link>
 		</div>
 		</div>
 	</div>

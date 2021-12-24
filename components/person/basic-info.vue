@@ -29,7 +29,11 @@
 				<div>
 					<div><span class="cred">*</span>生日</div>
 					<div>
-						<myDatepicker :date="birthday" :option="multiOption" :limit="limit"></myDatepicker>
+						<myDatepicker  :date="startTime" :option="timeoption"> </myDatepicker>
+						  <!-- <picker v-model="date"/> -->
+
+						<!-- <date-picker v-model="date" type="date" :min="min" :max="max"/> -->
+						<!-- <myDatepicker :date="birthday" :option="multiOption" :limit="limit"></myDatepicker> -->
 					</div>
 				</div>
 				<div>
@@ -101,15 +105,14 @@
 </form>
 </template>
 <script>
+
 import {mapState, mapActions} from 'vuex'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
+import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 
 export default {
-	
-  metaInfo: {
-    title: '会员基本信息'
-  },
+  components:{myDatepicker},
   data () {
     return {
 	errorMsg: '',
@@ -126,61 +129,94 @@ export default {
 	city_code:'',
 	area:'',
 	area_code:'',
-	birthday: {
-          time: ''
-        },
-        multiOption: {
-          type: 'day',
-          week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-          month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-          format:"YYYY-MM-DD",
-          inputStyle: {
-            'height':'40px',
-            'line-height': '40px',
-            'width':'440px',
-            'border': '1px solid #d4d4d4',
-			'box-sizing': 'border-box',
-		    'border-radius': '4px',
-			'text-indent': '5px'
-          },
-          color: {        // 字体颜色
-            header: '#ff5534',  // 头部
-            headerText: '#fff', // 头部文案
-          },
-          buttons: {        // button 文案
-            ok: '确定',
-            cancel: '取消'
-          },
-          placeholder: '请选时间',
-          dismissible: true
-        },
-        limit: [{
-          type: 'weekday',
-          available: [1, 2, 3, 4, 5,6,0]
-        },
-        {
-          type: 'fromto',
-          from: '1900-01-01',
-          to: new Date()
-        }]
+
+	startTime: { time: '1900-12-30'},
+	timeoption: {
+	        type: 'min',  // day , multi-day
+	        week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+	        month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+	        format: 'YYYY-M-D HH:mm', // YYYY-MM-DD 日期
+	        inputStyle: {    			// input 样式
+			  'height': '40px',
+	          'line-height': '40px',
+	          'width':'442px',
+	          'border': '1px solid #d4d4d4',
+			    'text-indent': '5px',
+	          'border-radius': '4px'
+	        },
+	        color: {				// 字体颜色
+	          header: '#35acff',	// 头部
+	          headerText: '#fff',	// 头部文案	
+	        },
+	        buttons: {				// button 文案
+	          ok: '确定',
+	          cancel: '取消'
+	        },
+	        overlayOpacity: 0.5,	// 遮罩透明度
+	        placeholder: '请选时间',  // 提示日期
+	        dismissible: true  // 默认true  待定
+	    },
+	
+
+
+
+
+
+
+	// birthday: {
+    //       time: ''
+    //     },
+    //     multiOption: {
+    //       type: 'day',
+    //       week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+    //       month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    //       format:"YYYY-MM-DD",
+    //       inputStyle: {
+    //         'height':'40px',
+    //         'line-height': '40px',
+    //         'width':'440px',
+    //         'border': '1px solid #d4d4d4',
+	// 		'box-sizing': 'border-box',
+	// 	    'border-radius': '4px',
+	// 		'text-indent': '5px'
+    //       },
+    //       color: {        // 字体颜色
+    //         header: '#ff5534',  // 头部
+    //         headerText: '#fff', // 头部文案
+    //       },
+    //       buttons: {        // button 文案
+    //         ok: '确定',
+    //         cancel: '取消'
+    //       },
+    //       placeholder: '请选时间',
+    //       dismissible: true
+    //     },
+    //     limit: [{
+    //       type: 'weekday',
+    //       available: [1, 2, 3, 4, 5,6,0]
+    //     },
+    //     {
+    //       type: 'fromto',
+    //       from: '1900-01-01',
+    //       to: new Date()
+    //     }]
       
     }
   },
+  created() {
+      this.arr = [new Date()];
+    },
 		mounted(){  
-			// import('layui-layer')
-			// this.token=window.localStorage.getItem("token")
-			// this.userInfo=JSON.parse(window.localStorage.getItem("userInfo"))
-			// this.getperson()
-			
-			let pMountedTimer = window.setInterval(() => { //等父组件monted执行完了
-					if (window.parentMounted) {
-						window.clearInterval(pMountedTimer)
 						// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
 						this.fetchSet()
-						this.getperson()
+					let pt=	setInterval(() => {
+						if(Object.keys(this.personInfo).length>0){
+							clearInterval(pt);
+							this.getperson()
+							}
+					}, 100);
+						
 						//  this.getcity()
-					}
-				}, 500)
 		},
 		computed:{
       ...mapState(['setting','personInfo','userToken'])
@@ -188,9 +224,27 @@ export default {
 	methods:{
 		 ...mapActions({
 		  savePersoninfo:'savePersoninfo',
-		  fetchPersoninfo:'fetchPersoninfo',
 		  fetchSetting:'fetchSetting'
       }),
+	 clickDay(date) {
+        this.date = date; //今天日期
+        console.log(date);
+      //  moment.locale('zh-cn');
+        var t = moment(date).format('YYYY-MM-DD');//没错，此处大写，非yyyy-MM-dd
+        console.log(t);
+      },
+      changeDate(date) {
+        console.log(date); //左右点击切换月份
+      },
+      clickToday(date) {
+        date = date
+      },
+      bthclick() {
+      },
+
+
+
+
 	  getLength(){
 		if(this.personInfo.introduction.length>this.maxLength){
           this.personInfo.introduction= this.personInfo.introduction.slice(0, this.maxLength)
@@ -205,7 +259,7 @@ export default {
 			  this.area_code=this.personInfo.area_code
 			  this.area=this.personInfo.area
 			  this.vipimg=this.personInfo.avatar
-			  this.birthday.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
+			  this.startTime.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
 			//   console.log(this.birthday.time)
 			  this.getcity(this.province_code,this.city_code,this.area_code)
 	  },
@@ -299,7 +353,10 @@ export default {
 			this.personInfo.introduction)
 	},
 	  getcity:function(province_code,city_code,area_code){
-		    $.getJSON("/static/city_code.json", function (pdata){
+		  console.log(province_code,city_code)
+
+		    $.getJSON("/json/city_code.json", function (pdata){
+				console.log(pdata)
 			  var html = "<option value=''>== 省份 ==</option>"; 
 			  $("#input_city").append(html); 
 			  $("#input_area").append(html);

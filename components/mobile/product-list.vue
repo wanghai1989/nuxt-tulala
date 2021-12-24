@@ -4,19 +4,19 @@
 	<div class="nav-left">
     <ul>
 		<li  v-for="item in category"  :key="item.id" :class="{focus:item.id==categoryId}">
-			<router-link :to="{ name:'m-material-id', params:{id: item.id }}" >{{item.name}}</router-link>
+			<nuxt-link :to="{ name:'m-material-id', params:{id: item.id }}" >{{item.name}}</nuxt-link>
 		</li>
 	</ul>
 	</div>
 	<div class="nav-right">
     <ul class="waterfall-col"  v-if="productlist.length>0">
 			<li class="item"  v-for="item in productlist" :key="item.id" >
-				<router-link :to="{ name: 'm-material-detail-id', params:{ id: item.id }}">
+				<nuxt-link :to="{ name: 'm-material-detail-id', params:{ id: item.id }}">
 				<div class="prod-img"  :style="'background:#f2f2f2'">
 				  <img :src="item.list_img_path">
 				</div>
 				<!-- <div class="prod-name signline">{{item.name + item.id}}</div> -->
-				</router-link>
+				</nuxt-link>
 			</li>
 		</ul>
 	</div>

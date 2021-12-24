@@ -27,7 +27,7 @@
   </div>
 
   <div class="details-bottom">
-      <router-link :to="{ name: 'm-material-id', params:{id: productinfo.category_id }}" class="bottom-l">返回列表</router-link>
+      <nuxt-link :to="{ name: 'm-material-id', params:{id: productinfo.category_id }}" class="bottom-l">返回列表</nuxt-link>
      <a href="javascript:void(0)" class="bottom-r" @click="downLoad()">下载</a>
   </div>
 	</div>
@@ -43,23 +43,21 @@ export default {
   created(){
   },
  mounted(){  
-	  // import('layui-layer')
-    // console.log(this.$route.params.id)
-			this.fetchProdinfo(this.$route.params.id)
+			// this.fetchProdinfo(this.$route.params.id)
 		},
 
 	computed:{
 	  ...mapState(['productinfo','baseUrl'])
   },
 	methods:{
-    ...mapActions({
-		  fetchProductinfo:'fetchProductinfo'
-      }),
-		fetchProdinfo:function(id){
-		  let formDatas = new FormData();
-		  formDatas.append('id', id);
-		  this.fetchProductinfo(formDatas)
-	  },
+    // ...mapActions({
+		//   fetchProductinfo:'fetchProductinfo'
+    //   }),
+		// fetchProdinfo:function(id){
+		//   let formDatas = new FormData();
+		//   formDatas.append('id', id);
+		//   this.fetchProductinfo(formDatas)
+	  // },
     downLoad:function(){
       let _that=this
       layer.msg('请移步电脑端下载', {icon: 1});

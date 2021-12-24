@@ -28,17 +28,25 @@ export default ({
     app.router.beforeEach((to, from, next) => {
         const token =localStorage.getItem('token')
         const isMobile=to.path.indexOf('/m/')==-1?false:true
-
-
+        
         if(isMobile){
-            store.dispatch('verifyToken',token).then(data => { 
-                if(data.code==1){
-                    store.commit('setToken', token)
-                    next()
-                }else{
-                    next({path: '/m/mobile-login'})
+            if(requireLogin.indexOf(to.path)>-1){
+                if(!token) { next({path: '/m/mobile-login'})} 
+                else{
+                    store.dispatch('verifyToken',token).then(data => { 
+                        if(data.code==1){
+                            store.commit('setToken', token)
+                            next()
+                        }else{
+                            next({path: '/m/mobile-login'})
+                        }
+                    })
                 }
-            })
+            }
+            else{
+                if(token)  store.commit('setToken', token)
+                next()
+            }
         }else{
             if(requireLogin.indexOf(to.path)>-1){
                 store.dispatch('verifyToken',token).then(data => { 
@@ -51,6 +59,7 @@ export default ({
                         {next({path: '/enter/design-result'})} 
                         next()
                     }else{
+                        localStorage.setItem('preRoute', to.path);
                         next({path: '/user/login'})
                     }
                 })

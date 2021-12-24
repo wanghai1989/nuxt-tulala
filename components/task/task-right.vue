@@ -1,12 +1,12 @@
 <template>
 <div class="task-r">
-                <router-link  class="btn-public"  to="/task/public">免费发布任务</router-link>
+                <nuxt-link  class="btn-public"  to="/task/public">免费发布任务</nuxt-link>
 		 		<div class="cblack mt15 fw">关于雇主</div>
 		 		<div class="mt10">已发布过<span class="cblack fw"> {{personInfo.work_order_count}}</span> 个任务 <br/>注册时间<span class="cblack fw"> {{personInfo.created_at}}</span> </div>
 		 		<div class="newtask">
 		 			<div class="title">最新任务</div>
 		 			<ul class="ul-list mt10">
-		 				<li v-for="item in workorder" :key="item.id"><router-link  :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</router-link> </li>
+		 				<li v-for="item in workorder" :key="item.id"><nuxt-link  :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link> </li>
 		 			</ul>
 		 		</div>
 		 	</div>
