@@ -47,18 +47,20 @@ export default {
   computed:{
 	  ...mapState(['category','idName','idClass'])
   },
-  watch :{
-      '$route': function (to, from) {
-          const id=this.$route.params.id
-          const type_class=this.idClass[this.$route.params.id] 
-          const name=this.idName[this.$route.params.id]
-          this.selectCategory(id,type_class,name)
-      }
-    },
+//   watch :{
+//       '$route': function (to, from) {
+//           const id=this.$route.params.id
+//           const type_class=this.idClass[this.$route.params.id] 
+//           const name=this.idName[this.$route.params.id]
+//           console.log(id+','+type_class+','+name)
+//           this.selectCategory(id,type_class,name)
+//       }
+//     },
   created(){
      
   },
   mounted() {
+       this.bindSearchInfo()
        this.fetchCategory().then((data) => {
             this.divselect("#divselect","#inputselect"); 
        })
@@ -68,13 +70,22 @@ export default {
     ...mapActions({
           fetchCategory: 'fetchCategory'
       }),
+
+
+      bindSearchInfo(){
+          const id=this.$route.params.id
+          const type_class=this.idClass[this.$route.params.id] 
+          const name=this.idName[this.$route.params.id]
+          this.input_keyword=this.$route.query.keyword
+          this.selectCategory(id,type_class,name)
+      },
       doSearch(){
-          if(this.$route.params.id==this.route_name){
+          if(this.$route.params.id==this.category_id){
               this.$router.push({
                 query:merge(this.$route.query,{'keyword':this.input_keyword})
             })
           }else{
-              this.$router.push({name: 'material-id',params:{id:$("#inputselect").val()},query:{keyword:this.input_keyword}});
+              this.$router.push({name: 'material-id',params:{id:this.category_id},query:{keyword:this.input_keyword}});
           }
         
       },

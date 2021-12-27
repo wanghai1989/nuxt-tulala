@@ -114,6 +114,7 @@
 <script>
 import webLogin from '~/components/layout/web-login.vue'
 import webUnvip from '~/components/layout/web-unvip.vue'
+import QRCode from 'qrcode'; 
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',

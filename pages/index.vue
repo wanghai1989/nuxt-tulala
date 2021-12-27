@@ -29,11 +29,10 @@ import indexAdvantage from '~/components/index/index-advantage.vue'
 import indexList from '~/components/index/index-list.vue'
 import indexHandin from '~/components/index/index-handin.vue'
 import indexAnchor from '~/components/index/index-anchor.vue'
-import indexSearch from '~/components/index/index-search.vue'
 import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
 export default {
-   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch,webUnvip}
+   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip}
 }
 </script>
