@@ -7,7 +7,7 @@
 				<div class="fr" v-show="userToken">
 					<nuxt-link to="/"><i class="i-home"></i>图啦啦首页</nuxt-link> &nbsp;&nbsp;
 					<div class="userimg-head">
-					 <nuxt-link to="/person/person-info" >
+					 <nuxt-link  to="/mine">
 					 	<img :src="personInfo.avatar" v-show="personInfo.avatar" />
             <img src='~/assets/images/defaultVip.png' v-show="!personInfo.avatar" /> 
 					 </nuxt-link>
@@ -26,17 +26,17 @@
 	                             <span class="marfivepx znvip " title=""></span>
 	                           <span class="qyvip " title=""></span>
 	                                                 </div>
-                                      <nuxt-link to="/user/pay-vip" >开通终身VIP</nuxt-link>
+                                      <nuxt-link to="/vip/pay-vip" >开通终身VIP</nuxt-link>
 	                                             </div>
 	  
 	                                         <div class="opengimg">
-                                             <nuxt-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
+                                             <nuxt-link to="/vip/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
 	                                          </div>
 	                   
 	                     <ul>
-	                       <li> <nuxt-link  to="/person/person-info"><i></i><span>个人中心</span></nuxt-link> </li>
+	                       <li> <nuxt-link  to="/mine"><i></i><span>个人中心</span></nuxt-link> </li>
 	                       <li> <nuxt-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></nuxt-link></li>
-	                       <li><nuxt-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
+	                       <li><nuxt-link  to="/mine/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
 	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
 	                     </ul>
 	     			</div>

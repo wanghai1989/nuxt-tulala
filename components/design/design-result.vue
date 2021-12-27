@@ -17,7 +17,7 @@
             <div class="result-tit">您的申请已通过</div>
             <div class="result-subtit">恭喜您成为图啦啦设计师团队的一员，您可以去上传您的作品啦</div>
             <div class="result-operat">
-                <nuxt-link to="/person/upload-file">上传作品</nuxt-link>
+                <nuxt-link to="/mine/upload-file">上传作品</nuxt-link>
             </div>
         </div>
         <div v-if="designcode=='103'">

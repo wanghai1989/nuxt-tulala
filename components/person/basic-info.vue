@@ -29,7 +29,7 @@
 				<div>
 					<div><span class="cred">*</span>生日</div>
 					<div>
-						<myDatepicker  :date="startTime" :option="timeoption"> </myDatepicker>
+						<myDatepicker  :date="startTime" :option="timeoption" > </myDatepicker>
 						  <!-- <picker v-model="date"/> -->
 
 						<!-- <date-picker v-model="date" type="date" :min="min" :max="max"/> -->
@@ -132,10 +132,10 @@ export default {
 
 	startTime: { time: '1900-12-30'},
 	timeoption: {
-	        type: 'min',  // day , multi-day
+	        type: 'day',  // day , multi-day
 	        week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
 	        month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-	        format: 'YYYY-M-D HH:mm', // YYYY-MM-DD 日期
+	        format: 'YYYY-MM-DD', // YYYY-MM-DD 日期
 	        inputStyle: {    			// input 样式
 			  'height': '40px',
 	          'line-height': '40px',
@@ -156,55 +156,9 @@ export default {
 	        placeholder: '请选时间',  // 提示日期
 	        dismissible: true  // 默认true  待定
 	    },
-	
-
-
-
-
-
-
-	// birthday: {
-    //       time: ''
-    //     },
-    //     multiOption: {
-    //       type: 'day',
-    //       week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-    //       month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-    //       format:"YYYY-MM-DD",
-    //       inputStyle: {
-    //         'height':'40px',
-    //         'line-height': '40px',
-    //         'width':'440px',
-    //         'border': '1px solid #d4d4d4',
-	// 		'box-sizing': 'border-box',
-	// 	    'border-radius': '4px',
-	// 		'text-indent': '5px'
-    //       },
-    //       color: {        // 字体颜色
-    //         header: '#ff5534',  // 头部
-    //         headerText: '#fff', // 头部文案
-    //       },
-    //       buttons: {        // button 文案
-    //         ok: '确定',
-    //         cancel: '取消'
-    //       },
-    //       placeholder: '请选时间',
-    //       dismissible: true
-    //     },
-    //     limit: [{
-    //       type: 'weekday',
-    //       available: [1, 2, 3, 4, 5,6,0]
-    //     },
-    //     {
-    //       type: 'fromto',
-    //       from: '1900-01-01',
-    //       to: new Date()
-    //     }]
-      
     }
   },
   created() {
-      this.arr = [new Date()];
     },
 		mounted(){  
 						// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
@@ -226,21 +180,24 @@ export default {
 		  savePersoninfo:'savePersoninfo',
 		  fetchSetting:'fetchSetting'
       }),
-	 clickDay(date) {
-        this.date = date; //今天日期
-        console.log(date);
-      //  moment.locale('zh-cn');
-        var t = moment(date).format('YYYY-MM-DD');//没错，此处大写，非yyyy-MM-dd
-        console.log(t);
-      },
-      changeDate(date) {
-        console.log(date); //左右点击切换月份
-      },
-      clickToday(date) {
-        date = date
-      },
-      bthclick() {
-      },
+	//  clickDay(date) {
+    //     this.date = date; //今天日期
+    //     console.log('AAAAAAAAAA');
+    //   //  moment.locale('zh-cn');
+    //     var t = moment(date).format('YYYY-MM-DD');//没错，此处大写，非yyyy-MM-dd
+    //     console.log(t);
+    //   },
+    //   changeDate(date) {
+	// 	   console.log('BBBBB');
+    //     console.log(date); //左右点击切换月份
+    //   },
+    //   clickToday(date) {
+	// 	     console.log('CCCCCCCC');
+    //     date = date
+    //   },
+    //   bthclick() {
+	// 	   console.log('DDDDD');
+    //   },
 
 
 
@@ -294,7 +251,7 @@ export default {
 		  if(!this.personInfo.is_complete_my_info || (this.personInfo.is_complete_my_info && this.blob)){   //第一次，或者一次以上修改，并且上传了头像
 		  formDatas.append('avatar',this.blob,'xx.jpg');
 		  }
-		  formDatas.append('birthday', this.birthday.time);
+		  formDatas.append('birthday', this.startTime.time);
 		  formDatas.append('province', this.province);
 		  formDatas.append('province_code', this.province_code);
 		  formDatas.append('city', this.city);
@@ -318,7 +275,7 @@ export default {
 			 this.personInfo.is_complete_my_info=1
 			 layer.msg(data.msg, {icon: 1});
 			 setTimeout(() => {
-				 this.$router.push("/person/person-info")
+				 this.$router.push("/mine")
 			 }, 1000);
             }
           })
@@ -341,7 +298,7 @@ export default {
 			this.personInfo.is_complete_my_info,
 			this.blob,
 			this.personInfo.sex,
-			this.birthday.time,
+			this.startTime.time,
 			this.personInfo.industry,
 			this.personInfo.professional,
 			this.personInfo.working_time,
@@ -353,10 +310,7 @@ export default {
 			this.personInfo.introduction)
 	},
 	  getcity:function(province_code,city_code,area_code){
-		  console.log(province_code,city_code)
-
 		    $.getJSON("/json/city_code.json", function (pdata){
-				console.log(pdata)
 			  var html = "<option value=''>== 省份 ==</option>"; 
 			  $("#input_city").append(html); 
 			  $("#input_area").append(html);
@@ -391,12 +345,6 @@ export default {
 				   $("#input_area").append(html);  
 				  });
 			
-//						  //绑定
-				//   $("#input_province").val("440000");
-				//   $("#input_province").change();
-				//   $("#input_city").val("440300");
-				//   $("#input_city").change();
-				//   $("#input_area").val("440304");
 
 				  $("#input_province").val(province_code);
 				  $("#input_province").change();

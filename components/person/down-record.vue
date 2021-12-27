@@ -7,7 +7,7 @@
 	</ul>
 	<ul class="ul-prodfile clearfix" v-if="collectlist.length>0">
 		<li   v-for="item in collectlist" :key="item.id">
-			<nuxt-link :to="{ name: 'materialDetail', params:{ id: item.id }}">
+			<nuxt-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 			<div class="prod-img">
 				<img :src="item.list_img_path">
 				<div class="prod-txt">
@@ -42,7 +42,7 @@ components: {MoPaging},
   }
   },
   computed:{
-	  ...mapState(['pageSize','countfile','category','collectlist','userToken'])
+	  ...mapState(['pageSize','countfile','category','collectlist','userToken','personInfo'])
   },
    watch :{
 	  '$store.state.collectlist'(){
@@ -77,7 +77,7 @@ components: {MoPaging},
           fetchCollectlist: 'fetchCollectlist',
 		  downFile:'downFile'
       }),
-	 
+	 ...mapMutations(['setShowVip']),
             //从page组件传递过来的当前page
             pageChange:function(page) {
                 this.page = page
@@ -97,16 +97,17 @@ components: {MoPaging},
 			this.fetchCollectlist(formDatas)
 	  },
 	   downSourceFile(id,name){
-		// let param={
-		// 		token: this.userToken,
-		// 		product_id:id //素材类型
-		// 	}
+		if(this.personInfo.is_vip){
 		let formDatas = new FormData();
 		  formDatas.append('token',this.userToken);
           formDatas.append('product_id',id);
 		 this.downFile(formDatas).then((res) => {
 　　　　　　　　this.download(res,'图啦啦_'+name+'.zip') //此处跳转到第三步
           })
+		}else{
+			this.setShowVip(1)
+			  return
+		}
 	},
 	download:function(data,fileName) {
 　　　　　　if (!data.size) {

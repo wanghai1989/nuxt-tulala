@@ -18,21 +18,14 @@ import aboutNav from '~/components/layout/about-nav'
 export default {
   layout: 'web',
   props:['position'],
-components: {webBanner,aboutNav},
-  data () {
-    return {
-      pageName: '',
-      pageKeyword:'',
-      pageDesc:'',
-    }
+  head(){
+	   return {
+			title:'联系我们_图啦啦91tula.com'
+			}
   },
- 
-mounted(){
-}
-}
+components: {webBanner,aboutNav}
 
-  
-
+}
 </script>
 <style lang="less" scoped>
 .about-contain{padding: 40px; box-sizing: border-box; background: #fff; margin-top: 20px; min-height: 400px;

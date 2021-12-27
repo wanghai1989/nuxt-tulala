@@ -11,7 +11,7 @@
 				<div class="vip-txt">
 					<div class="username">账号：{{personInfo.nickname}}(ID:{{personInfo.num}})</div>
 					<div class="userlabel">
-						<nuxt-link to="/user/pay-vip"> <i class="i-vip" :class="{focus:personInfo.is_vip}" title="VIP会员"></i></nuxt-link>
+						<nuxt-link to="/vip/pay-vip"> <i class="i-vip" :class="{focus:personInfo.is_vip}" title="VIP会员"></i></nuxt-link>
 						<!-- <nuxt-link to="/enter/design-basic"> <i class="i-design" :class="{focus:personInfo.designer_status==102}" title="平台设计师"></i></nuxt-link> -->
 						<span class="person-bind" v-if="personInfo.is_complete_my_info"><i></i> 已完善</span>
 						<nuxt-link class="person-bind" to="/person/basic-info" v-else><i></i> 未完善</nuxt-link>

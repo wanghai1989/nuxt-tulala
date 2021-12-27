@@ -14,14 +14,11 @@ import basicInfo from '~/components/person/basic-info.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,basicInfo},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
+ head(){
+	   return {
+			title: '会员基本信息-图啦啦91tula.com'
+			}
   }
   
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

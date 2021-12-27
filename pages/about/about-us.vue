@@ -23,6 +23,11 @@ import aboutNav from '~/components/layout/about-nav'
 export default {
 layout: 'web',
 components: {webBanner,aboutNav},
+head(){
+	   return {
+			title:'关于我们_图啦啦91tula.com'
+			}
+  },
 }
 
   

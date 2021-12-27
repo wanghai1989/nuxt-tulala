@@ -16,14 +16,11 @@ import myFile from '~/components/person/my-file.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,myFile,webUnvip},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
+ head(){
+	   return {
+			title: '我的素材-图啦啦91tula.com'
+			}
+  },
   
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

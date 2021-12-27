@@ -52,7 +52,7 @@
 			<div class="item-pend rw">
 				<nuxt-link to="/task"> <i></i><br /> <span>任务</span></nuxt-link>	
 			</div>
-			<div class="item-top" id="holdtop" @click="holdTop()">
+			<div class="item-top" id="holdtop" @click="holdTop()" title="置顶">
 				<i></i>
 			</div>
 		</div>

@@ -18,40 +18,29 @@
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   metaInfo: {
-    title: '公告详情-图啦啦91tula.com',
-    meta: [
-              {
-                  name: "keywords",
-                  content:'图啦啦，图啦消息，图啦公告，图啦素材，图啦啦工单'
-              }, {
-                  name: "description",
-                  content:'会员关注图啦啦消息，图啦咨询尽在掌握！！'
-              }
-          ]
+   head(){
+	   return {
+			title: this.noticedetail.title,
+			meta: [{
+			hid: "description",
+			name: "description",
+			content:  '会员关注图啦啦消息，图啦咨询尽在掌握！！'
+			},{
+			hid: 'keywords',
+			name: 'keywords',
+			content: '图啦啦，图啦消息，图啦公告，图啦素材，图啦啦工单'
+			}]
+			}
   },
-  data () {
-    return {
-	 userInfo:{}
-    }
-  },
-  mounted(){  
-			this.fetchNoticeDe(this.$route.params.id)
-		},
+ 
 		
  computed:{
 	  ...mapState(['noticedetail'])
   },
+  async asyncData ({ store, params}) {  //服务器渲染
+	await  store.dispatch('fetchNoticeDetail',{id:params.id});
+  },
   methods:{
- ...mapActions({
-		  fetchNoticeDetail:'fetchNoticeDetail'
-      }),
-
-fetchNoticeDe:function(id){
-		  let formDatas = new FormData();
-		  formDatas.append('id', id);
-		  this.fetchNoticeDetail(formDatas)
-	  }
 }
 }
 </script>

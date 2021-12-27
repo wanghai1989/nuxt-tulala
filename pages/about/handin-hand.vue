@@ -92,6 +92,20 @@ import MoPaging  from '~/components/layout/web-pagination.vue'
 import {mapState, mapActions} from 'vuex'
 export default {
 	layout: 'web',
+	head(){
+	   return {
+			title:'心系图啦-图啦粉丝自拍-图啦话题-图啦活动-设计不抠图，图啦粉丝千千万！__图啦啦91tula.com',
+			meta: [{
+			hid: "description",
+			name: "description",
+			content:  '牵手图啦是图啦啦粉丝聚集地，图啦啦口碑，图啦啦粉丝的乐趣，图啦啦优秀团队为您打造最好体验，感谢所有粉丝对图啦啦支持！！！'
+			},{
+			hid: 'keywords',
+			name: 'keywords',
+			content: '图啦啦粉丝，图啦啦团队，图啦话题，图啦啦活动，粉丝主题'
+			}]
+			}
+  },
  components: {MoPaging,webBanner,aboutNav},
   data () {
     return {

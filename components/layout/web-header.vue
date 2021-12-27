@@ -78,13 +78,13 @@
 	                                             </div>
 	  
 	                                         <div class="opengimg">
-                                             <nuxt-link to="/user/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
+                                             <nuxt-link to="/vip/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
 	                                          </div>
 	                   
 	                     <ul>
 	                       <li> <nuxt-link  to="/mine"><i></i><span>个人中心</span></nuxt-link> </li>
 	                       <li> <nuxt-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></nuxt-link></li>
-	                       <li><nuxt-link  to="/person/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
+	                       <li><nuxt-link  to="/mine/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
 	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
 	                     </ul>
 	     			</div>

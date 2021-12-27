@@ -48,7 +48,6 @@ export default ({
                 next()
             }
         }else{
-            if(requireLogin.indexOf(to.path)>-1){
                 store.dispatch('verifyToken',token).then(data => { 
                     if(data.code==1){
                         store.commit('setToken', token)
@@ -58,15 +57,17 @@ export default ({
                         if((designState==102 || designState==103) && to.path=='/enter/design-basic')
                         {next({path: '/enter/design-result'})} 
                         next()
-                    }else{
-                        localStorage.setItem('preRoute', to.path);
-                        next({path: '/user/login'})
+                    }
+                    else{
+                        store.commit('cancelToken', token)
+                        if(requireLogin.indexOf(to.path)>-1){
+                            localStorage.setItem('preRoute', to.path);
+                            next({path: '/user/login'})     
+                        }
+                        next()  
                     }
                 })
-            }else{
-                if(token)  store.commit('setToken', token)
-                next()
-            }
+           
         }
 
         

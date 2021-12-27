@@ -136,22 +136,20 @@ export default {
               this.setToken(data.data.token)
               this.fetchPerson(data.data.token)
               const preRouter=localStorage.getItem("preRoute")//上一个路由
-              if(!preRouter && !this.showLogin){
-                setTimeout(() => {
-                  this.$router.replace('/mine') 
-                }, 1000);
-              }
-              else if(this.showLogin){
-                console.log(222)
+              if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
                 }, 1000);
-              }
-              else{
-                console.log(333)
-                setTimeout(() => {
-                  this.$router.replace(preRouter)  //跳回上一个路由
+              }else{
+                if(preRouter && preRouter!='/user/login'){
+                  setTimeout(() => {
+                    this.$router.replace(preRouter)  //跳回上一个路由
+                  }, 1000);
+                }else{
+                  setTimeout(() => {
+                  this.$router.replace('/mine') 
                 }, 1000);
+                }
               }
             }
           })

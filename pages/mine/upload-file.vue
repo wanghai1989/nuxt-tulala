@@ -15,14 +15,10 @@ import uploadFile from '~/components/person/upload-file.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,uploadFile},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
-  
+ head(){
+	   return {
+			title: '上传素材-图啦啦91tula.com'
+			}
+  },
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

@@ -14,10 +14,11 @@ import Login from '~/components/person/login.vue'
 export default {
 layout: 'web-login',
 components: {Login},
-metaInfo: {
-    title: '会员登录-图啦啦91tula.com'
-  }
-  
+ head(){
+        return {
+        title: '会员登录_图啦啦91tula.com'
+        }
+  },
 }
 </script>
 <style lang="less" scoped>

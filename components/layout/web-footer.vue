@@ -3,10 +3,10 @@
 	  	<div class="friend-link">
 	  		<div class="wrapper"> 
 					友情链接： 
-					<nuxt-link to="https://588ku.com/">千库网</nuxt-link>  
-					<nuxt-link to="https://699pic.com/">摄图网</nuxt-link> 
-					<nuxt-link to="https://www.tukuppt.com/">熊猫办公</nuxt-link> 
-					<nuxt-link to="https://www.nipic.com/">昵图网</nuxt-link> 
+					<a href="https://588ku.com/" target="_bank">千库网</a>  
+					<a href="https://699pic.com/" target="_bank">摄图网</a>  
+					<a href="https://www.tukuppt.com/" target="_bank">熊猫办公</a>  
+					<a href="https://www.nipic.com/" target="_bank">昵图网</a>  
 			</div>
 		</div>
 			<div class="wrapper">

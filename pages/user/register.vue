@@ -13,8 +13,12 @@
 import Register from '~/components/person/register.vue'
 export default {
 layout: 'web-login',
-components: {Register}
-  
+components: {Register},
+   head(){
+        return {
+        title: '会员注册_图啦啦91tula.com'
+        }
+  },
 }
 </script>
 <style lang="less" scoped>

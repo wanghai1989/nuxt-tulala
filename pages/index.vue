@@ -3,6 +3,7 @@
     <webPendant></webPendant>
     <indexAnim></indexAnim>
     <webLogin></webLogin>
+    <webUnvip></webUnvip>
     <indexAnchor></indexAnchor>
     <webHeader pageclass="index"></webHeader>
     <swiperIndex position='home'></swiperIndex>
@@ -19,6 +20,7 @@
 
 <script>
 import 'swiper/dist/css/swiper.min.css';
+import webUnvip from '~/components/layout/web-unvip.vue'
 import webHeader from '~/components/layout/web-header.vue'
 import webFooter from '~/components/layout/web-footer.vue'
 import webPendant from '~/components/layout/web-pendant.vue'
@@ -32,6 +34,6 @@ import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
 export default {
-   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch}
+   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexSearch,indexAnim,webLogin,prodSearch,webUnvip}
 }
 </script>

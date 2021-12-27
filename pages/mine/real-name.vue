@@ -14,14 +14,10 @@ import realName from '~/components/person/real-name.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,realName},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
-  
+ head(){
+	   return {
+			title: '实名认证-图啦啦91tula.com'
+			}
+  },
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

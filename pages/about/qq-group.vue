@@ -98,7 +98,6 @@
 <script>
 
 import common from '~/assets/js/common'
-import processImg from '~/assets/js/processimg'
 import MoPaging  from '~/components/layout/web-pagination.vue'
 import webBanner from '~/components/layout/web-banner'
 import aboutNav from '~/components/layout/about-nav'

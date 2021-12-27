@@ -40,10 +40,10 @@ export default {
 			this.fetchHomeProduct()
 		},
  computed:{
-	  ...mapState(['homeproductlist','userToken'])
+	  ...mapState(['homeproductlist','userToken','personInfo'])
   },
   methods:{
- ...mapMutations(['setShowLogin']),
+ ...mapMutations(['setShowLogin','setShowVip']),
  ...mapActions({
 		  fetchHomeProduct:'fetchHomeProduct',
           operateCollect:'operateCollect',
@@ -73,13 +73,17 @@ export default {
 			this.setShowLogin(1)
 			return
 		}
+        if(this.personInfo.is_vip){
         let formDatas = new FormData();
 		  formDatas.append('token',this.userToken);
-          formDatas.append('product_id',id);
-		
+          formDatas.append('product_id',id);            
 		 this.downFile(formDatas).then((res) => {
 　　　　　　　　this.download(res,'图啦啦_'+name+'.zip') //此处跳转到第三步
           })
+        }else{
+			  this.setShowVip(1)
+			  return
+		  }
 	},
 	download:function(data,fileName) {
 　　　　　　if (!data.size) {

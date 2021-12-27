@@ -78,8 +78,8 @@ export default {
     },
    mounted(){
 //   import('layui-layer')
-    this.route=this.$router
-    console.log(this.route)
+    // this.route=this.$router
+    // console.log(this.route)
     this.fetchCategory();
   },
   computed:{
@@ -166,7 +166,7 @@ export default {
       },
       fileList(files){
         for (let i = 0; i < files.length; i++) {
-          console.log(files[i])
+          // console.log(files[i])
           this.fileAdd(files[i]);
         }
       },

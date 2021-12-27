@@ -18,7 +18,9 @@
 import webBanner from '~/components/layout/web-banner.vue'
 import designNav from '~/components/layout/design-nav.vue'
 import taskJoins from '~/components/task/task-joins.vue'
-import {mapState, mapActions, mapMutations} from 'vuex'
+import taskRight from '~/components/task/task-right.vue'
+
+import {mapState} from 'vuex'
 export default {
    layout: 'web-design',
     head(){

@@ -673,10 +673,11 @@ export const actions = {
             handleError(err)
           })
     }, 
-    fetchDesignInfo({commit},formData){
+    fetchDesignInfo({commit},{id}){
       commit('startLoading')
-      return model.getDesignInfo(formData)
+      return model.getDesignInfo(id)
           .then(data => {
+            console.log(data)
             commit('endLoading')
             commit('fillDesignInfo', data.data)
           })

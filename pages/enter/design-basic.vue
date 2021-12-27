@@ -36,17 +36,19 @@ export default {
   computed:{
       ...mapState(['navigation','notice','personInfo'])
   },
-metaInfo: {
-    title: '设计师入驻图啦啦第一步-图啦啦91tula.com',
-	meta: [
-              {
-                  name: "keywords",
-                  content:'网站设计,小程序设计,电商设计,包装设计,logo设计,插画,摄影,室内设计,工业设计,淘宝美工,图啦啦'
-              }, {
-                  name: "description",
-                  content:'各行各业设计在图啦啦91tula.com上传分享素材，下载素材提高工作效率，在线接单赚钱佣金，在线与优秀设计师交流分享提升专业水平！！'
-              }
-          ]
+  head(){
+	   return {
+			title: '招聘优秀设计师-图啦啦91tula.com',
+			meta: [{
+			hid: "description",
+			name: "description",
+			content: '各行各业设计在图啦啦91tula.com上传分享素材，下载素材提高工作效率，在线接单赚钱佣金，在线与优秀设计师交流分享提升专业水平！！'
+			},{
+			hid: 'keywords',
+			name: 'keywords',
+			content: '网站设计,小程序设计,电商设计,包装设计,logo设计,插画,摄影,室内设计,工业设计,淘宝美工,图啦啦！'
+			}]
+			}
   }
 }
 </script>

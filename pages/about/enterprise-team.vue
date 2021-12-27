@@ -74,17 +74,12 @@ import aboutNav from '~/components/layout/about-nav'
 export default {
   layout: 'web',
   props:['position'],
-components: {webBanner,aboutNav},
-  data () {
-    return {
-      pageName: '',
-      pageKeyword:'',
-      pageDesc:'',
-    }
+  head(){
+	   return {
+			title:'企业团队_图啦啦91tula.com'
+			}
   },
- 
-mounted(){
-}
+components: {webBanner,aboutNav},
 }
 
   
