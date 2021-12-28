@@ -16,7 +16,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-    	{ src: '/js/jquery-3.2.1.min.js' }
+    	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js' }
     ]
   },
 
@@ -25,13 +25,8 @@ export default {
     src:'~assets/less/public.less',
     lang:'less'
   }],
-
-  script: [
-    // {src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js'} 
- ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    // { src: '~plugins/jquery.js', ssr: false }
     {src: '~plugins/layui.js', ssr: false},
     {src: '~plugins/common.js', ssr: false},
     {src: '~plugins/route.js',ssr: false}
@@ -50,6 +45,11 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // 开启打包分析
+    // analyze: true, 	
+    // assetFilter: function(assetFilename) {	    		
+    //   return assetFilename.endsWith('.js');	    	
+    // },
      optimization: {
                     splitChunks: {
                      minSize: 10000,
