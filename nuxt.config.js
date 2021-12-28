@@ -50,6 +50,12 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+     optimization: {
+                    splitChunks: {
+                     minSize: 10000,
+                      maxSize: 250000
+                    }
+              }
     // extend(config, ctx) {
     //   // Run ESLint on save
     //   if (ctx.isDev && ctx.isClient) {
