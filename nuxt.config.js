@@ -54,7 +54,7 @@ export default {
       splitChunks: {
           chunks: 'async',
           minSize: 30000,
-          maxSize: 0,
+          maxSize: 60000,
           minChunks: 1,
           maxAsyncRequests: 6,
           maxInitialRequests: 4,
