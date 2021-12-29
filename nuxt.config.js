@@ -50,24 +50,23 @@ export default {
         name: 'manifest'
       },
       splitChunks: {
-        chunks: 'all',
+        chunks: 'async', 
+        name:'common',
+        automaticNameDelimiter: '.',
         cacheGroups: {
-          libs: {
-            name: 'chunk-libs',
-            chunks: 'initial',
-            priority: -10,
-            reuseExistingChunk: false,
-            test: /node_modules\/(.*)\.js/
+          vendors: {  
+            test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块，
+            priority: 1  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
           },
-          styles: {
-            name: 'chunk-styles',
-            test: /\.(less|css)$/,
-            chunks: 'all',
-            minChunks: 1,
-            reuseExistingChunk: true,
-            enforce: true
+          default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
           }
         }
+      },
+      runtimeChunk: {  //解决浏览器长缓存问题
+        name: entrypoint => `manifest.${entrypoint.name}`
       }
     },
     // 开启打包分析
@@ -75,7 +74,8 @@ export default {
     // assetFilter: function(assetFilename) {	    		
     //   return assetFilename.endsWith('.js');	    	
     // },
-    extractCSS: { allChunks: true },
+    extractCSS: true,
+    // extractCSS: { allChunks: true },
     
   
     //  optimization: {
