@@ -45,17 +45,45 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    optimization: {
+      runtimeChunk: {
+        name: 'manifest'
+      },
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          libs: {
+            name: 'chunk-libs',
+            chunks: 'initial',
+            priority: -10,
+            reuseExistingChunk: false,
+            test: /node_modules\/(.*)\.js/
+          },
+          styles: {
+            name: 'chunk-styles',
+            test: /\.(scss|css)$/,
+            chunks: 'all',
+            minChunks: 1,
+            reuseExistingChunk: true,
+            enforce: true
+          }
+        }
+      }
+    },
     // 开启打包分析
     // analyze: true, 	
     // assetFilter: function(assetFilename) {	    		
     //   return assetFilename.endsWith('.js');	    	
     // },
-     optimization: {
-                    splitChunks: {
-                     minSize: 10000,
-                      maxSize: 250000
-                    }
-              }
+    extractCSS: { allChunks: true },
+    
+  
+    //  optimization: {
+    //                 splitChunks: {
+    //                  minSize: 10000,
+    //                   maxSize: 250000
+    //                 }
+    //           }
     // extend(config, ctx) {
     //   // Run ESLint on save
     //   if (ctx.isDev && ctx.isClient) {
@@ -79,7 +107,9 @@ export default {
     //   }
     // ]
   },  
-  
+  dev: { // dev 环境
+    cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
+  },
 
   loading:{  //加载异步页面的样式
     color:"#3ebb2b"
