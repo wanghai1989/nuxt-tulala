@@ -73,7 +73,8 @@ export default {
             enforce: true
           }
         }
-      },
+      }
+    },
     //   runtimeChunk: {  //解决浏览器长缓存问题
     //     name: entrypoint => `manifest.${entrypoint.name}`
     //   }
