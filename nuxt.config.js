@@ -46,10 +46,10 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    // analyze: true, 	
-    // assetFilter: function(assetFilename) {	    		
-    //   return assetFilename.endsWith('.js');	    	
-    // },
+    analyze: true, 	
+    assetFilter: function(assetFilename) {	    		
+      return assetFilename.endsWith('.js');	    	
+    },
     optimization: {
       splitChunks: {
           chunks: 'async',
@@ -64,8 +64,14 @@ export default {
                   name: `chunk-vendors`,
                   test: /[\\/]node_modules[\\/]/,
                   priority: -10,
-                  chunks: 'initial'
+                  chunks: 'all'
               },
+            //   element: {
+            //     chunks: 'all',
+            //     name: `vue-datepicker`,
+            //     test: /[\\/]vue-datepicker[\\/]/,
+            //     priority: 0,
+            // },
               common: {
                   name: `chunk-common`,
                   minChunks: 2,
@@ -119,6 +125,18 @@ export default {
     color:"#3ebb2b"
   }, 
   router:{
+      // extendRoutes(routes, resolve) {
+      //   routes.length = 0 ,
+      //   routes.push({
+      //     path: '/',
+      //     name: 'index',
+      //     component: resolve(__dirname, 'pages/index.vue')
+      //   },{
+      //     path: '/about/about-us',
+      //     name: 'about',
+      //     component: resolve(__dirname, 'pages/about/index.vue')
+      //   })
+      // },
     middleware:'index'  //中间件js名字要对应
   }
 }
