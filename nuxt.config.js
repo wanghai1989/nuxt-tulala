@@ -61,7 +61,7 @@ export default {
           },
           styles: {
             name: 'chunk-styles',
-            test: /\.(scss|css)$/,
+            test: /\.(less|css)$/,
             chunks: 'all',
             minChunks: 1,
             reuseExistingChunk: true,
