@@ -45,35 +45,40 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    optimization: {
-      runtimeChunk: {
-        name: 'manifest'
-      },
-      splitChunks: {
-        chunks: 'async', 
-        name:'common',
-        automaticNameDelimiter: '.',
-        cacheGroups: {
-          vendors: {  
-            test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块，
-            priority: 1  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
-          },
-          default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true
-          }
-        }
-      },
-      runtimeChunk: {  //解决浏览器长缓存问题
-        name: entrypoint => `manifest.${entrypoint.name}`
-      }
-    },
+    
     // 开启打包分析
-    // analyze: true, 	
-    // assetFilter: function(assetFilename) {	    		
-    //   return assetFilename.endsWith('.js');	    	
+    analyze: true, 	
+    assetFilter: function(assetFilename) {	    		
+      return assetFilename.endsWith('.js');	    	
+    },
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: 'async', 
+    //     name:'common',
+    //     automaticNameDelimiter: '.',
+    //     cacheGroups: {
+    //       vendors: {  
+    //         test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块，
+    //         priority: 1  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
+    //       },
+    //       default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
+    //         minChunks: 2,
+    //         priority: -20,
+    //         reuseExistingChunk: true
+    //       },
+    //       styles: {
+    //         name: 'styles',
+    //         test: /\.(css|vue)$/,
+    //         chunks: 'all',
+    //         enforce: true
+    //       }
+    //     }
+    //   },
+    //   runtimeChunk: {  //解决浏览器长缓存问题
+    //     name: entrypoint => `manifest.${entrypoint.name}`
+    //   }
     // },
+    
     extractCSS: true,
     // extractCSS: { allChunks: true },
     
