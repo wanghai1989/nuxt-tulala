@@ -45,73 +45,71 @@ export default {
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    
     // 开启打包分析
-    // analyze: true, 	
-    // assetFilter: function(assetFilename) {	    		
-    //   return assetFilename.endsWith('.js');	    	
-    // },
+    analyze: true, 	
+    assetFilter: function(assetFilename) {	    		
+      return assetFilename.endsWith('.js');	    	
+    },
     optimization: {
       splitChunks: {
-        chunks: 'async', 
-        name:'common',
-        automaticNameDelimiter: '.',
-        cacheGroups: {
-          vendors: {  
-            test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块，
-            priority: 1  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
-          },
-          default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true
-          },
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
+          chunks: 'async',
+          minSize: 30000,
+          maxSize: 0,
+          minChunks: 1,
+          maxAsyncRequests: 6,
+          maxInitialRequests: 4,
+          automaticNameDelimiter: '~',
+          cacheGroups: {
+              vendors: {
+                  name: `chunk-vendors`,
+                  test: /[\\/]node_modules[\\/]/,
+                  priority: -10,
+                  chunks: 'initial'
+              },
+              common: {
+                  name: `chunk-common`,
+                  minChunks: 2,
+                  priority: -20,
+                  chunks: 'initial',
+                  reuseExistingChunk: true
+              }
           }
-        }
       }
-    },
+  },
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
+    //     name:'common',
+    //     minSize: 10000,
+    //     maxSize: 100000, //把提取出来的模块打包生成的文件大小不能超过maxSize值
+    //     minChunks:1,  //表示要被提取的模块最小被引用次数,超过或等于才能被引用
+    //     automaticNameDelimiter: '.',
+    //     cacheGroups: {  //核心，配置提取模块的方案
+    //       vendors: {  
+    //         test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块， 用来匹配要提取的模块的资源路径或名称。
+    //         priority: -10,  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
+    //         chunks: 'initial' //提取同步加载和异步加载模块
+    //       },
+    //       default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
+    //         minChunks: 2,
+    //         priority: -20,
+    //         reuseExistingChunk: true
+    //       },
+    //       styles: {
+    //         name: 'styles',
+    //         test: /\.(css|vue)$/,
+    //         chunks: 'all',
+    //         enforce: true
+    //       }
+    //     }
+    //   },
+      
     //   runtimeChunk: {  //解决浏览器长缓存问题
     //     name: entrypoint => `manifest.${entrypoint.name}`
     //   }
     // },
     
-    extractCSS: true,
-    // extractCSS: { allChunks: true },
-    
-  
-    //  optimization: {
-    //                 splitChunks: {
-    //                  minSize: 10000,
-    //                   maxSize: 250000
-    //                 }
-    //           }
-    // extend(config, ctx) {
-    //   // Run ESLint on save
-    //   if (ctx.isDev && ctx.isClient) {
-    //     config.module.rules.push()
-    //   }
-    //   config.resolve.alias['$json'] = path.resolve(__dirname, 'static/json')
-    // }
-  //   plugins: [
-  //     new webpack.ProvidePlugin({
-  //         '$' : 'jquery' 
-  //     })
-  // ]
-    // loaders:[
-    //   {
-    //     test:/\.(png|jpe?g|gif|svg)$/,
-    //     loader:"url-loader",
-    //     query:{
-    //       limit:10000,
-    //       name:'img/[name].[hash].[ext]'
-    //     }
-    //   }
-    // ]
+    extractCSS: true
   },  
   dev: { // dev 环境
     cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
