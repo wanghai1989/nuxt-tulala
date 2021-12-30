@@ -18,6 +18,7 @@
 					v-model="password"
 					>
           <input v-else
+          	autocomplete="off"
           type="password"
 					class="input-login"
 					placeholder="密码(6-12位字母数字组合)"
@@ -31,8 +32,8 @@
         <a class="btn-login wechat" href="javascript:void(0)" target="_bank" @click="webchatLogin()"><i></i> 微信登录</a>
 			</div>
 			<div class="tip">
-        <router-link to="/user/forget-pwd"  class="smslogin">忘记密码？</router-link>
-				<span class="goreg">没有账户，<router-link to="/user/register">立即注册</router-link></span>
+        <nuxt-link to="/user/forget-pwd"  class="smslogin">忘记密码？</nuxt-link>
+				<span class="goreg">没有账户，<nuxt-link to="/user/register">立即注册</nuxt-link></span>
 			</div>
 			<!-- <div class="quick-login">
 				<a class="login-wechat" href="person-info.html">
@@ -135,23 +136,20 @@ export default {
               this.setToken(data.data.token)
               this.fetchPerson(data.data.token)
               const preRouter=localStorage.getItem("preRoute")//上一个路由
-              if(!preRouter && !this.showLogin){
-                console.log(111)
-                setTimeout(() => {
-                  this.$router.replace('/mine') 
-                }, 1000);
-              }
-              else if(this.showLogin){
-                console.log(222)
+              if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
                 }, 1000);
-              }
-              else{
-                console.log(333)
-                setTimeout(() => {
-                  this.$router.replace(preRouter)  //跳回上一个路由
+              }else{
+                if(preRouter && preRouter!='/user/login'){
+                  setTimeout(() => {
+                    this.$router.replace(preRouter)  //跳回上一个路由
+                  }, 1000);
+                }else{
+                  setTimeout(() => {
+                  this.$router.replace('/mine') 
                 }, 1000);
+                }
               }
             }
           })

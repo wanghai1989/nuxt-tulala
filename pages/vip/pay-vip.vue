@@ -15,12 +15,12 @@
                         </div>
                 </div>
                 <div class="vip-amount">
-                        <i class="i-sheng" v-if="couponAmount">{{couponAmount}}元满减券</i> 
+                        <i class="i-sheng" v-show="couponAmount">{{couponAmount}}元满减券</i> 
                         支付金额：<span class="cred f24 fw">{{orderPrice}} </span>元</div>
                 <div class="pay-style">
                         <div class="wechat">
                                 <div class="box" :class="{'unlogin':!this.userToken}">
-                                        <a href="javascript:void(0)" v-if="!this.userToken" @click="gologin()">
+                                        <a href="javascript:void(0)" v-show="!this.userToken" @click="gologin()">
                                                 点击登录
                                         </a>
 
@@ -86,6 +86,7 @@ metaInfo: {
     }
   },
   mounted(){  
+       
         this.fetchVipType()
         let interVip=  setInterval(() => { 
                 if(JSON.stringify(this.firstVip) != "{}"){
@@ -146,7 +147,7 @@ payVip:function(type,price){
         formDatas.append('type', type);
         formDatas.append('token', this.userToken);
         this.payVipQd(formDatas).then((data) => {
-                console.log(data)
+                // console.log(data)
                 this.orderId=data.data.orderId
                  this.QRCodeMsg = data.data.payUrl; 
                  this.couponAmount=data.data.memberCouponTotal

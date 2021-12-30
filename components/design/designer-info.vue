@@ -27,7 +27,8 @@
 		 </div>
 	 </div>
 	  		<div class="pic">
-	  			<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'"/>
+	  			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                <img src='~/assets/images/defaultVip.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
 	  			{{personInfo.nickname}} 
@@ -74,26 +75,26 @@
 	  	</div>
 </template>
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 export default {
   data () {
     return {
 		showRule:0,
-		id:''
+		// id:''
     }
   },
   mounted(){  
-	  this.id=this.$route.params.id
-			this.fetchDesign(this.id)
+	//   this.id=this.$route.params.id
+	// 		this.fetchDesign(this.id)
 		},
  
  computed:{
 	  ...mapState(['designinfo','personInfo','designlevel'])
   },
   methods:{
- ...mapActions({
-		  fetchDesignInfo:'fetchDesignInfo'
-      }),
+//  ...mapActions({
+// 		  fetchDesignInfo:'fetchDesignInfo'
+//       }),
 	 designRule:function() {
 		  layer.open({
 				type: 1,
@@ -103,12 +104,12 @@ export default {
 				content:$('#designRule') , //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
 				});
 	 },
-fetchDesign:function(id){
+// fetchDesign:function(id){
 	
-		  let formDatas = new FormData();
-		  formDatas.append('member_id', id);
-		  this.fetchDesignInfo(formDatas)
-	  }
+// 		  let formDatas = new FormData();
+// 		  formDatas.append('member_id', id);
+// 		  this.fetchDesignInfo(formDatas)
+// 	  }
 }
 }
 </script>

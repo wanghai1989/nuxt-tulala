@@ -47,13 +47,13 @@
 	  	</div>
 	</div>
 	<div class="cond-r">
-		<router-link to="/task/public" class="btn-public">免费发布任务</router-link> <br />
+		<nuxt-link to="/task/public" class="btn-public">免费发布任务</nuxt-link> <br />
 		<a href="javascript:void(0)" @click="showRules()" class="linkrule">《任务操作流程》</a> 
 	</div>
 	  </div>
 <ul class="ul-task" v-if="workorder.length>0">
 	  	<li  v-for="item in workorder" :key="item.id">
-	  		<div class=""><router-link  class="cmain f18 fw" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</router-link></div>
+	  		<div class=""><nuxt-link  class="cmain f18 fw" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link></div>
 	  		<div class="work-box clearfix">
 				<div class="work-item">类别&nbsp;<span class="cblack f16 fw">{{item.category_name?item.category_name:"--"}}</span></div>  
 				<div class="work-item">预算&nbsp;<span class="cblack f16 fw">{{item.money}}</span></div>  

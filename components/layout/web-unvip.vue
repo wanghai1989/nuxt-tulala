@@ -26,7 +26,7 @@ export default {
     ...mapMutations(['setShowVip']),
     goOpen:function() {
       this.setShowVip(0)
-      this.$router.push('/user/pay-vip') 
+      this.$router.push('/vip/pay-vip') 
     },
     close(){
     this.setShowVip(0)
@@ -61,14 +61,14 @@ export default {
 }
 
 .vip-box{
-  position: fixed;width: 360px;  height: 500px; top: 50%; left: 50%; margin-top: -250px; margin-left: -180px; z-index: 5; 
-   background: url(../../assets/images/pic09.png) no-repeat; position: relative; border-radius: 5px;
-background-size: cover; padding: 30px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
-.vip-box h3{font-size: 24px; margin-bottom: 42px; color: #f5cd08;}
+  position: fixed;width: 440px;  height: 500px; top: 50%; left: 50%; margin-top: -250px; margin-left: -220px; z-index: 5; 
+   background: #fff; position: relative; border-radius: 5px;
+background-size: cover; padding: 15px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
+.vip-box h3{font-size: 24px; margin-bottom: 42px; color: #333; padding-bottom: 15px; border-bottom: 1px solid #eee;}
 .vip-box p{
-    padding: 8px 30px;
+    padding: 9px 30px;
     background: var(--color);
-    width: 260px;
+    width: 300px;
     box-sizing: border-box;
     margin: 0px auto 15px;    transform: rotate(350deg);
     border-radius: 30px;}
@@ -78,7 +78,7 @@ background-size: cover; padding: 30px 0px 0px; box-sizing: border-box; color: #f
   .vip-box p.p03{background: #c1ac49;}
   .vip-box p.p04{background: #b449c1;}
   .vip-box p.p05{background: #a9c149;}
-.btn-open{.btn(260px,42px,var(--redColor),var(--redColor),#fff); margin-top: 40px}
+.btn-open{.btn(300px,44px,var(--redColor),var(--redColor),#fff); margin-top: 40px}
 .btn-open:hover{opacity: 0.9;}
 .close{.bg-map(24px,24px,-583px, -44px); position: absolute; top: 10px; right: 10px;}
 </style>

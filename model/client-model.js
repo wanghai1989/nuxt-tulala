@@ -277,12 +277,8 @@ export default {
         }
     }))
    },    
-   getProductinfo (formData) { //获取素材详情
-    return handleRequest(request.post('/api/product/detail',formData,{
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    }))
+   getProductinfo (id) { //获取素材详情
+    return handleRequest(request.post('/api/product/detail',{id},{}))
    },   
    confirmOrder (formData) { //设计师确认订单
     return handleRequest(request.post('/api/work-order/confirmTheAmount',formData,{
@@ -373,8 +369,8 @@ export default {
    getDesignProductlist (formData) { //获取设计师素材列表
     return handleRequest(request.post('/api/designer/products',formData,{}))
    }, 
-   getDesignInfo(formData){  //获取设计师信息页
-    return handleRequest(request.post('/api/designer/designerDetail',formData,{}))
+   getDesignInfo(member_id){  //获取设计师信息页
+    return handleRequest(request.post('/api/designer/designerDetail',{member_id},{}))
    },
    getNew(formData) { //获取用户消息列表
     return handleRequest(request.post('/api/member/getBulletins',formData,{}))

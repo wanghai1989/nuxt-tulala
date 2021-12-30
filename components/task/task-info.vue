@@ -22,7 +22,7 @@
 	</div>
 	<div class="task-bidding">
 		<div class="tip" v-if="!personInfo.certification">
-			<i></i>您还未 <router-link to="/person/real-name" class="cmain">实名认证</router-link>，无法报名参与
+			<i></i>您还未 <nuxt-link to="/person/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
 		</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
@@ -45,7 +45,7 @@
 					<button type="submit" class="btn-report" disabled v-else >参与竞价</button>
 					<!-- <button type="submit" class="btn-report"  v-bind:disabled="!personInfo.certification">报名参与</button> -->
 					<div class="rule">
-						<router-link :to="{ path:'/agreement', query:{id:6}}"  class="cmain"  target="_blank">违规交易说明</router-link>
+						<nuxt-link :to="{ path:'/agreement', query:{id:6}}"  class="cmain"  target="_blank">违规交易说明</nuxt-link>
 					</div>
 					
 				</div>
@@ -87,21 +87,13 @@ export default {
     }
   },
   mounted(){  
-	  this.id=this.$route.params.id
-			this.fetchWorkinf(this.id)
+
 		},
-	watch :{
-      '$route': function (to, from) {
-		  this.id=this.$route.params.id
-		   this.fetchWorkinf(this.id)
-      }
-    },
  computed:{
 	  ...mapState(['workinfo','personInfo','userToken'])
   },
   methods:{
  ...mapActions({
-		  fetchWorkinfo:'fetchWorkinfo',
 		  createOffer:'createOffer'
       }),
 	  getLength(){
@@ -157,16 +149,15 @@ closeBigImg:function(){
 			})
 		  }
 		  },
-fetchWorkinf:function(id){
-		  let formDatas = new FormData();
-		  formDatas.append('id',id);
+// fetchWorkinf:function(id){
+// 		  let formDatas = new FormData();
+// 		  formDatas.append('id',id);
 
-		  this.fetchWorkinfo(formDatas)
-	  }
+// 		  this.fetchWorkinfo(formDatas)
+// 	  }
 }
 }
 
-	 
 </script>
 <style lang="less">
 .bg-map(@width:25px,@height:25px,@x:0px,@y:0px){

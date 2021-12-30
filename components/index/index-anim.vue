@@ -1,9 +1,9 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
-        <router-link to="/user/register"  target="_blank" class="link img-box">
+        <nuxt-link to="/user/register"  target="_blank" class="link img-box">
                <span class="receive">立即领取</span>
-        </router-link>
+        </nuxt-link>
       <em class="close iconfont icon-close"  @click="close()"></em>
       </div>
       </div>

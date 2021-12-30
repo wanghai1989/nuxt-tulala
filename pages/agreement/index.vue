@@ -8,10 +8,13 @@
 
 <script>
 import Contract from '~/components/active/contract.vue'
-import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   components: {Contract}
-
+   components: {Contract},
+  head(){
+	   return {
+			title:'协议-图啦啦91tula.com'
+			}
+  },
 }
 </script>

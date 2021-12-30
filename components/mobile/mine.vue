@@ -3,7 +3,8 @@
   <div class="mine-head">
      <div class="vip-head">
        <div class="vip-img">
-         <img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" />
+         <img :src="personInfo.avatar" v-if="personInfo.avatar" />
+         <img src='~/assets/images/defaultVip.png' v-else /> 
        </div>
        <div class="vip-txt">
          <div  class="username">{{personInfo.nickname}}(ID:{{personInfo.num}})</div>
@@ -31,14 +32,14 @@
  </div>
  <ul class="ul-menu">
     <li class="public">
-    <router-link to="/m/mobile-taskpublic">
+    <nuxt-link to="/m/mobile-taskpublic">
       <i class="iconfont">&#xec46;</i> 我的发布
-      </router-link>
+      </nuxt-link>
     </li>
     <li class="accept">
-    <router-link to="/m/mobile-taskaccept">
+    <nuxt-link to="/m/mobile-taskaccept">
       <i class="iconfont">&#xe683;</i> 我的接单
-      </router-link>
+      </nuxt-link>
     </li>
     <li class="file" @click="downLoad('person/my-file')">
       <i class="iconfont">&#xe603;</i> 我的作品
@@ -96,7 +97,7 @@ export default {
       },
       updatePersoninfo:function(){
 		  let formDatas = new FormData();
-      console.log(this.userToken)
+      // console.log(this.userToken)
 		  formDatas.append('token', this.userToken);
 		  this.fetchPersoninfo(formDatas)
 	  },

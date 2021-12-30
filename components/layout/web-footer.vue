@@ -3,33 +3,33 @@
 	  	<div class="friend-link">
 	  		<div class="wrapper"> 
 					友情链接： 
-					<router-link to="https://588ku.com/">千库网</router-link>  
-					<router-link to="https://699pic.com/">摄图网</router-link> 
-					<router-link to="https://www.tukuppt.com/">熊猫办公</router-link> 
-					<router-link to="https://www.nipic.com/">昵图网</router-link> 
+					<a href="https://588ku.com/" target="_bank">千库网</a>  
+					<a href="https://699pic.com/" target="_bank">摄图网</a>  
+					<a href="https://www.tukuppt.com/" target="_bank">熊猫办公</a>  
+					<a href="https://www.nipic.com/" target="_bank">昵图网</a>  
 			</div>
 		</div>
 			<div class="wrapper">
 			  <div class="footer-links clearfix">
 				<dl class="col-links">
 					<dt><i class="icon i-aboutus"></i> 了解我们</dt> 
-					<dd><router-link to="/about/about-us">关于图啦啦</router-link></dd> 
-					<dd><router-link to="/about/find-job">招兵买马</router-link></dd>
-					<dd><router-link to="/about/handin-hand">牵手图啦</router-link></dd>
+					<dd><nuxt-link to="/about/about-us">关于图啦啦</nuxt-link></dd> 
+					<dd><nuxt-link to="/about/find-job">招兵买马</nuxt-link></dd>
+					<dd><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></dd>
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-agreement"></i>服务协议</dt> 
-					<dd><router-link to="/enter?#question"> 任务帮助中心</router-link></dd>
-					<dd><router-link :to="{ path:'/agreement', query:{id:1}}"> 用户协议</router-link></dd> 
-					<dd><router-link :to="{ path:'/agreement', query:{id:2}}"> 版权声明</router-link></dd>
-					<dd><router-link :to="{ path:'/agreement', query:{id:5}}"> 常见问题</router-link></dd> 
+					<dd><nuxt-link to="/enter?#question"> 任务帮助中心</nuxt-link></dd>
+					<dd><nuxt-link :to="{ path:'/agreement', query:{id:1}}"> 用户协议</nuxt-link></dd> 
+					<dd><nuxt-link :to="{ path:'/agreement', query:{id:2}}"> 版权声明</nuxt-link></dd>
+					<dd><nuxt-link :to="{ path:'/agreement', query:{id:5}}"> 常见问题</nuxt-link></dd> 
 					
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-map"></i>网站地图</dt> 
-					<dd><router-link to="/integral-mall">积分商城</router-link></dd> 
-					<dd><router-link to="/task">任务列表</router-link></dd>
-					<dd><router-link to="/enter">设计师入驻</router-link></dd> 
+					<dd><nuxt-link to="/integral-mall">积分商城</nuxt-link></dd> 
+					<dd><nuxt-link to="/task">任务列表</nuxt-link></dd>
+					<dd><nuxt-link to="/enter">设计师入驻</nuxt-link></dd> 
 				</dl>
 				<div class="qrcode">
 					<div class="item">

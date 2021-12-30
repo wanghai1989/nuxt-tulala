@@ -1,5 +1,5 @@
 <template>
-    <div class="search-box" :class="dataClass">
+    <div class="search-box" :class="pageclass">
 		<div class="divsearch clearfix">
 	  	<div id="divselect"  class="searchtype fl"> 
         <cite>全部</cite> 
@@ -18,7 +18,7 @@
         	<i></i>搜索
         </a>
 	  </div>
-	  <div class="search-hot" v-if="dataClass!='index'">
+	  <div class="search-hot" v-if="pageclass!='index'">
 	  	热门搜索 : <a class="cred">春天</a> 
 	  	<a href="#">疫情</a>
 	  	<a href="#">简历</a>
@@ -37,28 +37,30 @@ import {
     mapState,mapMutations,mapActions
 } from 'vuex'
 export default {
-  props: ['dataClass'],
+  props: ['pageclass'],
   data () {
     return {
-      route_name:'all',
-	  input_keyword:''
+	  input_keyword:'',
+      category_id:0
     }
   },
   computed:{
-	  ...mapState(['category','typeName'])
+	  ...mapState(['category','idName','idClass'])
   },
-  watch :{
-      '$route': function (to, from) {
-          const id=this.$route.params.id
-          const type_class=this.$route.name
-          const name=this.typeName[this.$route.name]
-          this.selectCategory(id,type_class,name)
-      }
-    },
+//   watch :{
+//       '$route': function (to, from) {
+//           const id=this.$route.params.id
+//           const type_class=this.idClass[this.$route.params.id] 
+//           const name=this.idName[this.$route.params.id]
+//           console.log(id+','+type_class+','+name)
+//           this.selectCategory(id,type_class,name)
+//       }
+//     },
   created(){
      
   },
   mounted() {
+       this.bindSearchInfo()
        this.fetchCategory().then((data) => {
             this.divselect("#divselect","#inputselect"); 
        })
@@ -68,14 +70,22 @@ export default {
     ...mapActions({
           fetchCategory: 'fetchCategory'
       }),
+
+
+      bindSearchInfo(){
+          const id=this.$route.params.id
+          const type_class=this.idClass[this.$route.params.id] 
+          const name=this.idName[this.$route.params.id]
+          this.input_keyword=this.$route.query.keyword
+          this.selectCategory(id,type_class,name)
+      },
       doSearch(){
-        //   console.log('urlname'+this.$route.name,'searchname'+this.route_name)
-          if(this.$route.name==this.route_name){
+          if(this.$route.params.id==this.category_id){
               this.$router.push({
                 query:merge(this.$route.query,{'keyword':this.input_keyword})
             })
           }else{
-              this.$router.push({name: this.route_name,params:{id:$("#inputselect").val()},query:{keyword:this.input_keyword}});
+              this.$router.push({name: 'material-id',params:{id:this.category_id},query:{keyword:this.input_keyword}});
           }
         
       },
@@ -91,7 +101,7 @@ export default {
                 },
         selectCategory:function(id,type_class,name){
             $("#divselect cite").html(name); 
-            this.route_name=type_class
+            this.category_id=id
             $("#inputselect").val(id)
             $("#divselect  ul").hide(); 
             $("#divselect cite").removeClass("rota90");

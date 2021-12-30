@@ -1,12 +1,12 @@
 <template>
     <div class="footer-login">
 			<div class="maplink">
-				<router-link to="/about/about-us">关于图啦啦</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link to="/about/handin-hand">牵手图啦</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link :to="{ path:'/agreement', query:{id:5}}">常见问题</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link to="/task">招兵买马</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link to="/integral-mall">任务列表</router-link>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<router-link to="/enter">设计师入驻</router-link>
+				<nuxt-link to="/about/about-us">关于图啦啦</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<nuxt-link :to="{ path:'/agreement', query:{id:5}}">常见问题</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<nuxt-link to="/about/find-job">招兵买马</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<nuxt-link to="/task">任务列表</nuxt-link>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<nuxt-link to="/enter">设计师入驻</nuxt-link>
 			</div>
 			<div class="copyright">
 				Copyright © 2021 91tula.com All Rights Reserved　版权所有·深圳市辰马互联网技术服务有限公司  <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021149388号</a> 

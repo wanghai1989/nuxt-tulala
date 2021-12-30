@@ -3,11 +3,11 @@
    <div class="prod-list" :class="item.type_class"  v-for="item in homeproductlist" :key="item.id" :id="item.type_class">
 		<div class="prod-tit">
 			<h3><i></i>{{item.name}}</h3>
-			<router-link class="viewmore" :to="{ name: item.type_class, params:{ id: item.id }}">更多作品<i></i></router-link>
+			<nuxt-link class="viewmore" :to="{ name: 'material-id', params:{ id: item.id }}">更多作品<i></i></nuxt-link>
 		</div>
 			<ul class="ul-prod">
 				<li   v-for="child in item.products" :key="child.id">
-                    <router-link  :to="{ name: 'materialDetail', params:{ id: child.id }}">
+                    <nuxt-link  :to="{ name: 'material-detail-id', params:{ id: child.id }}">
 					<div class="prod-img">
 						<img :src='child.list_img_path'>
 						<div class="prod-txt">
@@ -21,7 +21,7 @@
 						</div>
 					</div>
 					</div>
-                    </router-link>
+                    </nuxt-link>
 				</li>
 			</ul>
  			</div>
@@ -40,10 +40,10 @@ export default {
 			this.fetchHomeProduct()
 		},
  computed:{
-	  ...mapState(['homeproductlist','userToken'])
+	  ...mapState(['homeproductlist','userToken','personInfo'])
   },
   methods:{
- ...mapMutations(['setShowLogin']),
+ ...mapMutations(['setShowLogin','setShowVip']),
  ...mapActions({
 		  fetchHomeProduct:'fetchHomeProduct',
           operateCollect:'operateCollect',
@@ -73,13 +73,17 @@ export default {
 			this.setShowLogin(1)
 			return
 		}
+        if(this.personInfo.is_vip){
         let formDatas = new FormData();
 		  formDatas.append('token',this.userToken);
-          formDatas.append('product_id',id);
-		
+          formDatas.append('product_id',id);            
 		 this.downFile(formDatas).then((res) => {
 　　　　　　　　this.download(res,'图啦啦_'+name+'.zip') //此处跳转到第三步
           })
+        }else{
+			  this.setShowVip(1)
+			  return
+		  }
 	},
 	download:function(data,fileName) {
 　　　　　　if (!data.size) {

@@ -14,14 +14,10 @@ import vipInfo from '~/components/person/vip-info.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,vipInfo},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
-  
+ head(){
+	   return {
+			title: '会员信息、会员记录-图啦啦91tula.com'
+			}
+  },
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

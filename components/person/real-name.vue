@@ -171,6 +171,13 @@ computed:{
     vertical-align: middle;
     cursor: pointer;
 }
+.about-contain {
+    padding: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 20px;
+    min-height: 400px;
+}
 .vam-basic{width: 560px; margin: 0 auto;
     >div>div{padding: 10px 0; line-height: 1;}
     >div>div:first-child{width: 120px; text-align:right; padding-right: 20px; box-sizing: border-box;}

@@ -14,14 +14,11 @@ import myWorks from '~/components/person/my-works.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,myWorks},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
+ head(){
+	   return {
+			title: '我的工单列表-图啦啦91tula.com'
+			}
+  },
   
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

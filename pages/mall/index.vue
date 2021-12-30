@@ -10,10 +10,13 @@
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
 import goodsList from '~/components/mall/goods-list.vue'
-import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   components: {webBanner,goodsList}
-
+   components: {webBanner,goodsList},
+   head(){
+	   return {
+			title: '积分商城_会员专区_图啦啦91tula.com'
+			}
+}
 }
 </script>

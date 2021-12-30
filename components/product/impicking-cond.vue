@@ -85,9 +85,9 @@ export default {
 		this.query.sort_id=this.sort_id
 		this.keyword=this.$route.query.keyword
 		if(this.keyword){
-			this.query.keyword=this.this.keyword
+			this.query.keyword=this.keyword
 		}
-		this.$router.push({name: this.$route.name,params:{id:this.categoryId},query:this.query});
+		this.$router.push({name: 'material-id',params:{id:this.categoryId},query:this.query});
         
       },
 fetchCond:function(category_id){

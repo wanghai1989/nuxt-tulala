@@ -3,7 +3,7 @@
        
 			<div class="step-cont"> 
           <div class="tip" v-if="personInfo.designer_status!=102">
-              <i></i>您还不是图啦啦签约设计师，请先前往&nbsp;<router-link class="cmain" to="/enter/design-basic">入驻图啦啦</router-link>
+              <i></i>您还不是图啦啦签约设计师，请先前往&nbsp;<nuxt-link class="cmain" to="/enter/design-basic">入驻图啦啦</nuxt-link>
         </div>
 	  			<div class="pic-title">
 	  				<span class="cred">*</span>素材类别<span class="f14 cgray">(单选)</span> 
@@ -78,8 +78,8 @@ export default {
     },
    mounted(){
 //   import('layui-layer')
-    this.route=this.$router
-    console.log(this.route)
+    // this.route=this.$router
+    // console.log(this.route)
     this.fetchCategory();
   },
   computed:{
@@ -166,7 +166,7 @@ export default {
       },
       fileList(files){
         for (let i = 0; i < files.length; i++) {
-          console.log(files[i])
+          // console.log(files[i])
           this.fileAdd(files[i]);
         }
       },

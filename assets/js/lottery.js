@@ -9,35 +9,35 @@ var winnerList=[
     {
         id:'1',
         name:'5积分',
-        logo:'/static/prize01.png',
+        logo:'/img/prize01.png',
     },{
         id:'2',
         name:'10积分',
-        logo:'/static/prize01.png',
+        logo:'/img/prize01.png',
     },{
         id:'3',
         name:'500满减券',
-        logo:'/static/prize02.png',
+        logo:'/img/prize02.png',
     },{
         id:'4',
         name:'100满减券',
-        logo:'/static/prize02.png',
+        logo:'/img/prize02.png',
     },{
         id:'5',
         name:'50满减券',
-        logo:'/static/prize02.png',
+        logo:'/img/prize02.png',
     },{
         id:'6',
         name:'1天VIP',
-        logo:'/static/prize03.png',
+        logo:'/img/prize03.png',
     },{
         id:'7',
         name:'终身VIP',
-        logo:'/static/prize03.png',
+        logo:'/img/prize03.png',
     },{
         id:'8',
         name:'谢谢参与',
-        logo:'/static/prize04.png',
+        logo:'/img/prize04.png',
     }
 ] //奖品列表
 // 有几份扇形

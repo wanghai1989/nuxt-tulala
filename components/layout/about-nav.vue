@@ -1,12 +1,12 @@
 <template>
  <div class="about-nav">
 			<ul class="wrapper clearfix">
-				<li><router-link to="/about/about-us">关于我们</router-link></li>
-				<li><router-link to="/about/link-us">联系我们</router-link></li>
-				<li><router-link to="/about/find-job">公司招聘</router-link></li>
-				<li><router-link to="/about/enterprise-team">企业团队</router-link></li>
-			  <li><router-link to="/about/handin-hand">牵手图啦</router-link></li>
-			  <li><router-link to="/about/qq-group">qq联盟</router-link></li>
+				<li><nuxt-link to="/about/about-us">关于我们</nuxt-link></li>
+				<li><nuxt-link to="/about/link-us">联系我们</nuxt-link></li>
+				<li><nuxt-link to="/about/find-job">公司招聘</nuxt-link></li>
+				<li><nuxt-link to="/about/enterprise-team">企业团队</nuxt-link></li>
+			  <li><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></li>
+			  <li><nuxt-link to="/about/qq-group">qq联盟</nuxt-link></li>
 			</ul>
 		</div>
 </template>

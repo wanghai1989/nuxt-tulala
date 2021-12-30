@@ -14,14 +14,10 @@ import mobileBind from '~/components/person/mobile-bind.vue'
 export default {
 layout: 'web',
 components: {personBanner,personNav,mobileBind},
-metaInfo: {
-    title: '上传-图啦啦91tula.com'
-  }
-  
+  head(){
+	   return {
+			title: '绑定手机号-图啦啦91tula.com'
+			}
+  }, 
 }
 </script>
-<style lang="less" scoped>
-
-
-
-</style>

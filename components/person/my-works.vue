@@ -30,12 +30,12 @@
 				<li  v-for="item in worklist" :key="item.id">
 					<div class="task-l">
 						<div>
-							<router-link class="cmain fw f16" :to="{ name: 'taskdetail', params:{ id: item.id }}" >{{item.name}}</router-link>
+							<nuxt-link class="cmain fw f16" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link>
 							<p class="f12 cgray">发布时间&nbsp;{{publicTime(item.status_approved_time)}} </p>
 						</div>
 				  		<div class="cgray mt20">
 						 <span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>
-						 <span class="worktxt">雇佣设计师&nbsp;<router-link  :to="{ name: 'designerhome', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname}}</b></router-link></span>
+						 <span class="worktxt">雇佣设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname}}</b></nuxt-link></span>
 						  <span class="worktxt">手机号&nbsp;<b class="cblack f15">{{item.mobile}}</b></span>
 						  <span class="worktxt">预算&nbsp;<b class="cblack f15">{{item.money}}</b></span>
 						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}}天</b></span>
@@ -56,7 +56,7 @@
 				<li  v-for="item in worklist" :key="item.id">
 					<div class="task-l">
 						<div>
-							<router-link class="cmain fw f16" :to="{ name: 'taskdetail', params:{ id: item.id }}" >{{item.name}}</router-link> 
+							<nuxt-link class="cmain fw f16" :to="{ name: 'designer-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link> 
 							<p class="f12 cgray">发布时间&nbsp;{{publicTime(item.status_approved_time)}} </p>
 						</div>
 				  		<div class="cgray mt20">
@@ -211,7 +211,7 @@ export default {
 		  formDatas.append('token', this.userToken);
 		  formDatas.append('id', id);
 		  if(status==1){
-			  this.$router.push({name: 'taskworkjoin', params:{ id: id}})
+			  this.$router.push({name: 'taskhire-id', params:{ id: id}})
 			  return
 		  }
 		  if(status==4){

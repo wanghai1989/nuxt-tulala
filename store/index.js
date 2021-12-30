@@ -27,7 +27,6 @@ export const state = () => ({
   userToken:'',
   showLogin:0,  //弹框登录默认隐藏
   showVip:0,  //非会员下载弹框
-  // isLogin: false,
   category:[],//作品分类
   defaultchannel:[], //获知渠道
   myproduct:[], //我的作品列表
@@ -69,7 +68,9 @@ pageSize:10,  //每页条数
   designlevel:{1:'设计助理',2:'设计师',3:'资深设计师',4:'设计指导'},
   publicStateName:{1:'安全雇佣',2:'审核拒绝',3:'待确认',4:'支付定金',5:'支付尾款',6:'已完成',7:'已过期',8:'已结算'},  //我的发布状态名
   acceptStateName:{1:'已竞价',3:'接受雇佣',4:'待付定金',5:'工单进行中',6:'已完成',8:'已结算'},  //我的接单状态名
-  typeName:{'png':'免抠元素','ui':'网站UI','mbsc':'模板素材','bjtp':'背景图片','syt':'摄影图','word':'WORD','ppt':'PPT','excel':'EXCEL','all':'全部'},
+  idClass:{0:'all',1:'png',2:'bjtp',3:'ui',4:'mbsc',5:'ppt',6:'syt',50:'word',51:'excel'},
+  className:{'png':'免抠元素','ui':'网站UI','mbsc':'模板素材','bjtp':'背景图片','syt':'摄影图','word':'WORD','ppt':'PPT','excel':'EXCEL','all':'全部'},
+  idName:{1:'免抠元素',3:'网站UI',4:'模板素材',2:'背景图片',6:'摄影图',50:'WORD',5:'PPT',51:'EXCEL',0:'全部'},
   auditRealName:{0:'未认证',1:'审核通过',2:'待审核',3:'审核拒绝'},  //实名审核状态  
   auditQQName:{0:'待审核',1:'审核拒绝',2:'未满',3:'已满'},  //QQ联盟群状态 
   softName:{'PSD':'Photoshop','AI':'Illustrator','EPS':'PostScript','CDR':'CorelDraw','SKETCE':'sketch','AE':'After Effects','C4D':'Cinema 4D','MAX':'3Dmax'},  //文件所使用软件 
@@ -130,6 +131,7 @@ doLogin (state, userInfo) {
 // }, 
 //设置token
 setToken(state, token) {
+  // console.log('mutation',token)
     state.userToken = token;
     localStorage.setItem('token', token);
   },
@@ -425,7 +427,7 @@ export const actions = {
       fetchGoodDetail ({ commit },{goods_id}) {
         commit('startLoading')
         return model.getGoodDetail(goods_id)
-          .then(data => {
+          .then(data => { 
             commit('endLoading')
             commit('fillGoodDetail', data.data)
           })
@@ -564,9 +566,9 @@ export const actions = {
             handleError(err)
           })
     },
-    fetchProductinfo({commit},formData){
+    fetchProductinfo({commit},{id}){
       commit('startLoading')
-      return model.getProductinfo(formData)
+      return model.getProductinfo(id)
           .then(data => {
             commit('endLoading')
             commit('fillProductinfo', data.data)
@@ -671,10 +673,11 @@ export const actions = {
             handleError(err)
           })
     }, 
-    fetchDesignInfo({commit},formData){
+    fetchDesignInfo({commit},{id}){
       commit('startLoading')
-      return model.getDesignInfo(formData)
+      return model.getDesignInfo(id)
           .then(data => {
+            console.log(data)
             commit('endLoading')
             commit('fillDesignInfo', data.data)
           })
@@ -730,6 +733,7 @@ export const actions = {
       commit('startLoading')
       return model.getSetting(formData)
           .then(data => {
+            // console.log('data',data)
             commit('endLoading')
             commit('fillSetting', data.data)
           })
@@ -782,7 +786,7 @@ export const actions = {
       commit('startLoading')
       return model.fullCoupon(formData)
           .then(data => {
-            console.log(data)
+            // console.log(data)
             commit('endLoading')
             commit('fillCoupon', data.data)
           })

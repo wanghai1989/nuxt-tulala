@@ -3,21 +3,22 @@
 			<div class="wrapper df">
 				<div class="vip-img">
 					<div>
-					<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'">
+					<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                    <img src='~/assets/images/defaultVip.png' v-else /> 
 					</div>
 					<i class="i-design" v-if="personInfo.designer_status==102" title="平台设计师"></i>
 				</div>
 				<div class="vip-txt">
 					<div class="username">账号：{{personInfo.nickname}}(ID:{{personInfo.num}})</div>
 					<div class="userlabel">
-						<router-link to="/user/pay-vip"> <i class="i-vip" :class="{focus:personInfo.is_vip}" title="VIP会员"></i></router-link>
-						<!-- <router-link to="/enter/design-basic"> <i class="i-design" :class="{focus:personInfo.designer_status==102}" title="平台设计师"></i></router-link> -->
+						<nuxt-link to="/vip/pay-vip"> <i class="i-vip" :class="{focus:personInfo.is_vip}" title="VIP会员"></i></nuxt-link>
+						<!-- <nuxt-link to="/enter/design-basic"> <i class="i-design" :class="{focus:personInfo.designer_status==102}" title="平台设计师"></i></nuxt-link> -->
 						<span class="person-bind" v-if="personInfo.is_complete_my_info"><i></i> 已完善</span>
-						<router-link class="person-bind" to="/person/basic-info" v-else><i></i> 未完善</router-link>
+						<nuxt-link class="person-bind" to="/person/basic-info" v-else><i></i> 未完善</nuxt-link>
 						<span class="phone-bind" v-if="personInfo.is_binding_mobile"><i></i> 已绑定</span>
-						<router-link class="person-bind" to="/person/mobile-bind" v-else><i></i> 未完善</router-link>
+						<nuxt-link class="person-bind" to="/person/mobile-bind" v-else><i></i> 未完善</nuxt-link>
 						<span class="name-bind"  v-if="personInfo.certification"><i></i> 已实名</span>
-						<router-link class="person-bind" to="/person/real-name" v-else><i></i> 未完善</router-link>
+						<nuxt-link class="person-bind" to="/person/real-name" v-else><i></i> 未完善</nuxt-link>
 					</div>
 				</div>
 			</div>

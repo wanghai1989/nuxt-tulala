@@ -24,6 +24,7 @@
 					v-model="password"
 					>
           <input v-else
+          autocomplete="off"
           type="password"
 					class="input-login"
 					placeholder="密码(6-12位字母数字组合)"
@@ -37,7 +38,7 @@
 				<button type="submit" class="btn-login"> 登录</button>
         
 			</div>
-      <div class="tr"><span class="goreg">没有账户，<router-link to="/m/mobile-register" class="cmain">立即注册</router-link></span></div>
+      <div class="tr"><span class="goreg">没有账户，<nuxt-link to="/m/mobile-register" class="cmain">立即注册</nuxt-link></span></div>
 </form>
 </div>
 </template>

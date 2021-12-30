@@ -6,7 +6,8 @@
 					<div class="vam-r">
 						<div class="vipimg">
 							<input type="file" class="filepath" id="img_photo" @change="changepic()"  accept="image/jpeg,image/jpg,image/peg,image/png">
-							<img :src="personInfo.avatar?personInfo.avatar:'/static/defaultVip.png'" class="userimg" id="vipimg"/> 
+							<img :src="personInfo.avatar" v-if="personInfo.avatar" class="userimg" id="vipimg"/>
+                        	<img src='~/assets/images/defaultVip.png' v-else class="userimg" id="vipimg"/>
 							<em class="btn-upload">更换头像</em>
 						</div>
 					</div>
@@ -28,7 +29,11 @@
 				<div>
 					<div><span class="cred">*</span>生日</div>
 					<div>
-						<myDatepicker :date="birthday" :option="multiOption" :limit="limit"></myDatepicker>
+						<myDatepicker  :date="startTime" :option="timeoption" > </myDatepicker>
+						  <!-- <picker v-model="date"/> -->
+
+						<!-- <date-picker v-model="date" type="date" :min="min" :max="max"/> -->
+						<!-- <myDatepicker :date="birthday" :option="multiOption" :limit="limit"></myDatepicker> -->
 					</div>
 				</div>
 				<div>
@@ -100,15 +105,14 @@
 </form>
 </template>
 <script>
+
 import {mapState, mapActions} from 'vuex'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
+import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 
 export default {
-	
-  metaInfo: {
-    title: '会员基本信息'
-  },
+  components:{myDatepicker},
   data () {
     return {
 	errorMsg: '',
@@ -118,68 +122,55 @@ export default {
 	// personInfo:{},
 	// token:'',
 	blob:'',
-	vipimg:'/static/defaultVip.png',
+	vipimg:'~/assets/images/defaultVip.png',
 	province:'',
 	province_code:'',
 	city:'',
 	city_code:'',
 	area:'',
 	area_code:'',
-	birthday: {
-          time: ''
-        },
-        multiOption: {
-          type: 'day',
-          week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-          month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-          format:"YYYY-MM-DD",
-          inputStyle: {
-            'height':'40px',
-            'line-height': '40px',
-            'width':'440px',
-            'border': '1px solid #d4d4d4',
-			'box-sizing': 'border-box',
-		    'border-radius': '4px',
-			'text-indent': '5px'
-          },
-          color: {        // 字体颜色
-            header: '#ff5534',  // 头部
-            headerText: '#fff', // 头部文案
-          },
-          buttons: {        // button 文案
-            ok: '确定',
-            cancel: '取消'
-          },
-          placeholder: '请选时间',
-          dismissible: true
-        },
-        limit: [{
-          type: 'weekday',
-          available: [1, 2, 3, 4, 5,6,0]
-        },
-        {
-          type: 'fromto',
-          from: '1900-01-01',
-          to: new Date()
-        }]
-      
+
+	startTime: { time: '1900-12-30'},
+	timeoption: {
+	        type: 'day',  // day , multi-day
+	        week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+	        month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+	        format: 'YYYY-MM-DD', // YYYY-MM-DD 日期
+	        inputStyle: {    			// input 样式
+			  'height': '40px',
+	          'line-height': '40px',
+	          'width':'442px',
+	          'border': '1px solid #d4d4d4',
+			    'text-indent': '5px',
+	          'border-radius': '4px'
+	        },
+	        color: {				// 字体颜色
+	          header: '#35acff',	// 头部
+	          headerText: '#fff',	// 头部文案	
+	        },
+	        buttons: {				// button 文案
+	          ok: '确定',
+	          cancel: '取消'
+	        },
+	        overlayOpacity: 0.5,	// 遮罩透明度
+	        placeholder: '请选时间',  // 提示日期
+	        dismissible: true  // 默认true  待定
+	    },
     }
   },
+  created() {
+    },
 		mounted(){  
-			// import('layui-layer')
-			// this.token=window.localStorage.getItem("token")
-			// this.userInfo=JSON.parse(window.localStorage.getItem("userInfo"))
-			// this.getperson()
-			
-			let pMountedTimer = window.setInterval(() => { //等父组件monted执行完了
-					if (window.parentMounted) {
-						window.clearInterval(pMountedTimer)
 						// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
 						this.fetchSet()
-						this.getperson()
+					let pt=	setInterval(() => {
+						if(Object.keys(this.personInfo).length>0){
+							clearInterval(pt);
+							this.getperson()
+							}
+					}, 100);
+						
 						//  this.getcity()
-					}
-				}, 500)
 		},
 		computed:{
       ...mapState(['setting','personInfo','userToken'])
@@ -187,9 +178,30 @@ export default {
 	methods:{
 		 ...mapActions({
 		  savePersoninfo:'savePersoninfo',
-		  fetchPersoninfo:'fetchPersoninfo',
 		  fetchSetting:'fetchSetting'
       }),
+	//  clickDay(date) {
+    //     this.date = date; //今天日期
+    //     console.log('AAAAAAAAAA');
+    //   //  moment.locale('zh-cn');
+    //     var t = moment(date).format('YYYY-MM-DD');//没错，此处大写，非yyyy-MM-dd
+    //     console.log(t);
+    //   },
+    //   changeDate(date) {
+	// 	   console.log('BBBBB');
+    //     console.log(date); //左右点击切换月份
+    //   },
+    //   clickToday(date) {
+	// 	     console.log('CCCCCCCC');
+    //     date = date
+    //   },
+    //   bthclick() {
+	// 	   console.log('DDDDD');
+    //   },
+
+
+
+
 	  getLength(){
 		if(this.personInfo.introduction.length>this.maxLength){
           this.personInfo.introduction= this.personInfo.introduction.slice(0, this.maxLength)
@@ -204,7 +216,7 @@ export default {
 			  this.area_code=this.personInfo.area_code
 			  this.area=this.personInfo.area
 			  this.vipimg=this.personInfo.avatar
-			  this.birthday.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
+			  this.startTime.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
 			//   console.log(this.birthday.time)
 			  this.getcity(this.province_code,this.city_code,this.area_code)
 	  },
@@ -239,7 +251,7 @@ export default {
 		  if(!this.personInfo.is_complete_my_info || (this.personInfo.is_complete_my_info && this.blob)){   //第一次，或者一次以上修改，并且上传了头像
 		  formDatas.append('avatar',this.blob,'xx.jpg');
 		  }
-		  formDatas.append('birthday', this.birthday.time);
+		  formDatas.append('birthday', this.startTime.time);
 		  formDatas.append('province', this.province);
 		  formDatas.append('province_code', this.province_code);
 		  formDatas.append('city', this.city);
@@ -263,7 +275,7 @@ export default {
 			 this.personInfo.is_complete_my_info=1
 			 layer.msg(data.msg, {icon: 1});
 			 setTimeout(() => {
-				 this.$router.push("/person/person-info")
+				 this.$router.push("/mine")
 			 }, 1000);
             }
           })
@@ -286,7 +298,7 @@ export default {
 			this.personInfo.is_complete_my_info,
 			this.blob,
 			this.personInfo.sex,
-			this.birthday.time,
+			this.startTime.time,
 			this.personInfo.industry,
 			this.personInfo.professional,
 			this.personInfo.working_time,
@@ -298,7 +310,7 @@ export default {
 			this.personInfo.introduction)
 	},
 	  getcity:function(province_code,city_code,area_code){
-		    $.getJSON("/static/city_code.json", function (pdata){
+		    $.getJSON("/json/city_code.json", function (pdata){
 			  var html = "<option value=''>== 省份 ==</option>"; 
 			  $("#input_city").append(html); 
 			  $("#input_area").append(html);
@@ -333,12 +345,6 @@ export default {
 				   $("#input_area").append(html);  
 				  });
 			
-//						  //绑定
-				//   $("#input_province").val("440000");
-				//   $("#input_province").change();
-				//   $("#input_city").val("440300");
-				//   $("#input_city").change();
-				//   $("#input_area").val("440304");
 
 				  $("#input_province").val(province_code);
 				  $("#input_province").change();
@@ -374,6 +380,14 @@ export default {
     box-sizing: border-box;
     vertical-align: middle;
     cursor: pointer;
+}
+
+.about-contain {
+    padding: 40px;
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 20px;
+    min-height: 400px;
 }
 .vam-basic{width: 560px; margin: 0 auto;
    .vipimg{

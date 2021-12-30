@@ -2,14 +2,14 @@
 <div>
 <ul class="design-list clearfix">
 	  	<li   v-for="item in designer" :key="item.id">
-			<router-link  :to="{ name: 'designerhome', params:{ id: item.member_id }}">
+			<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.member_id }}">
 	  		<div class="pic">
 	  			<img :src="item.avatar" />
 	  		</div>
 	  		<div class="f18 cblack mt25">
 	  			{{item.real_name}}
 	  		</div>
-	  		</router-link>
+	  		</nuxt-link>
 	  		<div class="cgray">资深设计师</div>
 	  		<div class="mt15">
 	  			<i class="i-heart"></i>

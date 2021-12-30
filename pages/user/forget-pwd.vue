@@ -13,8 +13,12 @@
 import forgetPwd from '~/components/person/forget-pwd.vue'
 export default {
 layout: 'web-login',
-components: {forgetPwd}
-  
+components: {forgetPwd},
+   head(){
+        return {
+        title: '找回密码_图啦啦91tula.com'
+        }
+  },
 }
 </script>
 <style lang="less" scoped>

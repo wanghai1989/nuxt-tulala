@@ -1,16 +1,19 @@
 <template>
     <div class="handin wrapper">
 	  	<div class="nav">
-			  <router-link to="/about/handin-hand" class="focus">口碑好评</router-link>
-	  		&nbsp;&nbsp;/&nbsp;&nbsp;<router-link to="/about/qq-group">QQ联盟</router-link>&nbsp;&nbsp;/&nbsp;&nbsp;<router-link to="/about/enterprise-team">团队介绍</router-link>
+			  <nuxt-link to="/about/handin-hand" class="focus">口碑好评</nuxt-link>
+	  		&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/qq-group">QQ联盟</nuxt-link>&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/enterprise-team">团队介绍</nuxt-link>
 	  	</div>
-	  	<div class="title">心系图啦啦●晒图啦合影，获全站会员&nbsp;&nbsp;  <router-link to="/about/handin-hand" class="btn-upload">我也要上传<i></i></router-link> </div>
+	  	<div class="title">心系图啦啦●晒图啦合影，获全站会员&nbsp;&nbsp;  <nuxt-link to="/about/handin-hand" class="btn-upload">我也要上传<i></i></nuxt-link> </div>
 	  	<div class="swiper-xxtl">
 		    <div class="swiper-wrapper">
 		      <div class="swiper-slide clearfix"  v-for="item in evaluation" :key="item.id" >
 		      	<img :src="item.url" />
 		      	<div class="swiper-txt">
-		      		<div class="username"><img  :src="item.avatar?item.avatar:'/static/defaultVip.png'">{{item.nickname}} </div>
+		      		<div class="username">
+		      			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+                        <img src='~/assets/images/defaultVip.png' v-else /> 
+		      			{{item.nickname}} </div>
 		      		<div class="font">
 		      			{{item.content}}
 		      		</div>

@@ -3,12 +3,12 @@
 			<div class="title">所有商品</div> 
 			<ul class="ul-shop clearfix">
 				<li v-for="item in goods" :key="item.id">
-					<router-link :to="{ name: 'mall-id', params:{ id: item.id }}">
+					<nuxt-link :to="{ name: 'mall-id', params:{ id: item.id }}">
 					<div class="pic">
 						<img  :src="item.goods_image" />
 					</div>
 					<div class=" prodname">{{item.goods_name}}</div>
-					</router-link>
+					</nuxt-link>
 					<div class="cgray">库存 {{item.inventory}}</div>
 					<div class=" prodprice">{{item.integral}} 积分</div>
 				</li>

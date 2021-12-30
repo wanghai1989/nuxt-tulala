@@ -6,7 +6,7 @@
 					<div class="f18 cblack">基本信息</div>
 					<div class="cgray">用于设计师主页信息、商品收货地址等</div>
 				</div>
-				<router-link to="/person/basic-info"  class="btn-cert">{{personInfo.is_complete_my_info?'查看':'去完善'}}</router-link>
+				<nuxt-link to="/mine/basic-info"  class="btn-cert">{{personInfo.is_complete_my_info?'查看':'去完善'}}</nuxt-link>
 				<span class="state focus" v-if="personInfo.is_complete_my_info"><em>已完善</em> <i></i></span>
 				<span class="state" v-else><em>未完善</em> <i></i></span>
 			</div>
@@ -17,7 +17,7 @@
 					<div class="cgray">机绑定后可用于登录、接收订单信息以及网站活动等</div>
 				</div> 
 				<span  class="btn-cert disabled"  v-if="personInfo.is_binding_mobile">已认证</span>
-				<router-link to="/person/mobile-bind"  class="btn-cert" v-else>去认证</router-link>
+				<nuxt-link to="/mine/mobile-bind"  class="btn-cert" v-else>去认证</nuxt-link>
 				
 				<span class="state focus"  v-if="personInfo.is_binding_mobile"><em>已认证</em> <i></i></span>
 				<span class="state"  v-else><em>未认证</em> <i></i></span>
@@ -29,7 +29,7 @@
 					<div class="cgray">实名认证是开通接单工作的基本条件</div>
 				</div> 
 				<span class="btn-cert disabled"  v-if="[1,2].includes(personInfo.certification)">{{personInfo.certification==1?'已认证':'待审核'}}</span>
-				<router-link to="/person/real-name"  class="btn-cert"  v-else>{{personInfo.certification==3?'重新认证':'去认证'}}</router-link>
+				<nuxt-link to="/mine/real-name"  class="btn-cert"  v-else>{{personInfo.certification==3?'重新认证':'去认证'}}</nuxt-link>
 				<span class="state focus"  v-if="[1,2].includes(personInfo.certification)"><em>{{auditRealName[personInfo.certification]}}</em> <i></i></span>
 				<span class="state" v-if="[0,3].includes(personInfo.certification)"><em>{{auditRealName[personInfo.certification]}}</em> <i></i></span>
 			</div>

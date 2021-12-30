@@ -19,8 +19,8 @@
 				<div class="title">您的总积分 <b>{{personInfo.integral}}</b> </div>
 				<div class="subtit"><strong> 获取更多积分</strong> 
 					每日签到+5积分&nbsp;&nbsp;&nbsp;&nbsp;
-					成功邀请好友一人+100积分<router-link to="/active/invite-friend">去邀请</router-link> &nbsp;&nbsp;&nbsp;&nbsp;
-                    成功上传牵手图啦一人+100积分<router-link to="/about/handin-hand">去上传</router-link> 
+					成功邀请好友一人+100积分<nuxt-link to="/active/invite-friend">去邀请</nuxt-link> &nbsp;&nbsp;&nbsp;&nbsp;
+                    成功上传牵手图啦一人+100积分<nuxt-link to="/about/handin-hand">去上传</nuxt-link> 
 				</div>
 			</div>
 			<div class="wheel-04">
@@ -98,7 +98,7 @@ export default {
   },
   mounted(){
     import('~/assets/js/awardRotate.js')
-	import('~/assets/js/lottery')
+	import('~/assets/js/lottery.js')
     this.updatePersoninfo()
   },
   methods:{

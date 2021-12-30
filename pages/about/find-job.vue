@@ -1,4 +1,8 @@
 <template>
+<div>
+    <webBanner position='company_recruitment'></webBanner>
+    <aboutNav></aboutNav>
+    <div class="wrapper">
        <div class="about-contain">
 			<div class="job-item">
 				<div class="job-pic">
@@ -41,16 +45,50 @@
 				</div>
 			</div>
 		</div>
+    </div>
+    
+</div>
 </template>
 <script>
 
+import webBanner from '~/components/layout/web-banner'
+import aboutNav from '~/components/layout/about-nav'
 export default {
-
+  layout: 'web',
+  props:['position'],
+  head(){
+	   return {
+			title:'招聘设计师_轻松兼职在家也能拿高薪__图啦啦91tula.com',
+			meta: [{
+			hid: "description",
+			name: "description",
+			content:  '图啦啦招聘优秀设计师！'
+			},{
+			hid: 'keywords',
+			name: 'keywords',
+			content: '品牌设计师,电商设计师,UI设计师,网站设计师,插画师摄影师,室内设计师'
+			}]
+			}
+  },
+components: {webBanner,aboutNav},
+  data () {
+    return {
+      pageName: '',
+      pageKeyword:'',
+      pageDesc:'',
+    }
+  },
+ 
+mounted(){
+}
 }
 
   
 
 </script>
 <style lang="less" scoped>
-
+.about-contain{padding: 40px; box-sizing: border-box; background: #fff; margin-top: 20px; min-height: 400px;
+}
 </style>
+
+

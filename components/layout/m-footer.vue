@@ -1,19 +1,19 @@
 <template>
     <footer class="navbar-fixed-bottom clearfix">
 			<div class="col-4 file focus">
-			<router-link to="/m/product-list/1">
+			<nuxt-link :to="{ name: 'm-material-id', params:{id:1 }}">
 				<h3><i class="iconfont">&#xe603;</i>作品</h3>
-			</router-link>
+			</nuxt-link>
 		</div>
 		<div class="col-4 task ">
-			<router-link to="/m/mobile-task">
+			<nuxt-link to="/m/mobile-task">
 			<h3><i class="iconfont">&#xe656;</i>任务</h3>
-			</router-link>
+			</nuxt-link>
 		</div>
 		<div class="col-4 mine ">
-			<router-link to="/m/mobile-mine">
+			<nuxt-link to="/m/mobile-mine">
 			<h3><i class="iconfont">&#xe601;</i>我的</h3>
-			</router-link>
+			</nuxt-link>
 		</div>
 	</footer>
 </template>
@@ -61,8 +61,8 @@
     color: var(--grayColor);
 }
 .navbar-fixed-bottom > div a h3 i{font-size: 24px; line-height: 1; color: #888888;display: block !important; margin: 0 auto 6px;}
-.navbar-fixed-bottom > div a.active-link h3 {
+.navbar-fixed-bottom > div a.nuxt-link-active h3 {
     color: var(--color);
 }
-.navbar-fixed-bottom > div a.active-link h3 i{font-size: 24px; line-height: 1; color: var(--color)}
+.navbar-fixed-bottom > div a.nuxt-link-active h3 i{font-size: 24px; line-height: 1; color: var(--color)}
 </style>

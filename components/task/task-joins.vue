@@ -75,7 +75,7 @@
 		<ul class="ul-employ" v-if="employlist.length>0">
 			<li class="clearfix"  v-for="item in employlist" :key="item.id">
 				<div class="l">
-					<router-link :to="{ name: 'designerhome', params:{ id: item.member_id }}" class="nickname"> {{item.nickname}}</router-link>
+					<nuxt-link :to="{ name: 'designerhome', params:{ id: item.member_id }}" class="nickname"> {{item.nickname}}</nuxt-link>
 					<div class="mt20 cgray">
 						<div class="item-txt">时间 <span class="cblack">{{item.created_at}}</span></div>
 						<div class="item-txt">作品  <span class="cblack fw">{{item.product_count}}</span>  件</div> 
@@ -126,7 +126,7 @@ export default {
 	components: {MoPaging,workStep},
   data () {
     return {
-	taskID:'',//任务ID 
+	// taskID:'',//任务ID 
     join_id:'',//竞价id
     popupShow:0, //安全雇佣窗口是否显示
     real_money:'', //项目总额
@@ -140,8 +140,8 @@ export default {
     }
   },
   mounted(){  
-	  this.taskID=this.$route.params.id
-	  this.fetchWorkinf(this.taskID)
+	//   this.taskID=this.$route.params.id
+	//   this.fetchWorkinf(this.taskID)
 	  this.fetchEmploy()
 		},
 		
@@ -150,7 +150,7 @@ export default {
   },
   methods:{
  ...mapActions({
-      fetchWorkinfo:'fetchWorkinfo',
+    //   fetchWorkinfo:'fetchWorkinfo',
 	  fetchEmploylist:'fetchEmploylist',
       createEmploy:'createEmploy'
       }),
@@ -198,13 +198,13 @@ export default {
         this.start_amount=real_money*0.5
         this.final_amount=real_money*0.5
       },
-      fetchWorkinf:function(id){
-		  let formDatas = new FormData();
-		  formDatas.append('id',id);
-		  formDatas.append('token', this.userToken);
+    //   fetchWorkinf:function(id){
+	// 	  let formDatas = new FormData();
+	// 	  formDatas.append('id',id);
+	// 	  formDatas.append('token', this.userToken);
      
-		  this.fetchWorkinfo(formDatas)
-	  },
+	// 	  this.fetchWorkinfo(formDatas)
+	//   },
 	  //从page组件传递过来的当前page
       pageChange:function(page) {
           this.page = page
@@ -238,7 +238,7 @@ export default {
 		  },
 fetchEmploy:function(){
 		  let formDatas = new FormData();
-		  formDatas.append('id',this.taskID);
+		  formDatas.append('id',this.workinfo.id);
 		  formDatas.append('page', this.page);
 		  formDatas.append('pageSize', this.pageSize);
 		  formDatas.append('token', this.userToken);
