@@ -120,7 +120,6 @@ export default {
   dev: { // dev 环境
     cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
   },
-
   loading:{  //加载异步页面的样式
     color:"#3ebb2b"
   }, 
