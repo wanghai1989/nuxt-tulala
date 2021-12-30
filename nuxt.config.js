@@ -52,7 +52,7 @@ export default {
     //   return assetFilename.endsWith('.js');	    	
     // },
     postcss:{
-
+      
     },
   //   optimization: {
   //     splitChunks: {
