@@ -54,39 +54,39 @@ export default {
     postcss:{
 
     },
-    optimization: {
-      splitChunks: {
-          chunks: 'async',
-          minSize: 30000,
-          maxSize: 0,
-          minChunks: 1,
-          maxAsyncRequests: 6,
-          maxInitialRequests: 4,
-          automaticNameDelimiter: '~',
-          cacheGroups: {
-              vendors: {
-                  name: `chunk-vendors`,
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: -10,
-                  chunks: 'all'
-              },
-            //   element: {
-            //     chunks: 'all',
-            //     name: `vue-datepicker`,
-            //     test: /[\\/]vue-datepicker[\\/]/,
-            //     priority: 0,
-            // },
-              common: {
-                  name: `chunk-common`,
-                  minChunks: 2,
-                  priority: -20,
-                  chunks: 'initial',
-                  reuseExistingChunk: true
-              }
-          }
-      },
-      // vendors:['axios']
-  },
+  //   optimization: {
+  //     splitChunks: {
+  //         chunks: 'async',
+  //         minSize: 30000,
+  //         maxSize: 0,
+  //         minChunks: 1,
+  //         maxAsyncRequests: 6,
+  //         maxInitialRequests: 4,
+  //         automaticNameDelimiter: '~',
+  //         cacheGroups: {
+  //             vendors: {
+  //                 name: `chunk-vendors`,
+  //                 test: /[\\/]node_modules[\\/]/,
+  //                 priority: -10,
+  //                 chunks: 'all'
+  //             },
+  //           //   element: {
+  //           //     chunks: 'all',
+  //           //     name: `vue-datepicker`,
+  //           //     test: /[\\/]vue-datepicker[\\/]/,
+  //           //     priority: 0,
+  //           // },
+  //             common: {
+  //                 name: `chunk-common`,
+  //                 minChunks: 2,
+  //                 priority: -20,
+  //                 chunks: 'initial',
+  //                 reuseExistingChunk: true
+  //             }
+  //         }
+  //     },
+  //     // vendors:['axios']
+  // },
     // optimization: {
     //   splitChunks: {
     //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
