@@ -21,7 +21,7 @@
 </template>
 <script>
 import Login from '~/components/person/login.vue'
-import {mapState, mapActions, mapMutations} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 export default {
 components: {Login},
   data () {

@@ -10,12 +10,6 @@
 			</ul>
 		</div>
 </template>
-<script>
-export default {
-  
-}
-</script>
-
 <style lang="less" scoped>
 .about-nav{height: 80px; background: #fff;  box-shadow: 0px 3px 8px 0px rgba(92, 92, 92, 0.2);
 ul li{height: 80px; width: 112px; text-align: center; float: left; margin: 0px 10px;}

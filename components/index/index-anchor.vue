@@ -7,7 +7,7 @@
 </template>
 <script>
  import {
-    mapState,mapMutations,mapActions
+    mapState,mapActions
 } from 'vuex'
 export default {
   props: ['dataClass'],

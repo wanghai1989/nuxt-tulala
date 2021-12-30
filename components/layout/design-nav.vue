@@ -5,11 +5,7 @@
 	  	<li><nuxt-link to="/task">外包任务</nuxt-link> </li>
 	  </ul>
 </template>
-<script>
-export default {
-  
-}
-</script>
+
 <style lang="less" scoped>
 .design-nav{margin-top: 25px; text-align: right;
  li{display: inline-block;}

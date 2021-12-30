@@ -42,7 +42,7 @@
 </template>
 <script>
 import {
-    mapState,mapMutations,mapActions
+    mapState,mapActions
 } from 'vuex'
 import MoPaging  from '~/components/layout/web-pagination.vue'
 export default {

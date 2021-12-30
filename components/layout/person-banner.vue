@@ -27,16 +27,9 @@
 <script>
 import { mapState} from 'vuex'
 export default {
-	data () {
-    return {
-    }
-  },
   computed:{
       ...mapState(['personInfo'])
   },
-  mounted(){  
-
-		},
 }
 </script>
 <style lang="less" scoped>

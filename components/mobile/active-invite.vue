@@ -24,10 +24,6 @@ export default {
     }
   },
 
-mounted(){
-
-  },
-
 	computed:{
 	  ...mapState(['productlist','personInfo','userToken','category'])
   },

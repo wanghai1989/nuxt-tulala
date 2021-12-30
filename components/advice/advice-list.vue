@@ -49,8 +49,6 @@ export default {
     }
   },
   mounted(){  
-			// import('layui-layer')
-			// this.userInfo=JSON.parse(window.localStorage.getItem("userInfo"))
 			this.fetchAdvic()
 		},
 		

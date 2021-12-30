@@ -13,11 +13,7 @@
 				</div>
 			</div>
 </template>
-<script>
-export default {
-  
-}
-</script>
+
 <style lang="less" scoped>
 .bg-map(@width:25px,@height:25px,@x:0px,@y:0px){
         display: inline-block;

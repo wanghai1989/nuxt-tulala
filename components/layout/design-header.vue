@@ -57,11 +57,6 @@ import {
 } from 'vuex'
 
 export default {
-    data(){
-	return { 
-    //  prodclass:  this.dataClass
-  }
-  },
   computed:{
       ...mapState(['userToken','personInfo'])
   },

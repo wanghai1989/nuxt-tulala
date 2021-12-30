@@ -47,10 +47,10 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    analyze: true, 	
-    assetFilter: function(assetFilename) {	    		
-      return assetFilename.endsWith('.js');	    	
-    },
+    // analyze: true, 	
+    // assetFilter: function(assetFilename) {	    		
+    //   return assetFilename.endsWith('.js');	    	
+    // },
     postcss:{
 
     },
