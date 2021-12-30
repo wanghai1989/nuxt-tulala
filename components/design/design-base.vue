@@ -108,7 +108,7 @@ export default {
       ...mapState(['defaultchannel','setting','personInfo','userToken'])
   },
    mounted(){
-    import('layui-layer')
+    // import('layui-layer')
     this.getChannel({token:this.userToken})
     this.fetchSet()
   },

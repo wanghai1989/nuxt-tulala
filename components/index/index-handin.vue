@@ -28,22 +28,6 @@ import {mapState, mapActions} from 'vuex'
 export default {
   mounted() {
 	    this.fetchEvaluat()
-     let handTimer= setInterval(() => {
-        if(this.evaluation.length>0){
-          clearInterval(handTimer)
-            import('swiper')
-          .then(() => {
-            new Swiper('.swiper-xxtl', {
-                                  slidesPerView: 2,
-                                  spaceBetween: -100,
-                                  centeredSlides: true,
-                                  loop: true,
-                  autoplay:3000
-                                  });
-          })
-          
-        }
-      }, 200);
   },
    computed:{
 	  ...mapState(['evaluation'])
@@ -52,14 +36,20 @@ export default {
  ...mapActions({
 		  fetchEvaluation:'fetchEvaluation'
       }),
-	  fetchEvaluat:function(){
+	 async fetchEvaluat(){
 		 let params={
        is_show_index:1,
 				page:1,  //当前页
 				pageSize:10  //一页显示数量
 			}
-
-			this.fetchEvaluation(params)
+			await this.fetchEvaluation(params)
+      new Swiper('.swiper-xxtl', {
+                                  slidesPerView: 2,
+                                  spaceBetween: -100,
+                                  centeredSlides: true,
+                                  loop: true,
+                  autoplay:3000
+                                  });
 	  },
   }
 }

@@ -296,12 +296,12 @@ export const actions = {
     
       fetchHomeBanner ({ commit },formData) {
         return model.getHomeBanner(formData)
-          // .then(data => {
-          //   commit('fillHomeBanner', data.data)
-          // })
-          // .catch(err => {
-          //   handleError(err)
-          // })
+          .then(data => {
+            commit('fillHomeBanner', data.data)
+          })
+          .catch(err => {
+            handleError(err)
+          })
       },  
       fetchCondition ({ commit },formData) {
         commit('startLoading')

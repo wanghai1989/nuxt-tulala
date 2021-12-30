@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.min.css';
 import webUnvip from '~/components/layout/web-unvip.vue'
 import webHeader from '~/components/layout/web-header.vue'
 import webFooter from '~/components/layout/web-footer.vue'

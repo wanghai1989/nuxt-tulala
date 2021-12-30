@@ -102,7 +102,7 @@ export default {
 	  ...mapState(['pageSize','evaluation','countfile','userToken'])
   },
   mounted(){  
-			import('layui-layer')
+			// import('layui-layer')
 			this.fetchEvaluat()
 		},
   methods:{
