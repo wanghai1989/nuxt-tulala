@@ -108,7 +108,6 @@ export default {
     }
   },
   mounted(){  
-			import('layui-layer')
 			this.fetchAllian()
 			this.fetchSet()
 		},

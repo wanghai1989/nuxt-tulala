@@ -29,11 +29,7 @@
 				<div>
 					<div><span class="cred">*</span>生日</div>
 					<div>
-						<myDatepicker  :date="startTime" :option="timeoption" > </myDatepicker>
-						  <!-- <picker v-model="date"/> -->
-
-						<!-- <date-picker v-model="date" type="date" :min="min" :max="max"/> -->
-						<!-- <myDatepicker :date="birthday" :option="multiOption" :limit="limit"></myDatepicker> -->
+						<input type="date" class="input" placeholder="出生日期" v-model="birthday"/>
 					</div>
 				</div>
 				<div>
@@ -109,10 +105,8 @@
 import {mapState, mapActions} from 'vuex'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
-import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue'
 
 export default {
-  components:{myDatepicker},
   data () {
     return {
 	errorMsg: '',
@@ -129,33 +123,7 @@ export default {
 	city_code:'',
 	area:'',
 	area_code:'',
-
-	startTime: { time: '1900-12-30'},
-	timeoption: {
-	        type: 'day',  // day , multi-day
-	        week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-	        month: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-	        format: 'YYYY-MM-DD', // YYYY-MM-DD 日期
-	        inputStyle: {    			// input 样式
-			  'height': '40px',
-	          'line-height': '40px',
-	          'width':'442px',
-	          'border': '1px solid #d4d4d4',
-			    'text-indent': '5px',
-	          'border-radius': '4px'
-	        },
-	        color: {				// 字体颜色
-	          header: '#35acff',	// 头部
-	          headerText: '#fff',	// 头部文案	
-	        },
-	        buttons: {				// button 文案
-	          ok: '确定',
-	          cancel: '取消'
-	        },
-	        overlayOpacity: 0.5,	// 遮罩透明度
-	        placeholder: '请选时间',  // 提示日期
-	        dismissible: true  // 默认true  待定
-	    },
+    birthday:'1900-12-30',
     }
   },
   created() {
@@ -180,28 +148,6 @@ export default {
 		  savePersoninfo:'savePersoninfo',
 		  fetchSetting:'fetchSetting'
       }),
-	//  clickDay(date) {
-    //     this.date = date; //今天日期
-    //     console.log('AAAAAAAAAA');
-    //   //  moment.locale('zh-cn');
-    //     var t = moment(date).format('YYYY-MM-DD');//没错，此处大写，非yyyy-MM-dd
-    //     console.log(t);
-    //   },
-    //   changeDate(date) {
-	// 	   console.log('BBBBB');
-    //     console.log(date); //左右点击切换月份
-    //   },
-    //   clickToday(date) {
-	// 	     console.log('CCCCCCCC');
-    //     date = date
-    //   },
-    //   bthclick() {
-	// 	   console.log('DDDDD');
-    //   },
-
-
-
-
 	  getLength(){
 		if(this.personInfo.introduction.length>this.maxLength){
           this.personInfo.introduction= this.personInfo.introduction.slice(0, this.maxLength)
@@ -216,7 +162,8 @@ export default {
 			  this.area_code=this.personInfo.area_code
 			  this.area=this.personInfo.area
 			  this.vipimg=this.personInfo.avatar
-			  this.startTime.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
+			  this.birthday=common.dataFormat(this.personInfo.birthday);
+			//   this.startTime.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
 			//   console.log(this.birthday.time)
 			  this.getcity(this.province_code,this.city_code,this.area_code)
 	  },
@@ -251,7 +198,7 @@ export default {
 		  if(!this.personInfo.is_complete_my_info || (this.personInfo.is_complete_my_info && this.blob)){   //第一次，或者一次以上修改，并且上传了头像
 		  formDatas.append('avatar',this.blob,'xx.jpg');
 		  }
-		  formDatas.append('birthday', this.startTime.time);
+		  formDatas.append('birthday', this.birthday);
 		  formDatas.append('province', this.province);
 		  formDatas.append('province_code', this.province_code);
 		  formDatas.append('city', this.city);
@@ -298,7 +245,7 @@ export default {
 			this.personInfo.is_complete_my_info,
 			this.blob,
 			this.personInfo.sex,
-			this.startTime.time,
+			this.birthday,
 			this.personInfo.industry,
 			this.personInfo.professional,
 			this.personInfo.working_time,

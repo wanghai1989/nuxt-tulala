@@ -121,7 +121,7 @@ export default {
     }
   },
   mounted(){  
-			import('layui-layer')
+			// import('layui-layer')
 			this.fetchAllian()
 			this.fetchSet()
 		},

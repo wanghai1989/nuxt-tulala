@@ -60,11 +60,6 @@
 			</div>
 		</div>
 </template>
-<script>
-export default {
-  
-}
-</script>
 <style lang="less" scoped>
 .team-item{width: 50%; float: left; display: flex;margin-bottom: 25px;
 .pic{width: 213px; margin-right: 30px;}

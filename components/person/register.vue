@@ -115,7 +115,7 @@ export default {
     }
   },
   mounted(){
-    import('layui-layer')
+    // import('layui-layer')
     if(this.$route.query.invite_code){
       this.show_invited_code=1
       this.be_invited_code=this.$route.query.invite_code

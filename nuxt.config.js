@@ -13,21 +13,22 @@ export default {
       { hid:'keywords', name: 'keywords', content: '图啦啦,免抠图,png,png图片,png素材,png图标,banner,背景图片,背景素材,淘宝素材,海报背景,海报,素材网,图库素材,图片,办公文档,办公,摄影图,图库,背景,素材,图啦啦' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel:'stylesheet',href:'https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css'}, 
+      {rel:'stylesheet',href:'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/css/swiper.min.css'} 
     ],
     script: [
-    	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js' }
+    	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js' },
+      { src: 'https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js', ssr: false },
+      { src: 'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/js/swiper.min.js',ssr:false}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{
-    src:'~assets/less/public.less',
-    lang:'less'
-  }],
+  css: [{src:'~assets/less/public.less',lang:'less'}],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    {src: '~plugins/layui.js', ssr: false},
+    // {src: '~plugins/layui.js', ssr: false},
     {src: '~plugins/common.js', ssr: false},
     {src: '~plugins/route.js',ssr: false}
   ],
@@ -46,42 +47,46 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    analyze: true, 	
-    assetFilter: function(assetFilename) {	    		
-      return assetFilename.endsWith('.js');	    	
+    // analyze: true, 	
+    // assetFilter: function(assetFilename) {	    		
+    //   return assetFilename.endsWith('.js');	    	
+    // },
+    postcss:{
+      
     },
-    optimization: {
-      splitChunks: {
-          chunks: 'async',
-          minSize: 30000,
-          maxSize: 0,
-          minChunks: 1,
-          maxAsyncRequests: 6,
-          maxInitialRequests: 4,
-          automaticNameDelimiter: '~',
-          cacheGroups: {
-              vendors: {
-                  name: `chunk-vendors`,
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: -10,
-                  chunks: 'all'
-              },
-            //   element: {
-            //     chunks: 'all',
-            //     name: `vue-datepicker`,
-            //     test: /[\\/]vue-datepicker[\\/]/,
-            //     priority: 0,
-            // },
-              common: {
-                  name: `chunk-common`,
-                  minChunks: 2,
-                  priority: -20,
-                  chunks: 'initial',
-                  reuseExistingChunk: true
-              }
-          }
-      }
-  },
+  //   optimization: {
+  //     splitChunks: {
+  //         chunks: 'async',
+  //         minSize: 30000,
+  //         maxSize: 0,
+  //         minChunks: 1,
+  //         maxAsyncRequests: 6,
+  //         maxInitialRequests: 4,
+  //         automaticNameDelimiter: '~',
+  //         cacheGroups: {
+  //             vendors: {
+  //                 name: `chunk-vendors`,
+  //                 test: /[\\/]node_modules[\\/]/,
+  //                 priority: -10,
+  //                 chunks: 'all'
+  //             },
+  //           //   element: {
+  //           //     chunks: 'all',
+  //           //     name: `vue-datepicker`,
+  //           //     test: /[\\/]vue-datepicker[\\/]/,
+  //           //     priority: 0,
+  //           // },
+  //             common: {
+  //                 name: `chunk-common`,
+  //                 minChunks: 2,
+  //                 priority: -20,
+  //                 chunks: 'initial',
+  //                 reuseExistingChunk: true
+  //             }
+  //         }
+  //     },
+  //     // vendors:['axios']
+  // },
     // optimization: {
     //   splitChunks: {
     //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
@@ -120,7 +125,6 @@ export default {
   dev: { // dev 环境
     cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
   },
-
   loading:{  //加载异步页面的样式
     color:"#3ebb2b"
   }, 

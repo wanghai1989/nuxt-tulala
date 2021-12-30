@@ -26,7 +26,7 @@
 </template>
 <script>
 import common from '~/assets/js/common'
-import {mapState,mapMutations,mapActions} from 'vuex'
+import {mapState,mapActions} from 'vuex'
 export default {
   data () {
     return {
