@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -52,73 +53,19 @@ export default {
     //   return assetFilename.endsWith('.js');	    	
     // },
     cssSourceMap: true,
-    optimization: {
-      splitChunks: {
-        minSize: 10000,
-        maxSize: 250000
-      }
-    },
-  //   optimization: {
-  //     splitChunks: {
-  //         chunks: 'initial',
-  //         minSize: 30000,
-  //         maxSize: 0,
-  //         minChunks: 1,
-  //         maxAsyncRequests: 6,
-  //         maxInitialRequests: 4,
-  //         automaticNameDelimiter: '~',
-  //         cacheGroups: {
-  //             vendors: {
-  //                 name: `chunk-vendors`,
-  //                 test: /[\\/]node_modules[\\/]/,
-  //                 priority: -10,
-  //                 chunks: 'initial'
-  //             },
-  //             common: {
-  //                 name: `chunk-common`,
-  //                 minChunks: 2,
-  //                 priority: -20,
-  //                 chunks: 'initial',
-  //                 reuseExistingChunk: true
-  //             }
-  //         }
-  //     },
-  //     // vendors:['axios']
-  // },
+    plugins: [
+                new CompressionPlugin({
+                  test: /\.js$|\.html$|\.css/, // 匹配文件名
+                  threshold: 10240, // 对超过10kb的数据进行压缩
+                  deleteOriginalAssets: false // 是否删除原文件
+                })
+              ],
     // optimization: {
     //   splitChunks: {
-    //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
-    //     name:'common',
     //     minSize: 10000,
-    //     maxSize: 100000, //把提取出来的模块打包生成的文件大小不能超过maxSize值
-    //     minChunks:1,  //表示要被提取的模块最小被引用次数,超过或等于才能被引用
-    //     automaticNameDelimiter: '.',
-    //     cacheGroups: {  //核心，配置提取模块的方案
-    //       vendors: {  
-    //         test: /[\\/]node_modules[\\/]/, //只筛选从node_modules文件夹下引入的模块， 用来匹配要提取的模块的资源路径或名称。
-    //         priority: -10,  //如果有一个模块满足了多个缓存组的条件就会去按照权重划分，谁的权重高就优先按照谁的规则处理
-    //         chunks: 'initial' //提取同步加载和异步加载模块
-    //       },
-    //       default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
-    //         minChunks: 2,
-    //         priority: -20,
-    //         reuseExistingChunk: true
-    //       },
-    //       styles: {
-    //         name: 'styles',
-    //         test: /\.(css|vue)$/,
-    //         chunks: 'all',
-    //         enforce: true
-    //       }
-    //     }
-    //   },
-      
-    //   runtimeChunk: {  //解决浏览器长缓存问题
-    //     name: entrypoint => `manifest.${entrypoint.name}`
+    //     maxSize: 250000
     //   }
     // },
-    
-    // extractCSS: true
   },  
   loading:{  //加载异步页面的样式
     color:"#3ebb2b"
