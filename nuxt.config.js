@@ -47,49 +47,34 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    // analyze: true, 	
-    // assetFilter: function(assetFilename) {	    		
-    //   return assetFilename.endsWith('.js');	    	
-    // },
-    postcss:{
-      
+    analyze: true, 	
+    assetFilter: function(assetFilename) {	    		
+      return assetFilename.endsWith('.js');	    	
     },
-  //   optimization: {
-  //     splitChunks: {
-  //         chunks: 'async',
-  //         minSize: 30000,
-  //         maxSize: 0,
-  //         minChunks: 1,
-  //         maxAsyncRequests: 6,
-  //         maxInitialRequests: 4,
-  //         automaticNameDelimiter: '~',
-  //         cacheGroups: {
-  //             vendors: {
-  //                 name: `chunk-vendors`,
-  //                 test: /[\\/]node_modules[\\/]/,
-  //                 priority: -10,
-  //                 chunks: 'all'
-  //             },
-  //           //   element: {
-  //           //     chunks: 'all',
-  //           //     name: `vue-datepicker`,
-  //           //     test: /[\\/]vue-datepicker[\\/]/,
-  //           //     priority: 0,
-  //           // },
-  //             common: {
-  //                 name: `chunk-common`,
-  //                 minChunks: 2,
-  //                 priority: -20,
-  //                 chunks: 'initial',
-  //                 reuseExistingChunk: true
-  //             }
-  //         }
-  //     },
-  //     // vendors:['axios']
-  // },
+    splitChunks: {
+			chunks: "all",   // 共有3个值"initial"，"async"和"all"。配置后，代码分割优化仅选择初始块，按需块或所有块
+			minSize: 30000,   // （默认值：30000）块的最小大小
+			minChunks: 1,    // （默认值：1）在拆分之前共享模块的最小块数
+			maxAsyncRequests: 5,   //（默认为5）按需加载时并行请求的最大数量
+			maxInitialRequests: 3,  //（默认值为3）入口点的最大并行请求数
+			automaticNameDelimiter: '~',  // 默认情况下，webpack将使用块的来源和名称生成名称，例如vendors~main.js
+			name: true,
+			cacheGroups: {  // 以上条件都满足后会走入cacheGroups进一步进行优化的判断
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,  // 判断引入库是否是node_modules里的
+					priority: -10,   // 数字越大优先级越高 （-10大于-20）
+					filename: 'vendors.js'  // 设置代码分割后的文件名
+        		},
+				default: {   //所有代码分割快都符合默认值，此时判断priority优先级
+					minChunks: 2,  
+					priority: -20,
+					reuseExistingChunk: true   // 允许在模块完全匹配时重用现有的块，而不是创建新的块。
+				}
+			}
+    	}
     // optimization: {
     //   splitChunks: {
-    //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
+    //     chunks: 'initial', //只提取异步加载的模块出来打包到一个文件中
     //     name:'common',
     //     minSize: 10000,
     //     maxSize: 100000, //把提取出来的模块打包生成的文件大小不能超过maxSize值
@@ -104,6 +89,7 @@ export default {
     //       default: {   //（注意default不是从node_modules里面引入的，是我下载到本地的）
     //         minChunks: 2,
     //         priority: -20,
+    //         chunks: 'initial', //提取同步加载和异步加载模块
     //         reuseExistingChunk: true
     //       },
     //       styles: {
@@ -113,14 +99,15 @@ export default {
     //         enforce: true
     //       }
     //     }
-    //   },
+    //   }
+    // },
       
     //   runtimeChunk: {  //解决浏览器长缓存问题
     //     name: entrypoint => `manifest.${entrypoint.name}`
     //   }
     // },
     
-    extractCSS: true
+    // extractCSS: true
   },  
   dev: { // dev 环境
     cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
