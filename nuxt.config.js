@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-const CompressionPlugin = require('compression-webpack-plugin');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,7 +18,7 @@ export default {
       {rel:'stylesheet',href:'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/css/swiper.min.css'} 
     ],
     script: [
-    	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js', ssr: false },
+    	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js' },
       { src: 'https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js', ssr: false },
       { src: 'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/js/swiper.min.js',ssr:false}
     ]
@@ -46,27 +45,71 @@ export default {
   ],
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    // 开启打包分析
-    // analyze: true, 	
-    // assetFilter: function(assetFilename) {	    		
-    //   return assetFilename.endsWith('.js');	    	
-    // },
-    cssSourceMap: true,
-    plugins: [
-                new CompressionPlugin({
-                  test: /\.js$|\.html$|\.css/, // 匹配文件名
-                  threshold: 10240, // 对超过10kb的数据进行压缩
-                  deleteOriginalAssets: false // 是否删除原文件
-                })
-              ],
-    // optimization: {
-    //   splitChunks: {
-    //     minSize: 10000,
-    //     maxSize: 250000
-    //   }
-    // },
-  },  
+   build: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
+    extend (config, ctx) {
+      config.module.rules.push({
+        
+      })
+    }
+  },
+  // build: {
+  //   // extractCSS: { allChunks: true },
+  //   extractCSS: {
+  //     ignoreOrder: true
+  //   },
+  //   // 开启打包分析
+  //   // analyze: true, 	
+  //   // assetFilter: function(assetFilename) {	    		
+  //   //   return assetFilename.endsWith('.js');	    	
+  //   // },
+  //   optimization: {
+  //     runtimeChunk: {
+  //       name: 'manifest'
+  //     },
+  //     // minimizer: true, // [new UglifyJsPlugin({...})]
+  //     splitChunks:{
+  //       chunks: 'async',
+  //       minSize: 30000,
+  //       minChunks: 1,
+  //       maxAsyncRequests: 5,
+  //       maxInitialRequests: 3,
+  //       name: false,
+  //       cacheGroups: {
+  //         vendor: {
+  //           name: 'vendor',
+  //           chunks: 'initial',
+  //           priority: -10,
+  //           reuseExistingChunk: false,
+  //           test: /node_modules\/(.*)\.js/
+  //         },
+  //         styles: {
+  //           name: 'styles',
+  //           test: /\.(scss|less|css)$/,
+  //           chunks: 'all',
+  //           minChunks: 1,
+  //           reuseExistingChunk: true,
+  //           enforce: true
+  //         }
+  //       }
+  //     }
+  //   }
+  // },  
+  dev: { // dev 环境
+    cssSourceMap: true //开启    是否开启 cssSourceMap默认为false
+  },
   loading:{  //加载异步页面的样式
     color:"#3ebb2b"
   }, 
