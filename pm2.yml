@@ -1,5 +1,4 @@
 apps:
-  - script: ./node_modules/nuxt/bin/nuxt.js
     name: nuxt-tulala
     env_production:
       NODE_ENV: production
