@@ -47,38 +47,44 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    analyze: true, 	
-    assetFilter: function(assetFilename) {	    		
-      return assetFilename.endsWith('.js');	    	
-    },
+    // analyze: true, 	
+    // assetFilter: function(assetFilename) {	    		
+    //   return assetFilename.endsWith('.js');	    	
+    // },
     cssSourceMap: true,
     optimization: {
       splitChunks: {
-          chunks: 'initial',
-          minSize: 30000,
-          maxSize: 0,
-          minChunks: 1,
-          maxAsyncRequests: 6,
-          maxInitialRequests: 4,
-          automaticNameDelimiter: '~',
-          cacheGroups: {
-              vendors: {
-                  name: `chunk-vendors`,
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: -10,
-                  chunks: 'initial'
-              },
-              common: {
-                  name: `chunk-common`,
-                  minChunks: 2,
-                  priority: -20,
-                  chunks: 'initial',
-                  reuseExistingChunk: true
-              }
-          }
-      },
-      // vendors:['axios']
-  },
+        minSize: 10000,
+        maxSize: 250000
+      }
+    },
+  //   optimization: {
+  //     splitChunks: {
+  //         chunks: 'initial',
+  //         minSize: 30000,
+  //         maxSize: 0,
+  //         minChunks: 1,
+  //         maxAsyncRequests: 6,
+  //         maxInitialRequests: 4,
+  //         automaticNameDelimiter: '~',
+  //         cacheGroups: {
+  //             vendors: {
+  //                 name: `chunk-vendors`,
+  //                 test: /[\\/]node_modules[\\/]/,
+  //                 priority: -10,
+  //                 chunks: 'initial'
+  //             },
+  //             common: {
+  //                 name: `chunk-common`,
+  //                 minChunks: 2,
+  //                 priority: -20,
+  //                 chunks: 'initial',
+  //                 reuseExistingChunk: true
+  //             }
+  //         }
+  //     },
+  //     // vendors:['axios']
+  // },
     // optimization: {
     //   splitChunks: {
     //     chunks: 'async', //只提取异步加载的模块出来打包到一个文件中
