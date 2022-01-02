@@ -11,7 +11,7 @@ export default {
    layout: 'mobile',
 components: {},
 mounted(){
-  // this.getShareInfo('我这是标题','bb')
+  this.getShareInfo('我这是标题','bb')
 },
 
  methods: {
