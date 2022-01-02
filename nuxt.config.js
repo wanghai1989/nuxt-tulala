@@ -47,13 +47,10 @@ export default {
    // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 开启打包分析
-    analyze: true, 	
-    assetFilter: function(assetFilename) {	    		
-      return assetFilename.endsWith('.js');	    	
-    },
-    postcss:{
-      
-    },
+    // analyze: true, 	
+    // assetFilter: function(assetFilename) {	    		
+    //   return assetFilename.endsWith('.js');	    	
+    // },
     optimization: {
       splitChunks: {
           chunks: 'async',
@@ -70,12 +67,12 @@ export default {
                   priority: -10,
                   chunks: 'all'
               },
-            //   element: {
-            //     chunks: 'all',
-            //     name: `vue-datepicker`,
-            //     test: /[\\/]vue-datepicker[\\/]/,
-            //     priority: 0,
-            // },
+              styles: {
+                name: 'styles',
+                test: /\.(css|vue)$/,
+                chunks: 'all',
+                enforce: true
+              },
               common: {
                   name: `chunk-common`,
                   minChunks: 2,
