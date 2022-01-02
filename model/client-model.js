@@ -496,6 +496,9 @@ export default {
           'Content-Type': 'multipart/form-data'
       }
   }))
-   }
+   },
+   shareSdk(){ //shareSDK
+    return handleRequest(request.post('/api/wechat/getJsSdkConfig',{},{}))
+   },
 }
 
