@@ -807,8 +807,8 @@ export const actions = {
     withDrawCoin({commit},formData){
       return model.withDrawCoin(formData)
     },
-    shareSdk({commit}){
-      return model.shareSdk()
+    shareSdk({commit},formData){
+      return model.shareSdk(formData)
     },
        increment ({ commit }) {
           commit('increment')
