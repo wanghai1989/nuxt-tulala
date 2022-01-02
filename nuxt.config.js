@@ -31,7 +31,8 @@ export default {
   plugins: [
     // {src: '~plugins/layui.js', ssr: false},
     {src: '~plugins/common.js', ssr: false},
-    {src: '~plugins/route.js',ssr: false}
+    {src: '~plugins/route.js',ssr: false},
+    { src: '~/plugins/wx-share.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

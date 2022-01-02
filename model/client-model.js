@@ -497,8 +497,8 @@ export default {
       }
   }))
    },
-   shareSdk(formData){ //shareSDK
-    return handleRequest(request.post('/api/wechat/getJsSdkConfig',formData,{}))
+   shareSdk(shareSdk){ //shareSDK
+    return handleRequest(request.post('/api/wechat/getJsSdkConfig',shareSdk,{}))
    },
 }
 

@@ -3,12 +3,8 @@
  * 参考文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
  */
  import wx from 'weixin-js-sdk'
- import axios from 'axios'
-
- 
+ import Axios from 'axios'
  const wxApi = {
-
-    
      /**
       * [wxRegister 微信Api初始化]
       * @param  {Function} callback [ready回调函数]
@@ -21,42 +17,38 @@
              nonceStr: data.nonceStr, // 必填，生成签名的随机串
              signature: data.signature, // 必填，签名，见附录1
              jsApiList: [
-                 'checkJsApi',
-                 'updateTimelineShareData',
-                 'updateAppMessageShareData',
-                 'onMenuShareQQ',
-                 'onMenuShareWeibo'
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
              ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
          })
          wx.ready(function(){
-             wx.updateTimelineShareData({
-                 title: option.title, // 分享标题
-                 link: option.link, // 分享链接
-                 imgUrl: option.imgUrl, // 分享图标
-                 desc: option.desc, // 分享描述
-                 success() {
-                     // 用户成功分享后执行的回调函数
-                     option.success()
-                 },
-                 cancel() {
-                     // 用户取消分享后执行的回调函数
-                     option.error()
-                 }
-             });
-             wx.updateAppMessageShareData({
-                 title: option.title, // 分享标题
-                 desc: option.desc, // 分享描述
-                 link: option.link, // 分享链接
-                 imgUrl: option.imgUrl, // 分享图标
-                 success() {
-                     // 用户成功分享后执行的回调函数
-                     option.success()
-                 },
-                 cancel() {
-                     // 用户取消分享后执行的回调函数
-                     option.error()
-                 }
-             })
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                  title: tit,   // 分享时的标题
+                  link: fxUrl,     // 分享时的链接
+                  imgUrl: _this.pic,    // 分享时的图标
+                  success: function () {
+                    console.log("分享成功");
+                  },
+                  cancel: function () {
+                    console.log("取消分享");
+                  }
+                });
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                  title: tit,
+                  desc: '这件商品终于优惠了，每件只需100元', 
+                  link: fxUrl,
+                  imgUrl: _this.pic,
+                  type: '',
+                  dataUrl: '', 
+                  success: function () {
+                    console.log("分享成功");
+                  },
+                  cancel: function () {
+                    console.log("取消分享");
+                  }
+                });
          })
      }
  }

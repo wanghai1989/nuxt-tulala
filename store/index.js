@@ -76,7 +76,8 @@ pageSize:10,  //每页条数
   softName:{'PSD':'Photoshop','AI':'Illustrator','EPS':'PostScript','CDR':'CorelDraw','SKETCE':'sketch','AE':'After Effects','C4D':'Cinema 4D','MAX':'3Dmax'},  //文件所使用软件 
   firstVip:{},  //第一个vip类型
   integral:0, //总积分
-  platform_currency:0//平台币
+  platform_currency:0,//平台币
+  wxshare:{} //微信分享所需参数
 })
 export const getters = {
   fullname(state){
@@ -253,6 +254,9 @@ fillVipType(state,viptype){
 fillCoupon(state,coupons){
     state.coupons=coupons.list
     }, 
+    fillWxsdk(state,data){
+      state.wxshare=data
+      },
 increment (state,num) {
     // 变更状态
     state.count=num+1
@@ -807,9 +811,18 @@ export const actions = {
     withDrawCoin({commit},formData){
       return model.withDrawCoin(formData)
     },
-    shareSdk({commit},formData){
-      return model.shareSdk(formData)
+    shareSdk({commit},params){
+      return model.shareSdk(params)
     },
+    // shareSdk({commit},formData){
+    //   return model.shareSdk(formData).then(data => {
+    //     // console.log(data)
+    //     commit('fillWxsdk', data.data)
+    //   })
+    //   .catch(err => {
+    //     handleError(err)
+    //   })
+    // },
        increment ({ commit }) {
           commit('increment')
         }
