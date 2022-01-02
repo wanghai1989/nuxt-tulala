@@ -7,6 +7,7 @@
 </template>
 <script>
 import {mapState,mapMutations,mapActions} from 'vuex'
+import wx from 'weixin-js-sdk'
 export default {
    layout: 'mobile',
 components: {},
@@ -23,6 +24,7 @@ mounted(){
 		    formDatas.append('url', 'http://www.91tula.com/m/mobile-register');
      this.shareSdk(formDatas)//这里我写了一个公用的接口请求js，这里正常axios请求就可以，只要拿到数据都可以
           .then(res => {
+            console.log('res',res)
             // localStorage.setItem("jsapi_ticket", res.jsapi_ticket);
             //拿到后端给的这些数据
             let appId = res.data.appId;
