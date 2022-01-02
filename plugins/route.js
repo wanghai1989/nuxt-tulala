@@ -61,8 +61,8 @@ export default ({
                     else{
                         store.commit('cancelToken', token)
                         if(requireLogin.indexOf(to.path)>-1){
-                            localStorage.setItem('preRoute', to.path);
-                            next({path: '/user/login'})     
+                            // localStorage.setItem('preRoute', to.path);
+                            next({path: '/user/login',query:{backUrl:to.path}})     
                         }
                         next()  
                     }

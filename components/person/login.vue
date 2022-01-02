@@ -59,10 +59,15 @@ export default {
       password:'',
       pwdflag:false,
       code:'',
+      backUrl:'',
       errorMsg: ''
     }
   },
   mounted(){
+  if(this.$route.query.backUrl){
+     this.backUrl=this.$route.query.backUrl
+     console.log(this.backUrl)
+   }
    if(this.$route.query.code){
      this.wechatSubmit(this.$route.query.code)
    }
@@ -97,8 +102,7 @@ export default {
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
               this.fetchPerson(data.data.token)
-              const preRouter=localStorage.getItem("preRoute")//上一个路由
-              if(!preRouter && !this.showLogin){
+              if(!this.backUrl && !this.showLogin){
                 setTimeout(() => {
                   this.$router.replace('/mine') 
                 }, 1000);
@@ -110,7 +114,7 @@ export default {
               }
               else{
                 setTimeout(() => {
-                  this.$router.replace(preRouter)  //跳回上一个路由
+                  this.$router.replace(this.backUrl)  //跳回上一个路由
                 }, 1000);
               }
             }
@@ -135,15 +139,15 @@ export default {
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
               this.fetchPerson(data.data.token)
-              const preRouter=localStorage.getItem("preRoute")//上一个路由
+              // const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
                 }, 1000);
               }else{
-                if(preRouter && preRouter!='/user/login'){
+                if(this.backUrl && this.backUrl!='/user/login'){
                   setTimeout(() => {
-                    this.$router.replace(preRouter)  //跳回上一个路由
+                    this.$router.replace(this.backUrl)  //跳回上一个路由
                   }, 1000);
                 }else{
                   setTimeout(() => {
