@@ -1,16 +1,21 @@
 <template>
     <footer class="navbar-fixed-bottom clearfix">
-			<div class="col-4 file focus">
+        <div class="col-3 file focus">
+			<nuxt-link :to="{ name: 'm'}">
+				<h3><i class="iconfont">&#xe603;</i>首页</h3>
+			</nuxt-link>
+		</div>
+			<div class="col-3 file focus">
 			<nuxt-link :to="{ name: 'm-material-id', params:{id:1 }}">
 				<h3><i class="iconfont">&#xe603;</i>作品</h3>
 			</nuxt-link>
 		</div>
-		<div class="col-4 task ">
+		<div class="col-3 task ">
 			<nuxt-link to="/m/mobile-task">
 			<h3><i class="iconfont">&#xe656;</i>任务</h3>
 			</nuxt-link>
 		</div>
-		<div class="col-4 mine ">
+		<div class="col-3 mine ">
 			<nuxt-link to="/m/mobile-mine">
 			<h3><i class="iconfont">&#xe601;</i>我的</h3>
 			</nuxt-link>
