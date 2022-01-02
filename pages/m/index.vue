@@ -17,5 +17,4 @@ metaInfo: {
 }
 </script>
 <style lang="less" scoped>
-.active-link{color: var(--color);}
 </style>
