@@ -9,14 +9,15 @@ const wechatShare = {
   install(Vue) {
     Vue.prototype.wxShare = function(shareData, url) {
       this.$axios
-        .post('http://www.91tula.top/api/wechat/getJsSdkConfig', {
+        .post('http://www.91tula.top/api/wechat/getJsSdkConfig', 
           // 请求配置
-          params: {
+           {
             url: 'http://www.91tula.com/m/mobile-register'  // 根据后台配置填写
           }
-        })
+        )
         .then(res => {
-          const Data = res.data
+        console.log(res.data.data)
+          const Data = res.data.data
           this.$wechat.config({
             debug: false,
             appId: Data.appId,
