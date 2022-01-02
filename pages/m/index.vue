@@ -7,7 +7,7 @@
 </template>
 <script>
 import {mapState,mapMutations,mapActions} from 'vuex'
-import wx from 'weixin-js-sdk'
+import wx from 'http://res2.wx.qq.com/open/js/jweixin-1.6.0.js'
 export default {
    layout: 'mobile',
 components: {},
@@ -31,6 +31,7 @@ mounted(){
             let timestamp = res.data.timestamp;
             let nonceStr = res.data.noncestr;
             let signature = res.data.signature;
+           
             wx.config({
               debug: false,// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
               appId: appId,         // 必填，公众号的唯一标识，填自己的！
@@ -71,7 +72,6 @@ mounted(){
                     console.log("取消分享");
                   }
                 });
-            })
       })
 }
  }
