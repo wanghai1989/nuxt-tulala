@@ -7,7 +7,7 @@
 </template>
 <script>
 import {mapState,mapMutations,mapActions} from 'vuex'
-import wx from 'http://res2.wx.qq.com/open/js/jweixin-1.6.0.js'
+import wx from '/js/jweixin-1.6.0'
 export default {
    layout: 'mobile',
 components: {},
