@@ -9,26 +9,87 @@
 import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
    layout: 'mobile',
+   data(){
+     return{
+         wxTitle : "理财就选弹钱吧，51信用卡、戈壁创投等联合入股！",
+             wxDesc : "弹钱吧，多家上市公司风投入股，六层风控，收益有保障！",
+             wxLogo : "https://imgvcp.jinzaofintech.cn/5a3a3a3f8c37c.jpg",
+             wxLink : "https://m.tanqian8.com"
+     }
+   },
 components: {},
 mounted(){
   // this.getShareInfo('我这是标题','bb')
-   this.wxShare(
-      {
-        title: 'title',
-        desc: 'desc',
-        link: 'shareData.url',
-        imgUrl: 'shareData.image'
-      },
-      'https://www.jianshu.com/p/840169ba92e6'
-    )
+  let params={
+    'url':'http://www.91tula.com/m/mobile-register'
+  }
+this.shareSdk(params).then(res => {
+  console.log(res.data.appId)
+   wx.config({
+       debug: false,
+            appId: res.data.appId,
+            timestamp: res.data.timestamp,
+            nonceStr: res.data.nonceStr,
+            signature: res.data.signature,
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']});
+            wx.ready(function () {
+                wx.hideMenuItems({
+                    menuList: [
+                        "menuItem:share:weiboApp",
+                        "menuItem:share:facebook",
+                        "menuItem:share:QZone",
+                        "menuItem:originPage",
+                        "menuItem:readMode",
+                        "menuItem:openWithQQBrowser",
+                        "menuItem:openWithSafari",
+                        "menuItem:share:email"
+                    ]
+                });
+                wx.onMenuShareTimeline({
+            title: '这是标题',   // 分享时的标题
+            link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
+            imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
+            success: function () {
+              console.log("分享成功");
+            },
+            cancel: function () {
+              console.log("取消分享");
+            }
+          });
+          wx.onMenuShareAppMessage({
+            title: '这是标题',
+            desc: '这件商品终于优惠了，每件只需100元', 
+            link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
+            imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
+            type: '',
+            dataUrl: '', 
+            success: function () {
+              console.log("分享成功");
+            },
+            cancel: function () {
+              console.log("取消分享");
+            }
+          });
+})
+
+  //  this.wxShare(
+  //     {
+  //       title: 'title',
+  //       desc: 'desc',
+  //       link: 'shareData.url',
+  //       imgUrl: 'shareData.image'
+  //     },
+  //     'https://www.jianshu.com/p/840169ba92e6'
+  //   )
+})
 },
 computed:{
 	  ...mapState(['wxshare'])
   },
  methods: {
-      // ...mapActions({
-      //     'shareSdk':'shareSdk'
-      // }),
+      ...mapActions({
+          'shareSdk':'shareSdk'
+      }),
 //    async getShareInfo(tit,fxUrl){//如果分享的内容会根据情况变化，那么这里可以传入分享标题及url
 //      let formDatas = new FormData();
 // 		    formDatas.append('url', 'http://www.91tula.com/m/mobile-register');
