@@ -39,6 +39,7 @@ export default {
         let param={
             code:this.$route.query.code
         }
+        console.log(param)
         this.wechatSubmit(param);
     }
   },
