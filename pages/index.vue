@@ -31,7 +31,36 @@ import indexAnchor from '~/components/index/index-anchor.vue'
 import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
+import {mapActions} from 'vuex'
 export default {
-   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip}
+   components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip},
+   created(){
+    if(this.$route.query.code){
+        let code=this.$route.query.code
+        this.wechatSubmit(code);
+    }
+  },
+   methods: {
+       ...mapActions(['wechatlogin',,'fetchPersoninfo']),
+       wechatSubmit(code){
+        let formDatas = new FormData();
+		  formDatas.append('code', code);
+        this.wechatlogin(formDatas)
+          .then((data) => {
+            if(data.code==0){
+              layer.msg(data.msg, {icon: 2});
+              return false;
+            }
+            if(data.code==1){
+              this.setToken(data.data.token)
+              let formDatas = new FormData();
+              formDatas.append('token', data.data.token);
+              this.fetchPersoninfo(formDatas)
+              this.$router.push('/') 
+            }
+          })
+    }
+   }
+   
 }
 </script>
