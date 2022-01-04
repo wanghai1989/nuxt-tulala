@@ -35,24 +35,25 @@ import {mapActions,mapMutations} from 'vuex'
 export default {
    components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip},
    created(){
-    if(this.$route.query.code){
+    // if(this.$route.query.code){
+    //     let param={
+    //         code:this.$route.query.code
+    //     }
+    //     console.log(param)
+    //     this.wechatSubmit(param);
+    // }
+  },
+  beforeMount(){
+      if(this.$route.query.code){
         let param={
             code:this.$route.query.code
         }
-        console.log(param)
         this.wechatSubmit(param);
     }
   },
   
   mounted(){
-    // if(this.$route.query.code){
-    //     let param={
-    //         code:this.$route.query.code
-    //     }
-    //     let code=this.$route.query.code
-    //     console.log(code)
-    //     this.wechatSubmit(param);
-    // }
+    
   },
    methods: {
         ...mapMutations(['setToken']),
