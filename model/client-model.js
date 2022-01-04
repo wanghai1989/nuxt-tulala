@@ -33,8 +33,8 @@ export default {
    login (mobile,password) {
     return handleRequest(request.post('/api/member/login',{mobile,password}))
    },
-   wechatlogin (formData) {
-    return handleRequest(request.post('/api/member/wechatLogin',formData,{
+   wechatlogin (params) {
+    return handleRequest(request.post('/api/member/wechatLogin',params,{
         headers: {
           'Content-Type': 'multipart/form-data'
         }

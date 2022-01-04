@@ -373,8 +373,8 @@ export const actions = {
       login ({ commit }, { mobile,password}) {
         return model.login( mobile,password)
        },
-       wechatlogin ({ commit }, formData) {
-        return model.wechatlogin(formData)
+       wechatlogin ({ commit }, {code}) {
+        return model.wechatlogin(code)
        },
        logout ({ commit },formData){
         return model.logout(formData)

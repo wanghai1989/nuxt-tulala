@@ -31,7 +31,7 @@ import indexAnchor from '~/components/index/index-anchor.vue'
 import indexAnim from '~/components/index/index-anim.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import prodSearch from '~/components/product/prod-search.vue'
-import {mapActions} from 'vuex'
+import {mapActions,mapMutations} from 'vuex'
 export default {
    components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip},
    created(){
@@ -42,20 +42,22 @@ export default {
     //     this.wechatSubmit(code);
     // }
   },
+  
   mounted(){
-   console.log(11,this.$route.query.code)
     if(this.$route.query.code){
+        let param={
+            code:this.$route.query.code
+        }
         let code=this.$route.query.code
         console.log(code)
-        this.wechatSubmit(code);
+        this.wechatSubmit(param);
     }
   },
    methods: {
+        ...mapMutations(['setToken']),
        ...mapActions(['wechatlogin',,'fetchPersoninfo']),
-       wechatSubmit(code){
-        let formDatas = new FormData();
-		  formDatas.append('code', code);
-        this.wechatlogin(formDatas)
+       wechatSubmit(param){
+        this.wechatlogin(param)
           .then((data) => {
               console.log('微信登录',data)
             if(data.code==0){
