@@ -35,9 +35,9 @@ export default {
    },
    wechatlogin (code) {
     return handleRequest(request.post('/api/member/wechatLogin',{code},{
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // }
     }))
    },
    logout(formData){
