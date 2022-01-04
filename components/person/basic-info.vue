@@ -123,7 +123,7 @@ export default {
 	city_code:'',
 	area:'',
 	area_code:'',
-    birthday:'1900-12-30',
+    birthday:common.dataFormat('1980-01-01'),
     }
   },
   created() {

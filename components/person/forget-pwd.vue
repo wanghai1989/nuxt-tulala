@@ -23,7 +23,7 @@
 					v-model="password"
 					>
         <input v-else
-        type="password"
+        type="password" autocomplete="off"
         class="input-login"
         placeholder="密码(6-12位字母数字组合)"
         v-model="password"
@@ -33,7 +33,7 @@
 		<div class="input-item mt10">
 			<i class="i-sms"></i>
 			<input
-			type="password"
+			type="password" autocomplete="off"
 			class="input"
 			v-model="confirm_password"
 			placeholder="重复新密码"

@@ -39,10 +39,10 @@
           type="text"
 					class="input-login"
 					placeholder="密码(6-12位字母数字组合)"
-					v-model="password"
+					v-model="password" 
 					>
           <input v-else
-          type="password"
+          type="password" autocomplete="off"
 					class="input-login"
 					placeholder="密码(6-12位字母数字组合)"
 					v-model="password"
@@ -52,7 +52,7 @@
 		<div class="input-item mt10">
 			<i class="i-sms"></i>
 			<input
-			type="password"
+			type="password" autocomplete="off"
 			class="input"
 			placeholder="重复密码"
 			v-model="confirm_password"
@@ -76,7 +76,7 @@
       <br/>
       
         <label class="my_protocol">
-              <input class="input_agreement_protocol" type="checkbox" @click = "checkbox($event)"/>
+              <input class="input_agreement_protocol" type="checkbox" value="agree" v-model="ischeck"  @click = "checkbox()"/>
               <span></span>阅读并同意  <nuxt-link :to="{ path:'/agreement', query:{id:1}}"  target="_blank" tag="a">《图啦啦用户协议》</nuxt-link>和 
               <nuxt-link :to="{ path:'/agreement', query:{id:2}}"  target="_blank" tag="a">《版权声明》</nuxt-link>
         </label>
@@ -105,6 +105,7 @@ export default {
       be_invited_code:'',
       pwdflag:false,
       show_invited_code:0,
+      ischeck:['agree'],
 
       content: '获取验证码', // 按钮里显示的内容
       totalTime: 60 ,     //记录具体倒计时时间
@@ -115,7 +116,6 @@ export default {
     }
   },
   mounted(){
-    // import('layui-layer')
     if(this.$route.query.invite_code){
       this.show_invited_code=1
       this.be_invited_code=this.$route.query.invite_code
@@ -124,6 +124,13 @@ export default {
    methods: {
     ...mapMutations(['setToken','setShowLogin']),
     ...mapActions(['register','fetchPersoninfo','fetchVeriCode','checkVeriCode']),
+    checkbox:function(){
+      if(this.ischeck.length===0){
+        this.ischeck=['agree']
+      }else{
+        this.ischeck=[]
+      }
+    },
   showInvite:function() {
     this.show_invited_code=1
   },
@@ -170,7 +177,12 @@ export default {
     },
     doSubmit (e) {
       e.preventDefault()
-      console.log(common.randomWord(true,4,6))
+      // console.log(common.randomWord(true,4,6))
+
+      if(this.ischeck.length===0){
+        layer.msg('你还未勾协议', {icon: 2});
+        return
+      }
       const errMsg=this.validate()
       this.errorMsg=errMsg
       if (!errMsg) {
