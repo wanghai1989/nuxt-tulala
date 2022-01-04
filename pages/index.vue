@@ -35,23 +35,24 @@ import {mapActions,mapMutations} from 'vuex'
 export default {
    components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip},
    created(){
-       console.log(11,this.$route.query.code)
-    // if(this.$route.query.code){
-    //     let code=this.$route.query.code
-    //     console.log(code)
-    //     this.wechatSubmit(code);
-    // }
-  },
-  
-  mounted(){
     if(this.$route.query.code){
         let param={
             code:this.$route.query.code
         }
         let code=this.$route.query.code
-        console.log(code)
         this.wechatSubmit(param);
     }
+  },
+  
+  mounted(){
+    // if(this.$route.query.code){
+    //     let param={
+    //         code:this.$route.query.code
+    //     }
+    //     let code=this.$route.query.code
+    //     console.log(code)
+    //     this.wechatSubmit(param);
+    // }
   },
    methods: {
         ...mapMutations(['setToken']),
@@ -59,7 +60,6 @@ export default {
        wechatSubmit(param){
         this.wechatlogin(param)
           .then((data) => {
-              console.log('微信登录',data)
             if(data.code==0){
               layer.msg(data.msg, {icon: 2});
               return false;
