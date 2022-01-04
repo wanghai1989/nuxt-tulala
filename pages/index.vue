@@ -37,6 +37,7 @@ export default {
    created(){
     if(this.$route.query.code){
         let code=this.$route.query.code
+        console.log(code)
         this.wechatSubmit(code);
     }
   },
@@ -47,6 +48,7 @@ export default {
 		  formDatas.append('code', code);
         this.wechatlogin(formDatas)
           .then((data) => {
+              console.log('微信登录',data)
             if(data.code==0){
               layer.msg(data.msg, {icon: 2});
               return false;
