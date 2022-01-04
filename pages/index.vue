@@ -39,7 +39,6 @@ export default {
         let param={
             code:this.$route.query.code
         }
-        let code=this.$route.query.code
         this.wechatSubmit(param);
     }
   },
