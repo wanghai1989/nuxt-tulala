@@ -35,7 +35,7 @@ import {mapActions,mapMutations} from 'vuex'
 export default {
    components: {webHeader,webFooter,webPendant,swiperIndex,indexAdvantage,indexList,indexHandin,indexAnchor,indexAnim,webLogin,prodSearch,webUnvip},
    created(){
-    //    console.log(11,this.$route.query.code)
+       console.log(11,this.$route.query.code)
     // if(this.$route.query.code){
     //     let code=this.$route.query.code
     //     console.log(code)
