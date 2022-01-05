@@ -1,5 +1,13 @@
 'use strict';
 export default {
+   is_weixn(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+},
    cutImageBase64(m_this,waterimg,format, wid) {  //file 压缩之后返回base64   format 图片格式  如'image/jpeg'  
     return new Promise((resolve, reject) => {
         var file = m_this;
@@ -133,9 +141,9 @@ drawAndShareImage(url1,url2){ //url1 背景图，url2 上层图,两种图片合�
           var base64 = canvas.toDataURL("image/png");  //"image/png" 这里注意一下
 
           // 生成一个a元素
-        var a = document.createElement('a')
-        // 创建一个单击事件
-        var event = new MouseEvent('click')
+          var a = document.createElement('a')
+          // 创建一个单击事件
+          var event = new MouseEvent('click')
 
         // 将a的download属性设置为我们想要下载的图片名称，若name不存在则使用‘下载图片名称’作为默认名称
         a.download =  '邀请好友'

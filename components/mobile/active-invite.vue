@@ -34,7 +34,10 @@ export default {
 	  ...mapState(['personInfo','userToken','baseUrl'])
   },
   mounted(){
-    this.wechatShare()
+    if(processImg.is_weixn()){
+      alert(111)
+      this.wechatShare()
+    }
     // this.getPromote()
   },
 	methods:{
