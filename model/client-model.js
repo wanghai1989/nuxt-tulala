@@ -141,14 +141,22 @@ export default {
      }
  }))
   },
-  getPersoninfo (formData) { //获取个人信息
-    return handleRequest(request.post('/api/member/getMemberInfo',formData,{
+//   getPersoninfo (formData) { //获取个人信息
+//     return handleRequest(request.post('/api/member/getMemberInfo',formData,{
+//         headers: {
+//             'Authentication-Token':formData.get('token'),
+//             'Content-Type': 'multipart/form-data'
+//         }
+//     }))
+//    },
+   getPersoninfo (userToken) {
+    return handleRequest(request.post('/api/member/getMemberInfo',{},{
         headers: {
-            'Authentication-Token':formData.get('token'),
-            'Content-Type': 'multipart/form-data'
+            'Authentication-Token':userToken
         }
     }))
    },
+
   saveRealname(formData){ //实名认证
     return handleRequest(request.post('/api/member/realNameAuthentication',formData,{
      headers: {

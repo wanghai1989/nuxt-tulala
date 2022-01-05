@@ -77,7 +77,7 @@ export default {
   },
    methods: {
     ...mapMutations(['setToken','setShowLogin']),
-    ...mapActions(['login','wechatlogin','fetchPersoninfo']),
+    ...mapActions(['login','wechatlogin']),
     togglePwd(){
       if(this.pwdflag)
       this.pwdflag=false
@@ -101,7 +101,7 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              this.fetchPerson(data.data.token)
+              // this.fetchPerson(data.data.token)
               if(!this.backUrl && !this.showLogin){
                 setTimeout(() => {
                   this.$router.replace('/mine') 
@@ -138,7 +138,7 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              this.fetchPerson(data.data.token)
+              // this.fetchPerson(data.data.token)
               // const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(this.showLogin){
                 setTimeout(() => {
@@ -161,12 +161,12 @@ export default {
         this.errorMsg=errMsg
       }
     },
-    fetchPerson:function(token){
-		  let formDatas = new FormData();
-		  formDatas.append('token',token);
+    // fetchPerson:function(token){
+		//   let formDatas = new FormData();
+		//   formDatas.append('token',token);
 
-		  this.fetchPersoninfo(formDatas)
-	  },
+		//   this.fetchPersoninfo(formDatas)
+	  // },
     validate () {
      return common.validateLogin(this.mobile.trim(),this.password.trim())
   }

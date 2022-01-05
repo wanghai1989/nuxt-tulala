@@ -31,14 +31,18 @@ export default ({
         
         if(isMobile){
             if(requireLogin.indexOf(to.path)>-1){
-                if(!token) { next({path: '/m/mobile-login'})} 
+                if(!token) {  next({path: '/m/mobile-login',query:{backUrl:to.path}})    } 
                 else{
                     store.dispatch('verifyToken',token).then(data => { 
                         if(data.code==1){
                             store.commit('setToken', token)
-                            next()
+                            store.dispatch('fetchPersoninfo',token).then(data => { 
+                                store.commit('fillpersonInfo', data.data)
+                                next()
+                            })
                         }else{
-                            next({path: '/m/mobile-login'})
+                            store.commit('cancelToken', token)
+                            next( next({path: '/m/mobile-login',query:{backUrl:to.path}})  )
                         }
                     })
                 }
@@ -51,11 +55,16 @@ export default ({
                 store.dispatch('verifyToken',token).then(data => { 
                     if(data.code==1){
                         store.commit('setToken', token)
-                        const designState=store.state.personInfo.designer_status
-                        if(designState==104 && to.path=='/enter/design-basic')
-                        {next({path: '/enter/design-egg'})} 
-                        if((designState==102 || designState==103) && to.path=='/enter/design-basic')
-                        {next({path: '/enter/design-result'})} 
+                        store.dispatch('fetchPersoninfo',token).then(data => { 
+                            store.commit('fillpersonInfo', data.data)
+                            const designState=store.state.personInfo.designer_status
+                            if(designState==104 && to.path=='/enter/design-basic')
+                            {next({path: '/enter/design-egg'})} 
+                            if((designState==102 || designState==103) && to.path=='/enter/design-basic')
+                            {
+                                next({path: '/enter/design-result'})
+                            } 
+                            })
                         next()
                     }
                     else{
@@ -69,38 +78,5 @@ export default ({
                 })
            
         }
-
-        
-        
-        // if(requireLogin.indexOf(to.path)>-1){  //需要登录的页面
-           
-        //     if(to.path=='/user/login' || to.path=='/m/mobile-login') next()  //去登录
-        //     if(!token && !isMobile) next({path: '/user/login'}) //没有token，是电脑页面，去电脑登录页
-        //     if(!token && isMobile) next({path: '/m/mobile-login'}) //没有token，是手机页面，去手机登录页
-            
-        //     store.dispatch('verifyToken',token).then(data => { 
-        //         // console.log('pay-vip',data)
-        //         if(data.code==1){
-        //             store.commit('setToken', token)
-        //             const designState=store.state.personInfo.designer_status
-        //             if(designState==104 && to.path=='/enter/design-basic')
-        //             {next({path: '/enter/design-egg'})} 
-        //             if((designState==102 || designState==103) && to.path=='/enter/design-basic')
-        //             {next({path: '/enter/design-result'})} 
-        //                 next()
-        //         }else{
-        //             localStorage.setItem('preRoute', to.path);
-        //             if(isMobile)
-        //             next({path: '/m/mobile-login'})
-        //             else
-        //             next({path: '/user/login'})
-        //         }
-        //         })
-        // }else{
-        //     if(token)  store.commit('setToken', token)
-               
-        //     next()
-            
-        // }
     })
   }

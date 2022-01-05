@@ -117,11 +117,11 @@ export default {
   created(){
    
   },
-  beforeMount(){
-    if(this.userToken){
-       this.updatePersoninfo()
-     }
-  },
+  // beforeMount(){
+  //   if(this.userToken){
+  //      this.updatePersoninfo()
+  //    }
+  // },
   mounted(){
   	// //页面刷新，如果存在token，页面保持登录状态
      this.fetchNavigation()
@@ -136,7 +136,7 @@ export default {
       ...mapActions({
           'fetchNavigation':'fetchNavigation',
           'fetchNotice':'fetchNotice',
-          'fetchPersoninfo':'fetchPersoninfo',
+          // 'fetchPersoninfo':'fetchPersoninfo',
           'logout':'logout'
       }),
       ...mapMutations(['cancelToken']),
@@ -147,11 +147,11 @@ fetchNoticeList:function(){
 
 		  this.fetchNotice(formDatas)
 	  },
-    updatePersoninfo:function(){
-		  let formDatas = new FormData();
-		  formDatas.append('token', this.userToken);
-		  this.fetchPersoninfo(formDatas)
-	  },
+    // updatePersoninfo:function(){
+		//   let formDatas = new FormData();
+		//   formDatas.append('token', this.userToken);
+		//   this.fetchPersoninfo(formDatas)
+	  // },
       doLogout(){
         let formDatas = new FormData();
 		    formDatas.append('token', this.userToken);

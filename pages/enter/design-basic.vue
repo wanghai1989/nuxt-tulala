@@ -27,11 +27,9 @@ export default {
    components: {webBanner,designBase},
   data () {
     return {
-      // userInfo: {}
     }
   },
  mounted(){
-    // this.userInfo=JSON.parse(localStorage.getItem("userInfo"))
   },
   computed:{
       ...mapState(['navigation','notice','personInfo'])

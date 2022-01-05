@@ -51,6 +51,7 @@ export default {
       mobile: '',
       password:'',
       pwdflag:false,
+      backUrl:'',
       code:'',
       errorMsg: ''
 
@@ -58,7 +59,9 @@ export default {
     }
   },
   mounted(){
-    
+    if(this.$route.query.backUrl){
+     this.backUrl=this.$route.query.backUrl
+   }
   },
    methods: {
     ...mapMutations(['setToken']),
@@ -90,6 +93,9 @@ export default {
               this.setToken(data.data.token)
               this.fetchPerson(data.data.token)
                 setTimeout(() => {
+                  if(this.backUrl)
+                  this.$router.replace(this.backUrl)  //跳回上一个路由
+                  else
                   this.$router.replace('/m/mobile-mine') 
                 }, 1000);
             }

@@ -185,7 +185,8 @@ shareWechat:function(){
                 QRCode.toCanvas(msg, website, opts, function (error) {
                     console.log(error)
                 });
-            
+
+				
 		  layer.open({
 				type: 1,
 				shade: false,

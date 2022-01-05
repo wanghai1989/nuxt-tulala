@@ -143,6 +143,7 @@ shareWeibo:function(){
     window.open(weiboUrl);
 },
 shareWechat:function(){
+	console.log(1111)
 	let website=window.location.href;
 	let opts = {
                     errorCorrectionLevel: "H",//容错级别
@@ -159,10 +160,18 @@ shareWechat:function(){
                 };
                 let msg = document.getElementById("QRCode_header");
                 // 将获取到的数据（val）画到msg（canvas）上
-                QRCode.toCanvas(msg, website, opts, function (error) {
-                    console.log(error)
-                });
-            console.log('url',$("#QRCode_header").toDataURL()) 
+                // QRCode.toCanvas(msg, website, opts, function (error) {
+                //     console.log(error)
+                // });
+				// With promises
+				QRCode.toDataURL('I am a pony!')
+				.then(url => {
+					console.log('url',url)
+				})
+				.catch(err => {
+					console.error(err)
+				})
+
 		  layer.open({
 				type: 1,
 				shade: false,

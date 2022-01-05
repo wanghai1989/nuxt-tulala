@@ -402,17 +402,21 @@ export const actions = {
       savePersoninfo({commit},formData){
         return model.savePersoninfo(formData);
       },
-       fetchPersoninfo({commit},formData){
-        commit('startLoading')
-        return model.getPersoninfo(formData)
-        .then(data => {
-          commit('endLoading')
-          commit('fillpersonInfo', data.data)
-        })
-        .catch(err => {
-          handleError(err)
-        })
+      fetchPersoninfo({commit},userToken){
+        return model.getPersoninfo(userToken)
+        
       },
+      //  fetchPersoninfo({commit},userToken){
+      //   commit('startLoading')
+      //   return model.getPersoninfo(userToken)
+      //   .then(data => {
+      //     commit('endLoading')
+      //     commit('fillpersonInfo', data.data)
+      //   })
+      //   .catch(err => {
+      //     handleError(err)
+      //   })
+      // },
       saveRealname({commit},formData){
         return model.saveRealname(formData);
       },
