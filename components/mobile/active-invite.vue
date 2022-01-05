@@ -64,59 +64,125 @@ export default {
                   })
       },
       wechatShare:function(){
+          
          let params={
           'url':'http://www.91tula.com/m/mobile-register'
         }
       this.shareSdk(params).then(res => {
-        console.log(res.data.appId)
-        wx.config({
-            debug: false,
-                  appId: res.data.appId,
-                  timestamp: res.data.timestamp,
-                  nonceStr: res.data.nonceStr,
-                  signature: res.data.signature,
-                  jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']});
-                  wx.ready(function () {
-                      // wx.hideMenuItems({
-                      //     menuList: [
-                      //         "menuItem:share:weiboApp",
-                      //         "menuItem:share:facebook",
-                      //         "menuItem:share:QZone",
-                      //         "menuItem:originPage",
-                      //         "menuItem:readMode",
-                      //         "menuItem:openWithQQBrowser",
-                      //         "menuItem:openWithSafari",
-                      //         "menuItem:share:email"
-                      //     ]
-                      // });
-                      //分享到朋友圈
-                      wx.onMenuShareTimeline({
-                            title: '这是标题',   // 分享时的标题
-                            link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
-                            imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
-                            success: function () {
-                              console.log("分享成功");
-                            },
-                            cancel: function () {
-                              console.log("取消分享");
-                            }
-                          });
-                          //分享给朋友
-                          wx.onMenuShareAppMessage({
-                            title: '这是标题',
-                            desc: '这件商品终于优惠了，每件只需100元', 
-                            link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
-                            imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
-                            type: '',
-                            dataUrl: '', 
-                            success: function () {
-                              console.log("分享成功");
-                            },
-                            cancel: function () {
-                              console.log("取消分享");
-                            }
-                          });
-                })
+        //微信首页分享
+            var wxTitle = "众筹来买车，买车即理财！";
+            var wxDesc = "维C物权，多家风投和上市公司投资，一起来买车，买车理财有保障！";
+            var wxLogo = "https://imgvcp.jinzaofintech.cn/5c482bf7a07b9.png";
+            var wxLink = "https://m.weiclicai.com";
+            wx.config(
+              {"debug":false,
+              "beta":true,
+              "appId":res.data.appId,
+              "nonceStr":res.data.nonceStr,
+              "timestamp":1641375136,
+              "url":"https:\/\/m.weiclicai.com\/",
+              "signature":res.data.signature,
+              "jsApiList":["hideMenuItems","onMenuShareAppMessage","onMenuShareTimeline","onMenuShareQQ"]
+              });
+            wx.ready(function () {
+                wx.hideMenuItems({
+                    menuList: [
+                        "menuItem:share:weiboApp",
+                        "menuItem:share:facebook",
+                        "menuItem:share:QZone",
+                        "menuItem:originPage",
+                        "menuItem:readMode",
+                        "menuItem:openWithQQBrowser",
+                        "menuItem:openWithSafari",
+                        "menuItem:share:email"
+                    ]
+                });
+                wx.onMenuShareTimeline({
+                    title: wxTitle,
+                    desc: wxDesc,
+                    link: wxLink,
+                    imgUrl: wxLogo,
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+                wx.onMenuShareAppMessage({
+                    title: wxTitle,
+                    desc: wxDesc,
+                    link: wxLink,
+                    imgUrl: wxLogo,
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+                wx.onMenuShareQQ({
+                    title: wxTitle,
+                    desc: wxDesc,
+                    link: wxLink,
+                    imgUrl: wxLogo,
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+            });
+
+        // wx.config({
+        //     debug: false,
+        //           appId: res.data.appId,
+        //           timestamp: res.data.timestamp,
+        //           nonceStr: res.data.nonceStr,
+        //           signature: res.data.signature,
+        //           jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']});
+        //           wx.ready(function () {
+        //               // wx.hideMenuItems({
+        //               //     menuList: [
+        //               //         "menuItem:share:weiboApp",
+        //               //         "menuItem:share:facebook",
+        //               //         "menuItem:share:QZone",
+        //               //         "menuItem:originPage",
+        //               //         "menuItem:readMode",
+        //               //         "menuItem:openWithQQBrowser",
+        //               //         "menuItem:openWithSafari",
+        //               //         "menuItem:share:email"
+        //               //     ]
+        //               // });
+        //               //分享到朋友圈
+        //               wx.onMenuShareTimeline({
+        //                     title: '这是标题',   // 分享时的标题
+        //                     link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
+        //                     imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
+        //                     success: function () {
+        //                       console.log("分享成功");
+        //                     },
+        //                     cancel: function () {
+        //                       console.log("取消分享");
+        //                     }
+        //                   });
+        //                   //分享给朋友
+        //                   wx.onMenuShareAppMessage({
+        //                     title: '这是标题',
+        //                     desc: '这件商品终于优惠了，每件只需100元', 
+        //                     link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
+        //                     imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
+        //                     type: '',
+        //                     dataUrl: '', 
+        //                     success: function () {
+        //                       console.log("分享成功");
+        //                     },
+        //                     cancel: function () {
+        //                       console.log("取消分享");
+        //                     }
+        //                   });
+        //         })
 
           })
       }
