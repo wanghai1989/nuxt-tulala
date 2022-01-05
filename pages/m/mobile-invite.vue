@@ -28,7 +28,6 @@ methods:{
          let params={
           'url':'http://www.91tula.com/m/mobile-register'
         }
-       import("https://res2.wx.qq.com/open/js/jweixin-1.6.0.js")
        this.shareSdk(params).then(res=>{
                 let wxInfo=res.data
                 alert(wxInfo.appId)
