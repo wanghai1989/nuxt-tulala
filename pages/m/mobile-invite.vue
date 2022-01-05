@@ -4,6 +4,7 @@
 </div>
 </template>
 <script>
+import 'https://res2.wx.qq.com/open/js/jweixin-1.6.0.js'
 import activeInvite from '~/components/mobile/active-invite.vue'
 import { mapActions} from 'vuex'
 export default {
