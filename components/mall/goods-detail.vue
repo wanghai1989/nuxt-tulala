@@ -98,6 +98,10 @@ export default {
       },
        doSubmit (e) {
       e.preventDefault()
+      if(!this.userToken){
+        this.$router.replace({path:'/user/login',query:{backUrl: this.$route.path}}) ;
+        return
+      }
       if(!this.personInfo.is_complete_my_info){
         layer.msg('请先完善个人信息', {icon: 2});
               return false;

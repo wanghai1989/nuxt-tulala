@@ -27,7 +27,8 @@ export default {
 
   data () {
     return {
-     
+     page:1,
+     pageSize:15
     }
   },
   mounted(){  
@@ -35,7 +36,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['page','pageSize','countfile','notice'])
+	  ...mapState(['countfile','notice'])
   },
   methods:{
  ...mapActions({
