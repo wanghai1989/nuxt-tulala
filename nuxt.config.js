@@ -20,8 +20,7 @@ export default {
     script: [
     	{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js' },
       { src: 'https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.min.js', ssr: false },
-      { src: 'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/js/swiper.min.js',ssr:false},
-      { src: 'https://res2.wx.qq.com/open/js/jweixin-1.6.0.js',ssr:false}
+      { src: 'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/js/swiper.min.js',ssr:false}
       
     ]
   },

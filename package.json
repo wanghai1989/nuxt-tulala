@@ -22,6 +22,7 @@
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
+    "vux": "^2.11.1",
     "weixin-js-sdk": "^1.6.0"
   },
   "devDependencies": {
