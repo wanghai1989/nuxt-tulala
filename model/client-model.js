@@ -2,7 +2,7 @@ import axios from 'axios' //发数据请求
 import { createError } from '~/model/util'
 const request = axios.create({
 //baseURL: process.env.NODE_ENV==='server'?'http:127.0.0.1:3333':'/'  //浏览器请求默认是同域的
-  baseURL: 'https://www.91tula.top/' 
+  baseURL: 'http://www.91tula.top/' 
 })
 
 const handleRequest = (request) => {  //handle 处理
