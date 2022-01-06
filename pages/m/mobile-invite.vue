@@ -14,7 +14,7 @@ components: {activeInvite},
         link: 'http://www.91tula.com/m/mobile-register',     // 分享时的链接
         imgUrl: 'http://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
       }
-      let url='http://www.91tula.com/m/mobile-register'
+      let url='http://www.91tula.com'
       let ua = navigator.userAgent.toLowerCase();  
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
             this.wxShare(shareData,url)

@@ -14,6 +14,7 @@ const wechatShare = {
           })
         .then(res => {
           const Data = res.data.data
+          console.log(res.data)
           wx.config({
             debug: true,
             appId: Data.appId,
