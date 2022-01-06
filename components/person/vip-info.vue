@@ -32,7 +32,6 @@
 				<span v-else-if="type==2">图啦币总数 <strong> {{platform_currency}}</strong> <a href="javascript:void(0)" class="btn-withdraw" @click="showWithdraw()" >提现</a></span>
 				 <span v-else><span v-if="type==3">到期时间 <strong>2021-11-30</strong></span> <nuxt-link class="btn-openvip" to="/user/pay-vip" >{{personInfo.is_vip?'续期VIP':'开通VIP'}}</nuxt-link></span>
 			</div>
-			
 
 			<div class="vam vam-b tab-vip" v-if="type==1 || type==2">
 				<div class="title">
@@ -91,10 +90,8 @@
 </template>
 <script>
 import common from '~/assets/js/common'
-import MoPaging  from '~/components/layout/web-pagination.vue'
 import {mapState, mapActions} from 'vuex'
 export default {
-	components: {MoPaging},
   metaInfo: {
     title: '积分明细-图啦啦'
   },
@@ -104,7 +101,6 @@ export default {
 	show_withdraw:0,
 	withdraw_num:'',
 	errorMsg: '',
-	 page:1,
 	 type:1
     }
   },
@@ -115,7 +111,7 @@ export default {
 			this.fetchCoup()
 		},
  computed:{
-	  ...mapState(['pageSize','countfile','commission','coupons','viporder','userToken','personInfo','integral','platform_currency'])
+	  ...mapState(['commission','coupons','viporder','userToken','personInfo','integral','platform_currency'])
   },
   filters: {
 				numFormat(value) {

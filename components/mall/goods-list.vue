@@ -5,6 +5,7 @@
 				<li v-for="item in goods" :key="item.id">
 					<nuxt-link :to="{ name: 'mall-id', params:{ id: item.id }}">
 					<div class="pic">
+                        <div class="sold-out" v-show="item.inventory==0"></div>
 						<img  :src="item.goods_image" />
 					</div>
 					<div class=" prodname">{{item.goods_name}}</div>
@@ -31,11 +32,12 @@ export default {
 components: {MoPaging},
     data(){
 	return { 
-		page:1
+		page:1,
+        pageSize:10
   }
   },
   computed:{
-	  ...mapState(['goods','pageSize','countfile','condition'])
+	  ...mapState(['goods','countfile','condition'])
   },
   mounted(){  
 	  	this.goodList()  //商品列表
@@ -72,7 +74,8 @@ components: {MoPaging},
   		z-index:2;
   	box-shadow:0 15px 30px rgba(0,0,0,.1);
   	transform:translate3d(0,-2px,0)}
-    .pic{width: 140px; height: 140px; margin: 0 auto;}
+    .pic{width: 140px; height: 140px; margin: 0 auto; position: relative;}
+    .sold-out{position: absolute; top: 0; left: 0; width: 140px; height: 140px; background: url(~/assets/images/pic54.png) no-repeat center center;  z-index: 2;}
     .pic img{ max-width: 100%; max-height: 100%;}
     .prodname{font-size: 18px; color: var(--backColor); margin-top: 20px; white-space: nowrap; 
   overflow: hidden;

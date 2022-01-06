@@ -46,6 +46,7 @@ export default {
 		categoryId:0,
 		nowId:0,
         page: 1,
+		pageSize:40,
 		countImg:0,  //统计图片加载数量
 		query:{}
     }
@@ -86,7 +87,7 @@ mounted(){
   },
 
 	computed:{
-	  ...mapState(['pageSize','countfile','productlist','personInfo','userToken','idClass','idName'])
+	  ...mapState(['countfile','productlist','personInfo','userToken','idClass','idName'])
   },
 	methods:{
 		...mapMutations(['setShowLogin']),

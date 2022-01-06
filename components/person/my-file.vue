@@ -181,6 +181,7 @@ components: {MoPaging},
 		 formatsValue:'',  //素材格式
 		 shapeValue:'',  //素材版式
 		 page:1,
+		 pageSize:20,
 		 isUpload:0, //源文件是否上传
 		 isProgress:0,//是否显示进度条，默认隐藏
 		 detailImg:'',//大图
@@ -188,7 +189,7 @@ components: {MoPaging},
   }
   },
   computed:{
-	  ...mapState(['pageSize','myproduct','category','condition','countfile','userToken','personInfo'])
+	  ...mapState(['myproduct','category','condition','countfile','userToken','personInfo'])
   },
   watch :{
 	  '$store.state.myproduct'(){

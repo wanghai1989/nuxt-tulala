@@ -30,6 +30,8 @@
         <li
         :class="['paging-item', 'paging-item--last', {'paging-item--disabled' : index === pages}]"
         @click="last">末页</li>
+
+        <li>{{size+','+limit}}</li>
     </ul>
 </template>
 <script>

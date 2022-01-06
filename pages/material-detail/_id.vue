@@ -219,7 +219,7 @@ collect:function(id){
           })
 	 },
 doSearch(val){
-           this.$router.push({name: this.productinfo.type_class,params:{id:this.productinfo.category_id},query:{keyword:val}});
+           this.$router.push({name:'material-id',params:{id:this.productinfo.category_id},query:{keyword:val}});
       },
 	downSourceFile(id,name){
 		if(!this.userToken){

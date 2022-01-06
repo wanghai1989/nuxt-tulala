@@ -33,7 +33,8 @@ export default {
 	components: {MoPaging},
   data () {
     return {
-    page: 1
+    page: 1,
+    pageSize:10
     }
   },
   mounted(){  
@@ -41,7 +42,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['pageSize','countfile','designer'])
+	  ...mapState(['countfile','designer'])
   },
   methods:{
  ...mapActions({

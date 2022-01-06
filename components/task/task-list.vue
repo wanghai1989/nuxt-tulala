@@ -86,6 +86,7 @@ export default {
 	 isActive:0,
 	 isActive2:0,
 	 page:1,
+	 pageSize:10,
 	 showTaskRule:0
     }
   },
@@ -95,7 +96,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['pageSize','countfile','workorder','setting'])
+	  ...mapState(['countfile','workorder','setting'])
   },
   methods:{
  ...mapActions({

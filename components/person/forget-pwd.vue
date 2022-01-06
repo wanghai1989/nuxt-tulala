@@ -139,6 +139,9 @@ export default {
               .then((data) => {
                 if(data.code==1){
                   layer.msg(data.msg, {icon: 1});
+                  setTimeout(() => {
+                    this.$router.replace('/user/login')
+                  }, 2000);
                 }
                 else{
                   layer.msg(data.msg, {icon: 2});

@@ -86,7 +86,6 @@ export default {
 		  formDatas.append('contact', this.contact);
 		this.upAdvices(formDatas)
 		.then((data) => {
-			console.log(data)
 			if(data.code==0){
 			layer.msg(data.msg, {icon: 2});
 			}

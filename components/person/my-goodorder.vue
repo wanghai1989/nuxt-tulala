@@ -48,12 +48,13 @@ import MoPaging  from '~/components/layout/web-pagination.vue'
 export default {
     data(){
 	return { 
-		page:1
+		page:1,
+		pageSize:10
   }
   },
   components: {MoPaging},
   computed:{
-	  ...mapState(['goodorder','pageSize','countfile','userToken'])
+	  ...mapState(['goodorder','countfile','userToken'])
   },
   mounted(){  
 	//   import('layui-layer')

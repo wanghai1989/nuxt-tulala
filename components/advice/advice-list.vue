@@ -46,6 +46,8 @@ export default {
 
   data () {
     return {
+		page:1,
+		pageSize:10
     }
   },
   mounted(){  
@@ -53,7 +55,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['page','pageSize','countfile','advices'])
+	  ...mapState(['countfile','advices'])
   },
   methods:{
  ...mapActions({
@@ -62,7 +64,7 @@ export default {
 	   //从page组件传递过来的当前page
             pageChange:function(page) {
                 this.page = page
-                this.fetchEvaluat()
+                this.fetchAdvic()
             },
 fetchAdvic:function(){
 		  let formDatas = new FormData();

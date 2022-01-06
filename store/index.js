@@ -685,7 +685,6 @@ export const actions = {
       commit('startLoading')
       return model.getDesignInfo(id)
           .then(data => {
-            console.log(data)
             commit('endLoading')
             commit('fillDesignInfo', data.data)
           })

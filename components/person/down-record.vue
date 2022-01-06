@@ -25,6 +25,12 @@
 		<img src="../../assets/images/pic32.png" />
 		<p>您还未下载此类素材</p>
 	</div>
+	<mo-paging 
+            :page-index="page" 
+            :total="countfile" 
+            :page-size="pageSize" 
+            @change="pageChange">
+            </mo-paging>
 	</div>
 </template>
 <script>
@@ -38,11 +44,12 @@ components: {MoPaging},
 	return { 
 		isActive:0,  //列表素材类型ID
         studentName:0,
-        page:1
+        page:1,
+		pageSize:20
   }
   },
   computed:{
-	  ...mapState(['pageSize','countfile','category','collectlist','userToken','personInfo'])
+	  ...mapState(['countfile','category','collectlist','userToken','personInfo'])
   },
    watch :{
 	  '$store.state.collectlist'(){

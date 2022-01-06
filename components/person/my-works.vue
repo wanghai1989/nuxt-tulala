@@ -102,6 +102,7 @@ export default {
     return {
 		worktype:1,
 		page:1,
+		pageSize:10,
 		QRCodeMsg:'',
 		show_pay:0,
 		workid:'',
@@ -114,7 +115,7 @@ export default {
 			this.fetchWork(this.worktype)
 		},
  computed:{
-	  ...mapState(['pageSize','countfile','worklist','userToken','publicStateName','acceptStateName'])
+	  ...mapState(['countfile','worklist','userToken','publicStateName','acceptStateName'])
   },
   methods:{
  ...mapActions({
