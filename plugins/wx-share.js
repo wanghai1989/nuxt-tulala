@@ -9,7 +9,7 @@ const wechatShare = {
   install(Vue) {
     Vue.prototype.wxShare = function(shareData, url) {
       this.$axios
-        .post('http://www.91tula.top/api/wechat/getJsSdkConfig', {
+        .post('https://www.91tula.top/api/wechat/getJsSdkConfig', {
             url:url  // 根据后台配置填写
           })
         .then(res => {
