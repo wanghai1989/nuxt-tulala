@@ -133,21 +133,21 @@ export default {
       if(!this.personInfo.is_complete_my_info){
         layer.msg('请先完善个人信息', {icon: 2});
         setTimeout(() => {
-                  this.$router.push('/mine/basic-info') 
+                  this.$router.push({path: '/mine/basic-info',query:{backUrl:to.path}}) 
                 }, 1500);
         return
       }
       if(!this.personInfo.is_binding_mobile){
         layer.msg('请先绑定手机号', {icon: 2});
         setTimeout(() => {
-                  this.$router.push('/mine/mobile-bind') 
+          this.$router.push({path: '/mine/mobile-bind',query:{backUrl:to.path}}) 
                 }, 1500);
         return
       }
       if(!this.personInfo.certification){
         layer.msg('请先实名认证', {icon:2});
         setTimeout(() => {
-                  this.$router.push('/mine/real-name') 
+          this.$router.push({path: '/mine/real-name',query:{backUrl:to.path}}) 
                 }, 1500);
         return
       }
@@ -178,7 +178,7 @@ export default {
               layer.msg(data.msg, {icon: 1});
               }
               setTimeout(() => {
-                this.$router.replace('/enter/design-egg')
+                  this.$router.replace('/enter/design-egg')
               }, 2000);
             
           })

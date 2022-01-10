@@ -31,12 +31,9 @@
 import common from '~/assets/js/common'
 import {mapState, mapActions} from 'vuex'
 export default {
-  metaInfo: {
-    title: '找回验证码'
-  },
-
    data () {
     return {
+      backUrl:'',
        mobile: '',
        code: '',
       content: '获取验证码', // 按钮里显示的内容
@@ -45,6 +42,11 @@ export default {
       errorMsg: ''
     }
   },
+   mounted(){  
+			if(this.$route.query.backUrl){
+				this.backUrl=this.$route.query.backUrl
+			}
+		},
   computed:{
       ...mapState(['userToken'])
   },
@@ -102,7 +104,11 @@ export default {
             if(data.code==1){
                 layer.msg(data.msg, {icon: 1});
                 setTimeout(() => {
-                   this.$router.replace('/person/person-info');
+                   if(this.backUrl){
+                  this.$router.push(this.backUrl)
+                }else{
+                  this.$router.push("/mine")
+                }
                  }, 2000);
             }else{
               layer.msg(data.msg, {icon: 2});

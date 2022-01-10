@@ -109,6 +109,7 @@ import processImg from '~/assets/js/processimg'
 export default {
   data () {
     return {
+	backUrl:'',
 	errorMsg: '',
 	content_length:0,
     maxLength:200,
@@ -126,17 +127,18 @@ export default {
     birthday:'',
     }
   },
-  created() {
-    },
 		mounted(){  
-						// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
-						this.fetchSet()
-					let pt=	setInterval(() => {
-						if(Object.keys(this.personInfo).length>0){
-							clearInterval(pt);
-							this.getperson()
-							}
-					}, 100);
+			if(this.$route.query.backUrl){
+				this.backUrl=this.$route.query.backUrl
+			}
+				// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
+				this.fetchSet()
+			let pt=	setInterval(() => {
+				if(Object.keys(this.personInfo).length>0){
+					clearInterval(pt);
+					this.getperson()
+					}
+			}, 100);
 						
 						//  this.getcity()
 		},
@@ -163,8 +165,6 @@ export default {
 			  this.area=this.personInfo.area
 			  this.vipimg=this.personInfo.avatar
 			  this.birthday=common.dataFormat(this.personInfo.birthday);
-			//   this.startTime.time=new Date(this.personInfo.birthday).toLocaleDateString().replace(/\//g, '-')  //转为短日期如 1989-10-5
-			//   console.log(this.birthday.time)
 			  this.getcity(this.province_code,this.city_code,this.area_code)
 	  },
 	  fetchSet(){
@@ -222,7 +222,11 @@ export default {
 			 this.personInfo.is_complete_my_info=1
 			 layer.msg(data.msg, {icon: 1});
 			 setTimeout(() => {
-				 this.$router.push("/mine")
+				 if(this.backUrl){
+                  this.$router.push(this.backUrl)
+                }else{
+                  this.$router.push("/mine")
+                }
 			 }, 1000);
             }
           })

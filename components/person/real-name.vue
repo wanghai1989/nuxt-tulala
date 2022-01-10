@@ -60,6 +60,7 @@ export default {
   },
   data () {
     return {
+	backUrl:'',
      errorMsg: '',
 	 img_front:'',
 	 img_backend:'',
@@ -70,8 +71,9 @@ export default {
     }
   },
   mounted(){  
-			// import('layui-layer')
-			// this.userInfo=JSON.parse(window.localStorage.getItem("userInfo"))
+			if(this.$route.query.backUrl){
+				this.backUrl=this.$route.query.backUrl
+			}
 		},
 computed:{
 	  ...mapState(['userToken'])
@@ -97,11 +99,16 @@ computed:{
           .then((data) => {
             if(data.code==0){
               layer.msg(data.msg, {icon: 2});
+			  return
             }
             if(data.code==1){
               layer.msg('提交成功，将在1-2个工作日完成审核！', {icon: 1});
 			  setTimeout(() => {
-				  this.$router.push('/person/person-info') 
+				   if(this.backUrl){
+                  this.$router.push(this.backUrl)
+                }else{
+                  this.$router.push("/mine")
+                }
 			  }, 2000);
             }
           })

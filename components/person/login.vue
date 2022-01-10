@@ -66,7 +66,6 @@ export default {
   mounted(){
   if(this.$route.query.backUrl){
      this.backUrl=this.$route.query.backUrl
-     console.log(this.backUrl)
    }
    if(this.$route.query.code){
      this.wechatSubmit(this.$route.query.code)
