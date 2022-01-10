@@ -1,13 +1,17 @@
 <template>
     <div class="step-cont">
+      {{personInfo}}
       <div class="tip" v-show="!personInfo.is_complete_my_info">
 		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain"  :to="{path:'/mine/basic-info',query:{backUrl:currentPath}}">完善个人信息</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.is_binding_mobile">
 		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/mobile-bind',query:{backUrl:currentPath}}">手机认证</nuxt-link>
 		 	</div>
-       <div class="tip" v-show="!personInfo.certification">
+       <div class="tip" v-show="personInfo.certification==0 || personInfo.certification==3">
 		 				<i></i>您的身份证还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/real-name',query:{backUrl:currentPath}}">实名认证</nuxt-link>
+		 	</div>
+       <div class="tip" v-show="personInfo.certification==2">
+		 				<i></i>您的身份认证暂未审核通过，请耐心等待
 		 	</div>
     	<form @submit="doSubmit">
           
@@ -133,24 +137,28 @@ export default {
       e.preventDefault()
       
       if(!this.personInfo.is_complete_my_info){
-        layer.msg('请先完善个人信息', {icon: 2});
+        layer.msg('请先完善个人信息！！', {icon: 2});
         setTimeout(() => {
-                  this.$router.push({path: '/mine/basic-info',query:{backUrl:this.currentPath}}) 
+                  this.$router.push('/mine/basic-info') 
                 }, 1500);
         return
       }
       if(!this.personInfo.is_binding_mobile){
-        layer.msg('请先绑定手机号', {icon: 2});
+        layer.msg('请先绑定手机号！！', {icon: 2});
         setTimeout(() => {
-          this.$router.push({path: '/mine/mobile-bind',query:{backUrl:this.currentPath}}) 
+          this.$router.push('/mine/mobile-bind') 
                 }, 1500);
         return
       }
-      if(!this.personInfo.certification){
-        layer.msg('请先实名认证', {icon:2});
+      if(this.personInfo.certification==0 || this.personInfo.certification==3){
+        layer.msg('请先实名认证！！', {icon:2});
         setTimeout(() => {
-          this.$router.push({path: '/mine/real-name',query:{backUrl:this.currentPath}}) 
+          this.$router.push('/mine/real-name') 
                 }, 1500);
+        return
+      }
+      if(this.personInfo.certification==2){
+        layer.msg('实名认证暂未审核通过，请耐心等待！！', {icon:2});
         return
       }
       if(!this.dis){
