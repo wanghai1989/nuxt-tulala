@@ -101,7 +101,7 @@ export default {
       account_name:'',
       account_bank:'',
       bank_num:'',
-      dis:1, //是否选中协议
+      dis:false, //是否选中协议
       errorMsg: ''
     }
   },
@@ -121,7 +121,7 @@ export default {
 
      }),
     checkbox(event){
-            this.dis = !event.target.checked
+            this.dis = event.target.checked
        },
       fetchSet(){
       let formDatas = new FormData();
@@ -151,6 +151,10 @@ export default {
         setTimeout(() => {
           this.$router.push({path: '/mine/real-name',query:{backUrl:this.currentPath}}) 
                 }, 1500);
+        return
+      }
+      if(!this.dis){
+        layer.msg('你还未勾协议', {icon: 2});
         return
       }
       const errMsg=this.validate()

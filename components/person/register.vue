@@ -76,7 +76,7 @@
       <br/>
       
         <label class="my_protocol">
-              <input class="input_agreement_protocol" type="checkbox" value="agree" v-model="ischeck"  @click = "checkbox()"/>
+              <input class="input_agreement_protocol" type="checkbox" @click = "checkbox($event)"/>
               <span></span>阅读并同意  <nuxt-link :to="{ path:'/agreement', query:{id:1}}"  target="_blank" tag="a">《图啦啦用户协议》</nuxt-link>和 
               <nuxt-link :to="{ path:'/agreement', query:{id:2}}"  target="_blank" tag="a">《版权声明》</nuxt-link>
         </label>
@@ -96,6 +96,7 @@ export default {
   },
   data () {
     return {
+      dis:false,
       mobile: '',
       validcode:'',
       code: '',
@@ -105,8 +106,6 @@ export default {
       be_invited_code:'',
       pwdflag:false,
       show_invited_code:0,
-      ischeck:['agree'],
-
       content: '获取验证码', // 按钮里显示的内容
       totalTime: 60 ,     //记录具体倒计时时间
       canClick: false, //添加canClick  判断按钮能否点击
@@ -124,13 +123,9 @@ export default {
    methods: {
     ...mapMutations(['setToken','setShowLogin']),
     ...mapActions(['register','fetchPersoninfo','fetchVeriCode','checkVeriCode']),
-    checkbox:function(){
-      if(this.ischeck.length===0){
-        this.ischeck=['agree']
-      }else{
-        this.ischeck=[]
-      }
-    },
+    checkbox(event){
+            this.dis = event.target.checked
+       },
   showInvite:function() {
     this.show_invited_code=1
   },
@@ -179,7 +174,7 @@ export default {
       e.preventDefault()
       // console.log(common.randomWord(true,4,6))
 
-      if(this.ischeck.length===0){
+      if(!this.dis){
         layer.msg('你还未勾协议', {icon: 2});
         return
       }
