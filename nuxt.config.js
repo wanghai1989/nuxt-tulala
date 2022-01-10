@@ -2,7 +2,7 @@ var webpack = require('webpack');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '图啦啦91tula.com_png元素背景图片模板素材摄影图免费下载,设计师在线接单，做设计不用愁！',
+    title: '图啦啦91tula.com_设计师在线接单，做设计不用愁！',
     htmlAttrs: {
       lang: 'en'
     },

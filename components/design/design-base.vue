@@ -1,13 +1,13 @@
 <template>
     <div class="step-cont">
       <div class="tip" v-show="!personInfo.is_complete_my_info">
-		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain" to="/person/basic-info">完善个人信息</nuxt-link>
+		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain" to="/mine/basic-info">完善个人信息</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.is_binding_mobile">
-		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" to="/person/mobile-bind">手机认证</nuxt-link>
+		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" to="/mine/mobile-bind">手机认证</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.certification">
-		 				<i></i>您的身份证还未认证，请先前往<nuxt-link to="/person/real-name"  class="cmain">实名认证</nuxt-link>
+		 				<i></i>您的身份证还未认证，请先前往<nuxt-link to="/mine/real-name"  class="cmain">实名认证</nuxt-link>
 		 	</div>
     	<form @submit="doSubmit">
           
@@ -132,14 +132,23 @@ export default {
       
       if(!this.personInfo.is_complete_my_info){
         layer.msg('请先完善个人信息', {icon: 2});
+        setTimeout(() => {
+                  this.$router.push('/mine/basic-info') 
+                }, 1500);
         return
       }
       if(!this.personInfo.is_binding_mobile){
         layer.msg('请先绑定手机号', {icon: 2});
+        setTimeout(() => {
+                  this.$router.push('/mine/mobile-bind') 
+                }, 1500);
         return
       }
       if(!this.personInfo.certification){
         layer.msg('请先实名认证', {icon:2});
+        setTimeout(() => {
+                  this.$router.push('/mine/real-name') 
+                }, 1500);
         return
       }
       const errMsg=this.validate()
