@@ -1,6 +1,5 @@
 <template>
     <div class="step-cont">
-      {{personInfo}}
       <div class="tip" v-show="!personInfo.is_complete_my_info">
 		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain"  :to="{path:'/mine/basic-info',query:{backUrl:currentPath}}">完善个人信息</nuxt-link>
 		 	</div>

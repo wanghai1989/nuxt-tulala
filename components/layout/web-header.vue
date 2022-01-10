@@ -74,7 +74,7 @@
 	
 	                           <span class="qyvip " title=""></span>
 	                                                 </div>
-                                      <nuxt-link to="/user/pay-vip" >开通终身VIP</nuxt-link>
+                                      <nuxt-link to="/vip/pay-vip">开通终身VIP</nuxt-link>
 	                                             </div>
 	  
 	                                         <div class="opengimg">
