@@ -1,13 +1,13 @@
 <template>
     <div class="step-cont">
       <div class="tip" v-show="!personInfo.is_complete_my_info">
-		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain" to="/mine/basic-info">完善个人信息</nuxt-link>
+		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain"  :to="{path:'/mine/basic-info',query:{backUrl:currentPath}}">完善个人信息</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.is_binding_mobile">
-		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" to="/mine/mobile-bind">手机认证</nuxt-link>
+		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/mobile-bind',query:{backUrl:currentPath}}">手机认证</nuxt-link>
 		 	</div>
        <div class="tip" v-show="!personInfo.certification">
-		 				<i></i>您的身份证还未认证，请先前往<nuxt-link to="/mine/real-name"  class="cmain">实名认证</nuxt-link>
+		 				<i></i>您的身份证还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/real-name',query:{backUrl:currentPath}}">实名认证</nuxt-link>
 		 	</div>
     	<form @submit="doSubmit">
           
@@ -92,6 +92,7 @@ import { mapState,mapActions} from 'vuex'
 export default {
  data () {
     return {
+      currentPath:'',
       real_name: '',
       mobile: '',
       qq:'',
@@ -108,6 +109,7 @@ export default {
       ...mapState(['defaultchannel','setting','personInfo','userToken'])
   },
    mounted(){
+     this.currentPath=this.$route.path
     this.getChannel({token:this.userToken})
     this.fetchSet()
   },
@@ -133,21 +135,21 @@ export default {
       if(!this.personInfo.is_complete_my_info){
         layer.msg('请先完善个人信息', {icon: 2});
         setTimeout(() => {
-                  this.$router.push({path: '/mine/basic-info',query:{backUrl:to.path}}) 
+                  this.$router.push({path: '/mine/basic-info',query:{backUrl:this.currentPath}}) 
                 }, 1500);
         return
       }
       if(!this.personInfo.is_binding_mobile){
         layer.msg('请先绑定手机号', {icon: 2});
         setTimeout(() => {
-          this.$router.push({path: '/mine/mobile-bind',query:{backUrl:to.path}}) 
+          this.$router.push({path: '/mine/mobile-bind',query:{backUrl:this.currentPath}}) 
                 }, 1500);
         return
       }
       if(!this.personInfo.certification){
         layer.msg('请先实名认证', {icon:2});
         setTimeout(() => {
-          this.$router.push({path: '/mine/real-name',query:{backUrl:to.path}}) 
+          this.$router.push({path: '/mine/real-name',query:{backUrl:this.currentPath}}) 
                 }, 1500);
         return
       }
