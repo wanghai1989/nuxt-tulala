@@ -6,7 +6,7 @@
 				<div class="sign01">恭喜获得积分+{{addIntegral}}</div>
 				<div class="sign02">我的积分<b>{{integral}}</b> </div>
 				<div class="sign03">
-                    <nuxt-link  class="btn btn-go"  to="/integral-mall">去购物</nuxt-link>
+                    <nuxt-link  class="btn btn-go"  to="/mall">去购物</nuxt-link>
                     <a href="javascript:void(0)"  class="btn btn-go"   @click="goLuckDraw()">去抽奖</a>
 				</div>
 			</div>

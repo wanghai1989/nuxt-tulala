@@ -30,7 +30,7 @@
 	                                             </div>
 	  
 	                                         <div class="opengimg">
-                                             <nuxt-link to="/vip/pay-vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
+                                             <nuxt-link to="/vip"><img class="lazy-nodelay"  src="~/assets/images/allvip.jpg" style="display: inline;"></nuxt-link>
 	                                          </div>
 	                   
 	                     <ul>

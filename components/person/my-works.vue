@@ -3,7 +3,7 @@
 	<div class="laymshade hand" v-if="show_pay">
 			<div class="hand-box clearfix">
 				<div class="hand-head">
-					支付定金
+					{{publicStateName[titState]}}
 				</div>
 				<i class="close" @click="closePay()"></i>
 				<div class="pay-style">
@@ -106,6 +106,7 @@ export default {
 		QRCodeMsg:'',
 		show_pay:0,
 		workid:'',
+		titState:0, //4支付定金，5支付尾款
 		requestStatue:{},
 		TimerSwitch:true
 	//  userInfo:{}
@@ -142,7 +143,7 @@ export default {
 　　　　　　}
 			
 			let blob = new Blob([data], {type: "application/msword"});
-		let filename = fileName;
+		
 		if (typeof window.navigator.msSaveBlob !== "undefined") {
 			window.navigator.msSaveBlob(blob, fileName);
 		} else {
@@ -194,7 +195,7 @@ export default {
 							layer.msg(data.msg, {icon: 2});
 							}
 							if(data.code==1){
-								this.fetchWork(2)
+								_that.fetchWork(2)
 							layer.msg(data.msg, {icon: 1});
 							}
 						})
@@ -207,6 +208,7 @@ export default {
 	},
 	payOrd:function(id,status){
 		this.TimerSwitch=true   //点击支付打开计时器
+		this.titState=status
 		this.workid=id
 		 let formDatas = new FormData();
 		  formDatas.append('token', this.userToken);
@@ -218,7 +220,6 @@ export default {
 		  if(status==4){
 		 this.customerPays(formDatas)
           .then((data) => {
-			  console.log(data)
 			if(data.code==0){
 			layer.msg(data.msg, {icon: 2});
 			}
@@ -248,7 +249,6 @@ export default {
 		  }if(status==5){
 			  this.balancePaymentPays(formDatas)
 				.then((data) => {
-					console.log(data)
 				if(data.code==0){
 				layer.msg(data.msg, {icon: 2});
 				}

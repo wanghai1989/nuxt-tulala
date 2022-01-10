@@ -9,6 +9,7 @@
                 <div class="cgray mt20">赞助账号：<span class="cblack">好小子</span>（ 普通会员 ）</div>
                 <div class="vip-type">
                         <div class="item"  v-for="item in viptype" :key="item.id" @click="payVip(item.type,item.activity_price)" :class="{chose:item.type==nowid}">
+                                <em class="design" v-if="item.type==3">入驻设计师专享</em>
                                 <div class="type">{{item.content}}</div>
                                 <span class="qian"><em>￥</em>{{item.activity_price}}<b>原价{{item.original_price}}</b></span>
                                 <div class="tips">全站<span class="cred">任意下载</span></div>
@@ -95,7 +96,7 @@ metaInfo: {
                 }  
         }, 200);
         if(this.userToken){
-                this.payStatue()
+            this.payStatue()
         }
 	 },
  watch:{ //弹出登录框登录成功触发
@@ -106,7 +107,7 @@ metaInfo: {
       }
     },
 computed:{
-      ...mapState(['userToken','viptype','showLogin','firstVip'])
+      ...mapState(['userToken','viptype','showLogin','firstVip','personInfo'])
   },	
   methods:{
   ...mapMutations(['setShowLogin']),
@@ -142,6 +143,10 @@ payStatue:function(){
 
 	  
 payVip:function(type,price){
+        if(type==3 && this.personInfo.designer_status!=102){
+              layer.msg('此类型会员只针对图啦设计师开放！！', {icon: 2});
+              return
+        }
         this.nowid=type
         let formDatas = new FormData();
         formDatas.append('type', type);
@@ -213,8 +218,19 @@ payVip:function(type,price){
 .vip-info{padding:0 40px 60px; width: 900px; margin: 0 auto;}
     .vip-type{display: flex; justify-content: center;    margin-top: 20px;}
     .vip-amount{font-size: 16px; color: var(--grayColor); margin-top: 22px; padding-top: 30px; border-top: 1px dashed rgba(0, 0, 0, 0.15);}
-    .vip-type .item{ width: 265px;border: solid 2px #d4d4d4; margin: 0 15px; height: 160px; box-sizing: border-box;text-align: center; border-radius: 4px;
+    .vip-type .item{ width: 265px;border: solid 2px #d4d4d4; margin: 0 6px; height: 160px; box-sizing: border-box;text-align: center; border-radius: 4px;
      padding: 18px 15px 0px;position: relative; cursor: pointer;
+     em.design{position: absolute;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    background: var(--redColor);
+    color: #fff;
+    width: 110px;
+    left: -6px;
+    top: -14px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;}
      .type{font-size: 18px; color: var(--backColor); font-weight: bold;}
      .tips{margin-top: 5px; color: var(--grayColor); border-top: 1px dashed #c8c9cc; line-height: 38px;}
      }

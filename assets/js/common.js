@@ -406,6 +406,9 @@ getEndDays:function(end_time){
         if (!description) {
           return '请输入说明'
         }
+        if (description.length>200) {
+          return '说明长度不能超过200个字'
+        }
         return ''
         },
         validateEmploy:function(money,contract){

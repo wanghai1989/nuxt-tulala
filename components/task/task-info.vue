@@ -45,7 +45,7 @@
 					<button type="submit" class="btn-report" disabled v-else >参与竞价</button>
 					<!-- <button type="submit" class="btn-report"  v-bind:disabled="!personInfo.certification">报名参与</button> -->
 					<div class="rule">
-						<nuxt-link :to="{ path:'/agreement', query:{id:6}}"  class="cmain"  target="_blank">违规交易说明</nuxt-link>
+						<nuxt-link :to="{ path:'/agreement', query:{id:6}}"  class="cmain"  target="_blank">《违规交易说明》</nuxt-link>
 					</div>
 					
 				</div>
@@ -87,7 +87,7 @@ export default {
     }
   },
   mounted(){  
-
+	  this.id=this.$route.params.id
 		},
  computed:{
 	  ...mapState(['workinfo','personInfo','userToken'])
@@ -102,27 +102,14 @@ export default {
 	showImg:function(url){
 		this.UrlBigImg=url
 	    this.showBigImg=1
-	// var img="<div class='layer_wechat'><img src='"+url+"' style='width: 100%;'></div>"
-
-	// layer.open({
-	// 			type: 1,
-	// 			area: ['900px', '700px'],
-	// 			title: false, //不显示标题
-	// 			shade: 0.6 ,//遮罩透明度
-	// 			maxmin: true ,
-	// 			content:img, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-	// 			});
+	
 },
 closeBigImg:function(){
 			this.showBigImg=0
 		},
  doSubmit (e) {
 			e.preventDefault()
-			if(!this.personInfo.certification){
-				layer.msg('你还未实名认证', {icon: 2});
-				return
-			}
-			if(this.personInfo.designer_status==100){
+			if(this.personInfo.designer_status!=102){
 				layer.msg('你还未入驻图啦啦，不能参与竞价', {icon: 2});
 				return
 			}

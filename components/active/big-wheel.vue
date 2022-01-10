@@ -46,6 +46,7 @@ export default {
   data () {
     return {
         OnceIntegral:10,
+        TotalIntegral:0,
         radius:130,
         winnerList:[
     {
@@ -99,6 +100,7 @@ export default {
     import('~/assets/js/awardRotate.js')
 	import('~/assets/js/lottery.js')
     this.updatePersoninfo()
+    console.log(this.personInfo)
   },
   methods:{
       ...mapActions({
@@ -113,6 +115,7 @@ export default {
         this.luckyDraw(formDatas).then((data) => {
                  if(data.code==1){
                     this.updatePersoninfo()
+                    console.log('更新用户信息',this.personInfo)
                     //  this.personInfo.integral-=this.OnceIntegral
                      layer.msg(this.winnerList[id].msg, {icon: 1});
                  }else{

@@ -10,8 +10,8 @@
   <div class="part03">
 	  您还可以
     &nbsp;&nbsp;&nbsp;&nbsp; <nuxt-link to="/" class="back">返回首页</nuxt-link>
-    &nbsp;&nbsp;&nbsp;&nbsp; <nuxt-link to="/person/my-works" class="order" v-if="type==1 || type==2">查看订单</nuxt-link> 
-    &nbsp;&nbsp;&nbsp;&nbsp; <nuxt-link to="/person/vip-info" class="order" v-if="type==3">查看订单</nuxt-link> 
+    &nbsp;&nbsp;&nbsp;&nbsp; <nuxt-link to="/mine/my-works" class="order" v-if="type==1 || type==2">查看订单</nuxt-link> 
+    &nbsp;&nbsp;&nbsp;&nbsp; <nuxt-link to="/mine/vip-info" class="order" v-if="type==3">查看订单</nuxt-link> 
   </div>
 </div>
 </template>
@@ -107,8 +107,8 @@ export default {
   .part01{margin-top: 15px;}
   .amount {font-size: 20px; font-weight: bold; color: var(--redColor); margin-right: 80px;}
   .amount sub{vertical-align: baseline; font-size: 16px;}
-	.part02{color: var(--grayColor); margin-top: 5px; }
-  .part03{margin-top: 50px;}
+	.part02{color: var(--grayColor); margin-top: 60px; }
+  .part03{margin-top: 15px;}
   .part03 .back{.btn(120px,40px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); }
   .part03 .order{color:var(--blueColor); }
   .part03 .order:hover{text-decoration: underline;}
