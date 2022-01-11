@@ -29,7 +29,7 @@ const wechatShare = {
         this.$wechat.updateAppMessageShareData({  
           title: shareData.title,
           desc: shareData.desc,
-          link: shareData.url,
+          link: shareData.link,
           imgUrl: shareData.image,
           success: function() {
             // 设置成功
@@ -42,7 +42,7 @@ const wechatShare = {
         this.$wechat.updateTimelineShareData({  
           title: shareData.title,
           desc: shareData.desc,
-          link: shareData.url,
+          link: shareData.link,
           imgUrl: shareData.image,
           success: function() {
             // 设置成功
