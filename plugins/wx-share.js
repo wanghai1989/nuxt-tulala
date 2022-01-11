@@ -16,7 +16,7 @@ const wechatShare = {
           const Data = res.data.data
           console.log(res.data)
           wx.config({
-            debug: true,
+            debug: false,
             appId: Data.appId,
             timestamp: Data.timestamp,
             nonceStr: Data.nonceStr,

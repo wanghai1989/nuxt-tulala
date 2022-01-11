@@ -8,12 +8,11 @@ import taskPublic from '~/components/mobile/task-public.vue'
 export default {
     layout: 'mobile',
 components: {taskPublic},
-metaInfo: {
-    title: '工单-我的发布'
-  },
-
- methods: {
- }
+head(){
+	   return {
+			title:'我的发布-图啦啦91tula.com'
+			}
+  }
 }
 </script>
 <style lang="less" scoped>

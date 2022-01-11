@@ -8,12 +8,11 @@ import Mine from '~/components/mobile/mine.vue'
 export default {
    layout: 'mobile',
 components: {Mine},
-metaInfo: {
-    title: '我的'
+head(){
+	   return {
+			title:'我的-图啦啦91tula.com'
+			}
   },
-
- methods: {
- }
 }
 </script>
 <style lang="less" scoped>

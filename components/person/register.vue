@@ -91,9 +91,6 @@
 import common from '~/assets/js/common'
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
-  metaInfo: {
-    title: '会员注册'
-  },
   data () {
     return {
       dis:false,

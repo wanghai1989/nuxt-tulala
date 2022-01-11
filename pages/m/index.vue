@@ -12,19 +12,10 @@ export default {
         
      }
    },
-mounted(){
-   let shareData={
-        title: '这是标题',   // 分享时的标题
-        desc:'小标签',
-        link: 'https://www.91tula.com/m/mobile-register',     // 分享时的链接
-        imgUrl: 'https://www.91tula.com/_nuxt/img/logo02.8cf787f.png',    // 分享时的图标
-      }
-      let url='https://www.91tula.com'
-      let ua = navigator.userAgent.toLowerCase();  
-        if (ua.match(/MicroMessenger/i) == "micromessenger") {
-            this.wxShare(shareData,url)
-        } 
-       
+head(){
+	   return {
+			title:'首页-图啦啦91tula.com'
+			}
   }
  }
 </script>

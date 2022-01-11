@@ -8,12 +8,11 @@ import Task from '~/components/mobile/task.vue'
 export default {
    layout: 'mobile',
 components: {Task},
-metaInfo: {
-    title: '工单'
-  },
-
- methods: {
- }
+head(){
+	   return {
+			title:'工单-图啦啦91tula.com'
+			}
+  }
 }
 </script>
 <style lang="less" scoped>

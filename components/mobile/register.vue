@@ -67,7 +67,7 @@
 			>
 		</div>
 		
-		<div class="mt10">
+		<div class="mt10 f14">
       <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
       <br/>
       
@@ -86,9 +86,6 @@
 import {mapState, mapActions} from 'vuex'
 import common from '~/assets/js/common'
 export default {
-  metaInfo: {
-    title: '会员注册'
-  },
   data () {
     return {
       mobile: '',

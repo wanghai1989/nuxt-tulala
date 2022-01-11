@@ -8,10 +8,11 @@ import productList from '~/components/mobile/product-list.vue'
 export default {
    layout: 'mobile',
 components: {productList},
-metaInfo: {
-   title: '素材中心-图啦啦'
+head(){
+	   return {
+			title:'素材中心-图啦啦91tula.com'
+			}
   }
-  
 }
 </script>
 <style lang="less" scoped>

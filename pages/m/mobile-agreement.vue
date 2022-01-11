@@ -8,10 +8,11 @@ import Agreement from '~/components/mobile/agreement.vue'
 export default {
 layout: 'mobile',
 components: {Agreement},
-metaInfo: {
-    title: '协议'
+head(){
+	   return {
+			title:'协议-图啦啦91tula.com'
+			}
   },
-
  methods: {
  }
 }
