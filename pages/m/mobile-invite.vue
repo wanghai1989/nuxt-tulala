@@ -12,7 +12,7 @@ components: {activeInvite},
         title: '这是标题',   // 分享时的标题
         desc:'小标签',
         link: 'https://www.91tula.com/m/mobile-register',     // 分享时的链接
-        imgUrl: 'https://www.91tula.com/img/pic55.jpg',    // 分享时的图标
+        imgUrl: 'https://imgvcp.jinzaofintech.cn/5c482bf7a07b9.png',   // 分享时的图标
       }
       let url='https://www.91tula.com/m/mobile-invite'
       let ua = navigator.userAgent.toLowerCase();  
