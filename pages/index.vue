@@ -1,5 +1,6 @@
 <template>
 <div class="container"> 
+  <img src="/static/prize01.png" />
     <webPendant></webPendant>
     <indexAnim></indexAnim>
     <webLogin></webLogin>
