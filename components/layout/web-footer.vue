@@ -12,25 +12,26 @@
 			<div class="wrapper">
 			  <div class="footer-links clearfix">
 				<dl class="col-links">
+					<dt><i class="icon i-map"></i>网站地图</dt> 
+					<dd><nuxt-link to="/mall">积分商城</nuxt-link></dd> 
+					<dd><nuxt-link to="/task/public">发布任务</nuxt-link></dd> 
+					<dd><nuxt-link to="/enter">设计师入驻</nuxt-link></dd> 
+				</dl>
+				<dl class="col-links">
 					<dt><i class="icon i-aboutus"></i> 了解我们</dt> 
-					<dd><nuxt-link to="/about/about-us">关于图啦啦</nuxt-link></dd> 
+					<dd><nuxt-link to="/about/about-us">关于我们</nuxt-link></dd> 
 					<dd><nuxt-link to="/about/find-job">招兵买马</nuxt-link></dd>
 					<dd><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></dd>
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-agreement"></i>服务协议</dt> 
-					<dd><nuxt-link to="/enter?#question"> 任务帮助中心</nuxt-link></dd>
+					<!-- <dd><nuxt-link to="/enter?#question"> 任务帮助中心</nuxt-link></dd> -->
 					<dd><nuxt-link :to="{ path:'/agreement', query:{id:1}}"> 用户协议</nuxt-link></dd> 
 					<dd><nuxt-link :to="{ path:'/agreement', query:{id:2}}"> 版权声明</nuxt-link></dd>
 					<dd><nuxt-link :to="{ path:'/agreement', query:{id:5}}"> 常见问题</nuxt-link></dd> 
 					
 				</dl>
-				<dl class="col-links">
-					<dt><i class="icon i-map"></i>网站地图</dt> 
-					<dd><nuxt-link to="/mall">积分商城</nuxt-link></dd> 
-					<dd><nuxt-link to="/task">任务列表</nuxt-link></dd>
-					<dd><nuxt-link to="/enter">设计师入驻</nuxt-link></dd> 
-				</dl>
+				
 				<div class="qrcode">
 					<div class="item">
 						<img src="~/assets/images/pic01.png"  alt=""/>

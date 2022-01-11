@@ -11,7 +11,7 @@
 		      	<img :src="item.url" />
 		      	<div class="swiper-txt">
 		      		<div class="username">
-		      			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+		      			<img :src="item.avatar" v-if="item.avatar" />
                         <img src='~/assets/images/defaultVip.png' v-else /> 
 		      			{{item.nickname}} </div>
 		      		<div class="font">
@@ -48,7 +48,7 @@ export default {
                                   spaceBetween: -100,
                                   centeredSlides: true,
                                   loop: true,
-                  autoplay:3000
+                                autoplay:3000
                                   });
 	  },
   }
@@ -117,7 +117,8 @@ export default {
         color: #fff; font-size: 18px; height: 40px; line-height: 40px; text-align: left;
         img{height: 38px; width: 38px; border: 2px solid #fff; border-radius: 22px; background: #fff; margin-right: 10px;}
     }
- .swiper-txt .font{font-size: 14px; color: #fff; line-height: 28px; text-align: left; margin-top: 20px;}
+ .swiper-txt .font{font-size: 14px; color: #fff; line-height: 26px; text-align: left; margin-top: 15px; height: 104px; overflow: hidden;
+ display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;}
     
 .swiper-slide-active,.swiper-xxtl .swiper-slide-duplicate-active{
     background-image: linear-gradient(-180deg, 

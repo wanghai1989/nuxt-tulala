@@ -1,6 +1,7 @@
 <template>
 <div>
     <webBanner position='hand_in_hand'></webBanner>
+	<webLogin></webLogin>
     <aboutNav></aboutNav>
     <div class="wrapper">
        <form class="hund-contain" @submit="doSubmit">
@@ -70,7 +71,7 @@
 					<div class="table-cell-box">
 						<div class="Bigimg-box">
 							<em class="Bigimg-close-Btn" @click="closeBigImg()">×</em>
-							<p>这是标题</p>
+							<!-- <p>这是标题</p> -->
 							<img :src="UrlBigImg" />
 						</div>
 					</div>
@@ -88,8 +89,9 @@ import webBanner from '~/components/layout/web-banner'
 import aboutNav from '~/components/layout/about-nav'
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
+import webLogin from '~/components/layout/web-login.vue'
 import MoPaging  from '~/components/layout/web-pagination.vue'
-import {mapState, mapActions} from 'vuex'
+import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
 	layout: 'web',
 	head(){
@@ -106,7 +108,7 @@ export default {
 			}]
 			}
   },
- components: {MoPaging,webBanner,aboutNav},
+ components: {MoPaging,webBanner,aboutNav,webLogin},
   data () {
     return {
      errorMsg: '',
@@ -134,6 +136,7 @@ export default {
 		  upEvaluation:'upEvaluation',
 		  fetchEvaluation:'fetchEvaluation'
       }),
+...mapMutations(['setShowLogin']),
 	   //从page组件传递过来的当前page
             pageChange:function(page) {
 
@@ -149,16 +152,7 @@ export default {
 showImg:function(url){
 	this.UrlBigImg=url
 	this.showBigImg=1
-	// var img="<div class='layer_wechat'><img src='"+url+"'></div>"
-     
-	// layer.open({
-	// 			type: 1,
-	// 			area: ['600px', 'auto'],
-	// 			title: false, //不显示标题
-	// 			shade: 0.6 ,//遮罩透明度
-	// 			maxmin: true ,
-	// 			content:img, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-	// 			});
+
 },
 fetchEvaluat:function(){
 		 let params={
@@ -186,7 +180,6 @@ async doSubmit (e) {
 		  formDatas.append('content', this.wish_words);
 		this.upEvaluation(formDatas)
 		.then((data) => {
-			console.log(data)
 			if(data.code==0){
 			layer.msg(data.msg, {icon: 2});
 			}
@@ -201,6 +194,10 @@ async doSubmit (e) {
 		},
  
   uphand:function(){
+	  if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}
 	 this.show_hand=1
 		},
 		closehand:function(){

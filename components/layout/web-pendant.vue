@@ -16,13 +16,12 @@
 				<a href="person-vip.html"> <i></i><br /> <span>全站<br />vip</span></a>
 			</div> -->
 			<div class="vip-pend2">
-                <nuxt-link to="/vip"><i></i><br /> <span>全站<br />vip</span></nuxt-link>
-				<!-- <a href="enterprise-vip.html"> <i></i><br /> <span>全站<br />vip</span></a> -->
+                <nuxt-link to="/vip" title="VIP会员"><i></i><br /> <span>全站<br />vip</span></nuxt-link>
 			</div>
             <div class="item-pend qd"  @mouseover="qdOver()" @mouseout="qdOut()">
 				<a href="javascript:void(0)"> <i></i><br /> <span>签到</span></a>
                 <div class="sign-in"  v-show="qdShow">
-                     <a class="btn-qd"  @click="gosignin()"  href="javascript:void(0)">立即签到</a>
+                     <a class="btn-qd"  @click="gosignin()"  href="javascript:void(0)" title="签到">立即签到</a>
 				</div>
 			</div>
 			<div class="item-pend kf">
@@ -32,22 +31,22 @@
 				<a href="#"> <i></i><br /> <span>福利</span></a>
 				<div class="welfare"  v-show="welfareShow">
 					<div class="invite">
-                     <nuxt-link class="btn-go" to="/active/invite-friend">马上邀请</nuxt-link>
+                     <nuxt-link class="btn-go" to="/active/invite-friend" title="邀请好友">马上邀请</nuxt-link>
 				</div>
 				<div class="wheel">
                     <!-- <a class="btn-go" href="/active/big-wheel">去抽奖</a> -->
-                    <nuxt-link class="btn-go" to="/active/big-wheel">去抽奖</nuxt-link>
+                    <nuxt-link class="btn-go" to="/active/big-wheel" title="抽奖">去抽奖</nuxt-link>
 				</div>
 				</div>
 			</div>
 			<div class="item-pend lm">
-                <nuxt-link to="/about/qq-group"><i></i><br /> <span>联盟</span></nuxt-link>
+                <nuxt-link to="/about/qq-group" title="QQ联盟"><i></i><br /> <span>联盟</span></nuxt-link>
 			</div>
 			<div class="item-pend zq">
-				<nuxt-link to="/enter"> <i></i><br /> <span>入驻</span></nuxt-link>
+				<nuxt-link to="/enter" title="入驻图啦啦"> <i></i><br /> <span>入驻</span></nuxt-link>
 			</div>
 			<div class="item-pend jy">
-			<nuxt-link to="/advice"><i></i><br /><span>建议</span></nuxt-link>	
+			<nuxt-link to="/advice" title="建议"><i></i><br /><span>建议</span></nuxt-link>	
 			</div>
 			<div class="item-pend rw">
 				<nuxt-link to="/task"> <i></i><br /> <span>任务</span></nuxt-link>	

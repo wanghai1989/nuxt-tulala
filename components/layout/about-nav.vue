@@ -6,7 +6,7 @@
 				<li><nuxt-link to="/about/find-job">公司招聘</nuxt-link></li>
 				<li><nuxt-link to="/about/enterprise-team">企业团队</nuxt-link></li>
 			  <li><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></li>
-			  <li><nuxt-link to="/about/qq-group">qq联盟</nuxt-link></li>
+			  <li><nuxt-link to="/about/qq-group">QQ联盟</nuxt-link></li>
 			</ul>
 		</div>
 </template>
