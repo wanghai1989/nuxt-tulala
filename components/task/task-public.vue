@@ -138,7 +138,6 @@ clearInfo(){
       if (!errMsg) {
         if(this.imgList.length>5){
           layer.msg("参考图片不能超过5张", {icon: 2});
-          // layer.msg('参考图片不能超过5张', {icon: 2});
             return
         }
 
@@ -173,6 +172,9 @@ clearInfo(){
       this.clearInfo()
       // this.$layer.msg(data.msg);
 			layer.msg(data.msg, {icon: 1});
+      setTimeout(() => {
+        this.$router.push('/mine/my-works')
+      }, 2000);
 			}
 		})
 		}else{
