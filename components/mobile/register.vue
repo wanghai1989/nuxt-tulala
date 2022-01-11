@@ -88,6 +88,7 @@ import common from '~/assets/js/common'
 export default {
   data () {
     return {
+      dis:false,
       mobile: '',
       validcode:'',
       code: '',
@@ -112,10 +113,10 @@ export default {
   },
    methods: {
     ...mapActions(['register']),
-
+  checkbox(event){
+            this.dis = event.target.checked
+       },
   countDown:function() {
-        
-        
             if (this.canClick) return  //改动的是这两行代码,限制点击
             var that=this; 
            
@@ -142,7 +143,10 @@ export default {
 
     doSubmit (e) {
       e.preventDefault()
-      
+      if(!this.dis){
+        layer.msg('你还未勾协议', {icon: 2});
+        return
+      }
       const errMsg=this.validate()
       this.errorMsg=errMsg
       if (!errMsg) {
