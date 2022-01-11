@@ -27,7 +27,7 @@
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-map"></i>网站地图</dt> 
-					<dd><nuxt-link to="/integral-mall">积分商城</nuxt-link></dd> 
+					<dd><nuxt-link to="/mall">积分商城</nuxt-link></dd> 
 					<dd><nuxt-link to="/task">任务列表</nuxt-link></dd>
 					<dd><nuxt-link to="/enter">设计师入驻</nuxt-link></dd> 
 				</dl>

@@ -17,11 +17,11 @@
 					<div>
 						<div class="input-radio">
 						    <!-- 选中状态添加 checked 属性 -->
-						     <input id="male" type="radio" name="sex" value="1" v-model="personInfo.sex" />
+						     <input id="male" type="radio" name="sex" value="1" v-model="sex" />
 						     <label for="male">男</label>
 						</div>
 						<div class="input-radio">
-						      <input id="female" type="radio" name="sex" value="2"  v-model="personInfo.sex"/>
+						      <input id="female" type="radio" name="sex" value="2"  v-model="sex"/>
 						      <label for="female">女</label>
 						</div>
 					</div>
@@ -35,7 +35,7 @@
 				<div>
 					<div><span class="cred">*</span>行业</div>
 					<div>
-						<select class="select"  v-model="personInfo.industry">
+						<select class="select"  v-model="industry">
 							<option value="">---请选择--- </option>
 							<option v-for="item in setting" :value="item.id" :key="item.id">{{item.value}}</option>
 						</select>
@@ -44,13 +44,13 @@
 				<div>
 					<div><span class="cred">*</span>职业</div>
 					<div>
-						<input type="text" class="input" placeholder="请输入"   v-model="personInfo.professional"/>
+						<input type="text" class="input" placeholder="请输入"   v-model="professional"/>
 					</div>
 				</div>
 				<div>
 					<div><span class="cred">*</span>工作年限</div>
 					<div>
-						<select class="select" v-model="personInfo.working_time">
+						<select class="select" v-model="working_time">
 							<option value="">---请选择--- </option>
 							<option value="1">3年以下</option>
 							<option value="2">3-5年</option>
@@ -61,7 +61,7 @@
 				<div>
 					<div><span class="cred">*</span>QQ</div>
 					<div>
-						<input type="text" class="input" placeholder="请输入"  v-model="personInfo.qq"/>
+						<input type="text" class="input" placeholder="请输入"  v-model="qq"/>
 					</div>
 				</div>
 				<div>
@@ -78,14 +78,14 @@
 				<div>
 					<div><span class="cred">*</span>详细地址</div>
 					<div>
-						<input type="text" class="input" placeholder="请输入" id="address"  v-model="personInfo.address"/>
+						<input type="text" class="input" placeholder="请输入" id="address"  v-model="address"/>
 						<p class="f12 cgray">此信息将做为收件地址，请如实填写</p>
 					</div>
 				</div>
 				<div>
 					<div><span class="cred">*</span>个人简介</div>
 					<div>
-						<textarea class="input area" placeholder="请输入" v-model="personInfo.introduction"  @keyup="getLength()"></textarea>
+						<textarea class="input area" placeholder="请输入" v-model="introduction"  @keyup="getLength()"></textarea>
 						<p class="cgray f12">最多输入{{maxLength}}字，您还可以输入<span class="cmain">{{maxLength-content_length}}</span>个字</p>
 					</div>
 				</div>
@@ -109,7 +109,6 @@ import processImg from '~/assets/js/processimg'
 export default {
   data () {
     return {
-	backUrl:'',
 	errorMsg: '',
 	content_length:0,
     maxLength:200,
@@ -125,18 +124,25 @@ export default {
 	area:'',
 	area_code:'',
     birthday:'',
+	sex:1,
+	industry:'',
+	professional:'',
+	working_time:'',
+	qq:'',
+	address:'',
+	introduction:''
     }
   },
 		mounted(){  
-			if(this.$route.query.backUrl){
-				this.backUrl=this.$route.query.backUrl
-			}
 				// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
 				this.fetchSet()
+				this.loadcity()  //加载城市数据
 			let pt=	setInterval(() => {
 				if(Object.keys(this.personInfo).length>0){
 					clearInterval(pt);
-					this.getperson()
+					if(this.personInfo.is_complete_my_info){
+						this.getperson()
+					}
 					}
 			}, 100);
 						
@@ -157,6 +163,13 @@ export default {
 		this.content_length=this.personInfo.introduction.length
 	},
 	  getperson(){
+			  this.sex=this.personInfo.sex
+			  this.industry=this.personInfo.industry
+			  this.professional=this.personInfo.professional
+			  this.working_time=this.personInfo.working_time
+			  this.qq=this.personInfo.qq
+			  this.address=this.personInfo.address
+			  this.introduction=this.personInfo.introduction
 			  this.province_code=this.personInfo.province_code
 			  this.province=this.personInfo.province
 			  this.city_code=this.personInfo.city_code
@@ -222,11 +235,7 @@ export default {
 			 this.personInfo.is_complete_my_info=1
 			 layer.msg(data.msg, {icon: 1});
 			 setTimeout(() => {
-				 if(this.backUrl){
-                  this.$router.push(this.backUrl)
-                }else{
                   this.$router.push("/mine")
-                }
 			 }, 1000);
             }
           })
@@ -260,8 +269,8 @@ export default {
 			this.personInfo.address,
 			this.personInfo.introduction)
 	},
-	  getcity:function(province_code,city_code,area_code){
-		    $.getJSON("/json/city_code.json", function (pdata){
+	  loadcity:function(){
+		  $.getJSON("/json/city_code.json", function (pdata){
 			  var html = "<option value=''>== 省份 ==</option>"; 
 			  $("#input_city").append(html); 
 			  $("#input_area").append(html);
@@ -295,14 +304,14 @@ export default {
 				   });
 				   $("#input_area").append(html);  
 				  });
-			
-
-				  $("#input_province").val(province_code);
-				  $("#input_province").change();
-				  $("#input_city").val(city_code);
-				  $("#input_city").change();
-				  $("#input_area").val(area_code);
 			})
+	  },
+	  getcity:function(province_code,city_code,area_code){
+		$("#input_province").val(province_code);
+		$("#input_province").change();
+		$("#input_city").val(city_code);
+		$("#input_city").change();
+		$("#input_area").val(area_code);
 	  }
   }
 }

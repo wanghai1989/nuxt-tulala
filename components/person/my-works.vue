@@ -22,10 +22,14 @@
 				</div>
 				</div>
 	</div>
-			<ul class="categary-nav">
-				<li :class="{'focus':worktype==1}" ><a href="javascript:void(0);" @click="fetchWork(1)">我的发布</a></li>
-				<li :class="{'focus':worktype==2}"><a href="javascript:void(0)"  @click="fetchWork(2)">我的接单</a> </li>
-			</ul>
+	<div class="work-tit">
+		<ul class="categary-nav">
+			<li :class="{'focus':worktype==1}" ><a href="javascript:void(0);" @click="fetchWork(1)">我的发布</a></li>
+			<li :class="{'focus':worktype==2}"><a href="javascript:void(0)"  @click="fetchWork(2)">我的接单</a> </li>
+		</ul>
+		<nuxt-link to="/task/public"  class="btn-withdraw">免费发布任务</nuxt-link>
+	</div>
+			
 			<ul class="ul-task" v-if="worktype==1">
 				<li  v-for="item in worklist" :key="item.id">
 					<div class="task-l">
@@ -338,13 +342,10 @@ beforeDestroy() {
     cursor: pointer;
 }
 .file-contain{padding: 10px 0px 40px; box-sizing: border-box; background: #fff; margin-top: 20px; min-height: 400px;
-// .statu-nav{display: flex; text-align: center; justify-content: center;
-//  li {height: 40px; line-height: 40px; width: 128px; margin-left: -1px; border: 1px solid #d4d4d4;}
-// li.focus {border: 1px solid var(--color);}
-//  li a{display: block; color: var(--backColor); text-align: center; background: #fff; }
-//  li.focus a,.statu-nav li a:hover{color: #fff; background: var(--color);}
-// }
-.categary-nav{margin-top: 0; padding: 0px 10px;}
+.work-tit{border-bottom: 1px solid #d4d4d4;padding-bottom: 15px;align-items: center; display: flex;padding: 0 15px;}
+.categary-nav{margin-top: 0;  flex: 1; border-bottom: none;}
+.btn-withdraw{.btn(138px,40px,var(--redColor),linear-gradient(90deg, #c53a1d 0%, #b23016 100%),#fff); font-size: 16px; vertical-align: initial;}
+.btn-withdraw:hover{opacity: 0.9;}
 .ul-task{ 
 li{display: flex;padding: 25px 30px; border-bottom: 1px solid #ddd; }
 li a:hover{text-decoration: underline;}

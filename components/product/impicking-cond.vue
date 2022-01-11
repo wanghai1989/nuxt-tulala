@@ -3,9 +3,9 @@
 	  	<div class="main-cond clearfix"   v-if="JSON.stringify(condition.scenarios)!='[]'">
 	  		<span class="filter-name ">场景</span>
 	  		<ul class="filter-list ">
-				<li > <a href="javascript:void(0)" :class="{on:!query.scenarios_id}"  rel="nofollow" @click="doSearch('scenarios',0)">全部</a> </li>
+				<li > <a href="javascript:void(0)" :class="{on:!scenarios_id}"  rel="nofollow" @click="doSearch('scenarios',0)">全部</a> </li>
 	  			<li v-for="item in condition.scenarios"  :key="item.id"> 
-					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==query.scenarios_id}"  @click="doSearch('scenarios',item.id)">{{item.name}}</a> 
+					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==scenarios_id}"  @click="doSearch('scenarios',item.id)">{{item.name}}</a> 
 				</li>
 	  		</ul>
 	  	</div>
@@ -14,7 +14,7 @@
 	  		<ul class="filter-list">
 				 <li > <a href="javascript:void(0)"  :class="{on:!query.format_id}" rel="nofollow" @click="doSearch('formats',0)">全部</a> </li>
 	  			<li v-for="item in condition.file_formats"  :key="item.id"> 
-					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==query.format_id}"  @click="doSearch('formats',item.id)">{{item.name}}</a> 
+					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==format_id}"  @click="doSearch('formats',item.id)">{{item.name}}</a> 
 				</li>
 	  		</ul>
 	  	</div>
@@ -23,7 +23,7 @@
 	  		<ul class="filter-list">
 				<li > <a href="javascript:void(0)"   :class="{on:!query.shape_id}" rel="nofollow" @click="doSearch('shape',0)">全部</a> </li>
 	  			<li class="on" v-for="item in condition.shape"  :key="item.id"> 
-					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==query.shape_id}"   @click="doSearch('shape',item.id)">{{item.name}}</a> 
+					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==shape_id}"   @click="doSearch('shape',item.id)">{{item.name}}</a> 
 				</li>
 	  		</ul>
 	  	</div>
@@ -56,6 +56,7 @@ export default {
   watch :{
       '$route': function (to, from) {
 		  this.categoryId= this.$route.params.id
+		  this.Selcondition()
 		   this.fetchCond(this.categoryId)
       }
     },
@@ -64,8 +65,9 @@ export default {
   },
   mounted(){  
 	this.fetchCond(this.categoryId)
+	this.Selcondition()
 		},
-		
+	
  computed:{
 	  ...mapState(['condition'])
   },
@@ -73,6 +75,24 @@ export default {
  ...mapActions({
 		  fetchCondition:'fetchCondition'
       }),
+	Selcondition(){
+		if(this.$route.query.scenarios_id)
+		this.scenarios_id=this.$route.query.scenarios_id
+		else
+		this.scenarios_id=0
+		if(this.$route.query.format_id)
+		this.format_id=this.$route.query.format_id
+		else 
+		this.format_id=0
+		if(this.$route.query.shape_id)
+		this.shape_id=this.$route.query.shape_id
+		else
+		this.shape_id=0
+		if(this.$route.query.sort_id)
+		this.sort_id=this.$route.query.sort_id
+		else
+		this.sort_id=0
+	},
 	doSearch(type,val){
         if(type=='scenarios'){this.scenarios_id=val}
 		if(type=='formats'){this.format_id=val}
