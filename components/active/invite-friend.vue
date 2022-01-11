@@ -66,14 +66,17 @@ export default {
 			
 		},
  computed:{
-	  ...mapState(['ranklist','personInfo','baseUrl'])
+	  ...mapState(['ranklist','personInfo','baseUrl','userToken'])
   },
   methods:{
  ...mapActions({
 		  fetchInviteList:'fetchInviteList'
-		//   inviteUrl:'inviteUrl'
       }),
 	  wechatCode(){
+		  if(!this.userToken){
+			  layer.msg('你还未登录,请先登录', {icon: 2});
+			  return
+		  }
                 let opts = {
                     errorCorrectionLevel: "H",//容错级别
                     type: "image/png",//生成的二维码类型
@@ -87,7 +90,7 @@ export default {
                         light: "#fff"//背景色
                     }
                 };
-				let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code   
+				let invitelink=this.baseUrl+'m/mobile-register?invite_code='+ this.personInfo.invite_code   
                 let msg = document.getElementById("QRCode_header");
                 // 将获取到的数据（val）画到msg（canvas）上
                 QRCode.toCanvas(msg, invitelink, opts, function (error) {
@@ -108,10 +111,14 @@ export default {
 
 
 	 copyContent(){ 
+		  if(!this.userToken){
+			  layer.msg('你还未登录,请先登录', {icon: 2});
+			  return
+		  }
 		//创建一个input元素
       let input = document.createElement('input') 
       //给input的内容复制
-      let invitelink='http:www.91tula.com/user/register?invite_code='+ this.personInfo.invite_code   
+      let invitelink=this.baseUrl+'user/register?invite_code='+ this.personInfo.invite_code   
       input.value = invitelink
       // 在body里面插入这个元素
       document.body.appendChild(input)   
