@@ -31,7 +31,7 @@ export default ({ store}) => {
                 // "menuItem:share:QZone",
                 "menuItem:originPage",
                 "menuItem:readMode",
-                "menuItem:openWithQQBrowser",
+                // "menuItem:openWithQQBrowser",
                 "menuItem:openWithSafari",
                 "menuItem:share:email"
             ]
