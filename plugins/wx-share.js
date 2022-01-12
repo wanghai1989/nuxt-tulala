@@ -20,7 +20,7 @@ export default ({ store}) => {
               timestamp: Data.timestamp,
               nonceStr: Data.nonceStr,
               signature: Data.signature,
-              jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData']
+              jsApiList: ['hideMenuItems','onMenuShareTimeline', 'onMenuShareAppMessage']
             })
           })
         this.$wechat.ready(() => {
