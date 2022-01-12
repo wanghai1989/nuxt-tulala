@@ -39,6 +39,9 @@ export default {
   mounted(){
     
   },
+   created() {
+        this.Weshare()
+     },
 	methods:{
     ...mapMutations(['setShare']),
     Weshare:function(){
