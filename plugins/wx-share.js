@@ -44,9 +44,12 @@ export default ({ store}) => {
             imgUrl: shareData.imgUrl,
             success: function() {
               // 设置成功
+              alert('分享朋友')
               store.commit('setShare', 0)
+              
             },
             cancel: function() {
+              alert('分享朋友失败')
               store.commit('setShare', 0)
             }
           })
@@ -58,10 +61,11 @@ export default ({ store}) => {
             imgUrl: shareData.imgUrl,
             success: function() {
               // 设置成功
+              alert('分享朋友圈')
               store.commit('setShare', 0)
             },
             cancel: function() {
-              console.log('分享取消')
+              alert('分享朋友圈失败')
               store.commit('setShare', 0)
             }
           })
