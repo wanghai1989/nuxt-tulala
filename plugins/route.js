@@ -29,7 +29,6 @@ export default ({
         const token =localStorage.getItem('token')
         const isMobile=to.path.indexOf('/m/')==-1?false:true
         if(isMobile){
-            console.log('这是手机页面',to.path)
             if(requireLogin.indexOf(to.path)>-1){
                 if(!token) {  next({path: '/m/mobile-login',query:{backUrl:to.path}})    } 
                 else{

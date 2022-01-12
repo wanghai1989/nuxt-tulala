@@ -54,9 +54,7 @@
 import {mapState, mapActions} from 'vuex'
 import QRCode from 'qrcode'; 
 export default {
-  metaInfo: {
-    title: '邀请好友-图啦啦'
-  },
+
   data () {
     return {
     }

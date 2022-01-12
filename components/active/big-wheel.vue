@@ -115,7 +115,6 @@ export default {
         this.luckyDraw(formDatas).then((data) => {
                  if(data.code==1){
                     this.updatePersoninfo()
-                    console.log('更新用户信息',this.personInfo)
                     //  this.personInfo.integral-=this.OnceIntegral
                      layer.msg(this.winnerList[id].msg, {icon: 1});
                  }else{

@@ -77,7 +77,8 @@ pageSize:10,  //每页条数
   firstVip:{},  //第一个vip类型
   integral:0, //总积分
   platform_currency:0,//平台币
-  wxshare:{} //微信分享所需参数
+  wxshare:{}, //微信分享所需参数
+  isShare:0, //微信分享箭头是否显示
 })
 export const getters = {
   fullname(state){
@@ -135,6 +136,10 @@ setToken(state, token) {
   // console.log('mutation',token)
     state.userToken = token;
     localStorage.setItem('token', token);
+  },
+//设置分享箭头隐藏显示
+setShare(state, val) {
+    state.isShare = val;
   },
 setShowLogin(state, isShow) {
     state.showLogin = isShow;
