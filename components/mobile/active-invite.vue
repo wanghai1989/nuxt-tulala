@@ -15,7 +15,7 @@
 	</div>
   <div class="share">
       <a href="javascript:void(0)" @click="getPromote()">下载邀请海报</a>
-      <a href="javascript:void(0)" @click="Weshare()">微信分享</a>
+      <a href="javascript:void(0)" @click="Weshare(1)">微信分享</a>
   </div>
 	<div class="logo">
 		<img src="~/assets/images/logo02.png" />
@@ -40,13 +40,13 @@ export default {
     
   },
    created() {
-        this.Weshare()
+        this.Weshare(0)
      },
 	methods:{
     ...mapMutations(['setShare']),
-    Weshare:function(){
+    Weshare:function(num){
       console.log('触发')
-      this.setShare(1)
+      this.setShare(num)
     },
       getPromote:function(){
         // With async/await
