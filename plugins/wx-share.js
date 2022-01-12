@@ -20,7 +20,7 @@ export default ({ store}) => {
               timestamp: Data.timestamp,
               nonceStr: Data.nonceStr,
               signature: Data.signature,
-              jsApiList: ['hideMenuItems','onMenuShareTimeline', 'onMenuShareAppMessage']
+              jsApiList: ['hideMenuItems','onMenuShareTimeline', 'onMenuShareAppMessage','updateTimelineShareData','updateTimelineShareData']
             })
           })
         this.$wechat.ready(() => {
@@ -36,99 +36,72 @@ export default ({ store}) => {
                 "menuItem:share:email"
             ]
         });
-        this.$wechat.onMenuShareTimeline({
+        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
+          this.$wechat.updateAppMessageShareData({  
             title: shareData.title,
             desc: shareData.desc,
             link: shareData.link,
             imgUrl: shareData.imgUrl,
-            success: function () {
+            success: function() {
+              // 设置成功
               store.commit('setShare', 0)
-            },
-            cancel: function () {
-              store.commit('setShare', 0)
-            }
-        });
-        this.$wechat.onMenuShareAppMessage({
-            title: shareData.title,
-            desc: shareData.desc,
-            link: shareData.link,
-            imgUrl: shareData.imgUrl,
-            success: function () {
-              store.commit('setShare', 0)
-            },
-            cancel: function () {
-              store.commit('setShare', 0)
-            }
-        });
-        this.$wechat.onMenuShareQQ({
-            title: shareData.title,
-            desc: shareData.desc,
-            link: shareData.link,
-            imgUrl: shareData.imgUrl,
-            success: function () {
-              store.commit('setShare', 0)
-            },
-            cancel: function () {
-              store.commit('setShare', 0)
-            }
-        });
-    });
-
-
-
-
-
-
-
-
-
-
-        //   this.$wechat.hideMenuItems({
-        //     menuList: [
-        //         "menuItem:share:weiboApp",
-        //         "menuItem:share:facebook",
-        //         // "menuItem:share:QZone",
-        //         "menuItem:originPage",
-        //         "menuItem:readMode",
-        //         "menuItem:openWithQQBrowser",
-        //         "menuItem:openWithSafari",
-        //         "menuItem:share:email"
-        //     ]
-        // });
-        // // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-        //   this.$wechat.updateAppMessageShareData({  
-        //     title: shareData.title,
-        //     desc: shareData.desc,
-        //     link: shareData.link,
-        //     imgUrl: shareData.imgUrl,
-        //     success: function() {
-        //       // 设置成功
-        //       alert('分享朋友')
-        //       store.commit('setShare', 0)
               
-        //     },
-        //     cancel: function() {
-        //       alert('分享朋友失败')
-        //       store.commit('setShare', 0)
-        //     }
-        //   })
-        //   // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-        //   this.$wechat.updateTimelineShareData({  
+            },
+            cancel: function() {
+              store.commit('setShare', 0)
+            }
+          })
+          // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
+          this.$wechat.updateTimelineShareData({  
+            title: shareData.title,
+            desc: shareData.desc,
+            link: shareData.link,
+            imgUrl: shareData.imgUrl,
+            success: function() {
+              // 设置成功
+              store.commit('setShare', 0)
+            },
+            cancel: function() {
+              store.commit('setShare', 0)
+            }
+          })
+        // this.$wechat.onMenuShareTimeline({
         //     title: shareData.title,
         //     desc: shareData.desc,
         //     link: shareData.link,
         //     imgUrl: shareData.imgUrl,
-        //     success: function() {
-        //       // 设置成功
-        //       alert('分享朋友圈')
+        //     success: function () {
         //       store.commit('setShare', 0)
         //     },
-        //     cancel: function() {
-        //       alert('分享朋友圈失败')
+        //     cancel: function () {
         //       store.commit('setShare', 0)
         //     }
-        //   })
-        // })
+        // });
+        // this.$wechat.onMenuShareAppMessage({
+        //     title: shareData.title,
+        //     desc: shareData.desc,
+        //     link: shareData.link,
+        //     imgUrl: shareData.imgUrl,
+        //     success: function () {
+        //       store.commit('setShare', 0)
+        //     },
+        //     cancel: function () {
+        //       store.commit('setShare', 0)
+        //     }
+        // });
+        // this.$wechat.onMenuShareQQ({
+        //     title: shareData.title,
+        //     desc: shareData.desc,
+        //     link: shareData.link,
+        //     imgUrl: shareData.imgUrl,
+        //     success: function () {
+        //       store.commit('setShare', 0)
+        //     },
+        //     cancel: function () {
+        //       store.commit('setShare', 0)
+        //     }
+        // });
+    });
       }
     }
   }
