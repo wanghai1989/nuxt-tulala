@@ -54,7 +54,7 @@ export default {
         // With async/await
         let ua = navigator.userAgent.toLowerCase();  
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
-            layer.msg('微信端不支持生成推广海报，请更换浏览器访问', {icon: 2});
+            layer.msg('微信端不支持生成推广海报，请更换浏览器访问', {icon: 2,time: 3000});
             return
         } 
 
