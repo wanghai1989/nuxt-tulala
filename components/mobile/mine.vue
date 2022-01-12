@@ -31,6 +31,11 @@
    </div>
  </div>
  <ul class="ul-menu">
+   <li class="task" @click="pubilcTask('task/public')">
+    <a href="javascript:void(0)">
+      <i class="iconfont">&#xe628;</i> 发布任务
+      </a>
+    </li>
     <li class="public">
     <nuxt-link to="/m/mobile-taskpublic">
       <i class="iconfont">&#xec46;</i> 我的发布
@@ -92,6 +97,38 @@ export default {
           'fetchPersoninfo':'fetchPersoninfo',
           'verifyToken':'verifyToken'
       }),
+      pubilcTask:function(url){
+      let _that=this
+       let fullpath=this.baseUrl+url
+       layer.open({
+                title: ['温馨提示', 'color:#fff; background: #34bc76;'],//数组第二项可以写任意css样式；如果你不想显示标题栏，你可以title: false
+                content: '<div style="color:#333333"><div style="color:#999999">请移步电脑端操作</div>网址：'+fullpath+'</div>',
+                btn: ['复制'],
+                yes: function(index, layero){
+                    _that.copyContent(url);
+                    //do something
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  }
+                });
+    },
+    copyContent(url){ 
+		//创建一个input元素
+      let input = document.createElement('input') 
+      //给input的内容复制
+      let invitelink=this.baseUrl+url
+      input.value = invitelink
+      // 在body里面插入这个元素
+      document.body.appendChild(input)   
+      // 选中input里面内容
+      input.select()  
+      //执行document里面的复制方法
+      document.execCommand("Copy") 
+      // 复制之后移除这个元素
+      document.body.removeChild(input)
+
+	  layer.msg('已复制成功哦~', {icon: 1});
+	  
+    },
       handTel:function(tel){
         return common.handleTel(tel)
       },
@@ -195,6 +232,7 @@ export default {
 .ul-menu{padding: 0rem .15rem; background: #fff;    margin-top: 30px;
  li{border-bottom: 1px solid #eee; padding: 15px 0px; font-size: 15px; color: var(--backColor); height: 30px; line-height: 30px; position: relative;} 
  li>a{display: block;}
+ li.task i{font-size: 22px; margin-right: 6px; color: #d5001b;}
  li.public i{font-size: 22px; margin-right: 6px; color: #1296db;}
  li.file i{font-size: 22px; margin-right: 6px; color: #d4237a;}
  li.accept i{font-size: 22px; margin-right: 6px; color: #e0620d;}

@@ -57,7 +57,7 @@
 			v-model="confirm_password"
 			>
 		</div>
-    <div class="input-item mt10">
+    <div class="input-item mt10" v-show="isInvite">
       <i class="iconfont">&#xe683;</i>
 			<input
 			type="text"
@@ -96,7 +96,7 @@ export default {
       password:'',
       confirm_password:'',
       be_invited_code:'',
-
+      isInvite:0,
       content: '发送验证码', // 按钮里显示的内容
       totalTime: 60 ,     //记录具体倒计时时间
       canClick: false, //添加canClick  判断按钮能否点击

@@ -2,7 +2,7 @@
     <footer class="navbar-fixed-bottom clearfix">
         <div class="col-3 file focus">
 			<nuxt-link :to="{ name: 'm'}">
-				<h3><i class="iconfont">&#xe603;</i>首页</h3>
+				<h3><i class="iconfont">&#xe750;</i>首页</h3>
 			</nuxt-link>
 		</div>
 			<div class="col-3 file focus">
@@ -66,8 +66,8 @@
     color: var(--grayColor);
 }
 .navbar-fixed-bottom > div a h3 i{font-size: 24px; line-height: 1; color: #888888;display: block !important; margin: 0 auto 6px;}
-.navbar-fixed-bottom > div a.nuxt-link-active h3 {
+.navbar-fixed-bottom > div a.nuxt-link-exact-active h3 {
     color: var(--color);
 }
-.navbar-fixed-bottom > div a.nuxt-link-active h3 i{font-size: 24px; line-height: 1; color: var(--color)}
+.navbar-fixed-bottom > div a.nuxt-link-exact-active h3 i{font-size: 24px; line-height: 1; color: var(--color)}
 </style>

@@ -80,7 +80,7 @@
 import common from '~/assets/js/common'
 import processImg from '~/assets/js/processimg'
 import workStep from '~/components/layout/work-step.vue'
-import {mapState, mapActions} from 'vuex'
+import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
   components: {workStep},
   data () {
@@ -111,6 +111,7 @@ export default {
 		  createWork:'createWork',
       fetchSetting:'fetchSetting'
       }),
+...mapMutations(['setShowLogin']),
       getLength(){
         if(this.description.length>this.maxLength){
           this.description= this.description.slice(0, this.maxLength)
@@ -133,6 +134,10 @@ clearInfo(){
 },
  async doSubmit (e) {
 			e.preventDefault()
+      if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}
 			 const errMsg=common.validateTaskpublic(this.type_id,this.name,this.money,this.personInfo.mobile,this.description)
        
       if (!errMsg) {

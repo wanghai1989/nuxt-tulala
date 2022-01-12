@@ -149,6 +149,7 @@ drawAndShareImage(url1,url2){ //url1 背景图，url2 上层图,两种图片合�
         a.download =  '邀请好友'
         // 将生成的URL设置为a.href属性
         a.href = base64
+        alert(base64)
 
         // 触发a的单击事件
         a.dispatchEvent(event);

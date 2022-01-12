@@ -139,7 +139,6 @@ setToken(state, token) {
   },
 //设置分享箭头隐藏显示
 setShare(state, val) {
-  console.log(val)
     state.isShare = val;
   },
 setShowLogin(state, isShow) {
