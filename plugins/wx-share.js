@@ -28,7 +28,7 @@ export default ({ store}) => {
             menuList: [
                 "menuItem:share:weiboApp",
                 "menuItem:share:facebook",
-                "menuItem:share:QZone",
+                // "menuItem:share:QZone",
                 "menuItem:originPage",
                 "menuItem:readMode",
                 "menuItem:openWithQQBrowser",
