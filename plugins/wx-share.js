@@ -8,7 +8,6 @@ export default ({ store}) => {
   const wechatShare = {
     install(Vue) {
       Vue.prototype.wxShare = function(shareData, url) {
-        alert('分享图片路径',shareData+'aaa')
         this.$axios
           .post('https://www.91tula.top/api/wechat/getJsSdkConfig', {
               url:url  // 根据后台配置填写
@@ -25,7 +24,7 @@ export default ({ store}) => {
             })
           })
         this.$wechat.ready(() => {
-          wx.hideMenuItems({
+          this.$wechat.hideMenuItems({
             menuList: [
                 "menuItem:share:weiboApp",
                 "menuItem:share:facebook",
@@ -43,10 +42,10 @@ export default ({ store}) => {
             link: shareData.link,
             imgUrl: shareData.imgUrl,
             success: function () {
-                alert(11)
+              store.commit('setShare', 0)
             },
             cancel: function () {
-              alert(111)
+              store.commit('setShare', 0)
             }
         });
         this.$wechat.onMenuShareAppMessage({
@@ -55,10 +54,10 @@ export default ({ store}) => {
             link: shareData.link,
             imgUrl: shareData.imgUrl,
             success: function () {
-              alert(22)
+              store.commit('setShare', 0)
             },
             cancel: function () {
-              alert(222)
+              store.commit('setShare', 0)
             }
         });
         this.$wechat.onMenuShareQQ({
@@ -67,10 +66,10 @@ export default ({ store}) => {
             link: shareData.link,
             imgUrl: shareData.imgUrl,
             success: function () {
-              alert(33)
+              store.commit('setShare', 0)
             },
             cancel: function () {
-              alert(333)
+              store.commit('setShare', 0)
             }
         });
     });
