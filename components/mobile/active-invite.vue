@@ -1,6 +1,6 @@
 <template>
 <div class="invite-box">
-  <div class="laymshade Wechatshare" v-if="isShare">
+  <div class="laymshade Wechatshare" v-if="isShare" @click="closeShare()">
         <img src="/img/share.png" />
     </div>
 	<div class="invite01">
@@ -46,6 +46,9 @@ export default {
     ...mapMutations(['setShare']),
     Weshare:function(num){
       this.setShare(num)
+    },
+    closeShare:function(){
+      this.Weshare(0)
     },
       getPromote:function(){
         // With async/await
