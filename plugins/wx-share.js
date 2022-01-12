@@ -15,7 +15,7 @@ export default ({ store}) => {
           .then(res => {
             const Data = res.data.data
             wx.config({
-              debug: false,
+              debug: true,
               appId: Data.appId,
               timestamp: Data.timestamp,
               nonceStr: Data.nonceStr,
