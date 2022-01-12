@@ -52,6 +52,12 @@ export default {
     },
       getPromote:function(){
         // With async/await
+        let ua = navigator.userAgent.toLowerCase();  
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            layer.msg('微信端不支持生成推广海报，请更换浏览器访问', {icon: 2});
+            return
+        } 
+
           let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code 
 
           QRCode.toDataURL(invitelink, {
