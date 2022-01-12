@@ -29,10 +29,10 @@ export default ({ store}) => {
                 "menuItem:share:weiboApp",
                 "menuItem:share:facebook",
                 // "menuItem:share:QZone",
-                "menuItem:originPage",
-                "menuItem:readMode",
+                // "menuItem:originPage",
+                // "menuItem:readMode",
                 // "menuItem:openWithQQBrowser",
-                "menuItem:openWithSafari",
+                // "menuItem:openWithSafari",
                 "menuItem:share:email"
             ]
         });
