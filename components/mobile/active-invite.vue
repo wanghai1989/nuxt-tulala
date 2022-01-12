@@ -41,10 +41,10 @@ export default {
   },
 	methods:{
     ...mapMutations(['setShare']),
-    Weshare(){
+    Weshare:function(){
+      console.log('触发')
       this.setShare(1)
     },
-
       getPromote:function(){
         // With async/await
           let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code 
