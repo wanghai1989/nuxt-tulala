@@ -8,6 +8,7 @@ export default ({ store}) => {
   const wechatShare = {
     install(Vue) {
       Vue.prototype.wxShare = function(shareData, url) {
+        alert('分享图片路径',shareData.imgUrl)
         this.$axios
           .post('https://www.91tula.top/api/wechat/getJsSdkConfig', {
               url:url  // 根据后台配置填写
