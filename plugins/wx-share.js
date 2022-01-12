@@ -8,7 +8,7 @@ export default ({ store}) => {
   const wechatShare = {
     install(Vue) {
       Vue.prototype.wxShare = function(shareData, url) {
-        alert('分享图片路径',shareData.imgUrl)
+        alert('分享图片路径',shareData+'aaa')
         this.$axios
           .post('https://www.91tula.top/api/wechat/getJsSdkConfig', {
               url:url  // 根据后台配置填写
@@ -25,11 +25,11 @@ export default ({ store}) => {
             })
           })
         this.$wechat.ready(() => {
-          this.$wechat.hideMenuItems({
+          wx.hideMenuItems({
             menuList: [
                 "menuItem:share:weiboApp",
                 "menuItem:share:facebook",
-                // "menuItem:share:QZone",
+                "menuItem:share:QZone",
                 "menuItem:originPage",
                 "menuItem:readMode",
                 "menuItem:openWithQQBrowser",
@@ -37,40 +37,99 @@ export default ({ store}) => {
                 "menuItem:share:email"
             ]
         });
-        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
-          this.$wechat.updateAppMessageShareData({  
+        this.$wechat.onMenuShareTimeline({
             title: shareData.title,
             desc: shareData.desc,
             link: shareData.link,
             imgUrl: shareData.imgUrl,
-            success: function() {
-              // 设置成功
-              alert('分享朋友')
-              store.commit('setShare', 0)
+            success: function () {
+                alert(11)
+            },
+            cancel: function () {
+              alert(111)
+            }
+        });
+        this.$wechat.onMenuShareAppMessage({
+            title: shareData.title,
+            desc: shareData.desc,
+            link: shareData.link,
+            imgUrl: shareData.imgUrl,
+            success: function () {
+              alert(22)
+            },
+            cancel: function () {
+              alert(222)
+            }
+        });
+        this.$wechat.onMenuShareQQ({
+            title: shareData.title,
+            desc: shareData.desc,
+            link: shareData.link,
+            imgUrl: shareData.imgUrl,
+            success: function () {
+              alert(33)
+            },
+            cancel: function () {
+              alert(333)
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+        //   this.$wechat.hideMenuItems({
+        //     menuList: [
+        //         "menuItem:share:weiboApp",
+        //         "menuItem:share:facebook",
+        //         // "menuItem:share:QZone",
+        //         "menuItem:originPage",
+        //         "menuItem:readMode",
+        //         "menuItem:openWithQQBrowser",
+        //         "menuItem:openWithSafari",
+        //         "menuItem:share:email"
+        //     ]
+        // });
+        // // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）
+        //   this.$wechat.updateAppMessageShareData({  
+        //     title: shareData.title,
+        //     desc: shareData.desc,
+        //     link: shareData.link,
+        //     imgUrl: shareData.imgUrl,
+        //     success: function() {
+        //       // 设置成功
+        //       alert('分享朋友')
+        //       store.commit('setShare', 0)
               
-            },
-            cancel: function() {
-              alert('分享朋友失败')
-              store.commit('setShare', 0)
-            }
-          })
-          // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-          this.$wechat.updateTimelineShareData({  
-            title: shareData.title,
-            desc: shareData.desc,
-            link: shareData.link,
-            imgUrl: shareData.imgUrl,
-            success: function() {
-              // 设置成功
-              alert('分享朋友圈')
-              store.commit('setShare', 0)
-            },
-            cancel: function() {
-              alert('分享朋友圈失败')
-              store.commit('setShare', 0)
-            }
-          })
-        })
+        //     },
+        //     cancel: function() {
+        //       alert('分享朋友失败')
+        //       store.commit('setShare', 0)
+        //     }
+        //   })
+        //   // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
+        //   this.$wechat.updateTimelineShareData({  
+        //     title: shareData.title,
+        //     desc: shareData.desc,
+        //     link: shareData.link,
+        //     imgUrl: shareData.imgUrl,
+        //     success: function() {
+        //       // 设置成功
+        //       alert('分享朋友圈')
+        //       store.commit('setShare', 0)
+        //     },
+        //     cancel: function() {
+        //       alert('分享朋友圈失败')
+        //       store.commit('setShare', 0)
+        //     }
+        //   })
+        // })
       }
     }
   }

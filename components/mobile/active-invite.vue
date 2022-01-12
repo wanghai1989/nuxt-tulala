@@ -45,7 +45,6 @@ export default {
 	methods:{
     ...mapMutations(['setShare']),
     Weshare:function(num){
-      console.log('触发')
       this.setShare(num)
     },
       getPromote:function(){
