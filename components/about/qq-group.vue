@@ -1,6 +1,6 @@
 <template>
 <div class="qq-contain">
-	        <a class="btn-apply" href="#location">我<br/> 是<br/>群<br/>主<br/>申<br/>请<br/>加<br/>入<br/>联<br/>盟</a>
+	        <a class="btn-apply" href="#location">我<br/> 是<br/>群<br/>主<br/>，<br/>申<br/>请<br/>加<br/>入<br/>联<br/>盟</a>
 			<div class="qq-list clearfix">
 				<div class="qq-item"  v-for="item in alliance" :key="item.id">
 					<div class="top">
