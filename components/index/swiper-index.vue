@@ -47,7 +47,7 @@ export default {
   },
 }
 </script>
-<style lang="less" >
+<style lang="less" scoped>
 .swiper-container { width: 100%; height: 560px; position: relative;  z-index: 2;  }
 .swiper-pagination{ bottom: 70px;left: 0; width: 100%;}
 .swiper-pagination-bullet{width: 10px; height: 10px; margin: 0px 4px;}

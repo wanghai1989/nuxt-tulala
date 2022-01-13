@@ -97,8 +97,8 @@ export default {
   },
 }
 </script>
-<style lang="less" >
-.swiper-container { width: 100%; height: 1.9rem !important; position: relative;  z-index: 2;  }
+<style lang="less" scoped>
+.swiper-container { width: 100%; height: 1.9rem; position: relative;  z-index: 2;  }
 .swiper-container img{width: 100%;}
 .swiper-container .swiper-pagination{ bottom: 0px;left: 0; width: 100%;}
 .swiper-pagination-bullet{width: 8px; height: 8px; margin: 0px 4px;}
