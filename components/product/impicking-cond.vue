@@ -3,7 +3,7 @@
 	  	<div class="main-cond clearfix"   v-if="JSON.stringify(condition.scenarios)!='[]'">
 	  		<span class="filter-name ">场景</span>
 	  		<ul class="filter-list ">
-				<li > <a href="javascript:void(0)" :class="{on:!scenarios_id}"  rel="nofollow" @click="doSearch('scenarios',0)">全部</a> </li>
+				<li > <a href="javascript:void(0)" :class="{on:scenarios_id==0}"  rel="nofollow" @click="doSearch('scenarios',0)">全部</a> </li>
 	  			<li v-for="item in condition.scenarios"  :key="item.id"> 
 					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==scenarios_id}"  @click="doSearch('scenarios',item.id)">{{item.name}}</a> 
 				</li>
@@ -12,7 +12,7 @@
 	  	<div class="item-cond" v-if="JSON.stringify(condition.file_formats)!='[]'">
 	  		<span class="filter-name">格式</span>
 	  		<ul class="filter-list">
-				 <li > <a href="javascript:void(0)"  :class="{on:!query.format_id}" rel="nofollow" @click="doSearch('formats',0)">全部</a> </li>
+				 <li > <a href="javascript:void(0)"  :class="{on:query.format_id==0}" rel="nofollow" @click="doSearch('formats',0)">全部</a> </li>
 	  			<li v-for="item in condition.file_formats"  :key="item.id"> 
 					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==format_id}"  @click="doSearch('formats',item.id)">{{item.name}}</a> 
 				</li>
@@ -21,7 +21,7 @@
 		  <div class="item-cond"  v-if="JSON.stringify(condition.shape)!='[]'">
 	  		<span class="filter-name">版式</span>
 	  		<ul class="filter-list">
-				<li > <a href="javascript:void(0)"   :class="{on:!query.shape_id}" rel="nofollow" @click="doSearch('shape',0)">全部</a> </li>
+				<li > <a href="javascript:void(0)"   :class="{on:query.shape_id==0}" rel="nofollow" @click="doSearch('shape',0)">全部</a> </li>
 	  			<li class="on" v-for="item in condition.shape"  :key="item.id"> 
 					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==shape_id}"   @click="doSearch('shape',item.id)">{{item.name}}</a> 
 				</li>
@@ -30,10 +30,10 @@
 	  	<div class="item-cond">
 	  		<span class="filter-name">排序</span>
 	  		<ul class="filter-list">
-				<li> <a href="javascript:void(0)" rel="nofollow"   :class="{on:!query.sort_id}"   @click="doSearch('sort',0)">默认</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:1==query.sort_id}" @click="doSearch('sort',1)">昨日热门</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:2==query.sort_id}" @click="doSearch('sort',2)">热门收藏</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:3==query.sort_id}" @click="doSearch('sort',3)">最新上传</a> </li>
+				<li> <a href="javascript:void(0)" rel="nofollow"   :class="{on:query.sort_id==0}"   @click="doSearch('sort',0)">默认</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==1}" @click="doSearch('sort',1)">昨日热门</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==2}" @click="doSearch('sort',2)">热门收藏</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==3}" @click="doSearch('sort',3)">最新上传</a> </li>
 	  		</ul>
 	  	</div>
 	  </div>
@@ -93,7 +93,7 @@ export default {
 		else
 		this.sort_id=0
 
-		// console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
+		console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
 	},
 	doSearch(type,val){
         if(type=='scenarios'){this.scenarios_id=val}
@@ -101,7 +101,7 @@ export default {
 		if(type=='shape'){this.shape_id=val}
 		if(type=='sort'){this.sort_id=val}
 
-		// console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
+		console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
 		
 		this.query.scenarios_id=this.scenarios_id
 		this.query.format_id=this.format_id
