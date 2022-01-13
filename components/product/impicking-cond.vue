@@ -30,10 +30,10 @@
 	  	<div class="item-cond">
 	  		<span class="filter-name">排序</span>
 	  		<ul class="filter-list">
-				<li> <a href="javascript:void(0)" rel="nofollow"   :class="{on:query.sort_id==0}"   @click="doSearch('sort',0)">默认</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==1}" @click="doSearch('sort',1)">昨日热门</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==2}" @click="doSearch('sort',2)">热门收藏</a> </li>
-	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:query.sort_id==3}" @click="doSearch('sort',3)">最新上传</a> </li>
+				<li> <a href="javascript:void(0)" rel="nofollow"   :class="{on:sort_id==0}"   @click="doSearch('sort',0)">默认</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:sort_id==1}" @click="doSearch('sort',1)">昨日热门</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:sort_id==2}" @click="doSearch('sort',2)">热门收藏</a> </li>
+	  			<li> <a href="javascript:void(0)" rel="nofollow"  :class="{on:sort_id==3}" @click="doSearch('sort',3)">最新上传</a> </li>
 	  		</ul>
 	  	</div>
 	  </div>
