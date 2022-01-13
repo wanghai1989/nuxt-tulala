@@ -59,9 +59,10 @@
 	  					<div class="l"><span class="cred">*</span>获知渠道</div>
 	  					<div class="r">
 	  						<select class="select" v-model="channel">
-	  							<Option v-for="item in defaultchannel" :value="item.id" :key="item.id">
+                  <option value="">请选择</option>
+	  							<option v-for="item in defaultchannel" :value="item.id" :key="item.id">
 	  								{{item.name }}
-                   				</Option>
+                   				</option>
 	  						</select>
                 <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
 	  					</div>
