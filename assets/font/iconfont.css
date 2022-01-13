@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2981494 */
-  src: url('iconfont.woff2?t=1642039745557') format('woff2'),
-       url('iconfont.woff?t=1642039745557') format('woff'),
-       url('iconfont.ttf?t=1642039745557') format('truetype');
+  src: url('iconfont.woff2?t=1642045001413') format('woff2'),
+       url('iconfont.woff?t=1642045001413') format('woff'),
+       url('iconfont.ttf?t=1642045001413') format('truetype');
 }
 
 .iconfont {
@@ -11,7 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  vertical-align: middle;
+}
+
+.icon-tuqiandao:before {
+  content: "\e62c";
 }
 
 .icon-tuduosucai:before {

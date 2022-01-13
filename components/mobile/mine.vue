@@ -49,6 +49,9 @@
     <li class="file" @click="downLoad('person/my-file')">
       <i class="iconfont">&#xe603;</i> 我的作品
     </li>
+    <li class="file" @click="gosignin()">
+      <i class="iconfont">&#xe62c;</i> 签到
+    </li>
  </ul>
 
  <div class="quit-box">
@@ -95,8 +98,27 @@ export default {
        ...mapActions({
           'logout':'logout',
           'fetchPersoninfo':'fetchPersoninfo',
-          'verifyToken':'verifyToken'
+          'verifyToken':'verifyToken',
+		      'fetchsignIn':'fetchsignIn'
       }),
+      gosignin:function(){
+                if(!this.userToken){
+                    this.$router.push('/m/mobile-login')
+                    return
+                }
+
+               let formDatas = new FormData();
+                formDatas.append('token', this.userToken);
+                this.fetchsignIn(formDatas)
+                    .then((data) => {
+                        if(data.code==0){
+                        layer.msg(data.msg, {icon: 2});
+                        }
+                        if(data.code==1){
+                            layer.msg('签到成功，获得5积分！！', {icon: 1});
+                        }
+                    })
+            },
       pubilcTask:function(url){
       let _that=this
        let fullpath=this.baseUrl+url
@@ -212,7 +234,7 @@ export default {
     vertical-align: middle;
     cursor: pointer;
 }
-.mine-box{background:#f2f2f2;  min-height: 100vh; box-sizing: border-box; padding-bottom: 30px;}
+.mine-box{background:#f2f2f2;  min-height: 100vh; box-sizing: border-box; padding-bottom: 80px;}
 .mine-head{background: url('~/assets/images/pic53.png') no-repeat; width: 100%; height: 2rem;min-height: 180px; background-size: cover;    padding: .3rem 0.15rem;
     box-sizing: border-box;color: #fff; }
 .vip-head{display: flex; }
@@ -238,7 +260,7 @@ export default {
  li.accept i{font-size: 22px; margin-right: 6px; color: #e0620d;}
  li:after{ .bg-map(10px,16px,-638px, -198px); position: absolute; top: 23px; right: 0px; content: ''; display: block; }
 }
-.quit-box{padding: .15rem; margin-top: 60px;}
+.quit-box{padding: .15rem; margin-top: 30px;}
 .btn-quit{.btn(100%,42px,var(--redColor),var(--redColor),#fff); }
 .btn-quit:hover{opacity: 0.9;}
 </style>

@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1115063",
+      "name": "签到",
+      "font_class": "qiandao",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
       "icon_id": "1210",
       "name": "多素材",
       "font_class": "duosucai",
