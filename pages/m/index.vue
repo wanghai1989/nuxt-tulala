@@ -6,7 +6,9 @@
 			<img src="~/assets/images/mbanner01.jpg" />
 		</div>
       <div class="swiper-slide">
+         <nuxt-link to="/m/mobile-invite">
 			<img src="~/assets/images/mbanner02.jpg" />
+         </nuxt-link>
 		</div>
     </div>
     <!-- Add Pagination -->
