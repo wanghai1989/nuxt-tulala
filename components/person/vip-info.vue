@@ -30,7 +30,7 @@
 				</ul>
 				<span v-if="type==1">积分总数 <strong>{{integral}}</strong> </span>
 				<span v-else-if="type==2">图啦币总数 <strong> {{platform_currency}}</strong> <a href="javascript:void(0)" class="btn-withdraw" @click="showWithdraw()" >提现</a></span>
-				 <span v-else><span v-if="type==3">到期时间 <strong>2021-11-30</strong></span> <nuxt-link class="btn-openvip" to="/user/pay-vip" >{{personInfo.is_vip?'续期VIP':'开通VIP'}}</nuxt-link></span>
+				 <span v-else><span v-if="type==3">到期时间 <strong>2021-11-30</strong></span> <nuxt-link class="btn-openvip" to="/vip/pay-vip" >{{personInfo.is_vip?'续期VIP':'开通VIP'}}</nuxt-link></span>
 			</div>
 
 			<div class="vam vam-b tab-vip" v-if="type==1 || type==2">
