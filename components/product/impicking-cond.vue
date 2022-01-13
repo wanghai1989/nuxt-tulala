@@ -92,12 +92,16 @@ export default {
 		this.sort_id=this.$route.query.sort_id
 		else
 		this.sort_id=0
+
+		// console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
 	},
 	doSearch(type,val){
         if(type=='scenarios'){this.scenarios_id=val}
 		if(type=='formats'){this.format_id=val}
 		if(type=='shape'){this.shape_id=val}
 		if(type=='sort'){this.sort_id=val}
+
+		// console.log(this.scenarios_id+','+this.format_id+','+this.shape_id+','+this.sort_id)
 		
 		this.query.scenarios_id=this.scenarios_id
 		this.query.format_id=this.format_id

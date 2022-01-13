@@ -14,20 +14,19 @@
         </ul> 
         </div> 
         <input type="text" id="keyword" key-type="0" autocomplete="off" name="search" class="i-search fl" placeholder="输入搜索关键词" v-model="input_keyword">
-        <a class="btn-search fl" key-type="0" href="javascript:void(0)" @click="doSearch()">
+        <a class="btn-search fl" key-type="0" href="javascript:void(0)" @click="doSearch('')">
         	<i></i>搜索
         </a>
 	  </div>
 	  <div class="search-hot" v-if="pageclass!='index'">
-	  	热门搜索 : <a class="cred">春天</a> 
-	  	<a href="#">疫情</a>
-	  	<a href="#">简历</a>
-	  	<a href="#">谷雨</a> 
-	  	<a href="#">工作总结</a>
-	  	<a href="#">开学第一课</a>
-	  	<a href="#">边框</a> 
-	  	<a href="#">片头</a>
-	  	<a href="#">培训</a>       
+	  	热门搜索 :<div class="words" v-if="init_type=='png' || init_type=='all'"> <a v-for="item in hotWord.png" :key="item.id"  @click="doSearch(item)">{{item}}</a></div>      
+          <div class="words" v-if="init_type=='bjtp'"><a v-for="item in hotWord.bjtp" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='ui'"><a v-for="item in hotWord.ui" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='mbsc'"><a v-for="item in hotWord.mbsc" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='syt'"><a v-for="item in hotWord.syt" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='word'"><a v-for="item in hotWord.word" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='ppt'"><a v-for="item in hotWord.ppt" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
+          <div class="words" v-if="init_type=='excel'"><a v-for="item in hotWord.excel" :key="item.id"  @click="doSearch(item)">{{item}}</a> </div>
 	  </div>
 	  </div>
 </template>
@@ -41,11 +40,12 @@ export default {
   data () {
     return {
 	  input_keyword:'',
+      init_type:'png',
       category_id:0
     }
   },
   computed:{
-	  ...mapState(['category','idName','idClass'])
+	  ...mapState(['category','idName','idClass','hotWord'])
   },
 //   watch :{
 //       '$route': function (to, from) {
@@ -79,7 +79,10 @@ export default {
           this.input_keyword=this.$route.query.keyword
           this.selectCategory(id,type_class,name)
       },
-      doSearch(){
+      doSearch(obj){
+          if(obj){
+           this.input_keyword=obj
+           }
           if(this.$route.params.id==this.category_id){
               this.$router.push({
                 query:merge(this.$route.query,{'keyword':this.input_keyword})
@@ -102,6 +105,7 @@ export default {
         selectCategory:function(id,type_class,name){
             $("#divselect cite").html(name); 
             this.category_id=id
+            this.init_type=type_class
             $("#inputselect").val(id)
             $("#divselect  ul").hide(); 
             $("#divselect cite").removeClass("rota90");
@@ -181,8 +185,10 @@ border-width: 2px; border-color: #3ebb2b; border-style: solid; margin: 40px auto
 .divsearch.ppt .btn-search{background: var(--colorBgwd) ;}
 .divsearch.excel .btn-search{background: var(--colorBgwd) ;}
 .search-hot{width: 870px; margin: 8px auto 0;
- a{margin: 0px 5px;}
+ a{margin: 0px 5px; cursor: pointer;}
  a:hover{color: var(--color);}
+ .words{display: inline-block;}
+ .words a:first-child{color: var(--redColor);}
 }
 .divsearch.png{border: solid 2px var(--color) ;}
 .divsearch.bjtp{border: solid 2px var(--colorBjtp) ;}

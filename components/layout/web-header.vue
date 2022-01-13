@@ -196,7 +196,7 @@ fetchNoticeList:function(){
 
     .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 8px; height: 88px; line-height: 88px;
      border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-weight: bold;}
-    .nav-list>li>a.nuxt-link-exact-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
+    .nav-list>li>a.nuxt-link-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
     .nav-list>li>a.focus{color: var(--color); border-bottom: 3px solid  var(--color); font-size: 16px;}
     .nav-list>li>a:hover{color:  var(--color); border-bottom: 3px solid transparent; font-size: 16px;}
     .nav-list>li:hover .pull-down-box{display: block;}
