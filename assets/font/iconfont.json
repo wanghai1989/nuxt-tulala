@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1210",
+      "name": "多素材",
+      "font_class": "duosucai",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1423",
+      "name": "html5",
+      "font_class": "html5",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "1876342",
+      "name": "商城模板",
+      "font_class": "shangchengmoban",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "8232080",
+      "name": "背景",
+      "font_class": "beijing",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "9881672",
+      "name": "KHCFDC_ppt",
+      "font_class": "pptcopy",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "9881673",
+      "name": "KHCFDC_WORD",
+      "font_class": "WORD",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "12735052",
+      "name": "Photographer",
+      "font_class": "icon-test",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "24816508",
+      "name": "excel",
+      "font_class": "excel",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
       "icon_id": "577363",
       "name": "首页-fill",
       "font_class": "shouyefill",

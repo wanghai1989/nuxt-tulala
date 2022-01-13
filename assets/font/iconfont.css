@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2981494 */
-  src: url('iconfont.woff2?t=1641968339215') format('woff2'),
-       url('iconfont.woff?t=1641968339215') format('woff'),
-       url('iconfont.ttf?t=1641968339215') format('truetype');
+  src: url('iconfont.woff2?t=1642039745557') format('woff2'),
+       url('iconfont.woff?t=1642039745557') format('woff'),
+       url('iconfont.ttf?t=1642039745557') format('truetype');
 }
 
 .iconfont {
@@ -12,6 +12,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: middle;
+}
+
+.icon-tuduosucai:before {
+  content: "\e602";
+}
+
+.icon-tuhtml5:before {
+  content: "\e604";
+}
+
+.icon-tushangchengmoban:before {
+  content: "\e676";
+}
+
+.icon-tubeijing:before {
+  content: "\e605";
+}
+
+.icon-tupptcopy:before {
+  content: "\e6ea";
+}
+
+.icon-tuWORD:before {
+  content: "\e6eb";
+}
+
+.icon-tuicon-test:before {
+  content: "\e606";
+}
+
+.icon-tuexcel:before {
+  content: "\e609";
 }
 
 .icon-tushouyefill:before {
