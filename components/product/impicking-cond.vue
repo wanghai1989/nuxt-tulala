@@ -12,7 +12,7 @@
 	  	<div class="item-cond" v-if="JSON.stringify(condition.file_formats)!='[]'">
 	  		<span class="filter-name">格式</span>
 	  		<ul class="filter-list">
-				 <li > <a href="javascript:void(0)"  :class="{on:query.format_id==0}" rel="nofollow" @click="doSearch('formats',0)">全部</a> </li>
+				 <li > <a href="javascript:void(0)"  :class="{on:format_id==0}" rel="nofollow" @click="doSearch('formats',0)">全部</a> </li>
 	  			<li v-for="item in condition.file_formats"  :key="item.id"> 
 					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==format_id}"  @click="doSearch('formats',item.id)">{{item.name}}</a> 
 				</li>
@@ -21,7 +21,7 @@
 		  <div class="item-cond"  v-if="JSON.stringify(condition.shape)!='[]'">
 	  		<span class="filter-name">版式</span>
 	  		<ul class="filter-list">
-				<li > <a href="javascript:void(0)"   :class="{on:query.shape_id==0}" rel="nofollow" @click="doSearch('shape',0)">全部</a> </li>
+				<li > <a href="javascript:void(0)"   :class="{on:shape_id==0}" rel="nofollow" @click="doSearch('shape',0)">全部</a> </li>
 	  			<li class="on" v-for="item in condition.shape"  :key="item.id"> 
 					  <a href="javascript:void(0)" rel="nofollow" :class="{on:item.id==shape_id}"   @click="doSearch('shape',item.id)">{{item.name}}</a> 
 				</li>

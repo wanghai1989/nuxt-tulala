@@ -37,7 +37,7 @@ export default {
 	  ...mapState(['personInfo','userToken','baseUrl','isShare'])
   },
   mounted(){
-    
+    console.log(this.$route.path)
   },
    created() {
         this.Weshare(0)
@@ -45,12 +45,26 @@ export default {
 	methods:{
     ...mapMutations(['setShare']),
     Weshare:function(num){
+      if(!this.userToken && num==1){
+        layer.msg('邀请好友需登录！！', {icon: 2});
+        setTimeout(() => {
+           this.$router.push({path: '/m/mobile-login',query:{backUrl:this.$route.path}}) 
+        }, 2000);
+        return
+      }
       this.setShare(num)
     },
     closeShare:function(){
       this.Weshare(0)
     },
       getPromote:function(){
+        if(!this.userToken){
+         layer.msg('邀请好友需登录！！', {icon: 2});
+        setTimeout(() => {
+           this.$router.push({path: '/m/mobile-login',query:{backUrl:this.$router.path}}) 
+        }, 2000);
+        return
+      }
         // With async/await
         let ua = navigator.userAgent.toLowerCase();  
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
@@ -59,6 +73,7 @@ export default {
         } 
 
           let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code 
+
 
           QRCode.toDataURL(invitelink, {
                     type: "image/png", //类型

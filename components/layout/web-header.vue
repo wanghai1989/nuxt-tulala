@@ -13,9 +13,7 @@
                       <i class="i-hot"></i>
                        <nuxt-link to="/enter">设计师入驻</nuxt-link>
 				   </li>
-            <li>
-                       <nuxt-link to="/task">任务</nuxt-link>
-				   </li>
+            
                     <li v-for="item in navigation" :key="item.id"> 
                         <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</nuxt-link>
                         <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
@@ -37,7 +35,9 @@
                             </div>                                                                               
 				   	  </div>
                     </li>
-                   
+                   <li>
+                       <nuxt-link to="/task">任务</nuxt-link>
+				   </li>
 				   <li>
                         <nuxt-link to="/mall">积分商城</nuxt-link>
 				   </li>

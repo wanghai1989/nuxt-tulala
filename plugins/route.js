@@ -15,8 +15,8 @@ const requireLogin=[
     '/vip/pay-vip',
     '/m/mobile-mine',
     '/m/mobile-taskpublic',
-    '/m/mobile-taskaccept',
-    '/m/mobile-invite'
+    '/m/mobile-taskaccept'
+    // '/m/mobile-invite'
 ]
 export default ({
     app,

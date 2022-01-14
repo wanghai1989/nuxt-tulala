@@ -44,9 +44,9 @@
 					
 				</div>
 				<div class="col-contact">
-					<p class="phone">400-100-5678</p>
-					<div class="time">周一至周日 8：30-18:00<br>邮箱:feedback@itulala.com</div>
-					<a target="_blank" class="btn btn-onkey">人工客服</a>
+					<p class="phone">159-1948-3126</p>
+					<div class="time">周一至周日 8：30-18:00<br>邮箱:tulalawx@163.com </div>
+					<a target="_blank" class="btn btn-onkey" @click="customer()">人工客服</a>
 					
 				</div>
 				</div>
@@ -58,6 +58,16 @@
 			</div>
 		</div>
 </template>
+<script>
+export default {
+	methods:{
+		customer:function(){
+			layer.msg('暂未开放，敬请期待！！', {icon: 6});
+			return
+		}
+	}
+}
+</script>
 <style lang="less" scoped>
 .footer{ padding: 0px 0 40px;background: #212427; color: #9fa3a7; margin-top: 55px;
     .friend-link{background: #fff; height: 50px; line-height: 50px;  color: #333;

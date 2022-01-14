@@ -2,7 +2,7 @@
 <div class="sjs-top">
 			<div class="wrapper clearfix">
 				<div class="fl">
-					图啦啦欢迎您！  &nbsp;<i class="i-phone"></i>&nbsp;<span class="f16 cf5f5">0755-2382-3043</span>
+					图啦啦欢迎您！  &nbsp;<i class="i-phone"></i>&nbsp;<span class="f16 cf5f5">159-1948-3126</span>
 				</div>
 				<div class="fr" v-show="userToken">
 					<nuxt-link to="/"><i class="i-home"></i>图啦啦首页</nuxt-link> &nbsp;&nbsp;
