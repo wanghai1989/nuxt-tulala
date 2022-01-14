@@ -1,8 +1,8 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
-        <nuxt-link to="/user/register"  target="_blank" class="link img-box">
-               <span class="receive">立即领取</span>
+        <nuxt-link to="/enter"  target="_blank" class="link img-box">
+               <span class="receive">立即入驻</span>
         </nuxt-link>
       <em class="close iconfont icon-close"  @click="close()"></em>
       </div>
