@@ -1,5 +1,4 @@
 <template>
-<div class="m-container">
 	<div class="prod-box">
 	<div class="nav-left">
     <ul>
@@ -19,7 +18,6 @@
 				</nuxt-link>
 			</li>
 		</ul>
-	</div>
 	</div>
 	</div>
 </template>

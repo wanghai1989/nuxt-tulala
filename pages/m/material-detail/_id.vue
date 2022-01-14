@@ -18,8 +18,7 @@ computed:{
   },
   async asyncData ({ store, params}) {  //服务器渲染
 	await  store.dispatch('fetchProductinfo',{id:params.id});
-  },
-  
+  }
 }
 </script>
 <style lang="less" scoped>

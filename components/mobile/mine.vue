@@ -235,16 +235,16 @@ export default {
     cursor: pointer;
 }
 .mine-box{background:#f2f2f2;  min-height: 100vh; box-sizing: border-box; padding-bottom: 80px;}
-.mine-head{background: url('~/assets/images/pic53.png') no-repeat; width: 100%; height: 2rem;min-height: 180px; background-size: cover;    padding: .3rem 0.15rem;
+.mine-head{background: url('~/assets/images/pic53.png') no-repeat; width: 100%; height:220px; background-size: 100% 100%;    padding: 30px 15px;
     box-sizing: border-box;color: #fff; }
 .vip-head{display: flex; }
-.vip-img{    width: 0.6rem;    margin-right: 10px;
-    height: 0.6rem; border-radius: 32px; overflow: hidden;}
+.vip-img{    width: 60px;    margin-right: 10px;
+    height: 60px; border-radius: 32px; overflow: hidden;}
 .vip-img img{width: 100%; min-height: 100%;}
 .vip-txt{flex: 1;}
 .vip-txt .username{font-size: 20px; }
 .vip-txt .tel{font-size: 14px; color: #f0f0f0;}
-.coin-box {display: flex; padding: 0px .15rem; margin-top: -.8rem;}
+.coin-box {display: flex; padding: 0px 15px; margin-top: -60px;}
 .coin-box .item{flex: 1; height: auto; background: #fff; border-radius: 4px; padding: 10px 15px; box-sizing: border-box;}
 .coin-box .item.integral{margin-right: 15px;}
 .coin-box .item.integral i{font-size: 40px; line-height: 1; color: #d4237a; }

@@ -59,8 +59,8 @@
 .navbar-fixed-bottom h3 {
     text-align: center;
     line-height: 1;
-    padding: .1rem 0rem;
-    font-size: .14rem;
+    padding: 10px 0px;
+    font-size: 14px;
 }
 .navbar-fixed-bottom > div a h3 {
     color: var(--grayColor);

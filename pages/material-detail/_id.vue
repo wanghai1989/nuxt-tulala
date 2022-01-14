@@ -141,10 +141,10 @@ export default {
 			}]
 			}
   },
-  created(){
+validate({ params }) {
+    // 必须是number类型
+    return /^\d+$/.test(params.id)
   },
-  mounted(){ 
-		},
 		
  computed:{
 	  ...mapState(['userToken','softName','idName','personInfo','productinfo'])

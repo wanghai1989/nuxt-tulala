@@ -39,6 +39,10 @@ export default {
 			}]
 			}
    },
+   validate({ params }) {
+    // 必须是number类型
+    return /^\d+$/.test(params.id)
+  },
    async asyncData ({ store, params}) {  //服务器渲染
     await store.dispatch('fetchWorkinfo',{id:params.id});  
     },

@@ -107,14 +107,14 @@ export default {
     cursor: pointer;
 }
 
-.invite-box{min-height: 100vh; background: #fe7845;}
+.invite-box{min-height: 100vh; background: #fe7845; position: relative;}
 .invite01{background: url(~/assets/images/mobile-invite01.png) no-repeat;width: 100%; height: 1.6rem; background-size: 100% 100%;}
 .invite02{background: url(~/assets/images/mobile-invite02.png) no-repeat;width: 100%; height: 1.8rem; background-size: 100% 100%;}
 .invite03{background: url(~/assets/images/mobile-invite03.png) no-repeat;width: 100%; height: 1.78rem; background-size: 100% 100%;}
 .invite04{background: url(~/assets/images/mobile-invite04.png) no-repeat;width: 100%; height: 0.66rem; background-size: 100% 100%;}
-.share{position: fixed; bottom: 0.6rem; left: 0; width: 100%; text-align: center; height: 1.2rem; z-index: 2; padding: 0 .3rem;  box-sizing: border-box; }
+.share{position: absolute; bottom: 100px; left: 0; width: 100%; text-align: center; height: 90px; z-index: 2; padding: 0 15px;  box-sizing: border-box; }
 .share a{.btn(100%,44px,#ff8016,linear-gradient(90deg, #ff2402 0%, #ff8016 100%),#fff); border-radius: 22px; margin: 7px 0; box-shadow: 1px 2px 3px #bf0001; border: none;}
-.logo{position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; height: 0.6rem; z-index: 2; padding: .1rem 0; box-sizing: border-box; background: #fff;}
-.logo img{height: 0.4rem;}
+.logo{position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; height: 64px; z-index: 2; padding: 12px 0; box-sizing: border-box; background: #fff;}
+.logo img{height: 40px;}
 .Wechatshare img{ width: 50%;position: absolute;right: 20px;}
 </style>
