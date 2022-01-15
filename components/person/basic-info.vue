@@ -178,7 +178,13 @@ export default {
 			  this.area=this.personInfo.area
 			  this.vipimg=this.personInfo.avatar
 			  this.birthday=common.dataFormat(this.personInfo.birthday);
-			  this.getcity(this.province_code,this.city_code,this.area_code)
+
+
+			  $("#input_province").val(this.province_code);
+			  $("#input_province").change();
+			  $("#input_city").val(this.city_code);
+			  $("#input_city").change();
+			  $("#input_area").val(this.area_code);
 	  },
 	  fetchSet(){
       let formDatas = new FormData();
@@ -306,14 +312,14 @@ export default {
 				  });
 			})
 	  },
-	  getcity:function(province_code,city_code,area_code){
-		  console.log(province_code+','+city_code+','+area_code)
-		$("#input_province").val(province_code);
-		$("#input_province").change();
-		$("#input_city").val(city_code);
-		$("#input_city").change();
-		$("#input_area").val(area_code);
-	  }
+	//   getcity:function(province_code,city_code,area_code){
+	// 	  console.log(province_code+','+city_code+','+area_code)
+	// 	$("#input_province").val(province_code);
+	// 	$("#input_province").change();
+	// 	$("#input_city").val(city_code);
+	// 	$("#input_city").change();
+	// 	$("#input_area").val(area_code);
+	//   }
   }
 }
 </script>
