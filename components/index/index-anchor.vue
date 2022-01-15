@@ -46,7 +46,7 @@ export default {
     width: 68px;
     position: fixed;
     top: 50%;
-    left: 50px;
+    left: 25px;
     margin-top: -279px;
     background: #fff;
     padding: 0px 8px;

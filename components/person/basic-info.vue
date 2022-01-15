@@ -307,6 +307,7 @@ export default {
 			})
 	  },
 	  getcity:function(province_code,city_code,area_code){
+		  console.log(province_code+','+city_code+','+area_code)
 		$("#input_province").val(province_code);
 		$("#input_province").change();
 		$("#input_city").val(city_code);

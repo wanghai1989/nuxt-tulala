@@ -137,7 +137,7 @@ fetchCond:function(category_id){
         #2dc61d 0%, 
         #26b216 100%); color: #fff; }
 .main-cond{display: flex;
-        padding: 0px 200px 10px 0px; border-bottom: 1px solid var(--border);
+        padding: 0px 0px 10px 0px; border-bottom: 1px solid var(--border);
     font-size: 14px;
     .filter-list li a{font-size: 14px;}
 }

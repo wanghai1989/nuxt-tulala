@@ -61,7 +61,7 @@ export default {
            this.fetchProduct()
       },
 	  '$store.state.productlist'(){
-		  if(this.categoryId==1 || this.categoryId==3 || this.categoryId==3 || this.categoryId==0){
+		  if(this.categoryId==1 || this.categoryId==3 || this.categoryId==0){
 			  let promiseAll = [], img = [], imgTotal = this.productlist.length;
 			for(let i = 0 ; i < imgTotal ; i++){
 				promiseAll[i] = new Promise((resolve, reject)=>{
@@ -238,7 +238,7 @@ mounted(){
     vertical-align: middle;
     cursor: pointer;
 }
-.waterfall-col.png,.waterfall-col.ui,.waterfall-col.mbsc,.waterfall-col.all{width: 1530px; position: relative;
+.waterfall-col.png,.waterfall-col.ui,.waterfall-col.mbsc,.waterfall-col.all{ position: relative;
 li.item{width: 285px; height: auto; margin-bottom: 20px; margin-right: 20px; border-radius: 4px;
  overflow: hidden; padding:10px 10px 10px; background: #fff; float: left; box-sizing: border-box;}
 li.item>a{display: block;}
@@ -248,7 +248,7 @@ li.item>a{display: block;}
 li.item:hover img{transform:scale(1.05);}
 
 }
-.waterfall-col{
+.waterfall-col{width: 1525px;
 .prod-txt{position: absolute; top: 0; left: 0; width: 100%; background: rgba(0,0,0,0.4); color: #fff; height: 100%;
 text-align: center; padding-top: 40px; box-sizing: border-box; transition: opacity .4s; padding: 15px 20px; opacity: 0;}
 .collect{width: 37px; height: 30px; line-height: 28px;  cursor: pointer; background-color: #ffffff; border-radius: 4px; }
@@ -264,7 +264,7 @@ li.item:hover .prod-txt{opacity: 1;}
 }
 .waterfall-col.png  .prod-img{background: url(~/assets/images/pic46.png) !important;}
 
-.waterfall-col.bjtp,.waterfall-col.syt{ display: flex;  width: 1525px; height: auto !important;
+.waterfall-col.bjtp,.waterfall-col.syt{ display: flex; height: auto !important;
 	  flex-wrap: wrap; 
 		
 li.item{ background: #f5f5f5;  flex-grow: 1; 
@@ -285,7 +285,7 @@ li.item{ background: #f5f5f5;  flex-grow: 1;
     flex-grow: 99999;
   }
 
-.waterfall-col.word,.waterfall-col.ppt,.waterfall-col.excel{width: 1530px;
+.waterfall-col.word,.waterfall-col.ppt,.waterfall-col.excel{
 li{width: 285px; height: 397px; margin-bottom: 20px; margin-right: 20px; border-radius: 4px;
  overflow: hidden; padding:10px; background: #fff; float: left; box-sizing: border-box;}
 li.item>a{display: block;}
@@ -294,7 +294,9 @@ li.item>a{display: block;}
 .prod-img img{width: 100%;transition:all 1s ease-out;}
 li.item:hover img{transform:scale(1.05);}
 } 
-
+@media screen and (max-width: 1800px) {
+    .waterfall-col{width: 1220px;}
+}
 .nodata{background: #fff; padding: 40px 0px;
 .btn-advice{.btn(140px,36px,var(--color),var(--color),#fff);font-size: 14px;margin-top: 15px; }
 }
