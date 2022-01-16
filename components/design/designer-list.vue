@@ -7,10 +7,10 @@
 	  			<img :src="item.avatar" />
 	  		</div>
 	  		<div class="f18 cblack mt25">
-	  			{{item.real_name}}
+	  			{{item.identity_card_name}}
 	  		</div>
 	  		</nuxt-link>
-	  		<div class="cgray">资深设计师</div>
+	  		<div class="cgray">{{designlevel[item.designer_level]}}</div>
 	  		<div class="mt15">
 	  			<i class="i-heart"></i>
 	  			<div>{{item.products_count}}</div>
@@ -42,7 +42,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['countfile','designer'])
+	  ...mapState(['countfile','designer','designlevel'])
   },
   methods:{
  ...mapActions({

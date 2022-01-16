@@ -18,7 +18,7 @@
       <i class="iconfont">&#xe6a4;</i>    <span>积分</span>  
      </div>
      <div class="line02">
-       400
+      {{personInfo.integral}} 
      </div>
    </div>
    <div class="item coin">
@@ -26,7 +26,7 @@
        <i class="iconfont">&#xe699;</i>  <span>图啦币</span>  
      </div>
      <div class="line02">
-       400.00
+       {{personInfo.platform_currency}}
      </div>
    </div>
  </div>

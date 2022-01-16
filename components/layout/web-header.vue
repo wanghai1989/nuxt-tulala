@@ -11,9 +11,11 @@
 				 <ul class="fl nav-list">
                     <li>
                       <i class="i-hot"></i>
-                       <nuxt-link to="/enter">设计师入驻</nuxt-link>
+                       <nuxt-link to="/designer">设计师</nuxt-link>
 				   </li>
-            
+            <li>
+                       <nuxt-link to="/task">任务</nuxt-link>
+				   </li>
                     <li v-for="item in navigation" :key="item.id"> 
                         <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</nuxt-link>
                         <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
@@ -35,9 +37,7 @@
                             </div>                                                                               
 				   	  </div>
                     </li>
-                   <li>
-                       <nuxt-link to="/task">任务</nuxt-link>
-				   </li>
+                   
 				   <li>
                         <nuxt-link to="/mall">积分商城</nuxt-link>
 				   </li>
@@ -194,7 +194,7 @@ fetchNoticeList:function(){
     
 
 
-    .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 8px; height: 88px; line-height: 88px;
+    .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 10px; height: 88px; line-height: 88px;
      border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-weight: bold;}
     .nav-list>li>a.nuxt-link-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
     .nav-list>li>a.focus{color: var(--color); border-bottom: 3px solid  var(--color); font-size: 16px;}

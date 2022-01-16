@@ -2,10 +2,6 @@
 <div>
     <webBanner  position='outsourcing_tasks'></webBanner>
     <div class="wrapper">
-      <div class="sjs-logo">
-				<img src="~/assets/images/logo02.png">
-			</div>
-      <designNav></designNav>
       <div class="task-detail mt30 clearfix">
         <taskJoins :taskID="id"></taskJoins>
         <taskRight></taskRight>
@@ -16,11 +12,10 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
-import designNav from '~/components/layout/design-nav.vue'
 import taskJoins from '~/components/task/task-joins.vue'
 export default {
-   layout: 'web-design',
-   components: {webBanner,designNav,taskJoins,taskRight},
+   layout: 'web',
+   components: {webBanner,taskJoins,taskRight},
    head(){
 	   return {
 			title: '雇佣设计师_91tula.com',

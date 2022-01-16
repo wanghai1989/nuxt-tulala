@@ -145,8 +145,6 @@ export default {
 					}
 					}
 			}, 100);
-						
-						//  this.getcity()
 		},
 		computed:{
       ...mapState(['setting','personInfo','userToken'])

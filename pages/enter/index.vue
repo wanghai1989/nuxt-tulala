@@ -2,13 +2,9 @@
 <div>
    <webBanner position='designer'></webBanner>
      <div class="wrapper">
-      <router-link class="sjs-logo" to="/">
-				<img src="~/assets/images/logo02.png">
-			</router-link>
-		<designNav></designNav>
      </div>
     <div class="enter-contain">
-		<router-link class="btn-apply" to="/enter/design-basic">入<br/> 驻<br/>图<br/>啦<br/>啦</router-link>
+		<!-- <router-link class="btn-apply" to="/enter/design-basic">入<br/> 驻<br/>图<br/>啦<br/>啦</router-link> -->
 	  	<div class="part01">
 	  	<div class="wrapper">
 	  		<div class="theme-title enter">为什么加入图啦啦</div>
@@ -325,11 +321,10 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
-import designNav from '~/components/layout/design-nav.vue'
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
-   layout: 'web-design',
-   components: {webBanner,designNav},
+   layout: 'web',
+   components: {webBanner},
   data () {
     return {
       // userInfo: {}

@@ -22,7 +22,7 @@
 import webBanner from '~/components/layout/web-banner.vue'
 import designEgg from '~/components/design/design-egg.vue'
 export default {
-  layout: 'web-design',
+  layout: 'web',
   components: {webBanner,designEgg},
   data () {
     return {

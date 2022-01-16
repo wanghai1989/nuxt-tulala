@@ -31,10 +31,14 @@
                 <img src='~/assets/images/defaultVip.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
-	  			{{personInfo.nickname}} 
+	  			{{designinfo.identity_card_name}}
 	  		</div>
+
 	  		<div class="cgray">{{designlevel[designinfo.designer_level]}}<i class="i-tip" @click="designRule()"></i> </div>
-			  <div class="mt25">
+			  <div class="design-target">
+				  <a href="javascript:void(0)"  v-for="(item,index) in splitTarget(designinfo.designer_target)" :key="index" >{{item}}</a>
+			  </div>
+			  <div class="mt5">
 			<!-- <a href="#" class="btn-attention">关注 8</a> -->
 	  		<a href="#" class="btn-entrust">委托设计</a>
 			  </div>
@@ -80,6 +84,7 @@ export default {
   data () {
     return {
 		showRule:0,
+		designer_target:["网站设计师",'UI设计师','UI设计师','UI设计师']
 		// id:''
     }
   },
@@ -98,12 +103,16 @@ export default {
 	 designRule:function() {
 		  layer.open({
 				type: 1,
-				area: ['560px', '210px'],
+				area: ['560px', '212px'],
 				title: '设计师晋级规则', //不显示标题
 				shade: 0.6 ,//遮罩透明度
 				content:$('#designRule') , //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
 				});
 	 },
+	 splitTarget:function(obj){
+		let targets=obj.split("，") 
+	   return	targets 
+	 }
 // fetchDesign:function(id){
 	
 // 		  let formDatas = new FormData();
@@ -152,6 +161,8 @@ export default {
 .i-certi{.bg-map(18px,18px, -658px, -80px);}
 .i-certi.no{.bg-map(18px,18px, -1046px, -156px);}
 .i-tip{.bg-map(16px,16px, -999px, -44px); vertical-align: text-top;margin:2px 0 0 5px;}
+.design-target{margin-top: 25px;}
+.design-target a{background: #d6ebd4; display: inline-block; height: 24px; line-height: 24px; padding: 0px 10px; border-radius: 12px; margin: 3px 3px; cursor: auto;}
 .vam-rule{line-height: 40px; 
  >div:nth-child(2n){background: #f8f9fa;}
   >div>div{padding-left: 10px;}

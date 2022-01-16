@@ -13,7 +13,39 @@
 		 				<i></i>您的身份认证暂未审核通过，请耐心等待
 		 	</div>
     	<form @submit="doSubmit">
-          
+        <p class="little-title">设计师信息</p>
+         <div class="vam vip-info">
+	  				<div>
+	  					<div class="l"><span class="cred">*</span>设计师照片</div>
+	  					<div class="r">
+	  						<div class="img-upload design_img">
+								<input type="file" class="filepath" id="design_photo" @change="changepic()" accept="image/jpeg,image/jpg,image/peg,image/png" >
+								<div class="operate">
+								<i></i>
+								</div>
+							</div>
+	  					</div>
+	  				</div>
+            <div>
+	  					<div class="l"><span class="cred">*</span>设计师标签</div>
+	  					<div class="r">
+                <textarea  class="area" v-model="designer_target" rows="2"></textarea>
+                <p>标签用逗号“，”隔开，标签不超过 <span class="cred">6</span> 个</p>
+	  					</div>
+	  				</div>
+            <div>
+	  					<div class="l"><span class="cred">*</span>获知渠道</div>
+	  					<div class="r">
+	  						<select class="select" v-model="channel">
+                  <option value="">请选择</option>
+	  							<option v-for="item in defaultchannel" :value="item.id" :key="item.id">
+	  								{{item.name }}
+                   				</option>
+	  						</select>
+                <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
+	  					</div>
+	  				</div>
+         </div>
           <p class="little-title">打款信息</p>
 	  			<div class="vam vip-info">
 	  				<div>
@@ -55,18 +87,7 @@
                 <input class="input" type="text" v-model="bank_num" />
 	  					</div>
 	  				</div>
-	  				<div>
-	  					<div class="l"><span class="cred">*</span>获知渠道</div>
-	  					<div class="r">
-	  						<select class="select" v-model="channel">
-                  <option value="">请选择</option>
-	  							<option v-for="item in defaultchannel" :value="item.id" :key="item.id">
-	  								{{item.name }}
-                   				</option>
-	  						</select>
-                <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
-	  					</div>
-	  				</div>
+	  				
 	  				<div>
 	  					<div></div>
 	  					<div class="r">
@@ -92,6 +113,7 @@
 </template>
 <script>
 import common from '~/assets/js/common'
+import processImg from '~/assets/js/processimg'
 import { mapState,mapActions} from 'vuex'
 export default {
  data () {
@@ -104,6 +126,8 @@ export default {
       channel:'',
       account_name:'',
       account_bank:'',
+      blob_design:'',
+      designer_target:'',
       bank_num:'',
       dis:false, //是否选中协议
       errorMsg: ''
@@ -124,6 +148,16 @@ export default {
         fetchSetting:'fetchSetting'
 
      }),
+     async changepic(oj){
+		let file=$("#design_photo").get(0).files[0];
+		if (typeof(file) == 'undefined'){
+			return
+		}
+		const format='image/jpeg';
+        let base64Img=await processImg.cutImageBase64(file,null,format,900); //上传的图片进行压缩并且合成水印
+		this.blob_design= processImg.base64ToBlob(base64Img,format); 
+		$(".design_img").css({"background-image":"url(" + base64Img + ")","background-size":"100% 100%"});
+	  }, 
     checkbox(event){
             this.dis = event.target.checked
        },
@@ -169,7 +203,13 @@ export default {
       this.errorMsg=errMsg
       if (!errMsg) {
         let formDatas = new FormData();
+        // let keywordarr=this.designer_target.split('，')
         formDatas.append('token', this.userToken);
+        formDatas.append('designer_img',this.blob_design,'xx.jpg');
+        // for(var item in keywordarr){
+        //   formDatas.append('designer_target[]',keywordarr[item]);
+        // }
+        formDatas.append('designer_target',this.designer_target);
         formDatas.append('real_name','张三');
         formDatas.append('mobile', '15988888888');
         formDatas.append('qq', '349188888');
@@ -241,7 +281,7 @@ export default {
 .step-cont{
 .tip {font-size: 14px; height: 16px; line-height: 16px;margin: 0px 0px 20px 120px; color: var(--grayColor);}
 .tip i{.bg-map(16px,16px,-999px, -44px); margin-right: 6px; vertical-align: text-bottom;}
-.little-title{font-size: 18px; color: var(--backColor); font-weight: bold;    margin: 0px 0px 15px 120px;}
+.little-title{font-size: 18px; color: var(--backColor); font-weight: bold;    margin: 30px 0px 15px 120px;}
 .step-tit{ padding: 25px;text-align: center;
      ul{width: 820px; height: 158px; background: url(~/assets/images/pic10.png) no-repeat center; font-size: 20px; padding-top: 47px; 
       margin: 0 auto; box-sizing: border-box;}
@@ -251,13 +291,21 @@ export default {
 .step-line{width: 100%; height: 6px;background-image: linear-gradient(180deg, 
         #f5f5f5 0%, 
         #fff 100%);}
-.step-cont{width: 820px; margin: 0 auto; padding: 50px 0px;
+
   .vip-info .l{color: var(--backColor); text-align: right; width: 185px;}
   .vip-info .r{padding: 10px 0px 10px 12px; }
   .input,.select{width: 400px; border: 1px solid #d0d0d0; height: 42px; line-height: 42px; text-indent: 5px; color: #333; border-radius: 4px;}
+  textarea.area{width: 400px; border: 1px solid #d0d0d0;text-indent: 5px;}
   .btn-enter{.btn(214px,49px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); border-radius: 4px; margin-top: 30px;}
 .btn-enter:hover{opacity: 0.9;}
+
+
 }
+.img-upload{width: 160px; height: 160px; border: 2px dashed #d4d4d4; border-radius: 4px; margin-right: 20px; overflow: hidden;
+position: relative;vertical-align: middle;display: inline-block; text-align: center;  box-sizing: border-box;
+.filepath{width: 100%; height: 100%; opacity: 0; vertical-align: top; position: relative; z-index: 2;}
+.operate{padding-top: 50px; position: absolute; z-index: 1; top: 0; left: 0;width: 160px; height: 110px;}
+ i{.bg-map(60px,60px,-139px, -59px); margin-bottom: 12px; }
 
 }
 

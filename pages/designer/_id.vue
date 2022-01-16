@@ -2,10 +2,6 @@
 <div>
     <webBanner position='designer'></webBanner>
     <div class="wrapper">
-      <div class="sjs-logo">
-        <router-link to="/"><img src="~/assets/images/logo02.png"></router-link>
-			</div>
-      <designNav></designNav>
       <div class="desig-info clearfix">
           <designerInfo></designerInfo>
           <designerWorks></designerWorks>
@@ -16,16 +12,15 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
-import designNav from '~/components/layout/design-nav.vue'
 import designerInfo from '~/components/design/designer-info.vue'
 import designerWorks from '~/components/design/designer-works.vue'
 import {mapState} from 'vuex'
 export default {
-   layout: 'web-design',
-   components: {webBanner,designNav,designerInfo,designerWorks},
+   layout: 'web',
+   components: {webBanner,designerInfo,designerWorks},
    head(){
 	   return {
-			title: this.designinfo.real_name+'_图啦设计师',
+			title: this.designinfo.identity_card_name+'_图啦设计师',
 			meta: [{
 			hid: "description",
 			name: "description",

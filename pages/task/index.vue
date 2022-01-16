@@ -2,10 +2,6 @@
 <div>
     <webBanner  position='outsourcing_tasks'></webBanner>
     <div class="wrapper">
-      <div class="sjs-logo">
-			 <router-link to="/"><img src="~/assets/images/logo02.png"></router-link>	
-			</div>
-      <designNav></designNav>
       <taskList></taskList>
     </div>
 </div>
@@ -13,11 +9,10 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
-import designNav from '~/components/layout/design-nav.vue'
 import taskList from '~/components/task/task-list.vue'
 export default {
-   layout: 'web-design',
-   components: {webBanner,designNav,taskList},
+   layout: 'web',
+   components: {webBanner,taskList},
    head(){
 	   return {
 			title: '任务中心_91tula.com',

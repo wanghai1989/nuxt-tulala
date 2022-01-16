@@ -2,9 +2,6 @@
 <div>
     <webBanner  position='outsourcing_tasks'></webBanner>
     <div class="wrapper">
-      <div class="sjs-logo">
-				<img src="~/assets/images/logo02.png">
-			</div>
       <designNav></designNav>
       <div class="task-detail mt30 clearfix">
         <taskJoins></taskJoins>
@@ -22,7 +19,7 @@ import taskRight from '~/components/task/task-right.vue'
 
 import {mapState} from 'vuex'
 export default {
-   layout: 'web-design',
+   layout: 'web',
     head(){
 	   return {
 			title: this.workinfo.name+'_图啦啦91tula.com'

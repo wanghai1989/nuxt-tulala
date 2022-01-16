@@ -23,7 +23,7 @@ import webBanner from '~/components/layout/web-banner.vue'
 import designBase from '~/components/design/design-base.vue'
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
-   layout: 'web-design',
+   layout: 'web',
    components: {webBanner,designBase},
   data () {
     return {

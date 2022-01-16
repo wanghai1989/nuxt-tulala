@@ -2,10 +2,9 @@
 <div>
     <webBanner position='designer'></webBanner>
     <div class="wrapper">
-      <router-link class="sjs-logo" to="/">
-				<img src="~/assets/images/logo02.png">
-			</router-link>
-      <designNav></designNav>
+		<nuxt-link to="/enter"  class="btn-apply">
+		入<br data-v-505ae51c=""> 驻<br data-v-505ae51c="">图<br data-v-505ae51c="">啦<br data-v-505ae51c="">啦
+		</nuxt-link>
       <designerList></designerList>
     </div>
 </div>
@@ -13,11 +12,10 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
-import designNav from '~/components/layout/design-nav.vue'
 import designerList from '~/components/design/designer-list.vue'
 export default {
    layout: 'web',
-   components: {webBanner,designNav,designerList},
+   components: {webBanner,designerList},
   head(){
 	   return {
 			title: '自由设计师，兼职设计师，全职设计师-图啦啦91tula.com',
@@ -34,3 +32,22 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.btn(@width,@height,@bordercolor,@background,@color){
+    display: inline-block;
+   line-height: calc(@height - 2px); 
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    width: @width;
+    border: 1px solid @bordercolor;
+    background: @background;
+    color: @color;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
+        #c53a1d 0%, 
+        #b23016 100%),#fff); position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 12px 0px; line-height: 22px; }
+</style>

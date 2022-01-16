@@ -18,10 +18,10 @@
 			<div class="vip-pend2">
                 <nuxt-link to="/vip" title="VIP会员"><i></i><br /> <span>全站<br />vip</span></nuxt-link>
 			</div>
-            <div class="item-pend qd"  @mouseover="qdOver()" @mouseout="qdOut()">
+            <div class="item-pend qd"  @mouseover="qdOver()" @mouseout="qdOut()" @click="gosignin()" >
 				<a href="javascript:void(0)"> <i></i><br /> <span>签到</span></a>
                 <div class="sign-in"  v-show="qdShow">
-                     <a class="btn-qd"  @click="gosignin()"  href="javascript:void(0)" title="签到">立即签到</a>
+                     <a class="btn-qd"   href="javascript:void(0)" title="签到">立即签到</a>
 				</div>
 			</div>
 			<div class="item-pend kf">

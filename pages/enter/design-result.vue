@@ -21,7 +21,7 @@
 import webBanner from '~/components/layout/web-banner.vue'
 import designResult from '~/components/design/design-result.vue'
 export default {
-  layout: 'web-design',
+  layout: 'web',
   components: {webBanner,designResult},
   data () {
     return {
