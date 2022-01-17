@@ -3,7 +3,7 @@
 	<div class="location">
 	  	<i class="icon i-location"></i> <nuxt-link to="/">图啦啦</nuxt-link> &nbsp;/&nbsp;{{idName[categoryId]}} 
 	  </div>
-    <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0">
+    <ul class="waterfall-col clearfix" :class="idClass[categoryId]" v-if="productlist.length>0" id="waterfall">
 			<li class="item"  v-for="item in productlist" :key="item.id">
 				<nuxt-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 				<div class="prod-img" :style="'backgroundImage: url('+item.list_img_path+');'">
@@ -61,7 +61,6 @@ export default {
            this.fetchProduct()
       },
 	  '$store.state.productlist'(){
-		  if(this.categoryId==1 || this.categoryId==3 || this.categoryId==0){
 			  let promiseAll = [], img = [], imgTotal = this.productlist.length;
 			for(let i = 0 ; i < imgTotal ; i++){
 				promiseAll[i] = new Promise((resolve, reject)=>{
@@ -74,10 +73,15 @@ export default {
 				})
 			}
 			Promise.all(promiseAll).then((img)=>{
-				this.columnOnload()
+				 if(this.categoryId==1 || this.categoryId==3 || this.categoryId==0){
+				this.columnOnload() //横向瀑布流
+				}
+				if(this.categoryId==2 || this.categoryId==6 ){
+					this.rowOnload()  //竖向瀑布流
+					}
 				//全部加载完成
 			})
-		  	}
+		
       }
     },
 mounted(){	
@@ -179,8 +183,21 @@ mounted(){
 		  if(this.query.keyword){
 			  formDatas.append('keyword', this.query.keyword);
 		  }
+		  
 		  this.fetchProductlist(formDatas);
 	  },
+	rowOnload:function(){
+		var boxArr = $(".waterfall-col li");
+		boxArr.each(function (index, item) {
+			$(item).attr("data-w",$(item).width());
+			$(item).attr("data-h",$(item).height());
+		})
+		$('#waterfall').flexImages({  
+						rowHeight: 300,     //设置每行图片的固定高度
+						container:'.item',  //元素模块
+						truncate: false     //默认设置即可
+					});
+	},
 	 columnOnload:function(){
 		 if(this.productlist.length==0){
 			 return
@@ -213,7 +230,7 @@ mounted(){
 	},
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .bg-map(@width:25px,@height:25px,@x:0px,@y:0px){
         display: inline-block;
         vertical-align: middle;
@@ -264,14 +281,18 @@ li.item:hover .prod-txt{opacity: 1;}
 }
 .waterfall-col.png  .prod-img{background: url(~/assets/images/pic46.png) !important;}
 
-.waterfall-col.bjtp,.waterfall-col.syt{ display: flex; height: auto !important;
+.waterfall-col.bjtp,.waterfall-col.syt{ 
+	display: flex; height: auto !important;
 	  flex-wrap: wrap; 
 		
-li.item{ background: #f5f5f5;  flex-grow: 1; 
+li.item{ background: #f5f5f5;  
     margin: 0px 20px 20px 0px;
     position: relative;
-    overflow: hidden; 
 	border-radius: 4px;
+	float: left;
+    margin: 4px;
+    box-sizing: content-box;
+    overflow: hidden;
 }
 .prod-img{background-size: cover;
       background-position: center;}

@@ -210,7 +210,8 @@ export default {
     .item-pend:hover i{ opacity: 1;}
     .item-pend.kf {position: relative;}
     .item-pend.kf i{.bg-map(22px,25px,-464px, -5px);}
-    .item-pend.kf .service{width: 180px; height: auto;position: absolute; right: 50px; top: 0px; background: #fff; text-align: center; padding: 10px 0px;
+    .item-pend.kf .service{width: 180px; height: auto;position: absolute; right: 50px; top: 0px; background: #fff; 
+    text-align: center; padding: 10px 0px; border: 1px solid #eee;
     h5{font-size: 15px;}
     img{width: 90%; display: block; margin: 0 auto;}
     i.qq{.bg-map(20px,20px,-159px, -253px);}

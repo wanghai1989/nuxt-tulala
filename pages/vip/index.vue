@@ -48,7 +48,7 @@
 		      </li>
 		      <li class="jsao-more more-two">
 		        <span class="taoc">终身VIP</span>
-		        <span class="qian"><em>￥</em>199<b>原价299</b></span>
+		        <span class="qian"><em>￥</em>699<b>原价999</b></span>
             <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
@@ -60,7 +60,7 @@
 		      </li>
 		       <li class="jsao-more ">
 		        <span class="taoc">包年VIP</span>
-		        <span class="qian"><em>￥</em>99</span>
+				<span class="qian"><em>￥</em>199<b>原价399</b></span>
             <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
@@ -72,7 +72,7 @@
 		      </li>
 		       <li class="jsao-more">
 		        <span class="taoc">包月VIP</span>
-		        <span class="qian"><em>￥</em>49</span>
+				<span class="qian"><em>￥</em>69<b>原价99</b></span>
             <router-link class="btn-openvip" to="/vip/pay-vip">开通会员</router-link>
 		        <span class="pt jc">任意下载</span>
 		        <span class="gou"><i></i></span>
@@ -95,7 +95,7 @@
 		       <span class="xia"><i></i></span>
 		      </li>
 		    </ul>
-		    <div class="tc mt15">对套餐使用情况如有疑问，欢迎您随时咨询<a class="cmain" href="">在线客服</a> </div>
+		    <div class="tc mt15">对套餐使用情况如有疑问，欢迎您随时咨询<a class="cmain" href="javascript:void(0)">在线客服</a> </div>
 	<div class="vip-service">
 		<div class="wrapper">
 			<div class="title">VIP特权服务</div>
@@ -185,7 +185,8 @@ span i{display: block;width: 52px; height: 52px; background: #fff; border-radius
 .bgwd i:before{content: ""; position: absolute; top: 13px; left: 0px; .bg-map(25px,25px,-433px, -76px);}
 .syt i:before{content: ""; position: absolute; top: 13px; left: 0px; .bg-map(25px,25px,-464px, -75px);}
 }
-.btn-openvip{.btn(220px,48px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
+.btn-openvip{.btn(220px,48px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);  opacity: 1;}
+.btn-openvip:hover{opacity: 0.9;}
 }
 .ul-viprote {
     position: relative;
@@ -220,7 +221,8 @@ span i{display: block;width: 52px; height: 52px; background: #fff; border-radius
     margin-top: 6px;
     margin-bottom: 50px;    border-radius: 2px;
 }
-.btn-openvip{.btn(142px,40px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); border-radius: 20px;}
+.btn-openvip{.btn(142px,40px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); border-radius: 20px; opacity: 1;}
+.btn-openvip:hover{opacity: 0.9;}
 .btn-regist{.btn(142px,40px,var(--color),transparent,var(--color)); border-radius: 20px;}
 li .ptt {
     display: block;
@@ -290,6 +292,7 @@ li .xia i{.bg-map(18px,18px,-1177px, -121px);}
 .txkf i{.bg-map(52px,52px,-125px, -121px);}
 .hlsc i{.bg-map(52px,52px,-182px, -124px);}
 .gsxz i{.bg-map(52px,52px, -243px, -126px);}
-.btn-openvip{.btn(220px,48px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); }
+.btn-openvip{.btn(220px,48px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);opacity: 1; }
+.btn-openvip:hover{opacity: 0.9;}
 }
 </style>

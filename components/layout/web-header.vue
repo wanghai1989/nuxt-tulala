@@ -3,8 +3,8 @@
 <header class="header" :class="pageclass"> 
 			<div class="logo">
                 <nuxt-link to="/">
-                    <img src="~/assets/images/logo01.png" v-if="pageclass=='index'" >
-                    <img src="~/assets/images/logo02.png" v-else >
+                    <img src="~/assets/images/logo01.png" title="图啦啦" v-if="pageclass=='index'" >
+                    <img src="~/assets/images/logo02.png" title="图啦啦" v-else >
               </nuxt-link>
 			</div>
 			<div class="wrapper clearfix">
