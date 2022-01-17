@@ -12,9 +12,6 @@
 			</div>
 		</div>
     <div class="pendant">
-			<!-- <div class="vip-pend1">
-				<a href="person-vip.html"> <i></i><br /> <span>全站<br />vip</span></a>
-			</div> -->
 			<div class="vip-pend2">
                 <nuxt-link to="/vip" title="VIP会员"><i></i><br /> <span>全站<br />vip</span></nuxt-link>
 			</div>
@@ -24,18 +21,24 @@
                      <a class="btn-qd"   href="javascript:void(0)" title="签到">立即签到</a>
 				</div>
 			</div>
-			<div class="item-pend kf">
-				<a href="#"> <i></i><br /> <span>客服</span></a>
+			<div class="item-pend kf"  @mouseover="kfOver()" @mouseout="kfOut()">
+				<a href="javascript:void(0)"> <i></i><br /> <span>客服</span></a>
+                <div class="service"  v-show="kfShow">
+					<h5>微信</h5>
+                    <img src="~/assets/images/pic01.png"  alt=""/>
+                    <p><i class="qq"></i> 349103751 </p>
 			</div>
+            </div>
 			<div class="item-pend ptfl" @mouseover="ptflOver()" @mouseout="ptflOut()">
-				<a href="#"> <i></i><br /> <span>福利</span></a>
+				<a href="javascript:void(0)"> <i></i><br /> <span>福利</span></a>
 				<div class="welfare"  v-show="welfareShow">
 					<div class="invite">
-                     <nuxt-link class="btn-go" to="/active/invite-friend" title="邀请好友">马上邀请</nuxt-link>
+                     <nuxt-link to="/active/invite-friend" title="邀请好友">
+                     <em class="btn-go" >马上邀请</em>
+                     </nuxt-link>
 				</div>
 				<div class="wheel">
-                    <!-- <a class="btn-go" href="/active/big-wheel">去抽奖</a> -->
-                    <nuxt-link class="btn-go" to="/active/big-wheel" title="抽奖">去抽奖</nuxt-link>
+                    <nuxt-link to="/active/big-wheel" title="抽奖"><em class="btn-go">去抽奖</em></nuxt-link>
 				</div>
 				</div>
 			</div>
@@ -43,13 +46,13 @@
                 <nuxt-link to="/about/qq-group" title="QQ联盟"><i></i><br /> <span>联盟</span></nuxt-link>
 			</div>
 			<div class="item-pend zq">
-				<nuxt-link to="/enter" title="入驻图啦啦"> <i></i><br /> <span>入驻</span></nuxt-link>
+				<nuxt-link to="/enter" title="入驻图啦啦"> <i></i><br /> <span class="point">入驻</span></nuxt-link>
 			</div>
-			<div class="item-pend jy">
+			<!-- <div class="item-pend jy">
 			<nuxt-link to="/advice" title="建议"><i></i><br /><span>建议</span></nuxt-link>	
-			</div>
+			</div> -->
 			<div class="item-pend rw">
-				<nuxt-link to="/task"> <i></i><br /> <span>任务</span></nuxt-link>	
+				<nuxt-link to="/task/public" title="发布任务"> <i></i><br /> <span>发布</span></nuxt-link>	
 			</div>
 			<div class="item-top" id="holdtop" @click="holdTop()" title="置顶">
 				<i></i>
@@ -68,6 +71,7 @@ export default {
                 addIntegral:0,
                 // userInfo:{},
                 welfareShow:0, //福利
+                kfShow:0
             }
         },
         computed:{
@@ -115,6 +119,12 @@ export default {
             },
             ptflOut:function(){
                 this.welfareShow=0
+            },
+            kfOver:function(){
+                this.kfShow=1
+            },
+            kfOut:function(){
+                this.kfShow=0
             },
             gosignin:function(){
                 if(!this.userToken){
@@ -198,16 +208,26 @@ export default {
     .item-pend i{ opacity: 0.9;}
     .item-pend:hover span{color: #333; }
     .item-pend:hover i{ opacity: 1;}
+    .item-pend.kf {position: relative;}
     .item-pend.kf i{.bg-map(22px,25px,-464px, -5px);}
+    .item-pend.kf .service{width: 180px; height: auto;position: absolute; right: 50px; top: 0px; background: #fff; text-align: center; padding: 10px 0px;
+    h5{font-size: 15px;}
+    img{width: 90%; display: block; margin: 0 auto;}
+    i.qq{.bg-map(20px,20px,-159px, -253px);}
+    }
     .item-pend.ptfl{position: relative;}
+    
     .item-pend.ptfl i{.bg-map(22px,25px,-428px, -4px);}
     .item-pend.ptfl .welfare{width: 230px; height: auto;position: absolute; right: 50px; top: 0px; }
     .item-pend.ptfl .welfare .invite{width: 230px; height: 140px; background: url(~/assets/images/pic42.png) no-repeat;
      background-size: contain;}
+     .item-pend.ptfl .welfare .invite>a{display: block;}
      .item-pend.ptfl .welfare .wheel{width: 230px; height: 140px; background: url(~/assets/images/pic43.png) no-repeat;
      background-size: contain;}
+     .item-pend.ptfl .welfare .wheel>a{display: block;}
     .item-pend.lm i{.bg-map(22px,25px,-498px, -5px);}
     .item-pend.zq i{.bg-map(22px,25px,-247px, -1px);}
+    .item-pend.zq .point{font-weight: bolder; color: var(--redColor)}
     .item-pend.jy i{.bg-map(22px,25px,-277px, -3px);}
     .item-pend.rw i{.bg-map(22px,25px,-314px, -4px);}
 
