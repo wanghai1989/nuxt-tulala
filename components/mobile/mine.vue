@@ -31,10 +31,10 @@
    </div>
  </div>
  <ul class="ul-menu">
-   <li class="task" @click="pubilcTask('task/public')">
-    <a href="javascript:void(0)">
-      <i class="iconfont">&#xe628;</i> 发布任务
-      </a>
+   <li class="task">
+   <nuxt-link to="/m/public-task">
+   <i class="iconfont">&#xe628;</i> 发布任务
+   </nuxt-link>
     </li>
     <li class="public">
     <nuxt-link to="/m/mobile-taskpublic">
