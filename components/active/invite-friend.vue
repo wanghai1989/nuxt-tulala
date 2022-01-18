@@ -88,7 +88,7 @@ export default {
                     width: 140, //高度
                     height: 140, //宽度
                     errorCorrectionLevel: "L", //容错率
-                    margin: 1, //外边距
+                    margin: 2, //外边距
                     color: {
                       dark: "#000000", //前景色
                       light: "#ffffff" //背景色
