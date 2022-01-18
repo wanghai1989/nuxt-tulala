@@ -97,7 +97,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['page','pageSize','countfile','evaluation','setting','personInfo','userToken'])
+	  ...mapState(['setting','personInfo','userToken'])
   },
   methods:{
  ...mapActions({
@@ -128,8 +128,7 @@ clearInfo(){
  async doSubmit (e) {
 			e.preventDefault()
       if(!this.userToken){
-			this.setShowLogin(1)
-			return
+			  this.$router.push({path: '/m/mobile-login',query:{backUrl:this.$router.path}}) 
 		}
 			 const errMsg=common.validateTaskpublic(this.type_id,this.name,this.money,this.personInfo.mobile,this.description)
        
