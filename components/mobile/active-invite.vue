@@ -34,7 +34,7 @@ export default {
   },
 
 	computed:{
-	  ...mapState(['personInfo','userToken','baseUrl','isShare'])
+	  ...mapState(['personInfo','userToken','baseUrl','basemUrl','isShare'])
   },
   mounted(){
     console.log(this.$route.path)
@@ -72,7 +72,7 @@ export default {
             return
         } 
 
-          let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code 
+          let invitelink=this.basemUrl+'/mobile-register?invite_code='+ this.personInfo.invite_code 
 
 
           QRCode.toDataURL(invitelink, {

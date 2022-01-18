@@ -16,7 +16,7 @@
       </div>
       <div class="about-item">
       <h3 class="title">服务宗旨</h3>
-      <p>品质第一，服务客户</p>
+      <p style="line-height:30px">1、实现设计师<span class="fw cblack"> 价值最大化；</span><br/>2、为客户提供<span class="fw cblack"> 最优秀的设计服务；</span></p>
       </div>
     </div>
     </div>

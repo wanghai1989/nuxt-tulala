@@ -145,9 +145,9 @@ validate({ params }) {
     // 必须是number类型
     return /^\d+$/.test(params.id)
   },
-		
+
  computed:{
-	  ...mapState(['userToken','softName','idName','personInfo','productinfo'])
+	  ...mapState(['userToken','softName','idName','personInfo','productinfo','basemUrl','baseUrl'])
   },
    async asyncData ({ store, params}) {  //服务器渲染
 	await  store.dispatch('fetchProductinfo',{id:params.id});
@@ -159,14 +159,14 @@ validate({ params }) {
       }),
 ...mapMutations(['setShowLogin','setShowVip']),
 shareWeibo:function(){
-	let website=window.location.href;
+	let website=this.baseUrl+this.$route.path;
 	let pageTitle=document.title;
 	let pic=this.productinfo.detail_img_path;
 	let weiboUrl="http://service.weibo.com/share/share.php?title="+pageTitle+"&url="+website+"&pic="+pic
     window.open(weiboUrl);
 },
 shareWechat:function(){
-	let website=window.location.href;
+	let website=this.basemUrl+this.$route.path;
 	let opts = {
                     errorCorrectionLevel: "H",//容错级别
                     type: "image/png",//生成的二维码类型
@@ -195,7 +195,7 @@ shareWechat:function(){
 				});
 },
 shareQzone:function(){
-	let website=window.location.href;
+	let website=this.baseUrl+this.$route.path;
 	let pageTitle=document.title;
 	let pic=this.productinfo.detail_img_path;
 	window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+website+'?sharesource=qzone&title='+pageTitle+'&pics='+pic+'&summary='+document.querySelector('meta[name="description"]').getAttribute('content'));

@@ -1,5 +1,10 @@
 <template>
     <div class="footer">
+		<div class="service"  id="service">
+				<h5>微信</h5>
+				<img src="~/assets/images/pic01.png"  alt=""/>
+				<p><i class="qq"></i> 349103751 </p>
+		</div>
 	  	<div class="friend-link">
 	  		<div class="wrapper"> 
 					友情链接： 
@@ -62,13 +67,28 @@
 export default {
 	methods:{
 		customer:function(){
-			layer.msg('暂未开放，敬请期待！！', {icon: 6});
+			layer.open({
+				type:1,
+				title: false, //不显示标题
+				area: ['182px', '230px'],
+				content:$("#service")
+			})
+			// layer.msg('暂未开放，敬请期待！！', {icon: 6});
 			return
 		}
 	}
 }
 </script>
 <style lang="less" scoped>
+.bg-map(@width:25px,@height:25px,@x:0px,@y:0px){
+        display: inline-block;
+        vertical-align: middle;
+        width: @width;
+        height: @height;
+        position: relative;
+        background: url(../../assets/images/bg-ico.png) no-repeat @x @y;
+        cursor: pointer;
+}
 .footer{ padding: 0px 0 40px;background: #212427; color: #9fa3a7; margin-top: 55px;
     .friend-link{background: #fff; height: 50px; line-height: 50px;  color: #333;
         a{margin-right: 20px; font-size: 12px; color: #999;}
@@ -96,4 +116,11 @@ export default {
 }
 }
 }
+
+.service{width: 180px; height: auto; background: #fff; display: none;
+    text-align: center; padding: 10px 0px; border: 1px solid #eee;
+    h5{font-size: 15px;}
+    img{width: 90%; display: block; margin: 0 auto;}
+    i.qq{.bg-map(20px,20px,-159px, -253px);}
+    }
 </style>

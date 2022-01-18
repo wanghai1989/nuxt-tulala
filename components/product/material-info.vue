@@ -33,13 +33,13 @@
 			<a class="downfile"  @click.prevent="downSourceFile(productinfo.id,productinfo.name)">下载PSD</a>
 			<div class="operat">
 				<span>
-					<i class="i-down"></i> {{productinfo.download_counts}}
+					<i class="i-down" title="下载数"></i> {{productinfo.download_counts}}
 				</span>
 				<span>
-					<i class="i-heart"></i> {{productinfo.download_counts}}
+					<i class="i-heart" title="收藏数"></i> {{productinfo.download_counts}}
 				</span>
 				<span>
-					<i class="i-eye"></i> {{productinfo.visit_counts}}
+					<i class="i-eye" title="浏览数"></i> {{productinfo.visit_counts}}
 				</span>
 			</div>
 			<div class="vam material-txt">
@@ -125,7 +125,7 @@ export default {
 		},
 		
  computed:{
-	  ...mapState(['productinfo','userToken','softName','typeName','personInfo'])
+	  ...mapState(['productinfo','userToken','softName','typeName','personInfo','basemUrl','baseUrl'])
   },
   methods:{
  ...mapActions({
@@ -142,8 +142,7 @@ shareWeibo:function(){
     window.open(weiboUrl);
 },
 shareWechat:function(){
-	console.log(1111)
-	let website=window.location.href;
+	let website=this.baseUrl+this.$router.path;
 	let opts = {
                     errorCorrectionLevel: "H",//容错级别
                     type: "image/png",//生成的二维码类型
