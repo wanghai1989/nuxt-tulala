@@ -254,7 +254,7 @@ clearInfo(){
 }
 .task-box{padding: 30px 15px 15px;}
 .list-item{margin-bottom: 15px;}
-.btn-report{.btn(100%,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); border-radius: 21px;}
+.btn-report{.btn(100%,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); }
 h3.title{color: var(--backColor); font-size: 18px; height: 50px; line-height: 50px; padding: 0px 15px;}
 .upload_warp_img_div_del {
       position: absolute;
