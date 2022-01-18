@@ -113,6 +113,6 @@ h3.title{color: var(--backColor); font-size: 18px; height: 50px; line-height: 50
   .vam-task{color: var(--grayColor); line-height: 30px;}
   .vam-task strong{font-size: 16px; color: var(--backColor); font-weight: normal;}
 } 
-.publictask{position: fixed; right: 15px; top: 42%; display: block; width: 50px; height: 50px; border-radius: 25px; 
+.publictask{position: fixed; right: 15px; top: 42%; display: block; width: 50px; height: 50px;  
 text-align: center; background: var(--color);color: #fff; font-size: 12px; line-height: 16px; padding-top: 9px; box-sizing: border-box;}
 </style>
