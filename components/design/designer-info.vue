@@ -36,7 +36,7 @@
 	  		</div>
 
 	  		<div class="cgray">{{designlevel[designinfo.designer_level]}}<i class="i-tip" @click="designRule()"></i> </div>
-			  <div class="design-target">
+			  <div class="design-target" v-if="designinfo.designer_target">
 				  <a href="javascript:void(0)"  v-for="(item,index) in splitTarget(designinfo.designer_target)" :key="index" >{{item}}</a>
 			  </div>
 			  <div class="mt5">
