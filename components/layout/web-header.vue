@@ -144,7 +144,6 @@ fetchNoticeList:function(){
 		  let formDatas = new FormData();
 		  formDatas.append('page', 1);
 		  formDatas.append('pageSize', 5); //查前五条数据
-
 		  this.fetchNotice(formDatas)
 	  },
     // updatePersoninfo:function(){
