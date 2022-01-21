@@ -26,7 +26,7 @@
                 <div class="service"  v-show="kfShow">
 					<h5>微信</h5>
                     <img src="~/assets/images/pic01.png"  alt=""/>
-                    <p><i class="qq"></i> 349103751 </p>
+                    <p><a href="http://wpa.qq.com/msgrd?v=3&uin=695603215&site=qq&menu=yes" target="_bank"><i class="qq"></i> 349103751 </a> </p>
 			</div>
             </div>
 			<div class="item-pend ptfl" @mouseover="ptflOver()" @mouseout="ptflOut()">
@@ -214,6 +214,7 @@ export default {
     text-align: center; padding: 10px 0px; border: 1px solid #eee;
     h5{font-size: 15px;}
     img{width: 90%; display: block; margin: 0 auto;}
+    a:hover{color: var(--color);}
     i.qq{.bg-map(20px,20px,-159px, -253px);}
     }
     .item-pend.ptfl{position: relative;}
