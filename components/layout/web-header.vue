@@ -211,10 +211,7 @@ fetchNoticeList:function(){
     .btn-notice>.ul-notice{position: absolute;     top: 28px; display: none;
     left: -100px; width: 260px; padding: 10px 25px; box-sizing: border-box; background: #fff; border-radius: 8px;
     box-shadow: 0px 0px 6px 0px #d0d0d0; line-height: 44px;
-    li{white-space: nowrap;
-    width: 100%;
-    overflow: hidden; border-bottom: 1px solid #eee;
-    text-overflow: ellipsis;}
+    li{white-space: nowrap;width: 100%;overflow: hidden; border-bottom: 1px solid #eee; text-overflow: ellipsis;}
     li a{color: var(--grayColor);}
     li a:hover{color: var(--backColor);}
     li.all{border-bottom: none;}

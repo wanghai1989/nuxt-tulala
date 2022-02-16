@@ -95,7 +95,31 @@ components: {Login},
 background: #fff; border-radius: 5px; accelerator: false; position: relative;
 .login-l{width: 360px; float: left;overflow: hidden; height: 500px; background: url(../../assets/images/pic09.png) no-repeat; 
 background-size: cover; padding: 50px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
-.login-l h3{font-size: 24px; margin-bottom: 60px;}
+.login-l h3{font-size: 24px; margin: 0 auto 60px; position: relative; width: 190px;height: 40px;line-height: 40px;}
+.login-l h3:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 1px;
+    position: relative;
+    background: #fff;
+    position: absolute;
+    top: 20px;
+    left: -40px;
+    }
+  .login-l h3::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 1px;
+    position: relative;
+    background: #fff;
+    position: absolute;
+    top: 20px;
+    right: -40px;
+    }
 .login-l p{
     padding: 10px 30px;
     background: var(--color);

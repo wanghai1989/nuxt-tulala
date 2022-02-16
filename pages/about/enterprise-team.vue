@@ -11,56 +11,15 @@
 				</div>
 				<div class="info">
 				<div class="name">
-					<div class="f30 cblack">刘余昌</div>
-					<div class="cgray f16">CEO</div>
+					<div class="f30 cblack">王海</div>
+					<div class="cgray f16">创始人 & CEO</div>
 				</div>
 				<div class="mt15">
 					中山大学岭南学院EMBA，15年 连续创业、投资经验，擅长战略 格局构建及风险管理，对现代化 企业管理有独到见解和丰富的 管理经验。
 				</div>
 				</div>
 			</div>
-			<div class="team-item">
-				<div class="pic">
-					<img src="../../assets/images/pic20.png" />
-				</div>
-				<div class="info">
-				<div class="name">
-					<div class="f30 cblack">刘余昌</div>
-					<div class="cgray f16">CEO</div>
-				</div>
-				<div class="mt15">
-					中山大学岭南学院EMBA，15年 连续创业、投资经验，擅长战略 格局构建及风险管理，对现代化 企业管理有独到见解和丰富的 管理经验。
-				</div>
-				</div>
-			</div>
-			<div class="team-item">
-				<div class="pic">
-					<img src="../../assets/images/pic20.png" />
-				</div>
-				<div class="info">
-				<div class="name">
-					<div class="f30 cblack">刘余昌</div>
-					<div class="cgray f16">CEO</div>
-				</div>
-				<div class="mt15">
-					中山大学岭南学院EMBA，15年 连续创业、投资经验，擅长战略 格局构建及风险管理，对现代化 企业管理有独到见解和丰富的 管理经验。
-				</div>
-				</div>
-			</div>
-			<div class="team-item">
-				<div class="pic">
-					<img src="../../assets/images/pic20.png" />
-				</div>
-				<div class="info">
-				<div class="name">
-					<div class="f30 cblack">刘余昌</div>
-					<div class="cgray f16">CEO</div>
-				</div>
-				<div class="mt15">
-					中山大学岭南学院EMBA，15年 连续创业、投资经验，擅长战略 格局构建及风险管理，对现代化 企业管理有独到见解和丰富的 管理经验。
-				</div>
-				</div>
-			</div>
+			
 			</div>
 		</div>
     </div>
