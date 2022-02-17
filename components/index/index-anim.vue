@@ -2,7 +2,7 @@
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
         <nuxt-link to="/enter"  target="_blank" class="link img-box">
-               <span class="receive">立即入驻</span>
+               <span class="receive">强势入驻</span>
         </nuxt-link>
       <em class="close iconfont icon-close"  @click="close()"></em>
       </div>
@@ -83,7 +83,7 @@ export default {
     box-sizing: border-box;
     position: relative;
 }
-.center_ad .box .img-box .receive{height: 42px; line-height: 42px; width: 200px; display: block; position: absolute; bottom: 50px; left: 181px; 
+.center_ad .box .img-box .receive{height: 42px; line-height: 42px; width: 200px; display: block; position: absolute; bottom: 30px; left: 181px; 
 background-image: linear-gradient(#ffc44f, #ffe791); text-align: center; color: #ec0b49; font-size: 20px;  border-radius: 24px;
     animation: scaleDraw 3s linear infinite;
 }

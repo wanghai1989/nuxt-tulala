@@ -54,17 +54,17 @@ export default ({
         }else{
                 store.dispatch('verifyToken',token).then(data => { 
                     if(data.code==1){
-                        // store.commit('setToken', token)
-                        // store.dispatch('fetchPersoninfo',token).then(data => { 
-                        //     store.commit('fillpersonInfo', data.data)
-                        //     const designState=store.state.personInfo.designer_status
-                        //     if(designState==104 && to.path=='/enter/design-basic')
-                        //     {next({path: '/enter/design-egg'})} 
-                        //     if((designState==102 || designState==103) && to.path=='/enter/design-basic')
-                        //     {
-                        //         next({path: '/enter/design-result'})
-                        //     } 
-                        //     })
+                        store.commit('setToken', token)
+                        store.dispatch('fetchPersoninfo',token).then(data => { 
+                            store.commit('fillpersonInfo', data.data)
+                            const designState=store.state.personInfo.designer_status
+                            if(designState==104 && to.path=='/enter/design-basic')
+                            {next({path: '/enter/design-egg'})} 
+                            if((designState==102 || designState==103) && to.path=='/enter/design-basic')
+                            {
+                                next({path: '/enter/design-result'})
+                            } 
+                            })
                         next()
                     }
                     else{

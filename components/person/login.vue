@@ -66,6 +66,7 @@ export default {
   mounted(){
   if(this.$route.query.backUrl){
      this.backUrl=this.$route.query.backUrl
+     console.log(this.backUrl)
    }
    if(this.$route.query.code){
      this.wechatSubmit(this.$route.query.code)
@@ -84,7 +85,7 @@ export default {
       this.pwdflag=true
     },
     webchatLogin:function(){
-      window.location.href= 'https://open.weixin.qq.com/connect/qrconnect?appid=wx79e8ed0c330dabe2&redirect_uri=http://www.91tula.com&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+      window.location.href= 'https://open.weixin.qq.com/connect/qrconnect?appid=wx79e8ed0c330dabe2&redirect_uri=http://www.91tula.com/index&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
      
     },
     wechatSubmit(code){
@@ -163,7 +164,6 @@ export default {
     // fetchPerson:function(token){
 		//   let formDatas = new FormData();
 		//   formDatas.append('token',token);
-
 		//   this.fetchPersoninfo(formDatas)
 	  // },
     validate () {
@@ -221,5 +221,4 @@ export default {
 .login-qq i{.bg-map(60px,60px,-588px, -129px); margin-bottom: 5px;}
 .login-wechat i{.bg-map(60px,60px,-512px, -129px); margin-bottom: 5px;}
 }
-
 </style>
