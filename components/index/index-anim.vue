@@ -74,6 +74,8 @@ export default {
     left: 50%;
     margin: -280px 0 0 -280px;
     background: url(~/assets/images/pic51.png)no-repeat center /100%;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .center_ad .box .img-box {
