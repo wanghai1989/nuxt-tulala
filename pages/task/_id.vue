@@ -1,6 +1,7 @@
 <template>
 <div>
   <webBanner  position='outsourcing_tasks'></webBanner>
+   <taskRule></taskRule>
     <div class="wrapper">
       <div class="task-detail mt30 clearfix">
         <taskInfo></taskInfo>
@@ -14,12 +15,13 @@
 <script>
 import {mapState} from 'vuex'
 import webBanner from '~/components/layout/web-banner.vue'
+import taskRule  from '~/components/layout/task-rule.vue'
 import taskInfo from '~/components/task/task-info.vue'
 import taskRight from '~/components/task/task-right.vue'
 
 export default {
    layout: 'web',
-   components: {webBanner,taskInfo,taskRight},
+   components: {webBanner,taskInfo,taskRight,taskRule},
    head(){
 	   return {
 			title: this.workinfo.name+'_图啦啦91tula.com',

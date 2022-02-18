@@ -1,7 +1,7 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
-        <nuxt-link to="/enter"  target="_blank" class="link img-box">
+        <nuxt-link to="/enter"   class="link img-box">
                <span class="receive">强势入驻</span>
         </nuxt-link>
       <em class="close iconfont icon-close"  @click="close()"></em>
@@ -75,7 +75,6 @@ export default {
     margin: -280px 0 0 -280px;
     background: url(~/assets/images/pic51.png)no-repeat center /100%;
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .center_ad .box .img-box {

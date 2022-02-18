@@ -29,18 +29,22 @@ export default {
     return timeStr
 },
 getEndDays:function(end_time){
-   // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差
-   var curTime = new Date();
-   var postTime = new Date(end_time);                 
-
-  //部分浏览器不兼容此转换建议所以对此进行补充（指定调用自己定义的函数进行生成发布时间的时间戳）
+   if(isNaN(end_time)&&!isNaN(Date.parse(end_time))){
+     // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差
+     var curTime = new Date();
+    //var timeDiff = curTime.getTime() - postTime.getTime();
+    //上面一行代码可以换成以下（兼容性的解决）
+    var timeDiff = this.getTs(end_time) -curTime.getTime();
+ 
+    var days=  Math.floor(timeDiff/24/60/60/1000); 
+    if(days<0)
+    return '已过期'
+    else
+    return days +'天'
+   }else{
+    return '失效'
+   }
    
-   //var timeDiff = curTime.getTime() - postTime.getTime();
-   //上面一行代码可以换成以下（兼容性的解决）
-   var timeDiff = this.getTs(end_time) -curTime.getTime();
-
-   var days=  Math.floor(timeDiff/24/60/60/1000); 
-   return days
 },
    getDateDiff:function(post_modified){
     // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差

@@ -143,16 +143,16 @@ export default {
               if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
-                }, 1000);
+                }, 1500);
               }else{
                 if(this.backUrl && this.backUrl!='/user/login'){
                   setTimeout(() => {
                     this.$router.replace(this.backUrl)  //跳回上一个路由
-                  }, 1000);
+                  }, 1500);
                 }else{
                   setTimeout(() => {
                   this.$router.replace('/mine') 
-                }, 1000);
+                }, 1500);
                 }
               }
             }

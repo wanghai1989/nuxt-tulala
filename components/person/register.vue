@@ -199,7 +199,7 @@ export default {
                     this.setToken(data.data.token)
                     this.fetchPerson(data.data.token)
                       setTimeout(() => {
-                        this.$router.replace('/person/person-info') 
+                        this.$router.replace('/mine') 
                       }, 1000);
                   }
                   else{

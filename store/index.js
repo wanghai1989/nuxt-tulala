@@ -19,6 +19,7 @@ export const state = () => ({
 },
   baseUrl:'https://www.91tula.com',
   basemUrl:'https://www.91tula.com/m',
+  showTaskRule:0,
   loading:false,
   navigation:[],
   homebanner:[],
@@ -85,6 +86,7 @@ pageSize:10,  //每页条数
   auditRealName:{0:'未认证',1:'审核通过',2:'待审核',3:'审核拒绝'},  //实名审核状态  
   auditQQName:{0:'待审核',1:'审核拒绝',2:'未满',3:'已满'},  //QQ联盟群状态 
   softName:{'PSD':'Photoshop','AI':'Illustrator','EPS':'PostScript','CDR':'CorelDraw','SKETCE':'sketch','AE':'After Effects','C4D':'Cinema 4D','MAX':'3Dmax'},  //文件所使用软件 
+  workName:{0:'待审核',1:'已审核',2:'审核拒绝',3:'客户雇佣设计',4:'设计师确认金额',5:'客户支付',6:'订单完成',7:'已过期'},
   firstVip:{},  //第一个vip类型
   integral:0, //总积分
   platform_currency:0,//平台币
@@ -152,6 +154,10 @@ setToken(state, token) {
 setShare(state, val) {
     state.isShare = val;
   },
+//设置分享箭头隐藏显示
+setTaskRule(state, val) {
+  state.showTaskRule = val;
+},
 setShowLogin(state, isShow) {
     state.showLogin = isShow;
   },

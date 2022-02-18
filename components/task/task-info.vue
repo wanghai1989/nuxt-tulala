@@ -21,8 +21,8 @@
 		</div>
 	</div>
 	<div class="task-bidding">
-		<div class="tip" v-if="!personInfo.certification">
-			<i></i>您还未 <nuxt-link to="/person/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
+		<div class="tip" v-if="!(personInfo.designer_status==102)">
+			<i></i>您还未 <nuxt-link to="/enter/design-basic" class="cmain">入驻图啦啦</nuxt-link>，无法报名参与
 		</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
@@ -41,7 +41,7 @@
 				<div class="l"></div>
 				<div class="r">
 					<div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
-					<button type="submit" class="btn-report"  v-if="workinfo.status==1">参与竞价</button>
+					<button type="submit" class="btn-report"  v-if="(workinfo.status==1) && (personInfo.designer_status==102)">参与竞价</button>
 					<button type="submit" class="btn-report" disabled v-else >参与竞价</button>
 					<!-- <button type="submit" class="btn-report"  v-bind:disabled="!personInfo.certification">报名参与</button> -->
 					<div class="rule">

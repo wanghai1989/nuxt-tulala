@@ -29,7 +29,6 @@
 		</ul>
 		<nuxt-link to="/task/public"  class="btn-withdraw">免费发布任务</nuxt-link>
 	</div>
-			
 			<ul class="ul-task" v-if="worktype==1">
 				<li  v-for="item in worklist" :key="item.id">
 					<div class="task-l">
@@ -42,7 +41,7 @@
 						 <span class="worktxt">雇佣设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname}}</b></nuxt-link></span>
 						  <span class="worktxt">手机号&nbsp;<b class="cblack f15">{{item.mobile}}</b></span>
 						  <span class="worktxt">预算&nbsp;<b class="cblack f15">{{item.money}}</b></span>
-						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}}天</b></span>
+						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}} </b></span>
 						</div>
 				  		<div class="mt20 cgray">项目描述&nbsp;<span class="cblack">{{item.description}}</span></div>
 					</div>
@@ -67,7 +66,7 @@
 						<span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>
 						  <span class="worktxt">手机号&nbsp;<b class="cblack f15">{{item.mobile}}</b></span>
 						  <span class="worktxt">确认金额&nbsp;<b class="cblack f15">{{item.real_money}}</b></span>
-						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}}天</b></span>
+						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}}</b></span>
 						  </div>
 				  		<div class="mt20 cgray">项目描述&nbsp;<span class="cblack">{{item.description}}</span></div>
 					</div>

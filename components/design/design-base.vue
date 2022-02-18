@@ -1,8 +1,8 @@
 <template>
     <div class="step-cont">
-      <div class="tip" v-show="!personInfo.is_complete_my_info">
+      <!-- <div class="tip" v-show="!personInfo.is_complete_my_info">
 		 				<i></i>您的个人信息还未完善，请先前往<nuxt-link class="cmain"  :to="{path:'/mine/basic-info',query:{backUrl:currentPath}}">完善个人信息</nuxt-link>
-		 	</div>
+		 	</div> -->
        <div class="tip" v-show="!personInfo.is_binding_mobile">
 		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/mobile-bind',query:{backUrl:currentPath}}">手机认证</nuxt-link>
 		 	</div>
@@ -21,10 +21,12 @@
 	  						<div class="img-upload design_img">
 								<input type="file" class="filepath" id="design_photo" @change="changepic()" accept="image/jpeg,image/jpg,image/peg,image/png" >
 								<div class="operate">
-								<i></i>
+								<i></i><br/>
+                点击上传
 								</div>
+                
 							</div>
-              上传真实照片能增加通过率
+              （真实照片能增加接单几率）
 	  					</div>
 	  				</div>
             <div>
@@ -100,8 +102,10 @@
 	  					<div class="r">
 	  						<label class="my_protocol">
 							      <input class="input_agreement_protocol" type="checkbox" @click = "checkbox($event)"/>
-							      <span></span>阅读并同意<nuxt-link :to="{ path:'/agreement', query:{id:10}}" class="cmain"  target="_blank">《上传声明》</nuxt-link>和
-                     <nuxt-link :to="{ path:'/agreement', query:{id:7}}" class="cmain"  target="_blank">《供稿协议》</nuxt-link>
+							      <span></span>阅读并同意
+                    <nuxt-link :to="{ path:'/agreement', query:{id:10}}" class="cmain"  target="_blank">《上传声明》</nuxt-link>、
+                     <nuxt-link :to="{ path:'/agreement', query:{id:7}}" class="cmain"  target="_blank">《供稿协议》 </nuxt-link> 和
+                     <nuxt-link :to="{ path:'/agreement', query:{id:6}}" class="cmain"  target="_blank">《交易违规说明》 </nuxt-link> 
                     
 							</label>
 	  						
@@ -171,13 +175,13 @@ export default {
     doSubmit (e) {
       e.preventDefault()
       
-      if(!this.personInfo.is_complete_my_info){
-        layer.msg('请先完善个人信息！！', {icon: 2});
-        setTimeout(() => {
-                  this.$router.push('/mine/basic-info') 
-                }, 1500);
-        return
-      }
+      // if(!this.personInfo.is_complete_my_info){
+      //   layer.msg('请先完善个人信息！！', {icon: 2});
+      //   setTimeout(() => {
+      //             this.$router.push('/mine/basic-info') 
+      //           }, 1500);
+      //   return
+      // }
       if(!this.personInfo.is_binding_mobile){
         layer.msg('请先绑定手机号！！', {icon: 2});
         setTimeout(() => {
@@ -185,7 +189,7 @@ export default {
                 }, 1500);
         return
       }
-      if(this.personInfo.certification==0 || this.personInfo.certification==3){
+      if(this.personInfo.certification==0 || this.personInfo.certification==3){  //0 未实名  3 未通过
         layer.msg('请先实名认证！！', {icon:2});
         setTimeout(() => {
           this.$router.push('/mine/real-name') 
@@ -305,7 +309,7 @@ export default {
 .img-upload{width: 160px; height: 160px; border: 2px dashed #d4d4d4; border-radius: 4px; margin-right: 20px; overflow: hidden;
 position: relative;vertical-align: middle;display: inline-block; text-align: center;  box-sizing: border-box;
 .filepath{width: 100%; height: 100%; opacity: 0; vertical-align: top; position: relative; z-index: 2;}
-.operate{padding-top: 50px; position: absolute; z-index: 1; top: 0; left: 0;width: 160px; height: 110px;}
+.operate{padding-top: 35px; position: absolute; z-index: 1; top: 0; left: 0;width: 160px; height: 110px;}
  i{.bg-map(60px,60px,-139px, -59px); margin-bottom: 12px; }
 
 }
