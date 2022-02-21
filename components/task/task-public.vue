@@ -3,7 +3,7 @@
 		 		<!-- <div class="title">发布任务</div> -->
          <workStep :stepId="1"></workStep>
 		 		<div class="task-info">
-          <div class='warntip'><i></i> 平台交易客户权益有保障，资金更安全；如线下交易，平台不承担任何责任</div>
+          <div class='warntip'><i></i> 平台交易客户权益有保障，资金更安全；如线下交易，平台不承担任何责任 ！</div>
 		 			<div class="vam vip-info">
 						 <div>
 		 					<div class="l"><span class="cred">*</span>任务类型</div>

@@ -1,5 +1,6 @@
 <template>
 <div>
+	<webLogin></webLogin>
    <webBanner position='designer'></webBanner>
      <div class="wrapper">
      </div>
@@ -35,7 +36,7 @@
 	  					<img src="~/assets/images/pic36.png" />
 	  				</div>
 	  				<div class="title">实现价值</div>
-	  				<div class="subtit">平台提供分享作品，灵活雇佣等服务</div>
+	  				<div class="subtit">通过作品展示，客户评价证明自己</div>
 	  			</li>
 	  		</ul>
 	  	</div>
@@ -51,7 +52,7 @@
 	  				<div class="title">UI类设计师</div>
 	  				<div class="subtit">UI类设计师需要有一定的互联网产品设计逻辑，能熟练使用PS、AI、Sketch等设计软件</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -61,7 +62,7 @@
 	  				<div class="title">模板类设计师</div>
 	  				<div class="subtit">模板类设计师需要较好的审美和设计能力需要熟练使用PS、AI、CDR等设计软件过硬的排版，配色及作品把控能力工作认真负责</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -71,7 +72,7 @@
 	  				<div class="title">办公类设计师</div>
 	  				<div class="subtit">办公类设计师需要熟悉word/Excel/PPT软件，对数据敏感设计基础，逻辑性较强的表格排版有较好的设计基础和成熟的排版思路</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -81,7 +82,7 @@
 	  				<div class="title">摄影类设计师</div>
 	  				<div class="subtit">综合类设计师需要对摄影拥有自己独到的理解，能熟练使用PS、AI、Sketch、CDR等设计软件</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+						  <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  		</ul>
@@ -92,16 +93,16 @@
 	  		<div class="theme-title enter">入驻可以得到什么</div>
 	  		<ul class="harvest">
 	  			<li class="p1">
-	  				<em></em><b>可观的报酬</b>  上传设计作品越多，质量越好，获得的报酬越高。目前合作的设计师报酬在1000-10000元之间。
+	  				<em></em><b>可观的报酬</b> 上传设计作品越多，质量越好，获得的报酬越高。目前合作的设计师报酬在1000-10000元之间。
 	  			</li>
 	  			<li class="p2">
-	  				<em></em><b>快速提升技能</b>  跟大量优秀设计师一起交流探讨，还有资深设计师定期给你做专业的指导，让你的专业技能快速提升。
+	  				<em></em><b>快速提升技能</b> 跟大量优秀设计师一起交流探讨，还有资深设计师定期给你做专业的指导，让你的专业技能快速提升。
 	  			</li>
 	  			<li class="p3">
-	  				<em></em><b>在线接单</b>    你在入驻图啦啦之后还可以注册成为接单设计师，赚取额外收入。
+	  				<em></em><b>在线接单</b> 你在注册图啦啦之后还可以入驻图啦啦，在线接单赚钱外块增加收入。
 	  			</li>
 	  			<li class="p4">
-	  				<em></em><b>合伙设计师</b>  平台会不定期在众多优秀设计师中招募合伙设计师，合伙设计师将享受期权奖励，平台分红等报酬。
+	  				<em></em><b>合伙设计师</b> 平台会不定期在众多优秀设计师中招募合伙设计师，合伙设计师将享受期权奖励，平台分红等报酬。
 	  			</li>
 	  		</ul>
 	  		</div>
@@ -313,10 +314,11 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
+import webLogin from '~/components/layout/web-login.vue'
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   components: {webBanner},
+   components: {webBanner,webLogin},
   data () {
     return {
       // userInfo: {}
@@ -327,7 +329,7 @@ export default {
     // this.userInfo=JSON.parse(localStorage.getItem("userInfo"))
   },
   computed:{
-      ...mapState(['navigation','notice','personInfo'])
+      ...mapState(['navigation','notice','personInfo','userToken'])
   },
 head(){
 	   return {
@@ -344,6 +346,15 @@ head(){
 			}
   },
   methods:{
+	  ...mapMutations(['setShowLogin']),
+	  goEnter(){
+		if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}else{
+			this.$router.push('/enter/design-basic') 
+		}
+	},
      toggleInfo:function(){
          $(".question").bind("click",function(){
             $(this).next().toggle()

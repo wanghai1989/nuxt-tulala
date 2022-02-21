@@ -1,6 +1,7 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
+        <div class="countdown">{{downTime}} s</div>
         <nuxt-link to="/enter"   class="link img-box">
                <span class="receive">强势入驻</span>
         </nuxt-link>
@@ -12,14 +13,26 @@
 export default {
   mounted() {
 		this.setlayer()
-	   
+	    this.Interval()
   },
   data () {
     return {
-      showLayer:0
+      showLayer:0,
+      downTime:15
     }
   },
   methods: {
+    Interval(){
+        let time= setInterval(() => {
+            this.downTime--
+            if(this.downTime<0){
+           clearInterval(time)
+           this.showLayer=0
+           this.setCookie("loanName","loan")
+        }
+        }, 1000);
+        
+    },
     close(){
     this.showLayer=0
     this.setCookie("loanName","loan")
@@ -65,6 +78,8 @@ export default {
     z-index: 9999;
     background-color: rgba(0,0,0,0.4);
 }
+.countdown{position: absolute; right: 15px; top: 15px; width: 60px; height: 30px; line-height: 30px; background: #fff; color: var(--backColor); text-align: center;
+border-radius: 4px; font-size: 16px;}
 .center_ad .box {
     z-index: 9999;
     position: absolute;
