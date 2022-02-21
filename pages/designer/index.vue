@@ -50,4 +50,5 @@ export default {
 .btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
         #c53a1d 0%, 
         #b23016 100%),#fff); position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 12px 0px; line-height: 22px; }
+.btn-apply:hover{opacity: 0.9;}
 </style>

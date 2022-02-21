@@ -62,9 +62,9 @@ export default {
 
 .vip-box{
   position: fixed;width: 440px;  height: 500px; top: 50%; left: 50%; margin-top: -250px; margin-left: -220px; z-index: 5; 
-   background: #fff; position: relative; border-radius: 5px;
+   background:  url(../../assets/images/pic55.png) no-repeat; position: relative; border-radius: 5px;
 background-size: cover; padding: 15px 0px 0px; box-sizing: border-box; color: #fff; text-align: center;}
-.vip-box h3{font-size: 24px; margin-bottom: 42px; color: #333; padding-bottom: 15px; border-bottom: 1px solid #eee;}
+.vip-box h3{font-size: 24px; margin-bottom: 42px; color: #fff; padding-bottom: 15px; border-bottom: 1px solid #eee;}
 .vip-box p{
     padding: 9px 30px;
     background: var(--color);
