@@ -1,5 +1,6 @@
 <template>
 <div>
+	<taskRule></taskRule>
 	<webLogin></webLogin>
     <webBanner position='work_order'></webBanner>
     <div class="wrapper">
@@ -12,13 +13,14 @@
 </template>
 
 <script>
+import taskRule  from '~/components/layout/task-rule.vue'
 import webLogin from '~/components/layout/web-login.vue'
 import webBanner from '~/components/layout/web-banner.vue'
 import taskPublic from '~/components/task/task-public.vue'
 import taskRight from '~/components/task/task-right.vue'
 export default {
    layout: 'web',
-   components: {webBanner,taskPublic,taskRight,webLogin},
+   components: {webBanner,taskPublic,taskRight,webLogin,taskRule},
    head(){
 	   return {
 			title: '发布任务_91tula.com',

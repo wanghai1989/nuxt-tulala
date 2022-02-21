@@ -285,6 +285,7 @@ clearInfo(){
     .input,.select{width: 400px; border: 1px solid #d0d0d0; height: 42px; line-height: 42px; text-indent: 5px; color: #333; border-radius: 4px;}
     textarea{width: 100%; height: 100px; border: 1px solid #d0d0d0;text-indent: 5px; color: #333; border-radius: 4px;}
     .btn-report{.btn(180px,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
+    .btn-report:hover{opacity: 0.9;}
     }
 	.upload_warp_img_div_del {
       position: absolute;
