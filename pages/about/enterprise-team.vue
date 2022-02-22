@@ -45,7 +45,7 @@
 			</div>
 			<div class="role">
 				<nuxt-link to="/enter" >我是设计师</nuxt-link>
-				<nuxt-link to="/task/public">我是雇主</nuxt-link>
+				<nuxt-link to="/task/public" class="employer">我是雇主</nuxt-link>
 			</div>
 			</div>
 		</div>
@@ -104,6 +104,7 @@ components: {webBanner,aboutNav},
 }
 .role a{.btn(180px,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff); margin-right:30px; border-radius: 21px;}
 .role a:hover{opacity: 0.9;}
+.role .employer{background: var(--redColor); border: 1px solid var(--redColor);}
 </style>
 
 
