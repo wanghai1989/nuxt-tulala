@@ -1,7 +1,7 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
-        <div class="countdown">{{downTime}} s</div>
+        <!-- <div class="countdown">{{downTime}} s</div> -->
         <nuxt-link to="/enter"   class="link img-box">
                <span class="receive">强势入驻</span>
         </nuxt-link>
@@ -13,26 +13,26 @@
 export default {
   mounted() {
 		this.setlayer()
-	    this.Interval()
+	    // this.Interval()
   },
   data () {
     return {
       showLayer:0,
-      downTime:15
+    //   downTime:15
     }
   },
   methods: {
-    Interval(){
-        let time= setInterval(() => {
-            this.downTime--
-            if(this.downTime<0){
-           clearInterval(time)
-           this.showLayer=0
-           this.setCookie("loanName","loan")
-        }
-        }, 1000);
+    // Interval(){
+    //     let time= setInterval(() => {
+    //         this.downTime--
+    //         if(this.downTime<0){
+    //        clearInterval(time)
+    //        this.showLayer=0
+    //        this.setCookie("loanName","loan")
+    //     }
+    //     }, 1000);
         
-    },
+    // },
     close(){
     this.showLayer=0
     this.setCookie("loanName","loan")

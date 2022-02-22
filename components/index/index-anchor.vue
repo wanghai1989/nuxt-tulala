@@ -1,5 +1,8 @@
 <template>
     <ul class="anchor-list">
+        <li class="prod-type service"> 
+				<a href="#remarks"> <i></i><br /> <span>精选服务</span></a>
+			</li>
             <li class="prod-type" :class="item.type_class" :value="item.id" v-for="item in category" :key="item.id"> 
 				<a :href="'#'+ item.type_class"> <i></i><br /> <span>{{item.name}}</span></a>
 			</li>
@@ -58,11 +61,12 @@ export default {
     span{font-size: 12px;     display: inline-block; line-height: 1.2;
     margin-top: 5px;}
     .prod-type {
-    padding: 15px 0px;
+    padding: 10px 0px;
     border-bottom: 1px solid #ddd;
         }
     .prod-type a{display: block;}
     .prod-type:last-child{border-bottom: none;}
+    .prod-type.service i{.bg-map(25px,25px,-461px, -236px); }
     .prod-type.png i{.bg-map(25px,25px,-209px, -42px); }
     .prod-type.bjtp i{.bg-map(25px,25px,-246px, -42px); }
     .prod-type.ui i{.bg-map(25px,25px,-286px, -41px); }
@@ -70,6 +74,7 @@ export default {
     .prod-type.word i,.prod-type.ppt i,.prod-type.excel i{.bg-map(25px,25px,-433px, -42px); }
     .prod-type.syt i{.bg-map(25px,25px,-463px, -42px); }
     
+    .prod-type.service:hover i{.bg-map(25px,25px,-461px, -269px); }
     .prod-type.png:hover i{.bg-map(25px,25px,-209px, -78px); }
     .prod-type.bjtp:hover i{.bg-map(25px,25px,-246px, -79px); }
     .prod-type.ui:hover i{.bg-map(25px,25px,-288px, -77px); }
