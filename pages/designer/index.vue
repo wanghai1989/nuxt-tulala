@@ -3,7 +3,7 @@
     <webBanner position='designer'></webBanner>
     <div class="wrapper">
 		<nuxt-link to="/enter"  class="btn-apply">
-		入<br data-v-505ae51c=""> 驻<br data-v-505ae51c="">图<br data-v-505ae51c="">啦<br data-v-505ae51c="">啦
+		●<br/>立<br/>即<br/>入<br/> 驻<br/>●
 		</nuxt-link>
       <designerList></designerList>
     </div>
@@ -49,6 +49,6 @@ export default {
 }
 .btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
         #c53a1d 0%, 
-        #b23016 100%),#fff); position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 12px 0px; line-height: 22px; }
+        #b23016 100%),#fff); position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 5px 0px; line-height: 22px; }
 .btn-apply:hover{opacity: 0.9;}
 </style>

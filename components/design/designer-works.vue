@@ -5,7 +5,10 @@
 	  				<i class="i-works"></i> 作品
 	  			</div>
 				  <ul>
-				<li  v-for="(item,index) in category" :value="item.id" :key="item.id"  :class="[(index==0 && isActive==0)?'focus':'',(item.id==isActive)?'focus':'']" >
+				<li :class="(isActive==0)?'focus':''">
+				 <a href="javascript:;" @click="fetchDesignProduct(0)">全部</a>
+					</li>
+				<li  v-for="item in category" :value="item.id" :key="item.id"  :class="(item.id==isActive)?'focus':''" >
 				 <a href="javascript:;" @click="fetchDesignProduct(item.id)">{{item.name}}</a>
 					</li>
 			</ul>
@@ -221,8 +224,8 @@ cursor: pointer;
 .theme{color: var(--grayColor);}
 .i-works{.bg-map(17px,16px, -687px, -79px); vertical-align: text-bottom;}
 .title ul{ flex: 1;text-align: right;}
-.title li{display: inline-block; width: 95px; height: 30px;}
-.title li a{display: block; width: 95px; height: 30px; line-height: 30px; border-radius: 15px; color: var(--backColor); text-align: center;}
+.title li{display: inline-block; height: 30px;}
+.title li a{display: block; height: 30px; line-height: 30px; padding: 0px 20px; border-radius: 15px; color: var(--backColor); text-align: center;}
 .title li.focus a,li a:hover{background: var(--redColor); color: #fff;}
 .ul-prod{width: 105%; position: relative;
 li{width: 280px; height: auto; margin-top: 26px; margin-right: 27px; overflow: hidden; float: left; border-radius: 4px;}

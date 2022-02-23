@@ -6,17 +6,17 @@
        <div class="tip" v-show="!personInfo.is_binding_mobile">
 		 				<i></i>您的手机号还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/mobile-bind',query:{backUrl:currentPath}}">手机认证</nuxt-link>
 		 	</div>
-       <div class="tip" v-show="personInfo.certification==0 || personInfo.certification==3">
+       <!-- <div class="tip" v-show="personInfo.certification==0 || personInfo.certification==3">
 		 				<i></i>您的身份证还未认证，请先前往<nuxt-link class="cmain" :to="{path:'/mine/real-name',query:{backUrl:currentPath}}">实名认证</nuxt-link>
-		 	</div>
-       <div class="tip" v-show="personInfo.certification==2">
+		 	</div> -->
+       <!-- <div class="tip" v-show="personInfo.certification==2">
 		 				<i></i>您的身份认证暂未审核通过，请耐心等待
-		 	</div>
+		 	</div> -->
     	<form @submit="doSubmit">
         <p class="little-title">设计师信息</p>
          <div class="vam vip-info">
 	  				<div>
-	  					<div class="l"><span class="cred">*</span>设计师照片</div>
+	  					<div class="l"><span class="cred">*</span>照片</div>
 	  					<div class="r">
 	  						<div class="img-upload design_img">
 								<input type="file" class="filepath" id="design_photo" @change="changepic()" accept="image/jpeg,image/jpg,image/peg,image/png" >
@@ -24,13 +24,18 @@
 								<i></i><br/>
                 点击上传
 								</div>
-                
 							</div>
               （真实照片能增加接单几率）
 	  					</div>
 	  				</div>
             <div>
-	  					<div class="l"><span class="cred">*</span>设计师标签</div>
+	  					<div class="l"><span class="cred">*</span>姓名</div>
+	  					<div class="r">
+                <input class="input" type="text" v-model="real_name"/>
+	  					</div>
+	  				</div>
+            <div>
+	  					<div class="l"><span class="cred">*</span>个人标签</div>
 	  					<div class="r">
                 <textarea  class="area" v-model="designer_target" rows="2"></textarea>
                 <p>标签用逗号“，”隔开，标签不超过 <span class="cred">6</span> 个</p>
@@ -49,6 +54,7 @@
 	  					</div>
 	  				</div>
          </div>
+         <br/><br/>
           <p class="little-title">打款信息</p>
 	  			<div class="vam vip-info">
 	  				<div>
@@ -142,6 +148,7 @@ export default {
       ...mapState(['defaultchannel','setting','personInfo','userToken'])
   },
    mounted(){
+     console.log(this.personInfo.designer_status)
      this.currentPath=this.$route.path
     this.getChannel({token:this.userToken})
     this.fetchSet()
@@ -160,8 +167,8 @@ export default {
 		}
 		const format='image/jpeg';
         let base64Img=await processImg.cutImageBase64(file,null,format,900); //上传的图片进行压缩并且合成水印
-		this.blob_design= processImg.base64ToBlob(base64Img,format); 
-		$(".design_img").css({"background-image":"url(" + base64Img + ")","background-size":"100% 100%"});
+      this.blob_design= processImg.base64ToBlob(base64Img,format); 
+      $(".design_img").css({"background-image":"url(" + base64Img + ")","background-size":"100% 100%"});
 	  }, 
     checkbox(event){
             this.dis = event.target.checked
@@ -189,13 +196,13 @@ export default {
                 }, 1500);
         return
       }
-      if(this.personInfo.certification==0 || this.personInfo.certification==3){  //0 未实名  3 未通过
-        layer.msg('请先实名认证！！', {icon:2});
-        setTimeout(() => {
-          this.$router.push('/mine/real-name') 
-                }, 1500);
-        return
-      }
+      // if(this.personInfo.certification==0 || this.personInfo.certification==3){  //0 未实名  3 未通过
+      //   layer.msg('请先实名认证！！', {icon:2});
+      //   setTimeout(() => {
+      //     this.$router.push('/mine/real-name') 
+      //           }, 1500);
+      //   return
+      // }
       if(this.personInfo.certification==2){
         layer.msg('实名认证暂未审核通过，请耐心等待！！', {icon:2});
         return
@@ -215,7 +222,7 @@ export default {
         //   formDatas.append('designer_target[]',keywordarr[item]);
         // }
         formDatas.append('designer_target',this.designer_target);
-        formDatas.append('real_name','张三');
+        formDatas.append('real_name',this.real_name);
         formDatas.append('mobile', '15988888888');
         formDatas.append('qq', '349188888');
         formDatas.append('email', '349188888@qq.com');
@@ -226,7 +233,6 @@ export default {
         // 调用接口
         this.settleInOne(formDatas)
           .then((data) => {
-            console.log(data)
              if(data.code==0){
               layer.msg(data.msg, {icon: 2});
               return false;
@@ -286,7 +292,7 @@ export default {
 .step-cont{
 .tip {font-size: 14px; height: 16px; line-height: 16px;margin: 0px 0px 20px 120px; color: var(--grayColor);}
 .tip i{.bg-map(16px,16px,-999px, -44px); margin-right: 6px; vertical-align: text-bottom;}
-.little-title{font-size: 18px; color: var(--backColor); font-weight: bold;    margin: 30px 0px 15px 120px;}
+.little-title{font-size: 18px; color: var(--backColor); font-weight: bold;    margin: 0px 0px 15px 120px;}
 .step-tit{ padding: 25px;text-align: center;
      ul{width: 820px; height: 158px; background: url(~/assets/images/pic10.png) no-repeat center; font-size: 20px; padding-top: 47px; 
       margin: 0 auto; box-sizing: border-box;}

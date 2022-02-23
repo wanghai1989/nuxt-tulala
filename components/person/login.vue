@@ -33,7 +33,7 @@
 			</div>
 			<div class="tip">
         <nuxt-link to="/user/forget-pwd"  class="smslogin">忘记密码？</nuxt-link>
-				<span class="goreg">没有账户，<nuxt-link to="/user/register">立即注册</nuxt-link></span>
+				<span class="goreg">没有账户，<a href="javascript:void(0)" @click="goregist()" >立即注册</a></span>
 			</div>
 			<!-- <div class="quick-login">
 				<a class="login-wechat" href="person-info.html">
@@ -119,6 +119,9 @@ export default {
               }
             }
           })
+    },
+    goregist(){
+      this.$router.push({path: '/user/register', query: {backUrl: this.$route.path}});
     },
     doSubmit (e) {
       e.preventDefault()

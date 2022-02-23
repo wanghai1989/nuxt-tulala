@@ -6,7 +6,7 @@
       <div class="enter-box">
         <div class="step-tit">
 	  			<ul class="clearfix">
-	  				<li class="focus" :class="{focus:personInfo.designer_status==100}" >填写<br>打款信息</li>
+	  				<li class="focus" :class="{focus:personInfo.designer_status==100}" >设计师<br>基本信息</li>
 	  				<li>设计<br>作品上传</li>
 	  				<li>审核<br>结果</li>
 	  			</ul>

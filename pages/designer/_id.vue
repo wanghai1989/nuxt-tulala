@@ -1,5 +1,8 @@
 <template>
 <div>
+   <nuxt-link to="/enter"  class="btn-apply">
+		●<br/>立<br/>即<br/>入<br/> 驻<br/>●
+		</nuxt-link>
     <webBanner position='designer'></webBanner>
     <div class="wrapper">
       <div class="desig-info clearfix">
@@ -45,5 +48,23 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.btn(@width,@height,@bordercolor,@background,@color){
+    display: inline-block;
+   line-height: calc(@height - 2px); 
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    width: @width;
+    border: 1px solid @bordercolor;
+    background: @background;
+    color: @color;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+}
 .desig-info{margin-top: 25px;}
+.btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
+        #c53a1d 0%, 
+        #b23016 100%),#fff); position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 5px 0px; line-height: 22px; z-index: 10; }
+.btn-apply:hover{opacity: 0.9;}
 </style>

@@ -17,6 +17,7 @@
             <div class="result-tit">您的申请已通过</div>
             <div class="result-subtit">恭喜您成为图啦啦设计师团队的一员，您可以去上传您的作品啦</div>
             <div class="result-operat">
+                <nuxt-link class="home" to="/">返回首页</nuxt-link>
                 <nuxt-link to="/mine/upload-file">上传作品</nuxt-link>
             </div>
         </div>
@@ -82,5 +83,6 @@ export default {
    .result-subtit{font-size: 18px; color: var(--grayColor); text-align: center; margin-top: 5px;}
    .result-operat{text-align: center; margin-top: 60px;}
    .result-operat a{.btn(214px,49px,#d0d0d0,transparent,var(--backColor));}
+   .result-operat a.home{.btn(214px,49px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
    .result-operat a:hover{.btn(214px,49px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
 </style>

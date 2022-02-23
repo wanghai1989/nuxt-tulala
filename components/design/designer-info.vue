@@ -1,6 +1,5 @@
 <template>
 <div class="desig-l">
-	<!-- {{designinfo}} -->
 	 <div id="designRule" class="vam vam-rule" style="display:none">
 		 <div class="title">
 			 <div>晋级方式</div>
@@ -28,7 +27,7 @@
 		 </div>
 	 </div>
 	  		<div class="pic">
-	  			<img :src="designinfo.avatar" v-if="designinfo.avatar" />
+	  			<img :src="designinfo.designer_img" v-if="designinfo.designer_img" />
                 <img src='~/assets/images/defaultVip.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
@@ -183,6 +182,5 @@ export default {
 }
 .layui-layer-title{text-align: left; font-weight: bold;}
 }
-
 
 </style>

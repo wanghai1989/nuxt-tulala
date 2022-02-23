@@ -121,7 +121,7 @@ export default {
 .remarks{display: flex; margin-top: 40px;}
 .remarks-l{width: 750px; height: 240px; margin-right: 20px; background: #fff; border-radius: 5px;}
 .remarks-r { width: 430px; border-radius: 5px; background: #fff; padding: 20px 0px; height: 240px; overflow: hidden; box-sizing: border-box; position: relative;
-    .title{display: flex;margin-bottom: 5px; padding: 0px 15px 0px 0px;}
+    .title{display: flex;margin-bottom: 10px; padding: 0px 15px 0px 0px; height: 18px; line-height: 18px;}
     .title h3{font-size: 18px; color: var(--backColor); height: 18px; line-height: 18px; font-weight: bold;
      border-left: 4px solid var(--redColor); text-indent: 20px; flex: 1;}
      .viewmore{ color: var(--color);   
@@ -139,7 +139,7 @@ export default {
 .remarks-lf{float: left;
     width: 170px;
     height: 240px;
-    background: url(https://s1.weikeimg.com/_nuxt/img/zhinengsheji_bg.821b140.png) 100% no-repeat;
+    background: url(~/assets/images/pic61.png) 100% no-repeat;
     padding: 35px 20px 0;
     box-sizing: border-box;
     box-shadow: 0 5px 30px 0 rgb(24 184 188 / 30%);
@@ -170,7 +170,7 @@ export default {
     background-repeat: no-repeat!important;
     background-position: 100%!important;
     float: left;
-    h3{font-weight: bold; font-size: 18px;}
+    h3{font-weight: bold; font-size: 18px; color: var(--backColor);}
     p{color: var(--grayColor);}
 }
 .service-cont:nth-child(3),.service-cont:nth-child(4){
