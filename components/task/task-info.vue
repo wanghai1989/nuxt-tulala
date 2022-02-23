@@ -21,12 +21,14 @@
 		</div>
 	</div>
 	<div class="task-bidding">
+	<div v-if="this.userToken">
 		<div class="tip" v-if="personInfo.designer_status!=102">
 			<i></i>您还未 <nuxt-link to="/enter/design-basic" class="cmain">入驻图啦啦</nuxt-link>，无法报名参与
 		</div>
 		<div class="tip" v-if="!personInfo.certification">
 			<i></i>您还未 <nuxt-link to="/mine/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
 		</div>
+	</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
 			<div>
