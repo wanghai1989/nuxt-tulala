@@ -77,7 +77,7 @@ export default {
   },
    methods: {
     ...mapMutations(['setToken','setShowLogin']),
-    ...mapActions(['login','wechatlogin']),
+    ...mapActions(['login','wechatlogin','fetchPersoninfo']),
     togglePwd(){
       if(this.pwdflag)
       this.pwdflag=false
@@ -101,7 +101,7 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              // this.fetchPerson(data.data.token)
+              
               if(!this.backUrl && !this.showLogin){
                 setTimeout(() => {
                   this.$router.replace('/mine') 
@@ -110,6 +110,7 @@ export default {
               else if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
+                  this.fetchPerson(data.data.token)
                 }, 1000);
               }
               else{
@@ -141,11 +142,12 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              // this.fetchPerson(data.data.token)
               // const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(this.showLogin){
+                this.fetchPerson(data.data.token)
                 setTimeout(() => {
                   this.setShowLogin(0)
+                  console.log(1111111111)
                 }, 1500);
               }else{
                 if(this.backUrl && this.backUrl!='/user/login'){
@@ -164,11 +166,11 @@ export default {
         this.errorMsg=errMsg
       }
     },
-    // fetchPerson:function(token){
-		//   let formDatas = new FormData();
-		//   formDatas.append('token',token);
-		//   this.fetchPersoninfo(formDatas)
-	  // },
+    fetchPerson:function(token){
+		  let formDatas = new FormData();
+		  formDatas.append('token',token);
+		  this.fetchPersoninfo(formDatas)
+	  },
     validate () {
      return common.validateLogin(this.mobile.trim(),this.password.trim())
   }

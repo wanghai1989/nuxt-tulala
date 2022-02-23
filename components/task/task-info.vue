@@ -21,8 +21,11 @@
 		</div>
 	</div>
 	<div class="task-bidding">
-		<div class="tip" v-if="!(personInfo.designer_status==102)">
+		<div class="tip" v-if="personInfo.designer_status!=102">
 			<i></i>您还未 <nuxt-link to="/enter/design-basic" class="cmain">入驻图啦啦</nuxt-link>，无法报名参与
+		</div>
+		<div class="tip" v-if="!personInfo.certification">
+			<i></i>您还未 <nuxt-link to="/mine/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
 		</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
@@ -41,7 +44,7 @@
 				<div class="l"></div>
 				<div class="r">
 					<div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
-					<button type="submit" class="btn-report"  v-if="(workinfo.status==1) && (personInfo.designer_status==102)">参与竞价</button>
+					<button type="submit" class="btn-report"  v-if="((workinfo.status==1) && (personInfo.designer_status==102)) || !userToken">参与竞价</button>
 					<button type="submit" class="btn-report" disabled v-else >参与竞价</button>
 					<!-- <button type="submit" class="btn-report"  v-bind:disabled="!personInfo.certification">报名参与</button> -->
 					<div class="rule">
@@ -69,7 +72,7 @@
 </div>
 </template>
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState, mapActions, mapMutations} from 'vuex'
 import common from '~/assets/js/common'
 import workStep from '~/components/layout/work-step.vue'
 export default {
@@ -96,6 +99,7 @@ export default {
  ...mapActions({
 		  createOffer:'createOffer'
       }),
+	  ...mapMutations(['setShowLogin']),
 	  getLength(){
 		this.content_length=this.description.length
 	},
@@ -109,8 +113,17 @@ closeBigImg:function(){
 		},
  doSubmit (e) {
 			e.preventDefault()
+			if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}
+
 			if(this.personInfo.designer_status!=102){
-				layer.msg('你还未入驻图啦啦，不能参与竞价', {icon: 2});
+				layer.msg('你还未入驻图啦啦，不能参与竞价！', {icon: 2});
+				return
+			}
+			if(!this.personInfo.certification){
+				layer.msg('你还未实名认证，不能参与竞价！', {icon: 2});
 				return
 			}
 			const errMsg=common.validateOffer(this.money,this.description)
@@ -180,7 +193,7 @@ closeBigImg:function(){
     .span-txt.row{width: 100%;}
 	.egg-img{display: inline-block; width: 140px;height: auto; max-height: 140px; overflow: hidden; vertical-align: middle;  margin-top: 10px;}
 	.egg-img img{width: 100%;}
-    .vip-info {margin: 40px 0 0; width: 820px;}
+    .vip-info {margin: 30px 0 0; width: 820px;}
     .vip-info .l{color:var(--backColor); text-align: right; width: 80px;}
     .vip-info .r{padding: 10px 0px 10px 12px; }
     .input,.select{width: 100px; border: 1px solid #d0d0d0; height: 42px; line-height: 42px; text-indent: 5px; color: #333; border-radius: 4px;}

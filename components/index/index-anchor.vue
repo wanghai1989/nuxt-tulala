@@ -1,5 +1,5 @@
 <template>
-    <ul class="anchor-list">
+    <ul class="anchor-list" id="anchor">
         <li class="prod-type service"> 
 				<a href="#remarks"> <i></i><br /> <span>精选服务</span></a>
 			</li>
@@ -8,6 +8,7 @@
 			</li>
 		</ul>
 </template>
+
 <script>
  import {
     mapState,mapActions
@@ -24,11 +25,21 @@ export default {
   },
   mounted(){  
 	  this.fetchCategory()
+      this.showTop()
   },
   methods:{ //页面进来发送请求
       ...mapActions({
           fetchCategory: 'fetchCategory'
-      })
+      }),
+      showTop(){
+                    window.onscroll = function () {
+                        if ($(window).scrollTop()>500){
+                            $("#anchor").fadeIn(800);
+                            }else{
+                            $("#anchor").fadeOut(800);
+                            }
+                    }
+                },
   
 }
 }
@@ -45,7 +56,7 @@ export default {
         background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
-.anchor-list {text-align: center; 
+.anchor-list {text-align: center;  display: none;
     width: 68px;
     position: fixed;
     top: 50%;

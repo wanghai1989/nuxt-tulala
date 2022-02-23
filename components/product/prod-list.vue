@@ -94,14 +94,13 @@ mounted(){
 	  ...mapState(['countfile','productlist','personInfo','userToken','idClass','idName'])
   },
 	methods:{
-		...mapMutations(['setShowLogin']),
+		...mapMutations(['setShowLogin','setShowVip']),
 		...mapActions({
 		  fetchProductlist:'fetchProductlist',
 		  operateCollect:'operateCollect',
 		  downFile:'downFile'
 		  
       }),
-	  ...mapMutations(['setShowLogin','setShowVip']),
 		 //从page组件传递过来的当前page
             pageChange:function(page) {
                 this.page = page

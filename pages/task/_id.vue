@@ -1,5 +1,6 @@
 <template>
 <div>
+  <webLogin></webLogin>
   <webBanner  position='outsourcing_tasks'></webBanner>
    <taskRule></taskRule>
     <div class="wrapper">
@@ -14,6 +15,7 @@
 
 <script>
 import {mapState} from 'vuex'
+import webLogin from '~/components/layout/web-login.vue'
 import webBanner from '~/components/layout/web-banner.vue'
 import taskRule  from '~/components/layout/task-rule.vue'
 import taskInfo from '~/components/task/task-info.vue'
@@ -21,7 +23,7 @@ import taskRight from '~/components/task/task-right.vue'
 
 export default {
    layout: 'web',
-   components: {webBanner,taskInfo,taskRight,taskRule},
+   components: {webLogin,webBanner,taskInfo,taskRight,taskRule},
    head(){
 	   return {
 			title: this.workinfo.name+'_图啦啦91tula.com',

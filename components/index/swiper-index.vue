@@ -7,8 +7,10 @@
 	      	</a>
 		</div>
     </div>
+	<div class="swiper-button-prev swiper-button-white"></div><!--左箭头。如果放置在swiper外面，需要自定义样式。-->
+    <div class="swiper-button-next swiper-button-white"></div><!--右箭头。如果放置在swiper外面，需要自定义样式。-->
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
   </div>
 	
 </template>
@@ -36,11 +38,19 @@ export default {
 		  formDatas.append('position', this.position);
 		 await this.fetchHomeBanner(formDatas);
 			  new Swiper('.swiper-container', {
-						pagination: {
-							clickable :true,
-							el: '.swiper-pagination',
-						},
-						autoplay:true
+						// pagination: {
+						// 	clickable :true,
+						// 	el: '.swiper-pagination',
+						// },
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+							},
+						autoplay: {
+								delay: 5000,
+								stopOnLastSlide: false,
+								disableOnInteraction: true,
+								}
 						});
 			
 	  }
@@ -48,8 +58,11 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.swiper-container { width: 100%; height: 560px; position: relative;  z-index: 2;  }
-.swiper-pagination{ bottom: 70px;left: 0; width: 100%;}
-.swiper-pagination-bullet{width: 10px; height: 10px; margin: 0px 4px;}
-.swiper-pagination .swiper-pagination-bullet-active{background: #fff;}
+.swiper-container { width: 100%; height: 560px; position: relative;  z-index: 2; }
+// .swiper-pagination{ bottom: 70px;left: 0; width: 100%;}
+// .swiper-pagination-bullet{width: 10px; height: 10px; margin: 0px 4px;}
+// .swiper-pagination .swiper-pagination-bullet-active{background: #fff;}
+
+.swiper-button-next{right: 54px;}
+
 </style>
