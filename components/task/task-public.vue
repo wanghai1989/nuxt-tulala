@@ -25,7 +25,7 @@
 		 				</div>
 		 				<div>
 		 					<div class="l"><span class="cred">*</span>手机号</div>
-		 					<div class="r"><input type="text" class="input" v-model="personInfo.mobile"/> </div>
+		 					<div class="r"><input type="text" class="input" v-model="personInfo.mobile"/> <span class="cgray">不公开</span></div>
 		 				</div>
 						 <div>
 		 					<div class="l"><span class="cred">*</span>要求描述</div>

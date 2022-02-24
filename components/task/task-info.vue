@@ -21,14 +21,12 @@
 		</div>
 	</div>
 	<div class="task-bidding">
-	<div v-if="this.userToken">
 		<div class="tip" v-if="personInfo.designer_status!=102">
 			<i></i>您还未 <nuxt-link to="/enter/design-basic" class="cmain">入驻图啦啦</nuxt-link>，无法报名参与
 		</div>
 		<div class="tip" v-if="!personInfo.certification">
 			<i></i>您还未 <nuxt-link to="/mine/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
 		</div>
-	</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
 			<div>
@@ -87,7 +85,7 @@ export default {
 		content_length:0,
 		errorMsg:'',
 		showBigImg:0,
-	 UrlBigImg:''
+	    UrlBigImg:''
 	//  userInfo:{}
     }
   },
@@ -201,7 +199,7 @@ closeBigImg:function(){
     .input,.select{width: 100px; border: 1px solid #d0d0d0; height: 42px; line-height: 42px; text-indent: 5px; color: #333; border-radius: 4px;}
     textarea{width: 100%; height: 100px; border: 1px solid #d0d0d0;text-indent: 5px; color: #333; border-radius: 4px;}
     .task-bidding{padding-top: 25px; border-top: 1px solid #eee;    margin-top: 15px;}
-    .tip{font-size: 12px; color: var(--grayColor);}
+    .tip{font-size: 12px; color: var(--grayColor); margin-bottom: 10px;}
     .tip i{.bg-map(16px,16px,-999px, -44px); margin-right: 6px;}
     .btn-report{.btn(180px,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
 	.rule{width: 180px; text-align: center; margin-top: 5px;}

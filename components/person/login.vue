@@ -35,14 +35,6 @@
         <nuxt-link to="/user/forget-pwd"  class="smslogin">忘记密码？</nuxt-link>
 				<span class="goreg">没有账户，<a href="javascript:void(0)" @click="goregist()" >立即注册</a></span>
 			</div>
-			<!-- <div class="quick-login">
-				<a class="login-wechat" href="person-info.html">
-					<i></i><br> 微信登录
-				</a>
-				 <a class="login-qq">
-					<i></i><br>QQ登录
-				</a> 
-			</div> -->
 	</div>
 	</form>
 </template>
@@ -73,11 +65,11 @@ export default {
    }
   },
   computed:{
-     ...mapState(['showLogin'])
+     ...mapState(['showLogin','userToken'])
   },
    methods: {
-    ...mapMutations(['setToken','setShowLogin']),
-    ...mapActions(['login','wechatlogin','fetchPersoninfo']),
+    ...mapMutations(['setToken','setShowLogin','fillpersonInfo']),
+    ...mapActions(['login','wechatlogin','getPersoninfo']),
     togglePwd(){
       if(this.pwdflag)
       this.pwdflag=false
@@ -110,7 +102,7 @@ export default {
               else if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
-                  this.fetchPerson(data.data.token)
+                  this.getPersoninfo(data.data.token)
                 }, 1000);
               }
               else{
@@ -144,10 +136,9 @@ export default {
               this.setToken(data.data.token)
               // const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(this.showLogin){
-                this.fetchPerson(data.data.token)
+                this.getPersoninfo(data.data.token)
                 setTimeout(() => {
                   this.setShowLogin(0)
-                  console.log(1111111111)
                 }, 1500);
               }else{
                 if(this.backUrl && this.backUrl!='/user/login'){
@@ -166,11 +157,6 @@ export default {
         this.errorMsg=errMsg
       }
     },
-    fetchPerson:function(token){
-		  let formDatas = new FormData();
-		  formDatas.append('token',token);
-		  this.fetchPersoninfo(formDatas)
-	  },
     validate () {
      return common.validateLogin(this.mobile.trim(),this.password.trim())
   }

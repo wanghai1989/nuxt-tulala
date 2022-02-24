@@ -428,17 +428,17 @@ export const actions = {
         return model.getPersoninfo(userToken)
         
       },
-      //  fetchPersoninfo({commit},userToken){
-      //   commit('startLoading')
-      //   return model.getPersoninfo(userToken)
-      //   .then(data => {
-      //     commit('endLoading')
-      //     commit('fillpersonInfo', data.data)
-      //   })
-      //   .catch(err => {
-      //     handleError(err)
-      //   })
-      // },
+       getPersoninfo({commit},formData){
+        commit('startLoading')
+        return model.getPersoninfo(formData)
+        .then(data => {
+          commit('endLoading')
+          commit('fillpersonInfo', data.data)
+        })
+        .catch(err => {
+          handleError(err)
+        })
+      },
       saveRealname({commit},formData){
         return model.saveRealname(formData);
       },
