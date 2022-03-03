@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2981494 */
-  src: url('iconfont.woff2?t=1645003802989') format('woff2'),
-       url('iconfont.woff?t=1645003802989') format('woff'),
-       url('iconfont.ttf?t=1645003802989') format('truetype');
+  src: url('iconfont.woff2?t=1646293317323') format('woff2'),
+       url('iconfont.woff?t=1646293317323') format('woff'),
+       url('iconfont.ttf?t=1646293317323') format('truetype');
 }
 
 .iconfont {
@@ -13,12 +13,52 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-tuxiai:before {
+.icon-tushejishi:before {
+  content: "\e60a";
+}
+
+.icon-tufuli:before {
+  content: "\e618";
+}
+
+.icon-tuhuiyuan:before {
+  content: "\e60f";
+}
+
+.icon-tukefu:before {
+  content: "\e613";
+}
+
+.icon-tuqiandao1:before {
+  content: "\e6ed";
+}
+
+.icon-tuyaoqingjiaru:before {
+  content: "\e61c";
+}
+
+.icon-tuxiazai:before {
+  content: "\e608";
+}
+
+.icon-tuarrow-:before {
+  content: "\e626";
+}
+
+.icon-tukoubei:before {
+  content: "\e673";
+}
+
+.icon-tufuwu:before {
+  content: "\eb36";
+}
+
+.icon-tujingxuan:before {
   content: "\e607";
 }
 
 .icon-tuqiandao:before {
-  content: "\e62c";
+  content: "\7b7e";
 }
 
 .icon-tuduosucai:before {
@@ -81,7 +121,7 @@
   content: "\e600";
 }
 
-.icon-tu31wodexuanzhong:before {
+.icon-tuwode:before {
   content: "\e601";
 }
 

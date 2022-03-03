@@ -1,5 +1,5 @@
 <template>
-    <div class="handin wrapper">
+    <div class="handin wrapper" id="kbhp">
 	  	<div class="nav">
 			  <nuxt-link to="/about/handin-hand" class="focus">口碑好评</nuxt-link>
 	  		&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/qq-group">QQ联盟</nuxt-link>&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/enterprise-team">团队介绍</nuxt-link>
