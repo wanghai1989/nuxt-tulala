@@ -25,7 +25,6 @@ export default {
       
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{src:'~assets/less/public.less',lang:'less'}],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
