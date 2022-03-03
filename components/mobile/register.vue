@@ -202,14 +202,14 @@ export default {
     cursor: pointer;
 }
 .regist-box{background:#fff;  min-height: 100vh; box-sizing: border-box; padding-bottom: 30px;}
-.regist-head{width: 100%; height: 2.5rem; background: url(~/assets/images/pic50.png) no-repeat; background-size: cover; padding-top: .5rem; box-sizing: border-box;}
-.regist-head .logo{width: 1.2rem; margin: 0 auto; text-align: center;}
+.regist-head{width: 100%; height: 250px; background: url(~/assets/images/pic50.png) no-repeat; background-size: 100% 100%; padding-top: 40px; box-sizing: border-box;}
+.regist-head .logo{width: 120px; margin: 0 auto; text-align: center; font-size: 14px;}
 .regist-head .logo img{width: 100%;}
-.regist-head .tip{width: 2.2rem; color: #fff; font-size: 20px; text-align: center; position: relative; margin: .3rem auto 0; height: .3rem; line-height: .3rem;}
-.regist-head .tip::before{content: ''; display: block; position: absolute;     top: .14rem;
-    left: -.5rem; height: 1px; background: #fff; width: .5rem;}
-.regist-head .tip::after{content: ''; display: block; position: absolute;     top: .14rem;
-    right: -.5rem; height: 1px; background: #fff; width: .5rem;}
+.regist-head .tip{width: 220px; color: #fff; font-size: 20px; text-align: center; position: relative; margin: 30px auto 0; height: 30px; line-height: 30px;}
+.regist-head .tip::before{content: ''; display: block; position: absolute;     top: 14px;
+    left: -50px; height: 1px; background: #fff; width: 50px;}
+.regist-head .tip::after{content: ''; display: block; position: absolute;     top: 14px;
+    right: -50px; height: 1px; background: #fff; width: 50px;}
 .login-style{margin-top: 30px; height: auto;padding: 0 30px 0;
 h3.title{font-size: 20px; color: var(--color);margin-bottom: 20px;}
 .input-item{border-bottom: 1px solid #d6d6d6; display: flex;    padding: 10px 0px;}

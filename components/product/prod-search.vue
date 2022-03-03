@@ -140,7 +140,7 @@ export default {
     vertical-align: middle;
     cursor: pointer;
 }
-.divsearch{width: 870px; height: 60px; background-color: #ffffff; border-radius: 8px;
+.divsearch{width: 870px; height: 60px; background-color: #fff; border-radius: 8px;
 border-width: 2px; border-color: #3ebb2b; border-style: solid; margin: 40px auto 0px; position: relative; z-index: 3;
    .searchtype{float: left;
     padding-left: 17px;
@@ -162,7 +162,9 @@ border-width: 2px; border-color: #3ebb2b; border-style: solid; margin: 40px auto
     text-indent: 20px;
     font-size: 18px;
     line-height: 58px;
+    
 }
+
 .btn-search{
     .btn(137px,48px,transparent,transparent,#fff);background-image: linear-gradient(90deg, 
         #2dc61d 0%, 
@@ -170,10 +172,12 @@ border-width: 2px; border-color: #3ebb2b; border-style: solid; margin: 40px auto
 }
 .btn-search i{.bg-map(20px,20px,-795px,-4px); margin: -1px 7px 0px 0px;}
 }
+.search-box.index .i-search{background: rgba(255,255,255,0)}
 .search-box.index .divsearch {
     border-width: 5px;
     border-color: #888;
     margin: -175px auto 0px;
+    background-color: rgba(255,255,255,0.8);
 }
 .divsearch.png .btn-search{background: var(--color) ;}
 .divsearch.bjtp .btn-search{background: var(--colorBjtp) ;}

@@ -27,7 +27,7 @@
 		 </div>
 	 </div>
 	  		<div class="pic">
-	  			<img :src="personInfo.avatar" v-if="personInfo.avatar" />
+	  			<img :src="designinfo.designer_img" v-if="designinfo.designer_img" />
                 <img src='~/assets/images/defaultVip.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
@@ -35,25 +35,34 @@
 	  		</div>
 
 	  		<div class="cgray">{{designlevel[designinfo.designer_level]}}<i class="i-tip" @click="designRule()"></i> </div>
-			  <div class="design-target">
+			  <div class="design-target" v-if="designinfo.designer_target">
 				  <a href="javascript:void(0)"  v-for="(item,index) in splitTarget(designinfo.designer_target)" :key="index" >{{item}}</a>
 			  </div>
 			  <div class="mt5">
 			<!-- <a href="#" class="btn-attention">关注 8</a> -->
-	  		<a href="#" class="btn-entrust">委托设计</a>
+	  		<a href="javascript:void(0)" class="btn-entrust" @click="entrust()">委托设计</a>
 			  </div>
 	  		<div class="vam vam-person">
 				<div>
 	  				<div class="vam-l">个人资料</div>
-	  				<div class="vam-r"><i class="i-certi" :class="{'no':!personInfo.is_complete_my_info}"></i></div>
+	  				<div class="vam-r">
+						  <i class="i-certi" title="已完善" v-if="personInfo.is_complete_my_info"></i>
+						  <i class="i-certi no" title="未完善" v-else></i>
+					</div>
 	  			</div>
 	  			<div>
 	  				<div class="vam-l">实名认证</div>
-	  				<div class="vam-r"><i class="i-certi"  :class="{'no':!personInfo.certification}"></i> </div>
+	  				<div class="vam-r">
+						<i class="i-certi" title="已认证" v-if="personInfo.certification"></i> 
+						<i class="i-certi no"  title="未认证" v-else></i> 
+					</div>
 	  			</div>
 	  			<div>
 	  				<div class="vam-l">手机认证</div>
-	  				<div class="vam-r"><i class="i-certi"  :class="{'no':!personInfo.is_binding_mobile}"></i></div>
+	  				<div class="vam-r">
+						<i class="i-certi"  title="已认证" v-if="personInfo.is_binding_mobile"></i>
+						<i class="i-certi no"  title="未认证" v-else></i>
+					</div>
 	  			</div>
 	  			<!-- <div>
 	  				<div class="vam-l">设计师级别</div>
@@ -100,6 +109,9 @@ export default {
 //  ...mapActions({
 // 		  fetchDesignInfo:'fetchDesignInfo'
 //       }),
+	entrust:function(){
+		layer.msg('此功能即将开放，敬请期待！！！', {icon: 6});
+	},
 	 designRule:function() {
 		  layer.open({
 				type: 1,
@@ -170,6 +182,5 @@ export default {
 }
 .layui-layer-title{text-align: left; font-weight: bold;}
 }
-
 
 </style>

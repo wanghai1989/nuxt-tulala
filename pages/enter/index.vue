@@ -1,5 +1,6 @@
 <template>
 <div>
+	<webLogin></webLogin>
    <webBanner position='designer'></webBanner>
      <div class="wrapper">
      </div>
@@ -21,21 +22,21 @@
 	  					<img src="~/assets/images/pic34.png" />
 	  				</div>
 	  				<div class="title">收入可观</div>
-	  				<div class="subtit">可以通过上传作品以及参与任务赚取佣金</div>
+	  				<div class="subtit">可以通过上传作品以及在线接单赚取佣金</div>
 	  			</li>
 	  			<li>
 	  				<div class="img">
 	  					<img src="~/assets/images/pic35.png" />
 	  				</div>
 	  				<div class="title">机会多多</div>
-	  				<div class="subtit">表现优异的设计师有机会进入图啦啦管理层</div>
+	  				<div class="subtit">表现优异的设计师有机会进入图啦啦团队</div>
 	  			</li>
 	  			<li>
 	  				<div class="img">
 	  					<img src="~/assets/images/pic36.png" />
 	  				</div>
 	  				<div class="title">实现价值</div>
-	  				<div class="subtit">平台让您的作品价值最大化</div>
+	  				<div class="subtit">通过作品展示，客户评价证明自己</div>
 	  			</li>
 	  		</ul>
 	  	</div>
@@ -51,7 +52,7 @@
 	  				<div class="title">UI类设计师</div>
 	  				<div class="subtit">UI类设计师需要有一定的互联网产品设计逻辑，能熟练使用PS、AI、Sketch等设计软件</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -61,7 +62,7 @@
 	  				<div class="title">模板类设计师</div>
 	  				<div class="subtit">模板类设计师需要较好的审美和设计能力需要熟练使用PS、AI、CDR等设计软件过硬的排版，配色及作品把控能力工作认真负责</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -71,7 +72,7 @@
 	  				<div class="title">办公类设计师</div>
 	  				<div class="subtit">办公类设计师需要熟悉word/Excel/PPT软件，对数据敏感设计基础，逻辑性较强的表格排版有较好的设计基础和成熟的排版思路</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+              <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  			<li>
@@ -81,7 +82,7 @@
 	  				<div class="title">摄影类设计师</div>
 	  				<div class="subtit">综合类设计师需要对摄影拥有自己独到的理解，能熟练使用PS、AI、Sketch、CDR等设计软件</div>
 	  				<div>
-              <router-link class="btn-join"  to="/enter/design-basic">立即入驻</router-link>
+						  <a  class="btn-join"  href="javascript:void(0)"  @click.prevent="goEnter()">立即入驻</a>
             </div>
 	  			</li>
 	  		</ul>
@@ -92,16 +93,16 @@
 	  		<div class="theme-title enter">入驻可以得到什么</div>
 	  		<ul class="harvest">
 	  			<li class="p1">
-	  				<em></em><b>可观的报酬</b>  上传设计作品越多，质量越好，获得的报酬越高。目前合作的设计师报酬在1000-10000元之间。
+	  				<em></em><b>可观的报酬</b> 上传设计作品越多，质量越好，获得的报酬越高。目前合作的设计师报酬在1000-10000元之间。
 	  			</li>
 	  			<li class="p2">
-	  				<em></em><b>快速提升技能</b>  跟大量优秀设计师一起交流探讨，还有资深设计师定期给你做专业的指导，让你的专业技能快速提升。
+	  				<em></em><b>快速提升技能</b> 跟大量优秀设计师一起交流探讨，还有资深设计师定期给你做专业的指导，让你的专业技能快速提升。
 	  			</li>
 	  			<li class="p3">
-	  				<em></em><b>在线接单</b>    你在入驻图啦啦之后还可以注册成为接单设计师，赚取额外收入。
+	  				<em></em><b>在线接单</b> 你在注册图啦啦之后还可以入驻图啦啦，在线接单赚钱外块增加收入。
 	  			</li>
 	  			<li class="p4">
-	  				<em></em><b>合伙设计师</b>  平台会不定期在众多优秀设计师中招募合伙设计师，合伙设计师将享受期权奖励，平台分红等报酬。
+	  				<em></em><b>合伙设计师</b> 平台会不定期在众多优秀设计师中招募合伙设计师，合伙设计师将享受期权奖励，平台分红等报酬。
 	  			</li>
 	  		</ul>
 	  		</div>
@@ -161,26 +162,18 @@
 	  			</li>
 				   <li>
 	  				<div class="question">
-	  					<span>Q7：图啦啦上的设计师信息都真实吗？</span> <em></em>
+	  					<span>Q7：发布外包任务时注意事项？</span> <em></em>
 	  				</div>
 	  				<div class="answer">
-	  					<em>A7：</em>所有入驻图啦啦的设计师都通过实名认证，手机认证。并且同意图啦啦严格制定的用户协议条款，并且图啦啦独创设计师晋级体系、作品评审推荐体系，真实、严谨是图啦啦一贯坚持的基本原则。
+	  					<em>A7：</em>尽量详细描述任务需求，有参考案例的可以上传附件，以便合适的服务方报名参与。
 	  				</div>
 	  			</li>
 				   <li>
 	  				<div class="question">
-	  					<span>Q8：发布外包任务时注意事项？</span> <em></em>
+	  					<span>Q8：雇主行为准则</span> <em></em>
 	  				</div>
 	  				<div class="answer">
-	  					<em>A8：</em>尽量详细描述任务需求，有参考案例的可以上传附件，以便合适的服务方报名参与。
-	  				</div>
-	  			</li>
-				   <li>
-	  				<div class="question">
-	  					<span>Q9：雇主行为准则</span> <em></em>
-	  				</div>
-	  				<div class="answer">
-	  					<em>A9：</em>1、我们希望您了解任何通过非图啦啦平台的交易都是不允许的；<br/>
+	  					<em>A8：</em>1、我们希望您了解任何通过非图啦啦平台的交易都是不允许的；<br/>
 					       2、我们希望您了解任何私下招聘平台服务方为员工的行为都是不允许的；<br/>
 							3、我们希望您了解任何通过非法手段影响服务方的人身安全的行为都是不允许的；<br/>
 							4、我们希望您了解任何恶意攻击图啦啦以及其合作伙伴的行为都是不允许的；<br/>
@@ -196,14 +189,14 @@
 	  					<span>Q1：服务方行为准则</span> <em></em>
 	  				</div>
 	  				<div class="answer">
-	  					<em>A1：</em>1、未经授权擅自使用68Design及其关联公司的任何品牌权利 <br />
-						如有服务方违反上述条例，将被清除68Design，并终生封号。<br /><br />
+	  					<em>A1：</em>1、未经授权擅自使用图啦啦91tula.com及其关联公司的任何品牌权利 <br />
+						如有服务方违反上述条例，将被清除图啦啦91tula.com，并终生封号。<br /><br />
 
-						2、直接或间接仿冒/利用68Design及其关联公司的工作人员<br />
-						如有服务方违反上述条例，将被清除68Design，并终生封号。<br /><br />
+						2、直接或间接仿冒/利用图啦啦91tula.com及其关联公司的工作人员<br />
+						如有服务方违反上述条例，将被清除图啦啦91tula.com，并终生封号。<br /><br />
 
-						3、服务方以非68Design授权的收款方式收取雇主托管工资。<br />
-						如有服务方违反上述条例，将被清除68Design，并终生封号。<br /><br />
+						3、服务方以非图啦啦91tula.com授权的收款方式收取雇主托管工资。<br />
+						如有服务方违反上述条例，将被清除图啦啦91tula.com，并终生封号。<br /><br />
 
 						4、服务方不得有顶撞、谩骂等对雇主的恶意行为<br />
 						如有服务方违反上述条例，强制暂停接单60天。<br /><br />
@@ -212,7 +205,7 @@
 						如有服务方违反上述条例，强制暂停接单60天。<br /><br />
 
 						6、工作期间，服务方不得删除雇主联系方式或直接拉黑雇主<br />
-						如有服务方与雇主有纠纷，需上报平台进行仲裁，如服务方私自进行上述行为，将被清除出68Design，并终身不得注册。<br /><br />
+						如有服务方与雇主有纠纷，需上报平台进行仲裁，如服务方私自进行上述行为，将被清除出图啦啦91tula.com，并终身不得注册。<br /><br />
 
 						7、服务方接到退款申请之后不得故意拖延或拒绝进行下一步行为(同意或不同意)<br />
 						如服务方违反上述条例，强制暂停接单60天。<br /><br />
@@ -221,7 +214,7 @@
 						如服务方违反上述条例，强制暂停接单60天。<br /><br />
 
 						9、服务方不得发布非法、非原创、侵权作品<br />
-						68Design所有作品的版权由服务方本人解释，如果平台核实服务方违反上述条例，将强制暂停接单60天，情节严重的将清除出68Design，并终身不得注册。<br /><br />
+						图啦啦91tula.com所有作品的版权由服务方本人解释，如果平台核实服务方违反上述条例，将强制暂停接单60天，情节严重的将清除出图啦啦91tula.com，并终身不得注册。<br /><br />
 
 						10、在线全职包月，服务方每天必须在约定的上下班时间打卡联系雇主（例如：早上好，我开始上班啦！我下班了哦！）<br />
 						如果服务方在约定的上班时间未打卡联系雇主或者下班时间未打卡联系雇主，发生纠纷时，当天只计算半天薪资。如果服务方在约定的上班和下班时间均未打卡联系雇主，发生纠纷时，当天不计算薪资。<br /><br />
@@ -321,10 +314,11 @@
 
 <script>
 import webBanner from '~/components/layout/web-banner.vue'
+import webLogin from '~/components/layout/web-login.vue'
 import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
    layout: 'web',
-   components: {webBanner},
+   components: {webBanner,webLogin},
   data () {
     return {
       // userInfo: {}
@@ -335,7 +329,7 @@ export default {
     // this.userInfo=JSON.parse(localStorage.getItem("userInfo"))
   },
   computed:{
-      ...mapState(['navigation','notice','personInfo'])
+      ...mapState(['navigation','notice','personInfo','userToken'])
   },
 head(){
 	   return {
@@ -352,6 +346,15 @@ head(){
 			}
   },
   methods:{
+	  ...mapMutations(['setShowLogin']),
+	  goEnter(){
+		if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}else{
+			this.$router.push('/enter/design-basic') 
+		}
+	},
      toggleInfo:function(){
          $(".question").bind("click",function(){
             $(this).next().toggle()

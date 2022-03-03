@@ -6,7 +6,7 @@
         </li>
 	</ul>
 	<ul class="ul-prodfile clearfix" v-if="collectlist.length>0">
-		<li   v-for="item in collectlist" :key="item.id">
+		<li   v-for="(item,index) in collectlist" :key="index">
 			<nuxt-link :to="{ name: 'material-detail-id', params:{ id: item.id }}">
 			<div class="prod-img">
 				<img :src="item.list_img_path">

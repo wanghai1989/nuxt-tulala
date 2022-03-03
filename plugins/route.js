@@ -15,7 +15,8 @@ const requireLogin=[
     '/vip/pay-vip',
     '/m/mobile-mine',
     '/m/mobile-taskpublic',
-    '/m/mobile-taskaccept'
+    '/m/mobile-taskaccept',
+    '/m/public-task'
     // '/m/mobile-invite'
 ]
 export default ({
@@ -41,7 +42,7 @@ export default ({
                             })
                         }else{
                             store.commit('cancelToken', token)
-                            next( next({path: '/m/mobile-login',query:{backUrl:to.path}})  )
+                             next({path: '/m/mobile-login',query:{backUrl:to.path}})  
                         }
                     })
                 }

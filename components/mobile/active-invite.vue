@@ -34,7 +34,7 @@ export default {
   },
 
 	computed:{
-	  ...mapState(['personInfo','userToken','baseUrl','isShare'])
+	  ...mapState(['personInfo','userToken','baseUrl','basemUrl','isShare'])
   },
   mounted(){
     console.log(this.$route.path)
@@ -72,7 +72,7 @@ export default {
             return
         } 
 
-          let invitelink=this.baseUrl+'m/mobile-invite?invite_code='+ this.personInfo.invite_code 
+          let invitelink=this.basemUrl+'/mobile-register?invite_code='+ this.personInfo.invite_code 
 
 
           QRCode.toDataURL(invitelink, {
@@ -81,7 +81,7 @@ export default {
                     width: 140, //高度
                     height: 140, //宽度
                     errorCorrectionLevel: "L", //容错率
-                    margin: 1, //外边距
+                    margin: 2, //外边距
                     color: {
                       dark: "#000000", //前景色
                       light: "#ffffff" //背景色

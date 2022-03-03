@@ -3,6 +3,7 @@
 		 		<!-- <div class="title">发布任务</div> -->
          <workStep :stepId="1"></workStep>
 		 		<div class="task-info">
+          <div class='warntip'><i></i> 平台交易客户权益有保障，资金更安全；如线下交易，平台不承担任何责任 ！</div>
 		 			<div class="vam vip-info">
 						 <div>
 		 					<div class="l"><span class="cred">*</span>任务类型</div>
@@ -24,7 +25,7 @@
 		 				</div>
 		 				<div>
 		 					<div class="l"><span class="cred">*</span>手机号</div>
-		 					<div class="r"><input type="text" class="input" v-model="personInfo.mobile"/> </div>
+		 					<div class="r"><input type="text" class="input" v-model="personInfo.mobile"/> <span class="cgray">不公开</span></div>
 		 				</div>
 						 <div>
 		 					<div class="l"><span class="cred">*</span>要求描述</div>
@@ -274,7 +275,9 @@ clearInfo(){
     cursor: pointer;
 }
 .task-l{float: left; width: 895px; float: left; margin-right: 25px;   
-    .task-info{padding: 25px;background: #fff;}
+    .task-info{padding: 25px;background: #fff; position: relative;}
+    .warntip{height: 40px; line-height: 40px; width: 100%; position: absolute; top: 0; left: 0; background: rgba(0, 0, 0, 0.4); color: #fff; text-align: center;}
+    .warntip i{.bg-map(20px,20px,-423px, -251px);}
     .title{height: 80px; line-height: 80px;background: #eee; color:var(--backColor); text-indent: 25px; font-size: 20px;}
     .vip-info {margin: 20px 0 0; width: 820px;}
     .vip-info .l{color:var(--backColor); text-align: right; width: 80px;}
@@ -282,6 +285,7 @@ clearInfo(){
     .input,.select{width: 400px; border: 1px solid #d0d0d0; height: 42px; line-height: 42px; text-indent: 5px; color: #333; border-radius: 4px;}
     textarea{width: 100%; height: 100px; border: 1px solid #d0d0d0;text-indent: 5px; color: #333; border-radius: 4px;}
     .btn-report{.btn(180px,42px,var(--color),linear-gradient(90deg, #2dc61d 0%, #2dc61d 100%),#fff);}
+    .btn-report:hover{opacity: 0.9;}
     }
 	.upload_warp_img_div_del {
       position: absolute;

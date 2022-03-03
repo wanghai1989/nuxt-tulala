@@ -3,8 +3,8 @@
 <header class="header" :class="pageclass"> 
 			<div class="logo">
                 <nuxt-link to="/">
-                    <img src="~/assets/images/logo01.png" v-if="pageclass=='index'" >
-                    <img src="~/assets/images/logo02.png" v-else >
+                    <img src="~/assets/images/logo01.png" title="图啦啦" v-if="pageclass=='index'" >
+                    <img src="~/assets/images/logo02.png" title="图啦啦" v-else >
               </nuxt-link>
 			</div>
 			<div class="wrapper clearfix">
@@ -144,7 +144,6 @@ fetchNoticeList:function(){
 		  let formDatas = new FormData();
 		  formDatas.append('page', 1);
 		  formDatas.append('pageSize', 5); //查前五条数据
-
 		  this.fetchNotice(formDatas)
 	  },
     // updatePersoninfo:function(){
@@ -212,10 +211,7 @@ fetchNoticeList:function(){
     .btn-notice>.ul-notice{position: absolute;     top: 28px; display: none;
     left: -100px; width: 260px; padding: 10px 25px; box-sizing: border-box; background: #fff; border-radius: 8px;
     box-shadow: 0px 0px 6px 0px #d0d0d0; line-height: 44px;
-    li{white-space: nowrap;
-    width: 100%;
-    overflow: hidden; border-bottom: 1px solid #eee;
-    text-overflow: ellipsis;}
+    li{white-space: nowrap;width: 100%;overflow: hidden; border-bottom: 1px solid #eee; text-overflow: ellipsis;}
     li a{color: var(--grayColor);}
     li a:hover{color: var(--backColor);}
     li.all{border-bottom: none;}

@@ -1,5 +1,6 @@
 <template>
 <div class="task-box">
+  <nuxt-link to="/m/public-task" class="publictask">发布<br/>任务</nuxt-link>
   <h3 class="title">全部工单</h3>
 	<ul class="ul-task">
     <li   v-for="item in workorder" :key="item.id">
@@ -102,7 +103,7 @@ export default {
     cursor: pointer;
 }
 h3.title{color: var(--backColor); font-size: 18px; height: 50px; line-height: 50px; padding: 0px 15px;} 
-.task-box{background: #f2f2f2;  min-height: 100vh;}
+.task-box{background: #f2f2f2;  min-height: 100vh; }
 .ul-task{padding: 0px 0px 5px;
   li{background: #fff;   padding: 10px 15px;
     margin-bottom: 10px;}
@@ -112,4 +113,6 @@ h3.title{color: var(--backColor); font-size: 18px; height: 50px; line-height: 50
   .vam-task{color: var(--grayColor); line-height: 30px;}
   .vam-task strong{font-size: 16px; color: var(--backColor); font-weight: normal;}
 } 
+.publictask{position: fixed; right: 15px; top: 42%; display: block; width: 50px; height: 50px;  border-radius: 25px;
+text-align: center; background: var(--color);color: #fff; font-size: 12px; line-height: 16px; padding-top: 9px; box-sizing: border-box;}
 </style>

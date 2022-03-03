@@ -33,16 +33,8 @@
 			</div>
 			<div class="tip">
         <nuxt-link to="/user/forget-pwd"  class="smslogin">忘记密码？</nuxt-link>
-				<span class="goreg">没有账户，<nuxt-link to="/user/register">立即注册</nuxt-link></span>
+				<span class="goreg">没有账户，<a href="javascript:void(0)" @click="goregist()" >立即注册</a></span>
 			</div>
-			<!-- <div class="quick-login">
-				<a class="login-wechat" href="person-info.html">
-					<i></i><br> 微信登录
-				</a>
-				 <a class="login-qq">
-					<i></i><br>QQ登录
-				</a> 
-			</div> -->
 	</div>
 	</form>
 </template>
@@ -66,17 +58,18 @@ export default {
   mounted(){
   if(this.$route.query.backUrl){
      this.backUrl=this.$route.query.backUrl
+     console.log(this.backUrl)
    }
    if(this.$route.query.code){
      this.wechatSubmit(this.$route.query.code)
    }
   },
   computed:{
-     ...mapState(['showLogin'])
+     ...mapState(['showLogin','userToken'])
   },
    methods: {
-    ...mapMutations(['setToken','setShowLogin']),
-    ...mapActions(['login','wechatlogin']),
+    ...mapMutations(['setToken','setShowLogin','fillpersonInfo']),
+    ...mapActions(['login','wechatlogin','getPersoninfo']),
     togglePwd(){
       if(this.pwdflag)
       this.pwdflag=false
@@ -84,7 +77,7 @@ export default {
       this.pwdflag=true
     },
     webchatLogin:function(){
-      window.location.href= 'https://open.weixin.qq.com/connect/qrconnect?appid=wx79e8ed0c330dabe2&redirect_uri=http://www.91tula.com&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+      window.location.href= 'https://open.weixin.qq.com/connect/qrconnect?appid=wx79e8ed0c330dabe2&redirect_uri=https://www.91tula.com&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
      
     },
     wechatSubmit(code){
@@ -100,7 +93,7 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              // this.fetchPerson(data.data.token)
+              
               if(!this.backUrl && !this.showLogin){
                 setTimeout(() => {
                   this.$router.replace('/mine') 
@@ -109,6 +102,7 @@ export default {
               else if(this.showLogin){
                 setTimeout(() => {
                   this.setShowLogin(0)
+                  this.getPersoninfo(data.data.token)
                 }, 1000);
               }
               else{
@@ -118,6 +112,9 @@ export default {
               }
             }
           })
+    },
+    goregist(){
+      this.$router.push({path: '/user/register', query: {backUrl: this.$route.path}});
     },
     doSubmit (e) {
       e.preventDefault()
@@ -137,21 +134,21 @@ export default {
             if(data.code==1){
               layer.msg(data.msg, {icon: 1});
               this.setToken(data.data.token)
-              // this.fetchPerson(data.data.token)
               // const preRouter=localStorage.getItem("preRoute")//上一个路由
               if(this.showLogin){
+                this.getPersoninfo(data.data.token)
                 setTimeout(() => {
                   this.setShowLogin(0)
-                }, 1000);
+                }, 1500);
               }else{
                 if(this.backUrl && this.backUrl!='/user/login'){
                   setTimeout(() => {
                     this.$router.replace(this.backUrl)  //跳回上一个路由
-                  }, 1000);
+                  }, 1500);
                 }else{
                   setTimeout(() => {
                   this.$router.replace('/mine') 
-                }, 1000);
+                }, 1500);
                 }
               }
             }
@@ -160,12 +157,6 @@ export default {
         this.errorMsg=errMsg
       }
     },
-    // fetchPerson:function(token){
-		//   let formDatas = new FormData();
-		//   formDatas.append('token',token);
-
-		//   this.fetchPersoninfo(formDatas)
-	  // },
     validate () {
      return common.validateLogin(this.mobile.trim(),this.password.trim())
   }
@@ -221,5 +212,4 @@ export default {
 .login-qq i{.bg-map(60px,60px,-588px, -129px); margin-bottom: 5px;}
 .login-wechat i{.bg-map(60px,60px,-512px, -129px); margin-bottom: 5px;}
 }
-
 </style>

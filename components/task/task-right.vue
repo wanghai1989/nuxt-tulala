@@ -1,6 +1,11 @@
 <template>
 <div class="task-r">
+  <div class='tc mb5'>
+                  <a href="javascript:void(0)" @click="showRules()" class="cmain">《任务操作流程》</a> 
+                </div>
                 <nuxt-link  class="btn-public"  to="/task/public">免费发布任务</nuxt-link>
+                
+
 		 		<div class="cblack mt15 fw">关于雇主</div>
 		 		<div class="mt10">已发布过<span class="cblack fw"> {{personInfo.work_order_count}}</span> 个任务 <br/>注册时间<span class="cblack fw"> {{personInfo.created_at}}</span> </div>
 		 		<div class="newtask">
@@ -12,7 +17,7 @@
 		 	</div>
 </template>
 <script>
-  import {mapState, mapActions} from 'vuex'
+  import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -22,14 +27,18 @@ export default {
   mounted(){  
 			this.fetchWorkord()
 		},
-		
+	
  computed:{
 	  ...mapState(['page','pageSize','workorder','personInfo'])
   },
   methods:{
+    	...mapMutations(['setTaskRule']),
  ...mapActions({
 		  fetchWorkorder:'fetchWorkorder'
       }),
+      showRules:function(){
+		this.setTaskRule(1)
+		},
 fetchWorkord:function(){
 		  let formDatas = new FormData();
 		  formDatas.append('page', 1);

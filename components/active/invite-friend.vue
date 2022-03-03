@@ -13,7 +13,7 @@
 				</div>
 				<div class="item">
 					<span>手机端</span>  
-					<a href="javascript:void(0)" @click="wechatCode()">点击微信扫码分享</a>
+					<a href="javascript:void(0)" @click="getPromote()">下载邀请海报</a>
 				</div>
 			</div>
 			<div class="invite-04"> 
@@ -35,7 +35,7 @@
 					<li>1、按照获得累计佣金奖励总额由高到低排列；</li>
 					<li>2、邀请达人榜展示获得奖励总额的前10名，若奖励总额相同，
      					则按照获得该奖励总额的时间顺序排列；</li>
-					<li>3、以上数据每日更新(节假日除外）。</li>
+					<li>3、以上数据每日更新。</li>
 				</ol>
 			</div>
 			<div class="invite-06">
@@ -53,6 +53,7 @@
 <script>
 import {mapState, mapActions} from 'vuex'
 import QRCode from 'qrcode'; 
+import processImg from '~/assets/js/processimg'
 export default {
 
   data () {
@@ -64,53 +65,81 @@ export default {
 			
 		},
  computed:{
-	  ...mapState(['ranklist','personInfo','baseUrl','userToken'])
+	  ...mapState(['ranklist','personInfo','baseUrl','basemUrl','userToken'])
   },
   methods:{
  ...mapActions({
 		  fetchInviteList:'fetchInviteList'
       }),
-	  wechatCode(){
-		  if(!this.userToken){
+	   getPromote:function(){
+        if(!this.userToken){
 			  layer.msg('你还未登录,请先登录', {icon: 2});
+			  setTimeout(() => {
+				  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
+			  }, 1500);
 			  return
 		  }
-                let opts = {
-                    errorCorrectionLevel: "H",//容错级别
-                    type: "image/png",//生成的二维码类型
-                    quality: 0.3,//二维码质量
-                    margin: 0,//二维码留白边距
-                    width: 200,//宽
-                    height: 200,//高
-                    text: "图啦啦邀请好友",//二维码内容
+          let invitelink=this.basemUrl+'/mobile-register?invite_code='+ this.personInfo.invite_code 
+
+
+          QRCode.toDataURL(invitelink, {
+                    type: "image/png", //类型
+                    quality: 0.8, //图片质量A Number between 0 and 1
+                    width: 140, //高度
+                    height: 140, //宽度
+                    errorCorrectionLevel: "L", //容错率
+                    margin: 2, //外边距
                     color: {
-                        dark: "#333333",//前景色
-                        light: "#fff"//背景色
+                      dark: "#000000", //前景色
+                      light: "#ffffff" //背景色
                     }
-                };
-				let invitelink=this.baseUrl+'m/mobile-register?invite_code='+ this.personInfo.invite_code   
-                let msg = document.getElementById("QRCode_header");
-                // 将获取到的数据（val）画到msg（canvas）上
-                QRCode.toCanvas(msg, invitelink, opts, function (error) {
-                    console.log(error)
-                });
+                  }).then(imgData => {
+                    processImg.drawAndShareImage('/img/personInvite.jpg',imgData) //合成海报
+                  })
+      },
+	//   wechatCode(){
+	// 	  if(!this.userToken){
+	// 		  setTimeout(() => {
+	// 			  layer.msg('你还未登录,请先登录', {icon: 2});
+	// 			  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
+	// 		  }, 1500);
+	// 		  return
+	// 	  }
+    //             let opts = {
+    //                 errorCorrectionLevel: "H",//容错级别
+    //                 type: "image/png",//生成的二维码类型
+    //                 quality: 0.3,//二维码质量
+    //                 margin: 0,//二维码留白边距
+    //                 width: 200,//宽
+    //                 height: 200,//高
+    //                 text: "图啦啦邀请好友",//二维码内容
+    //                 color: {
+    //                     dark: "#333333",//前景色
+    //                     light: "#fff"//背景色
+    //                 }
+    //             };
+	// 			let invitelink=this.baseUrl+'m/mobile-register?invite_code='+ this.personInfo.invite_code   
+    //             let msg = document.getElementById("QRCode_header");
+    //             // 将获取到的数据（val）画到msg（canvas）上
+    //             QRCode.toCanvas(msg, invitelink, opts, function (error) {
+    //                 console.log(error)
+    //             });
             
 
 
-		  layer.open({
-				type: 1,
-				shade: false,
-				title: false, //不显示标题
-				content: $('.layer_wechat'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-				});
-	  },
-	
-
-
-
+	// 	  layer.open({
+	// 			type: 1,
+	// 			shade: false,
+	// 			title: false, //不显示标题
+	// 			content: $('.layer_wechat'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+	// 			});
+	//   },
 	 copyContent(){ 
 		  if(!this.userToken){
 			  layer.msg('你还未登录,请先登录', {icon: 2});
+			  setTimeout(() => {
+				  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
+			  }, 1500);
 			  return
 		  }
 		//创建一个input元素

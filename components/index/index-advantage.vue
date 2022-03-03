@@ -1,22 +1,30 @@
 <template>
     <div class="advantage clearfix">
         <div class="part1">
-            <h3>天天上新 </h3>
-            <p>元素+背景+UI+电商+平面素材</p>
+            <router-link to="/task/public">
+            <h3>发布需求</h3>
+            <p>大量设计师随时待命</p>
+            </router-link>
         </div>
         <div class="part2">
-            <h3>无限下载 </h3>
-            <p>无限下载提高工作效率</p>
+            <router-link to="/task">
+            <h3>在线接单 </h3>
+            <p>利用闲暇时间赚外块</p>
+            </router-link>
         </div>
         <div class="part3">
-            <h3>审核筛选 </h3>
-            <p>专业审核把控作品质量</p>
+            <router-link to="/mine/upload-file">
+            <h3>分享素材</h3>
+            <p>原创素材分享让作品价值最大化</p>
+            </router-link>
         </div>
-
         <div class="part4">
-            <h3>星级服务</h3>
-            <p>专业客服全天候在线</p>
+            <router-link :to="{ name: 'material-id', params:{id: 1 }}">
+            <h3>下载素材 </h3>
+            <p>各种设计素材无限下载</p>
+            </router-link>
         </div>
+        
      </div>
 </template>
 
@@ -44,9 +52,9 @@
      >div:hover { -webkit-transition: all 0.3s; -webkit-transform: translateY(-3px); }
      h3 { font-size: 18px; color: #333; }
      p { padding-top: 5px; font-size: 14px; line-height: 16px; color: #888888; }
-     .part1:before { .bg-map(45px,52px,0px,-2px); content: ""; position: absolute; top: 0px; left: 35px;}
-     .part2:before{ .bg-map(45px,52px,-49px, -2px); content: ""; position: absolute; top: 0px; left: 35px;}
-     .part3:before{  .bg-map(45px,52px,-97px, -2px); content: ""; position: absolute; top: 0px; left: 35px;}
-     .part4:before{ .bg-map(45px,52px,-150px, -2px); content: ""; position: absolute; top: 0px; left: 35px;}
+     .part1:before { .bg-map(52px,52px,-188px, -238px); content: ""; position: absolute; top: 0px; left: 35px;}
+     .part2:before{ .bg-map(52px,52px,-245px, -239px); content: ""; position: absolute; top: 0px; left: 35px;}
+     .part3:before{  .bg-map(52px,52px,-301px, -240px); content: ""; position: absolute; top: 0px; left: 35px;}
+     .part4:before{ .bg-map(52px,52px,-358px, -237px); content: ""; position: absolute; top: 0px; left: 35px;}
 }
 </style>

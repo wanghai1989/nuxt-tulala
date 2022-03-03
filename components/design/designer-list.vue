@@ -4,16 +4,19 @@
 	  	<li   v-for="item in designer" :key="item.id">
 			<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.member_id }}">
 	  		<div class="pic">
-	  			<img :src="item.avatar" />
+	  			<img :src="item.designer_img" v-if="item.designer_img"/>
+                <img src="~/assets/images/defaultDesign.png" v-else />
 	  		</div>
-	  		<div class="f18 cblack mt25">
-	  			{{item.identity_card_name}}
+	  		<div class="f18 cblack mt15">
+	  			{{item.real_name}}
 	  		</div>
 	  		</nuxt-link>
 	  		<div class="cgray">{{designlevel[item.designer_level]}}</div>
 	  		<div class="mt15">
-	  			<i class="i-heart"></i>
-	  			<div>{{item.products_count}}</div>
+	  			<!-- <i class="i-heart"></i> -->
+	  			<div><span class="cgray">作品数</span>&nbsp; <span class="cblack f16">{{item.products_count}}</span> <br/>
+                  <nuxt-link class="btnDetail"  :to="{ name: 'designer-id', params:{ id: item.member_id }}">查看资料</nuxt-link>
+                   </div>
 	  		</div>
 	  	</li>
 	  
@@ -75,6 +78,21 @@ fetchDesign:function(){
     background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
     cursor: pointer;
 }
+.btn(@width,@height,@bordercolor,@background,@color){
+    display: inline-block;
+    height: @height;
+    line-height: calc(@height - 2px); 
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    width: @width;
+    border: 1px solid @bordercolor;
+    background: @background;
+    color: @color;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+}
 .design-list{margin-top: 40px;
     li{width: 180px;height: 357px; float: left; margin-right: 75px;border-radius:90px; background: #fff;text-align: center;    padding: 5px;
     box-sizing: border-box; margin-bottom: 20px;}
@@ -88,5 +106,7 @@ fetchDesign:function(){
     -webkit-transform: translateY(-3px);
     box-shadow:2px 2px 8px rgba(0,0,0,0.1);
     }
+    .btnDetail{.btn(100%,30px,var(--color),linear-gradient(90deg, #2dc61d 0%, #26b216 100%),#fff); margin-top: 2px; font-size: 14px; border-radius: 20px; width: 70%;}
+    .btnDetail:hover{opacity: 0.9;}
 }
 </style>

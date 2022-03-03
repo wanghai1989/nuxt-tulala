@@ -106,12 +106,16 @@ export default {
       content: '获取验证码', // 按钮里显示的内容
       totalTime: 60 ,     //记录具体倒计时时间
       canClick: false, //添加canClick  判断按钮能否点击
+      backUrl:'',
       errorMsg: ''
 
       
     }
   },
   mounted(){
+    if(this.$route.query.backUrl){
+     this.backUrl=this.$route.query.backUrl
+   }
     if(this.$route.query.invite_code){
       this.show_invited_code=1
       this.be_invited_code=this.$route.query.invite_code
@@ -199,7 +203,11 @@ export default {
                     this.setToken(data.data.token)
                     this.fetchPerson(data.data.token)
                       setTimeout(() => {
-                        this.$router.replace('/person/person-info') 
+                        if(this.backUrl){
+                          this.$router.replace(this.backUrl) 
+                        }else{
+                          this.$router.replace('/mine') 
+                        }
                       }, 1000);
                   }
                   else{

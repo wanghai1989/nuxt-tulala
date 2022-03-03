@@ -31,10 +31,10 @@
    </div>
  </div>
  <ul class="ul-menu">
-   <li class="task" @click="pubilcTask('task/public')">
-    <a href="javascript:void(0)">
-      <i class="iconfont">&#xe628;</i> 发布任务
-      </a>
+   <li class="task">
+   <nuxt-link to="/m/public-task">
+   <i class="iconfont">&#xe628;</i> 发布任务
+   </nuxt-link>
     </li>
     <li class="public">
     <nuxt-link to="/m/mobile-taskpublic">
@@ -49,8 +49,14 @@
     <li class="file" @click="downLoad('person/my-file')">
       <i class="iconfont">&#xe603;</i> 我的作品
     </li>
-    <li class="file" @click="gosignin()">
+    <li class="sign" @click="gosignin()">
       <i class="iconfont">&#xe62c;</i> 签到
+    </li>
+    <li class="heart" >
+      <nuxt-link to="/m/handin-hand">
+      <i class="iconfont">&#xe607;</i> 心系图啦
+      </nuxt-link>
+      <em>已上传</em>
     </li>
  </ul>
 
@@ -252,12 +258,15 @@ export default {
 .coin-box .line01 span{font-size: 14px; color: var(--grayColor);}
 .coin-box .line02{font-size: 18px; color: var(--backColor);    margin-top: 5px;}
 .ul-menu{padding: 0rem .15rem; background: #fff;    margin-top: 30px;
- li{border-bottom: 1px solid #eee; padding: 15px 0px; font-size: 15px; color: var(--backColor); height: 30px; line-height: 30px; position: relative;} 
- li>a{display: block;}
+ li{border-bottom: 1px solid #eee; padding: 15px 0px; font-size: 15px; color: var(--backColor); height: 30px; line-height: 30px; position: relative; display: flex;} 
+ li>a{display: block; flex: 1;}
  li.task i{font-size: 22px; margin-right: 6px; color: #d5001b;}
  li.public i{font-size: 22px; margin-right: 6px; color: #1296db;}
- li.file i{font-size: 22px; margin-right: 6px; color: #d4237a;}
+ li.file i{font-size: 22px; margin-right: 6px; color: var(--color);}
  li.accept i{font-size: 22px; margin-right: 6px; color: #e0620d;}
+ li.sign i{font-size: 22px; margin-right: 6px; color: #e64626;}
+ li.heart i{font-size: 22px; margin-right: 6px; color: #d4237a;}
+ li em{color: #999;font-size: 12px; margin-right: 20px;}
  li:after{ .bg-map(10px,16px,-638px, -198px); position: absolute; top: 23px; right: 0px; content: ''; display: block; }
 }
 .quit-box{padding: .15rem; margin-top: 30px;}

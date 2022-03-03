@@ -1,7 +1,5 @@
 <template>
-    <div class="enter-box">
       <form @submit="doSubmit">
-	  		<div class="step-line"></div>
 	  		<div class="step-cont">
 	  			<div class="pic-title">
 	  				<span class="cred">*</span>设计方向<span class="f14 cgray">(单选)</span> 
@@ -45,15 +43,13 @@
 	  				</div>
 	  				<div class="txt">
 	  					1. 上传3张不同风格的原创设计作品； <br>
-						2. 元素、背景、模板、UI、摄影图设计师请上传完整的jpg、jpeg或png格式原创作品，
-						PPT设计师请上传ppt或pptx格式的原创作品； <br>
-						3. 务必提交与 “设计方向”相关的作品； <br>
-						4. 上传单个图片作品大小控制在 10MB 之内，单个PPT作品大小控制在5M之内。
+              2. 设计师请上传完整的jpg、jpeg或png格式原创作品; <br>
+              3. 务必提交与 “设计方向”相关的作品； <br>
+              4. 上传单个图片作品大小控制在 20MB 之内。
 	  				</div>
 	  			</div>
 	  	</div>
       </form>
-	  </div>
 </template>
 <script>
 import { mapState,mapActions} from 'vuex'
@@ -78,18 +74,13 @@ export default {
     //  import('layui-layer')
     // this.token=window.localStorage.getItem("token")
      this.fetchCategory({token:this.userToken})
-    let pMountedTimer = window.setInterval(() => { //等父组件monted执行完了
-       console.log(window.parentMounted+'0')
-					if (window.parentMounted) {
-						window.clearInterval(pMountedTimer)
+    
 						if(this.personInfo.designer_status=='100'){
               this.$router.replace('/enter/design-basic')
             }
             if(['101','102','103'].includes(this.personInfo.designer_status)){
               this.$router.replace('/enter/design-result')
             }
-					}
-				}, 500)
   },
   methods: {
     ...mapActions({

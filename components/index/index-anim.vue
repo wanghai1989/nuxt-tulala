@@ -1,8 +1,9 @@
 <template>
     <div id="center_ad" class="center_adallvip center_ad" v-if="showLayer==1">
       <div class="box animated bounceIn">
-        <nuxt-link to="/enter"  target="_blank" class="link img-box">
-               <span class="receive">立即入驻</span>
+        <!-- <div class="countdown">{{downTime}} s</div> -->
+        <nuxt-link to="/enter"   class="link img-box">
+               <span class="receive">强势入驻</span>
         </nuxt-link>
       <em class="close iconfont icon-close"  @click="close()"></em>
       </div>
@@ -12,14 +13,26 @@
 export default {
   mounted() {
 		this.setlayer()
-	   
+	    // this.Interval()
   },
   data () {
     return {
-      showLayer:0
+      showLayer:0,
+    //   downTime:15
     }
   },
   methods: {
+    // Interval(){
+    //     let time= setInterval(() => {
+    //         this.downTime--
+    //         if(this.downTime<0){
+    //        clearInterval(time)
+    //        this.showLayer=0
+    //        this.setCookie("loanName","loan")
+    //     }
+    //     }, 1000);
+        
+    // },
     close(){
     this.showLayer=0
     this.setCookie("loanName","loan")
@@ -65,6 +78,8 @@ export default {
     z-index: 9999;
     background-color: rgba(0,0,0,0.4);
 }
+.countdown{position: absolute; right: 15px; top: 15px; width: 60px; height: 30px; line-height: 30px; background: #fff; color: var(--backColor); text-align: center;
+border-radius: 4px; font-size: 16px;}
 .center_ad .box {
     z-index: 9999;
     position: absolute;
@@ -74,6 +89,7 @@ export default {
     left: 50%;
     margin: -280px 0 0 -280px;
     background: url(~/assets/images/pic51.png)no-repeat center /100%;
+    border-radius: 5px;
 }
 
 .center_ad .box .img-box {
@@ -83,7 +99,7 @@ export default {
     box-sizing: border-box;
     position: relative;
 }
-.center_ad .box .img-box .receive{height: 42px; line-height: 42px; width: 200px; display: block; position: absolute; bottom: 50px; left: 181px; 
+.center_ad .box .img-box .receive{height: 42px; line-height: 42px; width: 200px; display: block; position: absolute; bottom: 30px; left: 181px; 
 background-image: linear-gradient(#ffc44f, #ffe791); text-align: center; color: #ec0b49; font-size: 20px;  border-radius: 24px;
     animation: scaleDraw 3s linear infinite;
 }

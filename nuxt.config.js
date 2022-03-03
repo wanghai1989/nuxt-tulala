@@ -2,7 +2,7 @@ var webpack = require('webpack');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '图啦啦91tula.com_设计师在线接单，做设计不用愁！',
+    title: '图啦啦91tula.com_设计师综合服务平台，在线接单，在线素材分享，在线找素材',
     htmlAttrs: {
       lang: 'en'
     },
@@ -14,7 +14,7 @@ export default {
       { hid:'keywords', name: 'keywords', content: '图啦啦,免抠图,png,png图片,png素材,png图标,banner,背景图片,背景素材,淘宝素材,海报背景,海报,素材网,图库素材,图片,办公文档,办公,摄影图,图库,背景,素材,图啦啦' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {rel:'stylesheet',href:'https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/theme/default/layer.min.css'}, 
       {rel:'stylesheet',href:'https://cdn.bootcdn.net/ajax/libs/Swiper/4.5.0/css/swiper.min.css'} 
     ],
@@ -26,13 +26,17 @@ export default {
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{src:'~assets/less/public.less',lang:'less'}],
+  css: [
+    {src:'~assets/less/public.less',lang:'less'},
+    {src:'~assets/css/jquery.flex-images.css',lang:'css'},
+],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // {src: '~plugins/layui.js', ssr: false},
     {src: '~plugins/common.js', ssr: false},
     {src: '~plugins/route.js',ssr: false},
-    { src: '~/plugins/wx-share.js', ssr: false }
+    { src: '~/plugins/wx-share.js', ssr: false },
+    { src: '~/plugins/flex-images.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
