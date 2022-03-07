@@ -45,7 +45,7 @@ export default {
       }),
       showTop(){
                     window.onscroll = function () {
-                        if ($(window).scrollTop()>500){
+                        if ($(window).scrollTop()>150){
                             $("#anchor").fadeIn(800);
                             }else{
                             $("#anchor").fadeOut(800);

@@ -1,27 +1,27 @@
 <template>
     <div class="advantage clearfix">
-        <div class="part1">
+        <div class="part1" title="发布需求">
             <div class="icon"><em class="iconfont">&#xec46;</em></div> 
             <router-link to="/task/public">
             <h3>发布需求</h3>
             <p>大量设计师随时待命</p>
             </router-link>
         </div>
-        <div class="part2">
+        <div class="part2" title="在线接单">
             <div class="icon"><em class="iconfont">&#xe656;</em></div> 
             <router-link to="/task">
             <h3>在线接单 </h3>
             <p>利用闲暇时间赚外块</p>
             </router-link>
         </div>
-        <div class="part3">
+        <div class="part3" title="分享素材">
             <div class="icon"><em class="iconfont">&#xe626;</em></div> 
             <router-link to="/mine/upload-file">
             <h3>分享素材</h3>
             <p>上传原创素材获得图啦币奖励</p>
             </router-link>
         </div>
-        <div class="part4">
+        <div class="part4" title="搜索素材">
             <div class="icon"><em class="iconfont">&#xe608;</em></div> 
             <router-link :to="{ name: 'material-id', params:{id: 1 }}">
             <h3>搜索素材 </h3>
@@ -42,6 +42,16 @@
         background: url(~/assets/images/bg-ico.png) no-repeat @x @y;
         cursor: pointer;
 }
+@keyframes donut-spin {
+   0% {
+     transform: rotate(0deg);
+   }
+ 
+   100% {
+     transform: rotate(360deg);
+   }
+}
+ 
 .advantage {
     padding: 42px 0;
     background: #fff;
@@ -53,7 +63,8 @@
         rgba(92, 92, 92, 0.2);
     display: flex;
      >div { flex: 1; text-align: left; padding-left: 45px;position: relative; cursor: pointer; display: flex;}
-     >div:hover { -webkit-transition: all 0.3s; -webkit-transform: translateY(-3px); }
+    //  >div:hover { -webkit-transition: all 0.3s; -webkit-transform: translateY(-3px); }
+     >div:hover .icon{animation: donut-spin 1.2s ease;}
     >div .icon{width: 52px; height: 52px; border-radius: 26px; background: var(--color);  color: #fff; text-align:center; line-height: 52px; margin-right: 15px;}
     .part1 .icon{background: #26ab06;}
     .part2 .icon{background: #00a0e9;}

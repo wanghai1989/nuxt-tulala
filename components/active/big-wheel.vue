@@ -201,12 +201,12 @@ button[disabled]{
     color: #fff !important;
     border: 1px solid transparent !important;
 }
-.active-contain{width: 100%; max-width: 1920px; height: auto; margin: 0 auto;}
-.wheel-01{height: 400px; width: 100%; background: url(~/assets/images/wheel_01.png) no-repeat top center; background-size: 100% 400px;}
-.wheel-02{height: 837px; width: 100%; background: url(~/assets/images/wheel_02.png) no-repeat top center; background-size: 100% 837px;}
-.wheel-03{height: 250px; width: 100%; background: url(~/assets/images/wheel_03.png) no-repeat top center;
- background-size: 100% 250px; text-align: center; padding-top: 25px; box-sizing: border-box;}
-.wheel-03>.title{color: #c21133; font-size:20px; margin-bottom: 30px;}
+.active-contain{width: 100%; max-width: 1920px;  height: auto; margin: 0 auto;}
+.wheel-01{height: 421px; width: 100%;  background: url(~/assets/images/wheel_01.png) no-repeat top center; background-size: cover;}
+.wheel-02{height: 916px; width: 100%; background: url(~/assets/images/wheel_02.png) no-repeat top center; background-size: cover;}
+.wheel-03{height: 237px; width: 100%; background: url(~/assets/images/wheel_03.png) no-repeat top center;
+ background-size: cover; text-align: center; padding-top: 25px; box-sizing: border-box;}
+.wheel-03>.title{color: #c21133; font-size:20px; margin-bottom: 20px;}
 .wheel-03>.title b{font-size: 30px;}
 .wheel-03 .subtit strong{font-size: 24px; font-weight: normal; display: block; margin-bottom: 5px;}
 .wheel-03 .subtit{font-size: 16px; color: #fff; width: 900px; margin: 0px auto; text-align: left;}
