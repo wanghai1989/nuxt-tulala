@@ -178,8 +178,8 @@ export default {
 .service-cont:nth-child(3),.service-cont:nth-child(4){
         border-top: 1px solid #f2f2f2;
 }
-.service-cont:nth-child(1){background: url(~/assets/images/pic56.png) no-repeat top 0px right 0px;}
-.service-cont:nth-child(2){background: url(~/assets/images/pic57.png) no-repeat top 0px right 0px;}
-.service-cont:nth-child(3){background: url(~/assets/images/pic58.png) no-repeat top 0px right 0px;}
-.service-cont:nth-child(4){background: url(~/assets/images/pic59.png) no-repeat top 0px right 0px;}
+.service-cont:nth-child(1){background: url(~/assets/images/pic56.png) no-repeat top 0px right 0px;    background-size: contain;}
+.service-cont:nth-child(2){background: url(~/assets/images/pic57.png) no-repeat top 0px right 0px;    background-size: contain;}
+.service-cont:nth-child(3){background: url(~/assets/images/pic58.png) no-repeat top 0px right 0px;    background-size: contain;}
+.service-cont:nth-child(4){background: url(~/assets/images/pic59.png) no-repeat top 0px right 0px;    background-size: contain;}
 </style>
