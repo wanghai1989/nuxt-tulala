@@ -61,7 +61,7 @@
                 </li> -->
             </ul>
             </div>
-            <nuxt-link to="/enter" class="goenter">
+            <nuxt-link to="/enter" class="goenter" title="入驻图啦啦">
                 <img src="~/assets/images/pic60.jpg" />
             </nuxt-link>
         </div>
