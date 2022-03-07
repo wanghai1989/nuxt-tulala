@@ -62,7 +62,7 @@
             </ul>
             </div>
             <nuxt-link to="/enter" class="goenter">
-                <img src="~/assets/images/pic60.png" />
+                <img src="~/assets/images/pic60.jpg" />
             </nuxt-link>
         </div>
      </div>
@@ -135,6 +135,7 @@ export default {
     .ul-indextask li a:hover{text-decoration: underline;}
     .ul-indextask li span{font-size: 14px; color: var(--backColor); width: 100px; text-align: right; color: var(--redColor);}
     .goenter{position: absolute; bottom: 0; left: 0;display: block; width: 100%; height: 70px;}
+    .goenter img{width: 100%;}
 }
 .remarks-lf{float: left;
     width: 170px;
@@ -170,6 +171,7 @@ export default {
     background-repeat: no-repeat!important;
     background-position: 100%!important;
     float: left;
+    a:hover h3{color: var(--color);}
     h3{font-weight: bold; font-size: 18px; color: var(--backColor);}
     p{color: var(--grayColor);}
 }
