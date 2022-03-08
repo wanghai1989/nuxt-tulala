@@ -10,19 +10,19 @@
                <div class="service-cont">
                    <nuxt-link to="/task/public" title="安全雇佣">
                        <h3>安全雇佣</h3>
-                       <p>能岗匹配更具效率</p>
+                       <p>平台设计师经过图啦啦层层审核</p>
                        <p>灵活雇佣，节省企业50%人力成本</p>
                    </nuxt-link>
                </div>
                <div class="service-cont">
                    <nuxt-link to="/enter"  title="入驻图啦">
                        <h3>入驻图啦</h3>
-                       <p>设计师晋级平台严格审核</p>
+                       <p>设计师晋级依托作品</p>
                        <p>拒绝竞价排名、广告投入置顶更具公平</p>
                    </nuxt-link>
                </div>
                <div class="service-cont">
-                   <nuxt-link to="/active/invite-friend"   title="邀请好友">
+                   <nuxt-link to="/active/invite-friend"  title="邀请好友">
                        <h3>邀请好友</h3>
                        <p>获得好友素材奖励10%</p>
                        <p>获得好友发布任务平台利润20%</p>
@@ -31,8 +31,8 @@
                <div class="service-cont">
                    <nuxt-link to="/material/1"  title="高效办公">
                        <h3>高效办公</h3>
-                       <p>原创素材，商用无忧</p>
-                       <p>大量共享素材免费下载</p>
+                       <p>海量素材，随意下载</p>
+                       <p>素材覆盖六大品类</p>
                    </nuxt-link>
                </div>
                

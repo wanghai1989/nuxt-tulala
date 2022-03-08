@@ -4,7 +4,7 @@
             <div class="icon"><em class="iconfont">&#xec46;</em></div> 
             <router-link to="/task/public">
             <h3>发布需求</h3>
-            <p>大量设计师随时待命</p>
+            <p>优质设计师随时待命</p>
             </router-link>
         </div>
         <div class="part2" title="在线接单">
