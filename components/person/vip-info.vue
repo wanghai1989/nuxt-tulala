@@ -1,6 +1,5 @@
 <template>
 <div class="about-contain">
-	{{personInfo}}
 	<div class="laymshade hand" v-if="show_withdraw">
 			<div class="hand-box clearfix">
 				<div class="hand-head">
