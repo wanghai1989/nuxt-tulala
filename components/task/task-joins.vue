@@ -231,7 +231,7 @@ export default {
 				}
 				if(data.code==1){
 					this.popupShow=0
-				layer.msg(data.msg, {icon: 1});
+				layer.msg('雇佣成功，待设计师确认!', {icon: 1});
 				}
 			})
 		  }

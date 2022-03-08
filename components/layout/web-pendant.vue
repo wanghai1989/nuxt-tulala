@@ -48,9 +48,9 @@
 			<div class="item-pend zq">
 				<nuxt-link to="/enter" title="入驻赚钱"><i class="iconfont">&#xe61c;</i><br /> <span class="point">入驻</span></nuxt-link>
 			</div>
-			<!-- <div class="item-pend jy">
-			<nuxt-link to="/advice" title="建议"><i></i><br /><span>建议</span></nuxt-link>	
-			</div> -->
+			<div class="item-pend jy">
+			<nuxt-link to="/advice" title="建议"><i class="iconfont">&#xe628;</i><br /><span>建议</span></nuxt-link>	
+			</div>
 			<div class="item-pend rw">
 				<nuxt-link to="/task/public" title="发布任务"> <i class="iconfont">&#xec46;</i><br /> <span>发布</span></nuxt-link>	
 			</div>
@@ -247,15 +247,15 @@ export default {
     margin-top: 100px; box-shadow: 0px 1px 4px #fccc0a; font-weight: bold;};
     
 }
-.sign-box{width: 600px; height: 628px; position: fixed; top: 50%; left: 50%; margin-top: -314px; margin-left: -300px; z-index: 5; 
+.sign-box{width: 480px; height: 282px; position: fixed; top: 50%; left: 50%; margin-top: -251px; margin-left: -240px; z-index: 5; 
         background: url(~/assets/images/pic44.png) no-repeat; background-size: contain; accelerator: false; position: relative; 
-        padding-top: 280px; text-align: center;
+        padding-top: 220px; text-align: center;
     .close{.bg-map(24px,24px,-1174px, -153px); position: absolute; top: 10px; right: 10px;}
     .sign01{font-size: 24px; color: var(--backColor);}
     .sign02{font-size: 18px; color: var(--grayColor); margin-top: 30px; }
     .sign02 b{font-size: 16px; color: var(--redColor); font-weight: bold; font-size: 30px;}
-    .sign03 {text-align: center; margin-top: 130px;}
-    .sign03 .btn-go{width: 160px; height: 50px; line-height: 50px; text-align: center; background: #fbe945; color: var(--redColor);
-    font-size: 18px; margin: 0px 20px; border-radius: 25px;}
+    .sign03 {text-align: center; margin-top: 90px;}
+    .sign03 .btn-go{width: 150px; height: 40px; line-height: 40px; text-align: center; background: #fbe945; color: var(--redColor);
+    font-size: 18px; margin: 0px 10px; border-radius: 20px;}
     }
 </style>

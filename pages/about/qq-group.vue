@@ -4,7 +4,7 @@
     <aboutNav></aboutNav>
     <div class="wrapper">
       <div class="qq-contain">
-	        <a class="btn-apply" href="#location">我<br/> 是<br/>群<br/>主<br/>申<br/>请<br/>加<br/>入<br/>联<br/>盟</a>
+	        <a class="btn-apply" href="#location">●<br/>我<br/> 是<br/>群<br/>主<br/>●</a>
 			<div class="qq-list clearfix">
 				<div class="qq-item"  v-for="item in alliance" :key="item.id">
 					<div class="top">
@@ -217,7 +217,7 @@ let formDatas = new FormData();
 .btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
         #c53a1d 0%, 
         #b23016 100%),#fff);
-		position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 12px 0px; line-height: 20px;  }
+		position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 6px 0px; line-height: 22px;  }
 .btn-apply:hover{opacity: 0.9;}
 .qq-contain{padding: 20px 16px 30px;box-sizing: border-box; background: #fff; margin-top: 20px; min-height: 400px; position: relative;
 .qq-item{float: left; padding: 25px 30px; width: 280px; border: 1px solid #eee; box-sizing: border-box; background: #fff; margin-right: 16px;margin-bottom: 16px; }

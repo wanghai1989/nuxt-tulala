@@ -98,12 +98,22 @@ export default {
       },
        doSubmit (e) {
       e.preventDefault()
+       let _that=this
       if(!this.userToken){
         this.$router.replace({path:'/user/login',query:{backUrl: this.$route.path}}) ;
         return
       }
       if(!this.personInfo.is_complete_my_info){
-        layer.msg('请先完善个人信息', {icon: 2});
+       
+			layer.open({
+                title: ['温馨提示', 'color:#fff; background: #34bc76;'],//数组第二项可以写任意css样式；如果你不想显示标题栏，你可以title: false
+                content: '<div>您目前还未完善个人信息，寄件需要用到您的地址</div>',
+                btn: ['去完善','取消'],
+                yes: function(index){
+                    _that.$router.push({path: '/mine/basic-info',query:{backUrl:_that.$route.path}}) 
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  }
+                });
               return false;
       }
       let formDatas = new FormData();

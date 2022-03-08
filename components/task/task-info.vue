@@ -21,11 +21,14 @@
 		</div>
 	</div>
 	<div class="task-bidding">
-		<div class="tip" v-if="personInfo.designer_status!=102">
-			<i></i>您还未 <nuxt-link to="/enter/design-basic" class="cmain">入驻图啦啦</nuxt-link>，无法报名参与
+		<div class="tip" v-if="personInfo.designer_status!=102"> 
+			<i></i>您目前还没有 <nuxt-link to="/enter/design-basic" class="cmain" title="入驻图啦啦">入驻图啦啦</nuxt-link>，无法报名参与
 		</div>
 		<div class="tip" v-if="!personInfo.certification">
-			<i></i>您还未 <nuxt-link to="/mine/real-name" class="cmain">实名认证</nuxt-link>，无法报名参与
+			<i></i>您目前还没有进行 <nuxt-link to="/mine/real-name" class="cmain" title="实名认证">实名认证</nuxt-link>，无法报名参与
+		</div>
+		<div class="tip" v-if="!personInfo.is_vip"> 
+			<i></i>您目前还不是 <nuxt-link to="/vip/pay-vip" class="cmain" title="会员">会员</nuxt-link>，无法报名参与
 		</div>
 		<form  @submit="doSubmit" >
 		<div class="vam vip-info">
@@ -114,17 +117,56 @@ closeBigImg:function(){
  doSubmit (e) {
 			e.preventDefault()
 			if(!this.userToken){
-			this.setShowLogin(1)
-			return
-		}
-
-			if(this.personInfo.designer_status!=102){
-				layer.msg('你还未入驻图啦啦，不能参与竞价！', {icon: 2});
+				this.setShowLogin(1)
 				return
 			}
+		let _that=this
+		let msg=''
+			if(this.personInfo.designer_status!=102){
+				layer.open({
+				type: 0, //Layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）,
+				title: '提示',   //标题
+				area: ['360px', '180px'],   //宽高
+				shade: 0.4,   //遮罩透明度
+				content:'您目前还没有入驻图啦啦，不能参与竞价！',//支持获取DOM元素
+				btn: ['去实名', '取消'], //按钮组
+				yes: function(index){//layer.msg('yes');    //点击确定回调
+				    _that.$router.push('/enter/design-basic') 
+					layer.close(index);
+				}
+			});
+			return;
+			}
 			if(!this.personInfo.certification){
-				layer.msg('你还未实名认证，不能参与竞价！', {icon: 2});
+			 layer.open({
+				title: ['温馨提示', 'color:#fff; background: #34bc76;'],   //标题
+				area: ['360px', '180px'],   //宽高
+				content:'您目前还没有进行实名认证，不能参与竞价',//支持获取DOM元素
+				btn: ['去实名', '取消'], //按钮组
+				yes: function(index){//layer.msg('yes');    //点击确定回调
+				    _that.$router.push('/mine/real-name') 
+					layer.close(index);
+				}
+				// btn2: function(){//layer.alert('aaa',{title:'msg title'});  点击取消回调
+				// 	layer.msg('bbb');//layer.closeAll();
+				// }
+			});
 				return
+			}
+			if(!this.personInfo.is_vip){
+				layer.open({
+				type: 0, //Layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）,
+				title: '提示',   //标题
+				area: ['360px', '180px'],   //宽高
+				shade: 0.4,   //遮罩透明度
+				content:'您目前还不是图啦啦会员，不能参与竞价！',//支持获取DOM元素
+				btn: ['去加入', '取消'], //按钮组
+				yes: function(index){//layer.msg('yes');    //点击确定回调
+				    _that.$router.push('/vip/pay-vip') 
+					layer.close(index);
+				}
+			});
+			return;
 			}
 			const errMsg=common.validateOffer(this.money,this.description)
 			this.errorMsg=errMsg

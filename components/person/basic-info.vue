@@ -130,13 +130,19 @@ export default {
 	working_time:'',
 	qq:'',
 	address:'',
-	introduction:''
+	introduction:'',
+	backUrl:''
     }
   },
 		mounted(){  
 				// 下面就可以写子组件想在mounted时执行代码（此时父组件的mounted已经执行完毕）
 				this.fetchSet()
 				this.loadcity()  //加载城市数据
+
+				if(this.$route.query.backUrl){
+				this.backUrl=this.$route.query.backUrl
+			}
+			
 			let pt=	setInterval(() => {
 				if(Object.keys(this.personInfo).length>0){
 					clearInterval(pt);
@@ -239,7 +245,12 @@ export default {
 			 this.personInfo.is_complete_my_info=1
 			 layer.msg(data.msg, {icon: 1});
 			 setTimeout(() => {
-                  this.$router.push("/mine")
+				 if(this.backUrl){
+					 this.$router.push(this.backUrl)
+				 }else{
+					 this.$router.push("/mine")
+				 }
+                  
 			 }, 1000);
             }
           })

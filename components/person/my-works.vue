@@ -34,7 +34,7 @@
 					<div class="task-l">
 						<div>
 							<nuxt-link class="cmain fw f16" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link>
-							<p class="f12 cgray">发布时间&nbsp;{{publicTime(item.status_approved_time)}} </p>
+							<p class="f12 cgray"  v-if="item.status">发布时间&nbsp;{{publicTime(item.status_approved_time)}}</p>
 						</div>
 				  		<div class="cgray mt20">
 						 <span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>
@@ -60,7 +60,7 @@
 					<div class="task-l">
 						<div>
 							<nuxt-link class="cmain fw f16" :to="{ name: 'designer-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link> 
-							<p class="f12 cgray">发布时间&nbsp;{{publicTime(item.status_approved_time)}} </p>
+							<p class="f12 cgray" v-if="item.status">发布时间&nbsp;{{publicTime(item.status_approved_time)}}</p>
 						</div>
 				  		<div class="cgray mt20">
 						<span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>

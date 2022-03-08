@@ -43,7 +43,7 @@
 					<div></div>
 					<div>
 						<div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
-						<button type="submit" class="btn-save">确定</button>
+						<button type="submit" class="btn-save">提交</button>
             		</div>
 				</div>
 			</div>

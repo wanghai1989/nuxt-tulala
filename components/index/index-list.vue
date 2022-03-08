@@ -178,8 +178,8 @@ li:nth-child(2n){margin-right: 0px;}
          li a:hover,.prod-tit li a.focus{color:var(--colorBjtp) ; border-bottom: 1px solid var(--colorBjtp);}
      }
      .ul-prod li,.ul-prod .prod-img,.ul-prod .prod-txt{height: 300px;  }
-        
 }
+.prod-list.syt .prod-tit h3  i{.bg-map(25px,25px, -464px, -76px); }
 .prod-list.ui{
      .prod-tit{
         h3  i{ .bg-map(25px,25px, -288px, -78px); }
