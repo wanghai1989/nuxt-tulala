@@ -132,7 +132,8 @@ background-size: cover; padding: 50px 0px 0px; box-sizing: border-box; color: #f
   .login-l p.p03{background: #c1ac49;}
   .login-l p.p04{background: #b449c1;}
 .login-r{width: 480px; float: left; padding: 50px 80px; box-sizing: border-box;}
-.login{text-align: center;}
+.login{text-align: center; }
+.login img {width: 120px;}
 .login-style{margin-top: 55px; height: 170px; }
 .login-qq{.btn(100%,60px,#28b7f7,#28b7f7,#fff); border-radius: 30px; font-size: 16px; margin-top: 25px;}
 .login-qq i{.bg-map(28px,26px,-501px, -42px); margin-right: 10px;}

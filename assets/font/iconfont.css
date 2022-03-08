@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2981494 */
-  src: url('iconfont.woff2?t=1646293317323') format('woff2'),
-       url('iconfont.woff?t=1646293317323') format('woff'),
-       url('iconfont.ttf?t=1646293317323') format('truetype');
+  src: url('iconfont.woff2?t=1646749191508') format('woff2'),
+       url('iconfont.woff?t=1646749191508') format('woff'),
+       url('iconfont.ttf?t=1646749191508') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tushangchuan:before {
+  content: "\e661";
 }
 
 .icon-tushejishi:before {

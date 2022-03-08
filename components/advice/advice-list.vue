@@ -81,7 +81,7 @@ fetchAdvic:function(){
 <style lang="less" scoped>
 .advice-list{margin-top: 25px;
 li{border-bottom: 1px solid #d4d4d4; background: #fff; padding: 35px 40px 35px; display: flex;}
-.pic,.official-pic{width: 45px; height: 45px; border-radius: 25px; margin-right: 15px; text-align: center; overflow: hidden; background: #f1f1f1;}
+.pic,.official-pic{width: 45px; height: 45px; border-radius: 25px; margin-right: 15px; text-align: center; overflow: hidden; background: #f1f1f1; padding: 5px; box-sizing: border-box;}
 .pic img,.official-pic img{max-width: 100%;}
 .info,.official-info{flex: 1;}
 .reply{display: flex; margin-top: 35px;}

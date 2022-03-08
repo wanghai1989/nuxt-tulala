@@ -5,6 +5,7 @@
     <aboutNav></aboutNav>
     <div class="wrapper">
        <form class="hund-contain" @submit="doSubmit">
+		   <a class="btn-apply" href="javascript:void(0)" id="gohand" @click="uphand()">●<br/>我<br/> 也<br/>要<br/>上<br/>传<br/>●</a>
 		<div class="laymshade hand" v-if="show_hand">
 			<div class="hand-box clearfix">
 				<div class="hand-head">
@@ -42,7 +43,6 @@
 		</div>
 			<div class="hund-tit">
 				<h3><span class="cred">{{countfile}}</span>个库粉晒出了自拍</h3>
-				<a href="javascript:void(0)" class="btn-upload" id="gohand" @click="uphand()">我也要上传自拍</a>
 			</div>
 			<ul class="ul-hand clearfix">
 				<li  v-for="item in evaluation" :key="item.id" >
@@ -241,9 +241,14 @@ async doSubmit (e) {
     vertical-align: middle;
     cursor: pointer;
 }
+
 .hund-contain{    box-sizing: border-box; margin-top: 40px;  min-height: 400px;
+.btn-apply{.btn(48px,22px,#b23016,linear-gradient(90deg, 
+        #c53a1d 0%, 
+        #b23016 100%),#fff);
+		position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 6px 0px; line-height: 22px;  }
 .hund-tit{display: flex;
-h3{flex: 1; font-size: 24px; color: var(--backColor); height: 35px; line-height: 35px;}
+h3{flex: 1; font-size: 24px; color: var(--backColor); height: 24px; line-height: 24px; border-left: 4px solid var(--redColor); text-indent: 15px;}
 .btn-upload{.btn(160px,35px, var(--redColor),linear-gradient(90deg, #c53a1d 0%, #b23016 100%),#fff);font-size: 14px; border-radius: 18px; }
 .btn-upload:hover{opacity: 0.9;}
 }

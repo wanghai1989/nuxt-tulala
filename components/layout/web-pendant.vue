@@ -46,7 +46,7 @@
                 <nuxt-link to="/about/qq-group" title="QQ联盟"><i class="iconfont">&#xe60a;</i><br /> <span>联盟</span></nuxt-link>
 			</div>
 			<div class="item-pend zq">
-				<nuxt-link to="/enter" title="入驻赚钱"><i class="iconfont">&#xe61c;</i><br /> <span class="point">入驻</span></nuxt-link>
+				<nuxt-link to="/enter" title="入驻接单"><i class="iconfont">&#xe61c;</i><br /> <span class="point">入驻</span></nuxt-link>
 			</div>
 			<div class="item-pend jy">
 			<nuxt-link to="/advice" title="建议"><i class="iconfont">&#xe628;</i><br /><span>建议</span></nuxt-link>	

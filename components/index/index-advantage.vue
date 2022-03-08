@@ -4,7 +4,7 @@
             <div class="icon"><em class="iconfont">&#xec46;</em></div> 
             <router-link to="/task/public">
             <h3>发布需求</h3>
-            <p>优质设计师随时待命</p>
+            <p>平台设计师随时待命</p>
             </router-link>
         </div>
         <div class="part2" title="在线接单">
@@ -25,7 +25,7 @@
             <div class="icon"><em class="iconfont">&#xe608;</em></div> 
             <router-link :to="{ name: 'material-id', params:{id: 1 }}">
             <h3>搜索素材 </h3>
-            <p>各种设计素材无限下载</p>
+            <p>六大类别素材无限下载</p>
             </router-link>
         </div>
         

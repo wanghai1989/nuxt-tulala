@@ -4,7 +4,7 @@
 			  <nuxt-link to="/about/handin-hand" class="focus">口碑好评</nuxt-link>
 	  		&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/qq-group">QQ联盟</nuxt-link>&nbsp;&nbsp;/&nbsp;&nbsp;<nuxt-link to="/about/enterprise-team">团队介绍</nuxt-link>
 	  	</div>
-	  	<div class="title">心系图啦啦●晒图啦合影，获全站会员&nbsp;&nbsp;  <nuxt-link to="/about/handin-hand" class="btn-upload">我也要上传<i></i></nuxt-link> </div>
+	  	<div class="title">心系图啦啦●晒图啦啦合影，获全站会员&nbsp;&nbsp;  <nuxt-link to="/about/handin-hand" class="btn-upload">我也要上传&nbsp;<i class="iconfont">&#xe661;</i></nuxt-link> </div>
 	  	<div class="swiper-xxtl">
 		    <div class="swiper-wrapper">
 		      <div class="swiper-slide clearfix"  v-for="item in evaluation" :key="item.id" >
@@ -85,8 +85,8 @@ export default {
 .title{color: #333;font-size: 24px; text-align: center; margin-top: 45px;}
 .btn-upload{.btn(220px,48px,var(--color),var(--color),#fff); background-image: linear-gradient(90deg, 
         #2dc61d 0%, 
-        #26b216 100%); border-radius: 24px; font-size: 16px;}
-.btn-upload i{.bg-map(16px,14px,-764px, -6px); margin: -3px 0px 0px 10px;}
+        #26b216 100%); border-radius: 24px; font-size: 18px;}
+.btn-upload i{font-size: 18px; vertical-align: top;}
 .btn-upload:hover{opacity: 0.9;}
 }
 
