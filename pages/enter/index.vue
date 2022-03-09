@@ -22,14 +22,14 @@
 	  					<img src="~/assets/images/pic34.png" />
 	  				</div>
 	  				<div class="title">收入可观</div>
-	  				<div class="subtit">可以通过上传作品以及在线接单赚取佣金</div>
+	  				<div class="subtit">可以通过上传作品以及在线接单赚取酬金</div>
 	  			</li>
 	  			<li>
 	  				<div class="img">
 	  					<img src="~/assets/images/pic35.png" />
 	  				</div>
 	  				<div class="title">机会多多</div>
-	  				<div class="subtit">表现优异的设计师有机会进入图啦啦团队</div>
+	  				<div class="subtit">图啦啦不定期招募优秀设计师进入管理团队</div>
 	  			</li>
 	  			<li>
 	  				<div class="img">
