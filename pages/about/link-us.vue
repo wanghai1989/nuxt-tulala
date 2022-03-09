@@ -6,7 +6,8 @@
        <div class="about-contain">
      <h3 class="title">联系我们</h3>
       <p>地址：深圳市福田区天安数码城创新科技广场一期B座808B</p>
-      <p>邮箱：邮箱:tulalawx@163.com</p>
+      <p>邮箱：tulalawx@163.com</p>
+      <p>商务合作：15919483126 &nbsp;&nbsp;  王总</p>
       <p>客服微信: <img src="~/assets/images/pic01.png" class="publicNo"/></p>
      
     </div>

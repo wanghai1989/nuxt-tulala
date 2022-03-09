@@ -3,8 +3,8 @@
       <div class="box animated bounceIn">
         <!-- <div class="countdown"> 入驻限时赠送年VIP  2天1小时59分10秒</div> -->
         <nuxt-link to="/enter"   class="link img-box">
-               <div class="receive" @click="goEnter()">
-                   <span title="立即入驻"> 立即入驻 </span> <br />
+               <div class="receive" @click="goEnter()"  title="立即入驻">
+                   <span> 立即入驻 </span> <br />
                    <em>限时送年VIP</em> 
                  </div>
                  <div class="subline"  v-html="strTime"></div> 
