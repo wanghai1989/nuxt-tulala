@@ -15,7 +15,8 @@
 	  		<div class="mt15">
 	  			<!-- <i class="i-heart"></i> -->
 	  			<div><span class="cgray">作品数</span>&nbsp; <span class="cblack f16">{{item.products_count}}</span> <br/>
-                  <nuxt-link class="btnDetail"  :to="{ name: 'designer-id', params:{ id: item.member_id }}">查看资料</nuxt-link>
+                  <nuxt-link class="btnDetail"  :to="{ name: 'designer-id', params:{ id: item.member_id }}">查看资料</nuxt-link> <br/>
+                  {{item.city}}
                    </div>
 	  		</div>
 	  	</li>

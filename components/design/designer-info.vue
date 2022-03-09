@@ -33,7 +33,7 @@
 	  		<div class="f20 cblack">
 	  			{{designinfo.identity_card_name}}
 	  		</div>
-
+{{designinfo}}
 	  		<div class="cgray">{{designlevel[designinfo.designer_level]}}<i class="i-tip" @click="designRule()"></i> </div>
 			  <div class="design-target" v-if="designinfo.designer_target">
 				  <a href="javascript:void(0)"  v-for="(item,index) in splitTarget(designinfo.designer_target)" :key="index" >{{item}}</a>
@@ -46,21 +46,21 @@
 				<div>
 	  				<div class="vam-l">个人资料</div>
 	  				<div class="vam-r">
-						  <i class="i-certi" title="已完善" v-if="personInfo.is_complete_my_info"></i>
+						  <i class="i-certi" title="已完善" v-if="designinfo.is_complete_my_info"></i>
 						  <i class="i-certi no" title="未完善" v-else></i>
 					</div>
 	  			</div>
 	  			<div>
 	  				<div class="vam-l">实名认证</div>
 	  				<div class="vam-r">
-						<i class="i-certi" title="已认证" v-if="personInfo.certification"></i> 
+						<i class="i-certi" title="已认证" v-if="designinfo.certification"></i> 
 						<i class="i-certi no"  title="未认证" v-else></i> 
 					</div>
 	  			</div>
 	  			<div>
 	  				<div class="vam-l">手机认证</div>
 	  				<div class="vam-r">
-						<i class="i-certi"  title="已认证" v-if="personInfo.is_binding_mobile"></i>
+						<i class="i-certi"  title="已认证" v-if="designinfo.is_binding_mobile"></i>
 						<i class="i-certi no"  title="未认证" v-else></i>
 					</div>
 	  			</div>
@@ -82,7 +82,7 @@
 	  			</div>
 	  		</div>
 	  		<div class="person-evaluate">
-	  			{{personInfo.introduction?personInfo.introduction:'主人太懒了，什么都没留下！！！'}}
+	  			{{designinfo.introduction?designinfo.introduction:'主人太懒了，什么都没留下！！！'}}
 	  		</div>
 
 	  	</div>

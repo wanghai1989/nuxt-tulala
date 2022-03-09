@@ -10,7 +10,7 @@
 		<div class="span-txt"><span class="cgray">任务类别</span>&nbsp;&nbsp;<span class="fw">{{workinfo.category_name}}</span></div>
 		<div class="span-txt"><span class="cgray">预算</span>&nbsp;&nbsp;<span class="fw">{{workinfo.money}}</span></div>
 		<div class="span-txt"><span class="cgray">发布时间</span>&nbsp;&nbsp;<span class="fw">{{workinfo.status_approved_time?workinfo.status_approved_time:'--'}}</span></div>
-		<div class="span-txt end"><span class="cgray">有效期</span>&nbsp;&nbsp;<span class="fw">{{workinfo.effective_time}}天</span></div>
+		<div class="span-txt end"><span class="cgray">有效期</span>&nbsp;&nbsp;<span class="fw">{{workinfo.effective_time}}</span></div>
 		<div class="span-txt row"><span class="cgray">项目描述</span>&nbsp;&nbsp;<span class="fw">{{workinfo.description}}</span></div>
 		<div class="span-txt row" v-if="workinfo.img_one"><span class="cgray" style="vertical-align: middle;">参考附件</span>
 		<div class="egg-img" @click="showImg(workinfo.img_one)"  v-if="workinfo.img_one"> <img :src="workinfo.img_one"/></div>
