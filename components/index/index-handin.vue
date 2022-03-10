@@ -117,8 +117,11 @@ export default {
         color: #fff; font-size: 18px; height: 40px; line-height: 40px; text-align: left;
         img{height: 38px; width: 38px; border: 2px solid #fff; border-radius: 22px; background: #fff; margin-right: 10px;}
     }
- .swiper-txt .font{font-size: 14px; color: #fff; line-height: 26px; text-align: left; margin-top: 15px; height: 104px; overflow: hidden;
- display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;}
+ .swiper-txt .font{font-size: 14px; color: #fff; line-height: 26px; text-align: left; margin-top: 15px; height: 78px;  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;}
     
 .swiper-slide-active,.swiper-xxtl .swiper-slide-duplicate-active{
     background-image: linear-gradient(-180deg, 

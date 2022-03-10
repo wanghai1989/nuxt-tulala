@@ -17,8 +17,8 @@ export const state = () => ({
     keywords:'',
     description:''
 },
-  baseUrl:'https://www.91tula.com',
-  basemUrl:'https://www.91tula.com/m',
+  baseUrl:'https://www.91tula.com/',
+  basemUrl:'https://www.91tula.com/m/',
   showTaskRule:0,
   loading:false,
   navigation:[],

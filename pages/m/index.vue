@@ -3,7 +3,9 @@
    <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
+         <a href="javascript:void(0)" @click="enter('enter')">
 			<img src="~/assets/images/mbanner01.jpg" />
+         </a>
 		</div>
       <div class="swiper-slide">
          <nuxt-link to="/m/mobile-invite">
@@ -41,11 +43,17 @@
   <div class="index-cont">
   <div class="item-cont">
      <h3 class="item-tit">
-        热点导航
+        精选服务
      </h3>
-     <div class="hot-nav">
+     <div class="hot-nav clearfix">
         <nuxt-link  :to="{ name: 'm-material-id', params:{id:1 }}">
            <img src="~/assets/images/mbanner03.jpg"/>
+        </nuxt-link>
+        <nuxt-link to="/m/mobile-task">
+           <img src="~/assets/images/mbanner04.jpg"/>
+        </nuxt-link>
+        <nuxt-link to="/m/mobile-task">
+           <img src="~/assets/images/mbanner04.jpg"/>
         </nuxt-link>
         <nuxt-link to="/m/mobile-task">
            <img src="~/assets/images/mbanner04.jpg"/>
@@ -56,9 +64,7 @@
 </div>
 </template>
 <script>
-import {
-    mapState,mapActions
-} from 'vuex'
+import { mapState,mapActions} from 'vuex'
 export default {
 	props:["position"],
    layout: 'mobile',
@@ -77,10 +83,40 @@ export default {
        this.fetchCategory()	
   },
   computed:{
-	  ...mapState(['homebanner','category'])
+	  ...mapState(['homebanner','category','baseUrl'])
   },
   methods:{ //页面进来发送请求
       ...mapActions(['fetchHomeBanner','fetchCategory']),
+      enter(url){
+         let _that=this
+         let fullpath=this.baseUrl+url
+         layer.open({
+                title: ['温馨提示', 'color:#fff; background: #34bc76;'],//数组第二项可以写任意css样式；如果你不想显示标题栏，你可以title: false
+                content: '<div>请移步电脑端参与竞价 </br>网址：'+fullpath+'</div>',
+                btn: ['复制'],
+                yes: function(index, layero){
+                    _that.copyContent(fullpath);
+                    //do something
+                    layer.close(index); //如果设定了yes回调，需进行手工关闭
+                  }
+                });
+      },
+      copyContent(fullpath){ 
+		//创建一个input元素
+      let input = document.createElement('input') 
+      input.value = fullpath
+      // 在body里面插入这个元素
+      document.body.appendChild(input)   
+      // 选中input里面内容
+      input.select()  
+      //执行document里面的复制方法
+      document.execCommand("Copy") 
+      // 复制之后移除这个元素
+      document.body.removeChild(input)
+
+	  layer.msg('已复制成功哦~', {icon: 1});
+	  
+    },
 	 async fetchBanner(){
 		  let formDatas = new FormData();
 		  formDatas.append('position', this.position);
@@ -121,11 +157,11 @@ span{font-size: 12px;}
 h3.item-tit{font-size: 15px; font-weight: bold; color: var(--color); border-left: 4px solid var(--color); 
 text-indent: 8px; height: 15px; line-height: 15px;margin-bottom: 15px;}
 h3.item-tit.first{margin-bottom: 0px; margin-top: 20px;}
-.hot-nav{display: flex; justify-content: space-between;}
-.hot-nav a{flex: 1;    display: grid;
+.hot-nav a{ display: grid;
     border-radius: 6px;
-    overflow: hidden;
+    width: 49%;
+    overflow: hidden; float: left; margin-bottom: 10px;
 }
-.hot-nav a:first-child{margin-right: 10px;}
+.hot-nav a:nth-child(2n+1){margin-right: 2%;}
 .hot-nav a img{width: 100%;}
 </style>
