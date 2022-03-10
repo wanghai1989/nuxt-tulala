@@ -27,7 +27,7 @@
 					<dt><i class="icon i-aboutus"></i> 了解我们</dt> 
 					<dd><nuxt-link to="/about/about-us">关于我们</nuxt-link></dd> 
 					<dd><nuxt-link to="/about/find-job">招兵买马</nuxt-link></dd>
-					<dd><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></dd>
+					<dd><nuxt-link to="/about/handin-hand">心系图啦</nuxt-link></dd>
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-agreement"></i>服务协议</dt> 

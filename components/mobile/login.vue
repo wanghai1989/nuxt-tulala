@@ -1,7 +1,7 @@
 <template>
 <div class="regist-box">
   <div class="regist-head">
-    <div class="logo"><img src="~/assets/images/logo-m.png"/></div>
+    <div class="logo"><img src="~/assets/images/logo01.png"/></div>
     <div class="tip">欢迎回来！请用手机号登录</div>
   </div>
 <form  class="login-style"  @submit="doSubmit">

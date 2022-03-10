@@ -9,6 +9,11 @@
 		</div>
       <div class="swiper-slide">
          <nuxt-link to="/m/mobile-invite">
+			<img src="~/assets/images/mbanner07.jpg" />
+         </nuxt-link>
+		</div>
+      <div class="swiper-slide">
+         <nuxt-link to="/m/mobile-invite">
 			<img src="~/assets/images/mbanner02.jpg" />
          </nuxt-link>
 		</div>
