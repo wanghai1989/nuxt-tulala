@@ -5,7 +5,7 @@
                 <img src="../../assets/images/pic29.png" />
             </div>
             <div class="result-tit">您的申请已受理</div>
-            <div class="result-subtit">非常荣幸收到您的入驻申请，审核人员将在1-2个工作日完成审核</div>
+            <div class="result-subtit">非常荣幸收到您的入驻申请，审核人员将在1-2个工作日完成审核！</div>
             <div class="result-operat">
             	<nuxt-link to="/">返回首页</nuxt-link>
             </div>
@@ -14,8 +14,8 @@
 	  		<div class="result-img">
                 <img src="../../assets/images/pic28.png" />
             </div>
-            <div class="result-tit">您的申请已通过</div>
-            <div class="result-subtit">恭喜您成为图啦啦设计师团队的一员，您可以去上传您的作品啦</div>
+            <div class="result-tit">您的入驻申请已通过</div>
+            <div class="result-subtit">恭喜您正式成为图啦啦设计师团队的一员，您可以去上传您的作品啦！</div>
             <div class="result-operat">
                 <nuxt-link class="home" to="/">返回首页</nuxt-link>
                 <nuxt-link to="/mine/upload-file">上传作品</nuxt-link>

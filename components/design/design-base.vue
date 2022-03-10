@@ -16,7 +16,7 @@
         <p class="little-title">设计师信息</p>
          <div class="vam vip-info">
 	  				<div>
-	  					<div class="l"><span class="cred">*</span>照片</div>
+	  					<div class="l"><span class="cred">*</span>个人照片</div>
 	  					<div class="r">
 	  						<div class="img-upload design_img">
 								<input type="file" class="filepath" id="design_photo" @change="changepic()" accept="image/jpeg,image/jpg,image/peg,image/png" >
@@ -29,7 +29,7 @@
 	  					</div>
 	  				</div>
             <div>
-	  					<div class="l"><span class="cred">*</span>姓名</div>
+	  					<div class="l"><span class="cred">*</span>真实姓名</div>
 	  					<div class="r">
                 <input class="input" type="text" v-model="real_name"/>
 	  					</div>
@@ -37,7 +37,7 @@
             <div>
 	  					<div class="l"><span class="cred">*</span>个人标签</div>
 	  					<div class="r">
-                <textarea  class="area" v-model="designer_target" rows="2"></textarea>
+                <input  class="input" v-model="designer_target" rows="2" placeholder="如LOGO设计，UI设计，海报设计，小程序"></input>
                 <p>标签用逗号“，”隔开，标签不超过 <span class="cred">6</span> 个</p>
 	  					</div>
 	  				</div>
@@ -55,7 +55,7 @@
 	  				</div>
          </div>
          <br/><br/>
-          <p class="little-title">打款信息</p>
+          <p class="little-title">打款信息 <span class="f14 cgray fn" data-v-79b3e93c="">(平台获取的报酬采用此账号收款)</span></p>
 	  			<div class="vam vip-info">
 	  				<div>
 	  					<div class="l"><span class="cred">*</span>开户名</div>

@@ -3,7 +3,7 @@
 		 		<!-- <div class="title">发布任务</div> -->
          <workStep :stepId="1"></workStep>
 		 		<div class="task-info">
-          <div class='warntip'><i></i> 平台交易客户权益有保障，资金更安全；如线下交易，平台不承担任何责任 ！</div>
+          <div class='warntip'><i class="iconfont">&#xeaf7;</i> 平台交易客户权益有保障，资金更安全；如线下交易，平台不承担任何责任 ！</div>
 		 			<div class="vam vip-info">
 						 <div>
 		 					<div class="l"><span class="cred">*</span>任务类型</div>
@@ -277,7 +277,7 @@ clearInfo(){
 .task-l{float: left; width: 895px; float: left; margin-right: 25px;   
     .task-info{padding: 25px;background: #fff; position: relative;}
     .warntip{height: 40px; line-height: 40px; width: 100%; position: absolute; top: 0; left: 0; background: rgba(0, 0, 0, 0.4); color: #fff; text-align: center;}
-    .warntip i{.bg-map(20px,20px,-423px, -251px);}
+    // .warntip i{.bg-map(20px,20px,-423px, -251px);}
     .title{height: 80px; line-height: 80px;background: #eee; color:var(--backColor); text-indent: 25px; font-size: 20px;}
     .vip-info {margin: 20px 0 0; width: 820px;}
     .vip-info .l{color:var(--backColor); text-align: right; width: 80px;}

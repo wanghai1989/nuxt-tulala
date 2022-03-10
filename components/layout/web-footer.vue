@@ -8,6 +8,7 @@
 	  	<div class="friend-link">
 	  		<div class="wrapper"> 
 					友情链接： 
+					<a href="https://www.design-sn.top/" target="_bank">设计指南针</a> 
 					<a href="https://588ku.com/" target="_bank">千库网</a>  
 					<a href="https://699pic.com/" target="_bank">摄图网</a>  
 					<a href="https://www.tukuppt.com/" target="_bank">熊猫办公</a>  

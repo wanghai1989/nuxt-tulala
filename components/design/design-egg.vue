@@ -8,7 +8,7 @@
 	  				<a href="javascript:;" @click="categoryClick(item.id)" :class="{focus:item.id==isActive}"  v-for="item in category"  :value="item.id" :key="item.id">{{item.name}}</a>
 	  			</div>
 	  			<div class="pic-title mt30">
-	  					<span class="cred">*</span>样品上传<span class="f14 cgray">(上传所选设计方向的原创设计作品)</span> 
+	  					<span class="cred">*</span>样品上传<span class="f14 cgray">(请提交3张相关分类原创作品预览图，图片格式为jpg或png，每张大小控制在 5MB 之内)</span> 
 	  			</div>
 	  			<div class="pics">
 	  				<div class="item-pic">
@@ -45,7 +45,7 @@
 	  					1. 上传3张不同风格的原创设计作品； <br>
               2. 设计师请上传完整的jpg、jpeg或png格式原创作品; <br>
               3. 务必提交与 “设计方向”相关的作品； <br>
-              4. 上传单个图片作品大小控制在 20MB 之内。
+              4. 上传单个图片作品大小控制在 5MB 之内。
 	  				</div>
 	  			</div>
 	  	</div>

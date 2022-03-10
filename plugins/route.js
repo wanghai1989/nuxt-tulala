@@ -58,12 +58,12 @@ export default ({
                         store.dispatch('fetchPersoninfo',token).then(data => { 
                             store.commit('fillpersonInfo', data.data)
                             const designState=store.state.personInfo.designer_status
-                            if(designState==104 && to.path=='/enter/design-basic')
-                            {next({path: '/enter/design-egg'})} 
-                            if((designState==102 || designState==103) && to.path=='/enter/design-basic')
-                            {
-                                next({path: '/enter/design-result'})
-                            } 
+                            // if(designState==104 && to.path=='/enter/design-basic')
+                            // {next({path: '/enter/design-egg'})} 
+                            // if((designState==102 || designState==103) && to.path=='/enter/design-basic')
+                            // {
+                            //     next({path: '/enter/design-result'})
+                            // } 
                             })
                         next()
                     }
