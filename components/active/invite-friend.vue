@@ -58,36 +58,55 @@
 		</div>
 </template>
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState,mapMutations, mapActions} from 'vuex'
 import QRCode from 'qrcode'; 
 import processImg from '~/assets/js/processimg'
 export default {
 
   data () {
     return {
-		invitelink:''
+		invitelink:'',
     }
   },
+  watch :{
+	  '$store.state.personInfo'(){
+		   this.invitelink=this.baseUrl+'user/register?invite_code='+ this.personInfo.invite_code 
+	   }
+	  },
   mounted(){  
 			this.fetchInviteList()
-			this.invitelink=this.baseUrl+'/user/register?invite_code='+ this.personInfo.invite_code  
+			this.invitelink=this.baseUrl+'user/register?invite_code='+ this.personInfo.invite_code 
 		},
  computed:{
 	  ...mapState(['ranklist','personInfo','baseUrl','basemUrl','userToken'])
   },
   methods:{
+	  ...mapMutations(['setShowLogin']),
  ...mapActions({
 		  fetchInviteList:'fetchInviteList'
+		//   fetchPersoninfo:'fetchPersoninfo'
       }),
+	//   updatePersoninfo:function(){
+	// 	  let formDatas = new FormData();
+	// 	  formDatas.append('token', this.userToken);
+	// 	  this.fetchPersoninfo(formDatas).then((data) => { 
+	// 		  this.invitelink=this.baseUrl+'/user/register?invite_code='+ this.personInfo.invite_code 
+	// 	  })
+	//   },
 	   getPromote:function(){
-        if(!this.userToken){
-			  layer.msg('你还未登录,请先登录', {icon: 2});
-			  setTimeout(() => {
-				  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
-			  }, 1500);
-			  return
-		  }
-          let invitelink=this.basemUrl+'/mobile-register?invite_code='+ this.personInfo.invite_code 
+		   if(!this.userToken){
+			this.setShowLogin(1)
+			return
+		}
+        // if(!this.userToken){
+			
+		// 	  layer.msg('你还未登录,请先登录', {icon: 2});
+		// 	  setTimeout(() => {
+		// 		  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
+		// 	  }, 1500);
+		// 	  return
+		//   }
+          let invitelink=this.basemUrl+'mobile-register?invite_code='+ this.personInfo.invite_code 
 
 
           QRCode.toDataURL(invitelink, {
@@ -143,13 +162,17 @@ export default {
 	// 			});
 	//   },
 	 copyContent(){ 
+		//   if(!this.userToken){
+		// 	  layer.msg('你还未登录,请先登录', {icon: 2});
+		// 	  setTimeout(() => {
+		// 		  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
+		// 	  }, 1500);
+		// 	  return
+		//   }
 		  if(!this.userToken){
-			  layer.msg('你还未登录,请先登录', {icon: 2});
-			  setTimeout(() => {
-				  this.$router.push({path: '/user/login',query:{backUrl:this.$route.path}}) 
-			  }, 1500);
-			  return
-		  }
+			this.setShowLogin(1)
+			return
+		}
 		//创建一个input元素
       let input = document.createElement('input') 
       input.value = this.invitelink

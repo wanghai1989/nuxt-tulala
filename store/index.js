@@ -166,6 +166,7 @@ setShowLogin(state, isShow) {
   },
 cancelToken(state) {
 state.userToken = '';
+state.personInfo={};
 localStorage.removeItem('token');
 },
 userStatus(state,flag)
@@ -432,6 +433,7 @@ export const actions = {
         commit('startLoading')
         return model.getPersoninfo(formData)
         .then(data => {
+          // console.log('data',data)
           commit('endLoading')
           commit('fillpersonInfo', data.data)
         })

@@ -1,13 +1,15 @@
 <template>
 <div>
+	<webLogin></webLogin>
     <inviteFriend></inviteFriend>
 </div>
 </template>
 <script>
+import webLogin from '~/components/layout/web-login.vue'
 import inviteFriend from '~/components/active/invite-friend'
 export default {
     layout: 'web-active',
-components: {inviteFriend},
+components: {inviteFriend,webLogin},
 head(){
 	   return {
 			title:'邀请好友-图啦啦91tula.com',

@@ -78,7 +78,6 @@ export default {
     },
     webchatLogin:function(){
       window.location.href= 'https://open.weixin.qq.com/connect/qrconnect?appid=wx79e8ed0c330dabe2&redirect_uri=https://www.91tula.com&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
-     
     },
     wechatSubmit(code){
        // 调用接口
