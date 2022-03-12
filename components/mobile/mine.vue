@@ -56,7 +56,8 @@
       <nuxt-link to="/m/handin-hand">
       <i class="iconfont">&#xe607;</i> 心系图啦
       </nuxt-link>
-      <em>已上传</em>
+      <em v-if="personInfo.is_evaluation">已上传</em>
+      <em v-else>未上传</em>
     </li>
  </ul>
 

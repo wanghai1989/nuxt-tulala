@@ -27,6 +27,7 @@
 		<a href="javascript:void(0)" @click="showRules()" class="linkrule">《任务操作流程》</a> 
 	</div>
 	  </div>
+	  {{item}}
 <ul class="ul-task" v-if="workorder.length>0">
 	  	<li  v-for="item in workorder" :key="item.id">
 	  		<div class=""><nuxt-link  class="cmain f18 fw" :to="{ name: 'task-id', params:{ id: item.id }}" >{{item.name}}</nuxt-link></div>
