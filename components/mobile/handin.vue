@@ -91,7 +91,7 @@ async doSubmit (e) {
 			}
 			if(data.code==1){
 			this.show_hand=0
-			layer.msg(data.msg, {icon: 1});
+			layer.msg('感谢您的祝福，审核通过后您将获得一个月全站VIP奖励！', {icon: 1});
 			}
 		})
 		}else{

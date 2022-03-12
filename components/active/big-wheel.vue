@@ -16,7 +16,7 @@
 			<div class="wheel-03">
 
 
-				<div class="title">您的总积分 <b>{{personInfo.integral}}</b> </div>
+				<div class="title">您的总积分 <b v-if="userToken">{{personInfo.integral}}</b>  <a href="javascript:void(0)" @click="login()" class="unlogin" v-else>去登录</a></div>
 				<div class="subtit"><strong> 获取更多积分</strong> 
 					每日签到+5积分&nbsp;&nbsp;&nbsp;&nbsp;
 					成功邀请好友一人+100积分<nuxt-link to="/active/invite-friend">去邀请</nuxt-link> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,7 +41,7 @@
 </template>
 <script>
 
-import { mapState,mapActions} from 'vuex'
+import { mapState,mapMutations,mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -107,6 +107,10 @@ export default {
         luckyDraw: 'luckyDraw',
         fetchPersoninfo:'fetchPersoninfo'
      }),
+      ...mapMutations(['setShowLogin']),
+     login(){
+         this.setShowLogin(1)
+     },
     bigwheel:function(id){
         let formDatas = new FormData();
 		formDatas.append('token', this.userToken);
@@ -206,8 +210,9 @@ button[disabled]{
 .wheel-02{height: 916px; width: 100%; background: url(~/assets/images/wheel_02.png) no-repeat top center; background-size: cover;}
 .wheel-03{height: 237px; width: 100%; background: url(~/assets/images/wheel_03.png) no-repeat top center;
  background-size: cover; text-align: center; padding-top: 25px; box-sizing: border-box;}
-.wheel-03>.title{color: #c21133; font-size:20px; margin-bottom: 20px;}
-.wheel-03>.title b{font-size: 30px;}
+.wheel-03>.title{color: #fff; font-size:20px; margin-bottom: 20px;}
+.wheel-03>.title b{font-size: 30px; color: #c21133;}
+.wheel-03 .unlogin{text-decoration: underline; font-size: 16px; color: #c21133;}
 .wheel-03 .subtit strong{font-size: 24px; font-weight: normal; display: block; margin-bottom: 5px;}
 .wheel-03 .subtit{font-size: 16px; color: #fff; width: 900px; margin: 0px auto; text-align: left;}
 .wheel-03 .subtit a{display: inline-block; vertical-align: middle;    font-size: 14px;
@@ -221,6 +226,7 @@ button[disabled]{
 .wheel-04 .rules>h3:after{content: ''; display: block; height: 4px; width: 60px; 
 position: absolute; bottom: -15px; left: 0px;background: #ffd81a;}
 .wheel-04 .rules>ol{flex: 1; margin-left: 30px; line-height: 42px; font-size: 16px;}
+
 .winnerBox{
     max-width:800px;
     /*padding:30px;*/

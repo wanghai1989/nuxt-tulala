@@ -5,7 +5,7 @@
     <li   v-for="item in worklist" :key="item.id">
       <div class="work-tit">
         <b>{{item.name}}<br/><em class="">工单编号&nbsp;{{item.order_sn}}</em> </b>   
-      <button class="btn-join" :disabled="[0,2,3,6,7,8].includes(item.status)" @click="downLoad('person/my-works')">{{publicStateName[item.status]}}</button></div>
+      <button class="btn-join" :disabled="[0,2,3,6,7,8].includes(item.status)" @click="downLoad('mine/my-works')">{{publicStateName[item.status]}}</button></div>
       <div class="vam vam-task">
         <div>
           <div>发布时间 <strong>{{publicTime(item.status_approved_time)}}</strong></div>

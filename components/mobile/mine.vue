@@ -46,11 +46,11 @@
       <i class="iconfont">&#xe683;</i> 我的接单
       </nuxt-link>
     </li>
-    <li class="file" @click="downLoad('person/my-file')">
+    <li class="file" @click="downLoad('mine/my-file')">
       <i class="iconfont">&#xe603;</i> 我的作品
     </li>
     <li class="sign" @click="gosignin()">
-      <i class="iconfont">&#xe62c;</i> 签到
+      <i class="iconfont">&#xe6ed;</i> 签到
     </li>
     <li class="heart" >
       <nuxt-link to="/m/handin-hand">

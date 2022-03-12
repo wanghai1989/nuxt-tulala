@@ -8,6 +8,7 @@
 	  	<div class="friend-link">
 	  		<div class="wrapper"> 
 					友情链接： 
+					<a href="https://www.design-sn.top/" target="_bank">设计指南针</a> 
 					<a href="https://588ku.com/" target="_bank">千库网</a>  
 					<a href="https://699pic.com/" target="_bank">摄图网</a>  
 					<a href="https://www.tukuppt.com/" target="_bank">熊猫办公</a>  
@@ -26,7 +27,7 @@
 					<dt><i class="icon i-aboutus"></i> 了解我们</dt> 
 					<dd><nuxt-link to="/about/about-us">关于我们</nuxt-link></dd> 
 					<dd><nuxt-link to="/about/find-job">招兵买马</nuxt-link></dd>
-					<dd><nuxt-link to="/about/handin-hand">牵手图啦</nuxt-link></dd>
+					<dd><nuxt-link to="/about/handin-hand">心系图啦</nuxt-link></dd>
 				</dl>
 				<dl class="col-links">
 					<dt><i class="icon i-agreement"></i>服务协议</dt> 

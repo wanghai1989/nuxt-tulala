@@ -8,17 +8,17 @@
            </div>
            <div class="remarks-rf clearfix">
                <div class="service-cont">
-                   <nuxt-link to="/task/public" title="安全雇佣">
-                       <h3>安全雇佣</h3>
-                       <p>设计师经过图啦啦层层审核</p>
-                       <p>灵活雇佣，节省企业50%人力成本</p>
-                   </nuxt-link>
-               </div>
-               <div class="service-cont">
                    <nuxt-link to="/enter"  title="入驻图啦">
                        <h3>入驻图啦</h3>
                        <p>设计师晋级依托作品</p>
                        <p>拒绝竞价排名、广告置顶更具公平</p>
+                   </nuxt-link>
+               </div>
+               <div class="service-cont">
+                   <nuxt-link to="/task/public" title="安全雇佣">
+                       <h3>安全雇佣</h3>
+                       <p>设计师经过图啦啦层层审核</p>
+                       <p>灵活雇佣，节省企业50%人力成本</p>
                    </nuxt-link>
                </div>
                <div class="service-cont">
@@ -178,8 +178,8 @@ export default {
 .service-cont:nth-child(3),.service-cont:nth-child(4){
         border-top: 1px solid #f2f2f2;
 }
-.service-cont:nth-child(1){background: url(~/assets/images/pic56.png) no-repeat top 0px right 0px;    background-size: contain;}
-.service-cont:nth-child(2){background: url(~/assets/images/pic57.png) no-repeat top 0px right 0px;    background-size: contain;}
+.service-cont:nth-child(2){background: url(~/assets/images/pic56.png) no-repeat top 0px right 0px;    background-size: contain;}
+.service-cont:nth-child(1){background: url(~/assets/images/pic57.png) no-repeat top 0px right 0px;    background-size: contain;}
 .service-cont:nth-child(3){background: url(~/assets/images/pic58.png) no-repeat top 0px right 0px;    background-size: contain;}
 .service-cont:nth-child(4){background: url(~/assets/images/pic59.png) no-repeat top 0px right 0px;    background-size: contain;}
 </style>

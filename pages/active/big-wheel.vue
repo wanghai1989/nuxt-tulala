@@ -1,13 +1,15 @@
 <template>
 <div>
+	<webLogin></webLogin>
     <bigWheel></bigWheel>
 </div>
 </template>
 <script>
 import bigWheel from '~/components/active/big-wheel'
+import webLogin from '~/components/layout/web-login.vue'
 export default {
     layout: 'web-active',
-components: {bigWheel},
+components: {bigWheel,webLogin},
 head(){
 	   return {
 			title:'大转盘-图啦啦91tula.com',

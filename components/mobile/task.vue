@@ -50,18 +50,16 @@ export default {
                 content: '<div>请移步电脑端参与竞价 </br>网址：'+fullpath+'</div>',
                 btn: ['复制'],
                 yes: function(index, layero){
-                    _that.copyContent(url);
+                    _that.copyContent(fullpath);
                     //do something
                     layer.close(index); //如果设定了yes回调，需进行手工关闭
                   }
                 });
     },
-    copyContent(url){ 
+    copyContent(fullpath){ 
 		//创建一个input元素
       let input = document.createElement('input') 
-      //给input的内容复制
-      let invitelink=this.baseUrl+url
-      input.value = invitelink
+      input.value = fullpath
       // 在body里面插入这个元素
       document.body.appendChild(input)   
       // 选中input里面内容

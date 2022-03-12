@@ -174,12 +174,14 @@ export default {
     doSubmit (e) {
       e.preventDefault()
       // console.log(common.randomWord(true,4,6))
-
+      
       if(!this.dis){
         layer.msg('你还未勾协议', {icon: 2});
         return
       }
       const errMsg=this.validate()
+
+      
       this.errorMsg=errMsg
       if (!errMsg) {
 		  let formDatas = new FormData();
@@ -206,7 +208,10 @@ export default {
                         if(this.backUrl){
                           this.$router.replace(this.backUrl) 
                         }else{
-                          this.$router.replace('/mine') 
+                          
+                          // this.$router.push({ path:'/mine', params: { id: this.id } )
+                          this.$router.push({path: '/mine',query:{publicno:'focus'}}) 
+                          // this.$router.replace('/mine') 
                         }
                       }, 1000);
                   }

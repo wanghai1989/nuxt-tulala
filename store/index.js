@@ -17,8 +17,8 @@ export const state = () => ({
     keywords:'',
     description:''
 },
-  baseUrl:'https://www.91tula.com',
-  basemUrl:'https://www.91tula.com/m',
+  baseUrl:'https://www.91tula.com/',
+  basemUrl:'https://www.91tula.com/m/',
   showTaskRule:0,
   loading:false,
   navigation:[],
@@ -166,6 +166,7 @@ setShowLogin(state, isShow) {
   },
 cancelToken(state) {
 state.userToken = '';
+state.personInfo={};
 localStorage.removeItem('token');
 },
 userStatus(state,flag)
@@ -432,6 +433,7 @@ export const actions = {
         commit('startLoading')
         return model.getPersoninfo(formData)
         .then(data => {
+          // console.log('data',data)
           commit('endLoading')
           commit('fillpersonInfo', data.data)
         })

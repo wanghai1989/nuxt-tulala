@@ -9,7 +9,7 @@
 		<div class="laymshade hand" v-if="show_hand">
 			<div class="hand-box clearfix">
 				<div class="hand-head">
-					牵手图啦
+					心系图啦
 				</div>
 				<i class="close" @click="closehand()"></i>
 				  <div class="vam vam-hand">
@@ -185,7 +185,7 @@ async doSubmit (e) {
 			}
 			if(data.code==1){
 			this.show_hand=0
-			layer.msg(data.msg, {icon: 1});
+			layer.msg('感谢您的祝福，审核通过后您将获得一个月全站VIP奖励！', {icon: 1});
 			}
 		})
 		}else{
@@ -247,6 +247,7 @@ async doSubmit (e) {
         #c53a1d 0%, 
         #b23016 100%),#fff);
 		position: fixed; top: 450px; left: 50%; margin-left: 600px; padding: 6px 0px; line-height: 22px;  }
+.btn-apply:hover{opacity: 0.9;}
 .hund-tit{display: flex;
 h3{flex: 1; font-size: 24px; color: var(--backColor); height: 24px; line-height: 24px; border-left: 4px solid var(--redColor); text-indent: 15px;}
 .btn-upload{.btn(160px,35px, var(--redColor),linear-gradient(90deg, #c53a1d 0%, #b23016 100%),#fff);font-size: 14px; border-radius: 18px; }
@@ -256,6 +257,7 @@ h3{flex: 1; font-size: 24px; color: var(--backColor); height: 24px; line-height:
 li{width: 220px; height: auto; margin-top: 26px; margin-right: 25px; overflow: hidden; float: left; background: #fff;
 padding: 10px 10px; box-sizing: border-box;}
 .hand-img{width: 100%; height: auto; }
+.hand-img:hover{cursor: pointer;}
 .hand-img img{width: 100%;}
 .hand-name{color:  var(--backColor);; margin-top: 15px;}
 .hand-font{margin-top: 5px;} 
