@@ -1,63 +1,22 @@
 <template>
 <div>
 <header class="header" :class="pageclass"> 
-			<div class="wrapper clearfix">
-        <div class="logo">
+			<div class="logo">
                 <nuxt-link to="/">
                     <img src="~/assets/images/logo01.png" title="图啦啦" v-if="pageclass=='index'" >
                     <img src="~/assets/images/logo02.png" title="图啦啦" v-else >
               </nuxt-link>
 			</div>
+			<div class="wrapper clearfix">
 				 <ul class="fl nav-list">
                     <li>
                       <i class="i-hot"></i>
-                      <nuxt-link to="/designer">我是设计师</nuxt-link>
-                       <div class="material-box">
-                         <div class="material-name" >
-                            <nuxt-link to="/designer">图啦设计师</nuxt-link>
-                          </div>
-                          <div class="material-name" >
-                            <nuxt-link to="/task">参与任务</nuxt-link>
-                          </div>
-                          <div class="material-name" >
-                            <nuxt-link to="/enter">入驻图啦啦</nuxt-link>
-                          </div>
-                        </div>
+                       <nuxt-link to="/designer">设计师</nuxt-link>
 				   </li>
             <li>
-                       <nuxt-link to="/task/public">免费发布任务</nuxt-link>
+                       <nuxt-link to="/task">任务</nuxt-link>
 				   </li>
-           <li>
-                       <nuxt-link :to="{ name: 'material-id', params:{id: 1 }}">设计素材</nuxt-link>
-                       <div class="material-box">
-                          <div class="material-name"  v-for="item in navigation" :key="item.id">
-                            <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}
-                            <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
-                            <div class="pd-top">
-                                <h3>{{item.name}}<span>近期新增1596张</span></h3>
-                            </div>
-                          <div v-if="item.name=='办公文档'">
-                            <div v-for="item2 in item.child" :key="item2.id">
-                            <div class="pd-name" >
-                              <nuxt-link :to="{ name: 'material-id', params:{type:item.type_class,id: item2.id }}">{{item2.name}}</nuxt-link>
-                            </div>
-                            <div class="pd-list clearfix">
-                              <nuxt-link class="main-sort" v-for="item3 in item2.scenarios" :key="item3.id" :to="{ name: 'material-id', params:{type:item.type_class, id: item2.id },query:{scenarios_id:item3.id}}">{{item3.name}}</nuxt-link>
-                            </div> 
-                            </div>
-                          </div>
-                            <div class="pd-list clearfix" v-else> 
-                              <nuxt-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: 'material-id', params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</nuxt-link>
-                            </div>                                                                               
-				   	  </div>
-</nuxt-link>
-
-                          </div>
-                       </div>
-				   </li>
-
-
-                    <!-- <li v-for="item in navigation" :key="item.id"> 
+                    <li v-for="item in navigation" :key="item.id"> 
                         <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}</nuxt-link>
                         <div class="pull-down-box" :class='[item.type_class,item.name=="办公文档" ?"double":"single" ]' >
                             <div class="pd-top">
@@ -77,13 +36,10 @@
                               <nuxt-link class="main-sort"  v-for="child in item.scenarios" :key="child.id" :to="{ name: 'material-id', params:{id: item.id },query:{scenarios_id:child.id}}">{{child.name}}</nuxt-link>
                             </div>                                                                               
 				   	  </div>
-                    </li> -->
+                    </li>
                    
 				   <li>
                         <nuxt-link to="/mall">积分商城</nuxt-link>
-				   </li>
-           <li>
-                        <nuxt-link to="/active/invite-friend">邀请好友</nuxt-link>
 				   </li>
 				</ul>
 
@@ -230,7 +186,7 @@ fetchNoticeList:function(){
       100%{transform:rotateY(360deg);}
     }
     .header{height: 88px; position: relative; top: 0; background: #fff;  z-index: 4; width: 100%;box-shadow: 0px 3px 8px 0px  rgba(92, 92, 92, 0.2);
-    .logo{ width: 112px; height: 57px; overflow: hidden; margin-top: 15px; float: left;     margin-right: 50px;}
+    .logo{position: absolute; top: 15px; left: 20px; width: 112px; height: 57px; overflow: hidden; }
     .logo img{width: 100%;}
     .nav-list>li{ float: left;  position: relative; margin: 0 15px;padding:0;}
     .nav-list>li .i-hot{.bg-map(22px,22px,-211px, -192px); position: absolute; top: 15px; right: -6px; animation: rotate-anim 5s linear infinite; }
@@ -239,10 +195,10 @@ fetchNoticeList:function(){
 
     .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 10px; height: 88px; line-height: 88px;
      border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-weight: bold;}
-    .nav-list>li>a.nuxt-link-exact-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
+    .nav-list>li>a.nuxt-link-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
     .nav-list>li>a.focus{color: var(--color); border-bottom: 3px solid  var(--color); font-size: 16px;}
     .nav-list>li>a:hover{color:  var(--color); border-bottom: 3px solid transparent; font-size: 16px;}
-    .nav-list>li:hover .material-box{display: block;}
+    .nav-list>li:hover .pull-down-box{display: block;}
     .login{margin: 20px 15px 0px 0px;display: flex;
     .unlogin{margin-top: 8px}
     >.btn-notice{.bg-map(18px,18px,-774px, -172px);  display:inline-block;
@@ -311,21 +267,18 @@ fetchNoticeList:function(){
     
 }   
 
-.material-box{
-   position: absolute;
+.pull-down-box {
+  position: absolute;
     top: 88px;
-    width: 160px;
+    width: 500px;
   background-color: #fff;
   left: -29px;
   border: 1px solid #e7e7e7;
-  z-index: 200;
   display: none;
-  .material-name{height: 50px; line-height: 50px; font-size: 16px; text-align: center; border-bottom: 1px solid #f1f1f1; }
-  .material-name a{display: block; height: 100%;}
-  .material-name a:hover{color: var(--color);}
-  .material-name a:hover  .pull-down-box{display: block;}
+  z-index: 200;
+  /*padding-bottom:20px;*/
 }
-.material-box:before {
+.pull-down-box:before {
     content: "";
     position: absolute;
     width: 10px;
@@ -334,31 +287,7 @@ fetchNoticeList:function(){
     border-top: 1px solid #e7e7e7;
     border-right: 1px solid #e7e7e7;
     top: -6px;
-    left: 72px;
-    background: #fff;
-
-}
-.pull-down-box {
-  position: absolute;
-    top: -1px;
-    width: 500px;
-  background-color: #fff;
-  left: 160px;
-  border: 1px solid #e7e7e7;
-  display: none;
-  z-index: 200;
-  /*padding-bottom:20px;*/
-}
-.pull-down-box:before {
-        content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    transform: rotate(225deg);
-    border-top: 1px solid #e7e7e7;
-    border-right: 1px solid #e7e7e7;
-    top: 20px;
-    left: -7px;
+    left: 52px;
     background: #fff;
 }
 .pull-down-box.single{width: 310px;}
@@ -416,6 +345,6 @@ fetchNoticeList:function(){
 .pull-down-box.ui .pd-name{border-color: var(--colorUi); color: var(--colorUi);}
 .pull-down-box.mbsc .pd-name{border-color: var(--colorMbsc); color: var(--colorMbsc);}
 .pull-down-box.word .pd-name{border-color: var(--colorBgwd); color: var(--colorBgwd);}
-.pull-down-box.word .pd-name a{color: var(--colorBgwd); text-align: left;}
+.pull-down-box.word .pd-name a{color: var(--colorBgwd);}
 .pull-down-box.syt .pd-name{border-color: var(--colorSyt); color:var(--colorSyt) ;}
     </style>

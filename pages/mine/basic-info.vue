@@ -1,10 +1,10 @@
 <template>
 <div>
 <personBanner></personBanner>
-    <personNav></personNav>
-    <div class="wrapper">
-        <basicInfo></basicInfo>
-    </div>
+<personNav></personNav>
+<div class="wrapper">
+    <basicInfo></basicInfo>
+</div>
 </div>
 </template>
 <script>

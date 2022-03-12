@@ -34,7 +34,7 @@
 				<div class="work-item">类别&nbsp;<span class="cblack f16 fw">{{item.category_name?item.category_name:"--"}}</span></div>  
 				<div class="work-item">预算&nbsp;<span class="cblack f16 fw">{{item.money}}</span></div>  
 				<div class="work-item">发布日期&nbsp;<span class="cblack f16 fw">{{item.status_approved_time?item.status_approved_time:"--"}}</span></div>
-				<div class="work-item">有效期&nbsp;<span class="cblack f16 fw">{{item.effective_time}}</span></div>  
+				<div class="work-item">有效期&nbsp;<span class="cblack f16 fw">{{item.effective_time}}</span></div>   <!-- {{endDays(item.effective_time)}}-->
 				<!-- <div class="work-item">工单状态&nbsp;<span class="cblack f16 fw">{{workName[item.status]}}</span></div> -->
 			</div>
 	  		<div class="cgray mt10">项目描述：<span class="cblack">{{item.description}}</span></div>
