@@ -28,7 +28,7 @@
 	 </div>
 	  		<div class="pic">
 	  			<img :src="designinfo.designer_img" v-if="designinfo.designer_img" />
-                <img src='~/assets/images/defaultVip.png' v-else /> 
+                <img src='~/assets/images/defaultDesign.png' v-else /> 
 	  		</div>
 	  		<div class="f20 cblack">
 	  			{{designinfo.identity_card_name}}

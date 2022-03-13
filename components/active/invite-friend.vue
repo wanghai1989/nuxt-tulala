@@ -230,7 +230,7 @@ height: 90px; box-sizing: border-box; font-size: 22px; line-height: 66px; border
 
 .invite-rule{position: absolute; left: 50%; top: 655px; margin-left: -400px; width: 800px; height: 539px;}
 .invite-rule dt{width: 122px; height: 35px; background: #feeb94;    font-size: 18px;
-    color: #ab8106; border: 2px solid #ab8106; border-radius: 8px; line-height: 32px; text-align: center; margin-bottom: 15px;}
+    color: #ab8106; border: 2px solid #ab8106; border-radius: 8px; line-height: 35px; text-align: center; margin-bottom: 15px;}
 .invite-rule dd{font-size: 18px; line-height: 30px; margin-bottom: 5px; color: #fff;}
 // .invite-04 .vam{width: 680px;max-height: 380px;margin: 0 auto; line-height: 63px; color: #ab6906; font-size: 19px;text-align: center;}
 // .invite-05 ol{width: 652px; margin: 0 auto; padding-top: 50px;}
