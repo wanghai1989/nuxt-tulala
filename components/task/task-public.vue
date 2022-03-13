@@ -69,7 +69,7 @@
 		 					<div class="l"></div>
 		 					<div class="r">
 								 <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
-							 	 <button type="submit" class="btn-report" :disabled="disabled">发布</button>
+							 	 <button type="submit" class="btn-report" :disabled="disabled">免费发布</button>
 		 					</div>
 		 				</div>
 		 			</div>

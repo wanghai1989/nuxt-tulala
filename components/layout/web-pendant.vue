@@ -52,7 +52,7 @@
 			<nuxt-link to="/advice" title="建议"><i class="iconfont">&#xe628;</i><br /><span>建议</span></nuxt-link>	
 			</div>
 			<div class="item-pend rw">
-				<nuxt-link to="/task/public" title="发布任务"> <i class="iconfont">&#xec46;</i><br /> <span>发布</span></nuxt-link>	
+				<nuxt-link to="/task/public" title="免费发布任务"> <i class="iconfont">&#xec46;</i><br /> <span>发布</span></nuxt-link>	
 			</div>
 			<div class="item-top" id="holdtop" @click="holdTop()" title="置顶">
 				<i></i>

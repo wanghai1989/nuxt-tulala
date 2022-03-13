@@ -15,8 +15,8 @@
 	  		<div class="mt15">
 	  			<!-- <i class="i-heart"></i> -->
 	  			<div><span class="cgray">作品数</span>&nbsp; <span class="cblack f16">{{item.products_count}}</span> <br/>
-                  <nuxt-link class="btnDetail"  :to="{ name: 'designer-id', params:{ id: item.member_id }}">查看资料</nuxt-link> <br/>
-                  {{item.city}}
+                  <nuxt-link class="btnDetail"  :to="{ name: 'designer-id', params:{ id: item.member_id }}">查看资料</nuxt-link> 
+                  <div class="cgray f12 mt5" v-if="item.city"> <i class="iconfont">&#xe61f;</i>{{item.city}}</div>
                    </div>
 	  		</div>
 	  	</li>
@@ -95,7 +95,7 @@ fetchDesign:function(){
     cursor: pointer;
 }
 .design-list{margin-top: 40px;
-    li{width: 180px;height: 357px; float: left; margin-right: 75px;border-radius:90px; background: #fff;text-align: center;    padding: 5px;
+    li{width: 180px;height: 370px; float: left; margin-right: 75px;border-radius:90px; background: #fff;text-align: center;    padding: 5px;
     box-sizing: border-box; margin-bottom: 20px;}
     li:nth-child(5n){margin-right: 0;}
     .pic{width: 170px; height: 170px; border-radius:85px; border-bottom-left-radius: 0; overflow: hidden;}

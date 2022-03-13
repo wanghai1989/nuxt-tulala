@@ -14,21 +14,22 @@
                       <nuxt-link to="/designer">我是设计师</nuxt-link>
                        <div class="material-box">
                          <div class="material-name" >
+                            <nuxt-link to="/enter">入驻图啦啦</nuxt-link>
+                          </div>
+                         <div class="material-name" >
                             <nuxt-link to="/designer">图啦设计师</nuxt-link>
                           </div>
                           <div class="material-name" >
                             <nuxt-link to="/task">参与任务</nuxt-link>
                           </div>
-                          <div class="material-name" >
-                            <nuxt-link to="/enter">入驻图啦啦</nuxt-link>
-                          </div>
+                          
                         </div>
 				   </li>
             <li>
-                       <nuxt-link to="/task/public">免费发布任务</nuxt-link>
+                       <nuxt-link to="/task/public">找设计师</nuxt-link>
 				   </li>
            <li>
-                       <nuxt-link :to="{ name: 'material-id', params:{id: 1 }}">设计素材</nuxt-link>
+                       <nuxt-link :to="{ name: 'material-id', params:{id: 1 }}">素材中心</nuxt-link>
                        <div class="material-box">
                           <div class="material-name"  v-for="item in navigation" :key="item.id">
                             <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}
