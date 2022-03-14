@@ -19,7 +19,7 @@
 				<div>
 						<div><span class="cred">*</span>项目合同</div>
 						<div>
-				              <a href="javascript:void(0)" class="btn-upload">上传文件 <input type="file" accept="*.doc,*.docx"  @change="changefile()" id="file_contract"> </a>
+				              <a href="javascript:void(0)" class="btn-upload">上传文件 <input type="file"   @change="changefile()" id="file_contract"> </a>
 							  <span class="cmain" v-if="isContract">已上传</span>
 							  <i id="tip_file" class="i-tipfile"></i><span class="cgray f12">合同格式为doc、docx</span> 
 						</div>
