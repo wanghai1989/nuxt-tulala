@@ -1,7 +1,7 @@
 <template>
 <div class="task-r">
   <div class='tc mb5'>
-                  <a href="javascript:void(0)" @click="showRules()" class="cmain">《任务操作流程》</a> 
+                  <a href="javascript:void(0)" @click="showRules()" class="cmain" title="《任务操作流程》">《任务操作流程》</a> 
                 </div>
                 <nuxt-link  class="btn-public"  to="/task/public">免费发布任务</nuxt-link>
                 

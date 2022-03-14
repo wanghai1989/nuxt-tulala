@@ -38,7 +38,7 @@
 						</div>
 				  		<div class="cgray mt20">
 						 <span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>
-						 <span class="worktxt">雇佣设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname}}</b></nuxt-link></span>
+						 <span class="worktxt">雇佣设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname?item.design_nickname:""}}</b></nuxt-link></span>
 						  <span class="worktxt">手机号&nbsp;<b class="cblack f15">{{item.mobile}}</b></span>
 						  <span class="worktxt">预算&nbsp;<b class="cblack f15">{{item.money}}</b></span>
 						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}} </b></span>

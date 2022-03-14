@@ -18,19 +18,19 @@
 			<div class="wrapper">
 			  <div class="footer-links clearfix">
 				<dl class="col-links">
-					<dt><i class="icon i-map"></i>网站地图</dt> 
+					<dt><i class="iconfont">&#xe629;</i>网站地图</dt> 
 					<dd><nuxt-link to="/mall">积分商城</nuxt-link></dd> 
 					<dd><nuxt-link to="/task/public">发布任务</nuxt-link></dd> 
 					<dd><nuxt-link to="/enter">设计师入驻</nuxt-link></dd> 
 				</dl>
 				<dl class="col-links">
-					<dt><i class="icon i-aboutus"></i> 了解我们</dt> 
+					<dt><i class="iconfont">&#xe641;</i> 了解我们</dt> 
 					<dd><nuxt-link to="/about/about-us">关于我们</nuxt-link></dd> 
 					<dd><nuxt-link to="/about/find-job">招兵买马</nuxt-link></dd>
 					<dd><nuxt-link to="/about/handin-hand">心系图啦</nuxt-link></dd>
 				</dl>
 				<dl class="col-links">
-					<dt><i class="icon i-agreement"></i>服务协议</dt> 
+					<dt><i class="iconfont">&#xe68a;</i>服务协议</dt> 
 					<!-- <dd><nuxt-link to="/enter?#question"> 任务帮助中心</nuxt-link></dd> -->
 					<dd><nuxt-link :to="{ path:'/agreement', query:{id:1}}"> 用户协议</nuxt-link></dd> 
 					<dd><nuxt-link :to="{ path:'/agreement', query:{id:2}}"> 版权声明</nuxt-link></dd>
@@ -100,12 +100,13 @@ export default {
     .footer-links {padding-top: 40px;
 .col-links { float: left; width: 175px; height: 112px; margin: 0; }
  .col-links dt { margin: -1px 0 10px; font-size: 18px; color: #fff; }
+  .col-links dt i{font-size: 22px; margin-right: 5px; color: #d3d3d3;}
   .col-links dd { margin: 5px 0 0 35px; }
   .col-links dd a:hover{color:#e81324; }
   dd a:hover{color:#e81324; }
-   .i-aboutus{width: 20px; height: 20px; background-position: -638px -4px; margin-right: 6px;}
-.i-agreement{width: 20px; height: 20px; background-position: -669px -6px; margin-right: 6px;}
- .i-map{width: 20px; height: 20px; background-position: -605px -5px; margin-right: 6px;}
+//    .i-aboutus{width: 20px; height: 20px; background-position: -638px -4px; margin-right: 6px;}
+// .i-agreement{width: 20px; height: 20px; background-position: -669px -6px; margin-right: 6px;}
+//  .i-map{width: 20px; height: 20px; background-position: -605px -5px; margin-right: 6px;}
 .col-contact{float: left; width: 295px;  text-align: right;}
 
 .phone{font-size: 24px; color: #fff; }

@@ -42,7 +42,7 @@ getEndDays:function(end_time){
     else
     return days +'天'
    }else{
-    return '失效'
+    return '未审核'
    }
    
 },

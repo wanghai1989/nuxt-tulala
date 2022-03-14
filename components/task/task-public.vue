@@ -70,6 +70,7 @@
 		 					<div class="r">
 								 <div class="error-msg" v-show="errorMsg">{{errorMsg}}</div>
 							 	 <button type="submit" class="btn-report" :disabled="disabled">免费发布</button>
+                  <a href="javascript:void(0)" @click="showRules()" class="cmain" title="任务操作流程">《任务操作流程》</a> 
 		 					</div>
 		 				</div>
 		 			</div>
@@ -112,7 +113,10 @@ export default {
 		  createWork:'createWork',
       fetchSetting:'fetchSetting'
       }),
-...mapMutations(['setShowLogin']),
+...mapMutations(['setShowLogin','setTaskRule']),
+ showRules:function(){
+		this.setTaskRule(1)
+		},
       getLength(){
         if(this.description.length>this.maxLength){
           this.description= this.description.slice(0, this.maxLength)

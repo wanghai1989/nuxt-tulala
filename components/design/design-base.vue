@@ -35,6 +35,12 @@
 	  					</div>
 	  				</div>
             <div>
+	  					<div class="l"><span class="cred">*</span>手机号</div>
+	  					<div class="r">
+                <input class="input" type="text" v-model="mobile"/>
+	  					</div>
+	  				</div>
+            <div>
 	  					<div class="l"><span class="cred">*</span>个人标签</div>
 	  					<div class="r">
                 <input  class="input" v-model="designer_target" rows="2" placeholder="如LOGO设计，UI设计，海报设计，小程序"></input>
@@ -150,6 +156,7 @@ export default {
    mounted(){
      console.log(this.personInfo.designer_status)
      this.currentPath=this.$route.path
+     this.mobile=this.personInfo.mobile
     this.getChannel({token:this.userToken})
     this.fetchSet()
   },
@@ -223,7 +230,7 @@ export default {
         // }
         formDatas.append('designer_target',this.designer_target);
         formDatas.append('real_name',this.real_name);
-        formDatas.append('mobile', '15988888888');
+        formDatas.append('mobile', this.mobile);
         formDatas.append('qq', '349188888');
         formDatas.append('email', '349188888@qq.com');
         formDatas.append('channel', this.channel);

@@ -21,7 +21,7 @@
 						<div>
 				              <a href="javascript:void(0)" class="btn-upload">上传文件 <input type="file" accept=".doc,.docx"  @change="changefile()" id="file_contract"> </a>
 							  <span class="cmain" v-if="isContract">已上传</span>
-							  <i id="tip_file" class="i-tipfile"></i><span class="cgray f12">合同格式为doc、docx</span> 
+							  <i id="tip_file" class="i-tipfile"></i><span class="cgray f12">合同格式为doc、docx，文件不超过为1M</span> 
 						</div>
 					</div>
 				<div>
@@ -56,7 +56,7 @@
 		<div class="span-txt"><span class="cgray">任务类别</span>&nbsp;&nbsp;<span class="fw">{{workinfo.category_name}}</span></div>
 		<div class="span-txt"><span class="cgray">预算</span>&nbsp;&nbsp;<span class="fw">{{workinfo.money}}</span></div>
 		<div class="span-txt"><span class="cgray">发布时间</span>&nbsp;&nbsp;<span class="fw">{{workinfo.status_approved_time?workinfo.status_approved_time:'--'}}</span></div>
-		<div class="span-txt end"><span class="cgray">有效期</span>&nbsp;&nbsp;<span class="fw">{{workinfo.effective_time}}天</span></div>
+		<div class="span-txt end"><span class="cgray">有效期</span>&nbsp;&nbsp;<span class="fw">{{endDays(workinfo.effective_time)}}</span></div>
 		<div class="span-txt row"><span class="cgray">项目描述</span>&nbsp;&nbsp;<span class="fw">{{workinfo.description}}</span></div>
 		<div class="span-txt row" v-if="workinfo.img_one"><span class="cgray" style="vertical-align: middle;">参考附件</span>
 		<div class="egg-img" @click="showImg(workinfo.img_one)"  v-if="workinfo.img_one"> <img :src="workinfo.img_one"/></div>
@@ -75,11 +75,12 @@
 		<ul class="ul-employ" v-if="employlist.length>0">
 			<li class="clearfix"  v-for="item in employlist" :key="item.id">
 				<div class="l">
-					<nuxt-link :to="{ name: 'designerhome', params:{ id: item.member_id }}" class="nickname"> {{item.nickname}}</nuxt-link>
+					<nuxt-link :to="{ name: 'designer-id', params:{ id: item.member_id }}" class="nickname"> {{item.nickname}}</nuxt-link>
 					<div class="mt20 cgray">
-						<div class="item-txt">时间 <span class="cblack">{{item.created_at}}</span></div>
 						<div class="item-txt">作品  <span class="cblack fw">{{item.product_count}}</span>  件</div> 
 						<div class="item-txt">级别  <span class="cblack fw">{{!designlevel[item.designer_level]?"--":designlevel[item.designer_level]}}</span> <i class="i-tip" :id="'tip'+ item.id"  @click="tips('tip'+item.id)"></i> </div>
+						<div class="item-txt">设计师号码  <span class="cblack fw">{{item.mobile}}</span> </div> 
+						<div class="item-txt">时间 <span class="cblack">{{item.created_at}}</span></div>
 						<div class="item-txt row">说明  <span class="cblack">{{item.description}}</span></div>
 					</div>
 					
@@ -87,7 +88,7 @@
 				</div>
 				<div class="r">
 					<div class="f12 cgray">报价</div>
-					<div class="f18 cred">{{item.money}}</div>
+					<div class="f18 cred">{{item.money}} 元</div>
 					<a class="btn-employ" href="javascript:void(0)" @click="safeEmploy(item.id)">安全雇佣</a>
 				</div>
 			</li>
@@ -154,12 +155,20 @@ export default {
 	  fetchEmploylist:'fetchEmploylist',
       createEmploy:'createEmploy'
       }),
+	  endDays:function(time){
+		return common.getEndDays(time)
+	},
 	   changefile(){
+		   console.log($("#file_contract").get(0).files[0].size)
+		let size=$("#file_contract").get(0).files[0].size/1024/1024
 		let name=$("#file_contract").get(0).files[0].name;
         var index = name.lastIndexOf('.');
         var ext = name.substr(index + 1); //文件扩展名
 		var suffix= ["doc", "docx", "pdf"]; //合同支持的后缀名
-
+		if(size>1){
+			layer.msg('文件超过1M，请重新上传')
+			return
+		}
 		if(suffix.indexOf(ext)==-1){
 			layer.msg('项目合同格式不对，请重新上传')
 			return
@@ -316,12 +325,13 @@ background: #fff; border-radius: 5px;  position: relative;
     .ul-employ{
     li{padding: 25px 25px; background: #fff; border-bottom: 1px solid #d4d4d4;}
 	li:last-child{border-bottom: none;}
-    li .l{float: left; width: 70%;}
-	li .l .nickname{font-size: 18px; color: var(--backColor);}
+    li .l{float: left; width: 80%;}
+	li .l .nickname{font-size: 18px; color: var(--color); font-weight: bold;}
 	li .l .nickname:hover{text-decoration: underline;}
-	.item-txt{display: inline-block; margin-right: 60px; line-height: 40px;   color: var(--grayColor);}
+	.item-txt{display: inline-block; margin-right: 40px; line-height: 40px;   color: var(--grayColor);}
+	.item-txt:nth-child(4){margin-right: 0;}
 	.item-txt.row{display: block; line-height: 22px;}
-    li .r{float: left; width: 30%; text-align: right;}
+    li .r{float: left; width: 20%; text-align: right;}
     .i-certi{.bg-map(20px,22px, -1002px, -70px);}
 	.i-tip{.bg-map(18px,18px, -1091px, -8px);}
 	
