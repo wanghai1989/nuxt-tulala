@@ -46,7 +46,7 @@
 				<img src="~/assets/images/pic32.png" />
 				<p>暂无工单</p>
 			</div>
-	  <mo-paging endDays(item.effective_time)
+	  <mo-paging
             :page-index="page" 
             :total="countfile" 
             :page-size="pageSize" 

@@ -11,7 +11,7 @@
 				 <ul class="fl nav-list">
                     <li>
                       <i class="i-hot"></i>
-                      <nuxt-link to="/designer">我是设计师</nuxt-link>
+                      <nuxt-link to="/designer">我是设计师&nbsp;<i class="iconfont">&#xe642;</i></nuxt-link>
                        <div class="material-box">
                          <div class="material-name" >
                             <nuxt-link to="/enter">入驻图啦啦</nuxt-link>
@@ -29,7 +29,7 @@
                        <nuxt-link to="/task/public">找设计师</nuxt-link>
 				   </li>
            <li>
-                       <nuxt-link :to="{ name: 'material-id', params:{id: 1 }}">素材中心</nuxt-link>
+                       <nuxt-link :to="{ name: 'material-id', params:{id: 1 }}">素材中心&nbsp;<i class="iconfont">&#xe642;</i></nuxt-link>
                        <div class="material-box">
                           <div class="material-name"  v-for="item in navigation" :key="item.id">
                             <nuxt-link :to="{ name: 'material-id', params:{id: item.id }}">{{item.name}}
@@ -127,10 +127,10 @@
 	                                          </div>
 	                   
 	                     <ul>
-	                       <li> <nuxt-link  to="/mine"><i></i><span>个人中心</span></nuxt-link> </li>
-	                       <li> <nuxt-link  to="/active/invite-friend"><i class="ione"></i><span>邀请好友</span></nuxt-link></li>
-	                       <li><nuxt-link  to="/mine/my-collect"><i class="itwo"></i><span>我的收藏</span></nuxt-link></li>
-	                       <li><a href="javascript:;" @click="doLogout()"><i class="ithree"></i><span>退出登录</span></a></li>
+	                       <li> <nuxt-link  to="/mine"><i class="iconfont">&#xe601;</i><span>个人中心</span></nuxt-link> </li>
+	                       <li> <nuxt-link  to="/active/invite-friend"><i class="iconfont">&#xe61c;</i><span>邀请好友</span></nuxt-link></li>
+	                       <li><nuxt-link  to="/mine/my-collect"><i class="iconfont">&#xe86d;</i><span>我的收藏</span></nuxt-link></li>
+	                       <li><a href="javascript:;" @click="doLogout()"><i class="iconfont">&#xe60b;</i><span>退出登录</span></a></li>
 	                     </ul>
 	     			</div>
 					</div>
@@ -240,9 +240,11 @@ fetchNoticeList:function(){
 
     .nav-list>li>a{font-size: 16px;display: inline-block; padding: 0px 10px; height: 88px; line-height: 88px;
      border-bottom: 3px solid transparent; color: #333; box-sizing: border-box; font-weight: bold;}
+     .nav-list>li>a i{font-size: 10px; display: inline-block;}
     .nav-list>li>a.nuxt-link-active{border-bottom: 3px solid #3ebb2b; font-weight: bold;}
     .nav-list>li>a.focus{color: var(--color); border-bottom: 3px solid  var(--color); font-size: 16px;}
     .nav-list>li>a:hover{color:  var(--color); border-bottom: 3px solid transparent; font-size: 16px;}
+    .nav-list>li>a:hover i{transform: rotate(180deg);}
     .nav-list>li:hover .material-box{display: block;}
     .login{margin: 20px 15px 0px 0px;display: flex;
     .unlogin{margin-top: 8px}
@@ -288,15 +290,17 @@ fetchNoticeList:function(){
         //  vertical-align: -10px; }
          .u-info a { float: right; display: block; margin-top: 5px; width: 86px; height: 28px; border-radius: 48px;
           background:var(--redColor); ; color: #fff; font-weight: 700; font-size: 13px; line-height: 28px;text-align: center; }
+         .u-info a:hover{opacity: 0.9;}
          .opengimg { margin-bottom: 8px; width: 300px; height: 83px; }
          .opengimg img { width: 100%; height: 100%; }
          ul { display: flex; justify-content: space-between; width: 100%; height: 60px; }
          ul li { flex: 1; }
          ul li a { display: block; color: #757575; font-size: 13px; text-align: center; margin: 0 auto; }
-         ul li a i { .bg-map(30px,35px,-749px, -120px);  display: block;     margin: 0 auto;}
-         ul li a .ione { .bg-map(30px,35px,-665px, -125px); display: block; }
-         ul li a .itwo {.bg-map(30px,35px,-792px, -119px);display: block;  }
-         ul li a .ithree {.bg-map(30px,35px,-706px, -119px);display: block; }
+          ul li a i{font-size: 22px;display: block;     margin: 0 auto 4px; color: #a7a7a7;}
+        //  ul li a i { .bg-map(30px,35px,-749px, -120px);  display: block;     margin: 0 auto;}
+        //  ul li a .ione { .bg-map(30px,35px,-665px, -125px); display: block; }
+        //  ul li a .itwo {.bg-map(30px,35px,-792px, -119px);display: block;  }
+        //  ul li a .ithree {.bg-map(30px,35px,-706px, -119px);display: block; }
     }
 }
 

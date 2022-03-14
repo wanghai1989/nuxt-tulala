@@ -38,7 +38,7 @@
 						</div>
 				  		<div class="cgray mt20">
 						 <span class="worktxt">工单编号&nbsp;<b class="cblack f15">{{item.order_sn}}</b></span>
-						 <span class="worktxt">雇佣设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname?item.design_nickname:""}}</b></nuxt-link></span>
+						 <span class="worktxt">设计师&nbsp;<nuxt-link  :to="{ name: 'designer-id', params:{ id: item.design_id }}"> <b class="cblack f15"> {{item.design_nickname?item.design_nickname:"无"}}</b></nuxt-link></span>
 						  <span class="worktxt">手机号&nbsp;<b class="cblack f15">{{item.mobile}}</b></span>
 						  <span class="worktxt">预算&nbsp;<b class="cblack f15">{{item.money}}</b></span>
 						  <span class="worktxt">有效期&nbsp;<b class="cblack f15">{{endDays(item.effective_time)}} </b></span>
@@ -185,7 +185,7 @@ export default {
 			let _that=this
 			layer.open({
                 title: ['温馨提示', 'color:#fff; background: #34bc76;'],//数组第二项可以写任意css样式；如果你不想显示标题栏，你可以title: false
-                content: '<div>确定表示同意此项目协议条款</div>',
+                content: '<div>确定表示接受雇佣，同意此项目协议条款</div>',
                 btn: ['确定','取消'],
                 yes: function(index){
 					let formDatas = new FormData();
@@ -199,7 +199,7 @@ export default {
 							}
 							if(data.code==1){
 								_that.fetchWork(2)
-							layer.msg(data.msg, {icon: 1});
+							layer.msg('恭喜您接单成功，待雇主支付定金！', {icon: 1});
 							}
 						})
                     layer.close(index); //如果设定了yes回调，需进行手工关闭

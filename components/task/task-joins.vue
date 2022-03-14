@@ -239,8 +239,11 @@ export default {
 				layer.msg(data.msg, {icon: 2});
 				}
 				if(data.code==1){
-					this.popupShow=0
 				layer.msg('雇佣成功，待设计师确认!', {icon: 1});
+				setTimeout(() => {
+					this.popupShow=0
+					this.$router.push('/mine/my-works')
+				}, 2000);
 				}
 			})
 		  }
