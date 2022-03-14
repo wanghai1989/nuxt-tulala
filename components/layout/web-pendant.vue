@@ -55,7 +55,7 @@
 				<nuxt-link to="/task/public" title="免费发布任务"> <i class="iconfont">&#xec46;</i><br /> <span>发布</span></nuxt-link>	
 			</div>
 			<div class="item-top" id="holdtop" @click="holdTop()" title="置顶">
-				<i></i>
+				<i class="iconfont">&#xe64a;</i>
 			</div>
 		</div>
 </div>
@@ -240,7 +240,8 @@ export default {
     // .item-pend.qd i{.bg-map(25px,25px,-702px, -167px);}
 
     .item-top{position: absolute;bottom: 40px;  left: 14px; display: none;}
-    .item-top i{.bg-map(22px,25px,-531px,-4px);}
+    // .item-top i{.bg-map(22px,25px,-531px,-4px);}
+   .item-top i {    font-size: 25px; color: var(--color); opacity: 0.9; cursor: pointer;}
     .btn-qd{.btn(100px,28px,#fccc0a,#fccc0a,#5e00b2); font-size: 14px; border-radius: 17px; 
     margin-top: 100px; box-shadow: 0px 1px 4px #fccc0a; font-weight: bold;};
     .btn-go{.btn(100px,28px,#fccc0a,#fccc0a,#5e00b2); font-size: 14px; border-radius: 17px; 
