@@ -185,7 +185,7 @@ endDays:function(time){
 				layer.msg(data.msg, {icon: 2});
 				}
 				if(data.code==1){
-				layer.msg(data.msg, {icon: 1});
+				layer.msg('恭喜您参与竞价成功！', {icon: 1});
 				setTimeout(() => {
 					this.money='',
                 	this.description=''
