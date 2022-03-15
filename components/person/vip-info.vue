@@ -30,7 +30,7 @@
 				</ul>
 				<span v-if="type==1">积分总数 <strong>{{integral}}</strong> </span>
 				<span v-else-if="type==2">图啦币总数 <strong> {{platform_currency}}</strong> <a href="javascript:void(0)" class="btn-withdraw" @click="showWithdraw()" >提现</a></span>
-				 <span v-else><span v-if="type==3 && personInfo.vip_time">到期时间 <strong>{{personInfo.vip_time}}</strong></span> <nuxt-link class="btn-openvip" to="/vip/pay-vip" >{{personInfo.is_vip?'续期VIP':'开通VIP'}}</nuxt-link></span>
+				 <span v-else><span v-if="type==3 && personInfo.vip_time">到期时间 <strong class="cblack">{{dateFormat(personInfo.vip_time)}} </strong></span> <nuxt-link class="btn-openvip" to="/vip/pay-vip" >{{personInfo.is_vip?'续期VIP':'开通VIP'}}</nuxt-link></span>
 			</div>
 
 			<div class="vam vam-b tab-vip" v-if="type==1 || type==2">
@@ -45,7 +45,7 @@
 						<span class="green" v-if="item.type==1">+{{item.num  | numFormat}}</span>
 						 <span class="red" v-else>-{{item.num  | numFormat}}</span>
 				</div>
-					<div>{{item.created_at}}</div>
+					<div> {{dateFormat(item.created_at)}}</div>
 				</div>
 			</div>
 			<div class="vam vam-b tab-vip"  v-if="type==3">
@@ -61,7 +61,7 @@
 					<div>{{item.amount | numFormat}}</div>
 					<div>{{item.time_limit}}</div>
 					<div>{{!item.note?item.status_name:item.note}}</div>
-					<div>{{item.created_at}}</div>
+					<div>{{dateFormat(item.created_at)}}</div>
 				</div>
 			</div>
            <ul class="coupons" v-if="type==4" >
@@ -171,14 +171,7 @@ isOverdue:function(endTime) {
 		  } 
 	  },
 dateFormat:function(endTime) {
-		let mytime=new Date(endTime)
-		let myyear = mytime.getFullYear();
-    let mymonth = mytime.getMonth() + 1;
-    let myday = mytime.getDate();
-    if (mymonth < 10) {
-            mymonth = '0' + mymonth;
-        }
-    return myyear+'-'+mymonth+'-'+myday
+	return	common.dataFormat(endTime)
 	  },
 fetchCoup(){
 		let formDatas = new FormData();

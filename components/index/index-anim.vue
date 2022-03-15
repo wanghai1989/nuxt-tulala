@@ -5,7 +5,7 @@
         <nuxt-link to="/enter"   class="link img-box">
                <div class="receive" @click="goEnter()"  title="立即入驻">
                    <span> 立即入驻 </span> <br />
-                   <em>限时送年VIP</em> 
+                   <em>入驻限时送VIP</em> 
                  </div>
                  <div class="subline"  v-html="strTime"></div> 
                <!-- <div class="downtime">入驻限时赠送年VIP   2天1小时59分10秒</div> -->
@@ -144,7 +144,7 @@ border-radius: 4px; font-size: 16px;}
 .center_ad .box .img-box .receive{width: 280px; display: block; position: absolute; bottom:55px; left: 140px; line-height: 1.3; padding: 5px 0px;
 background-image: linear-gradient(#ffc44f, #ffe791); text-align: center; color: #ec0b49;  border-radius: 32px;
     // animation: scaleDraw 3s linear infinite;
-    span{font-size: 22px; }
+    span{font-size: 22px;font-weight: bold; }
     em{font-size: 14px; color: #c98400;}
 }
 .center_ad .box .img-box .subline {position: absolute; bottom: 20px; left: 0; width: 100%; height: 30px; line-height: 30px; text-align: center; font-size: 24px; color: #fff;}

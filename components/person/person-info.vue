@@ -3,7 +3,7 @@
 			<div class="cert-item mt30">
 				<i class="i-basic"></i> 
 				<div class="cert-txt">
-					<div class="f18 cblack">基本信息</div>
+					<div class="f18 cblack fw">基本信息</div>
 					<div class="cgray">用于设计师主页信息、商品收货地址等</div>
 				</div>
 				<nuxt-link to="/mine/basic-info"  class="btn-cert">{{personInfo.is_complete_my_info?'查看':'去完善'}}</nuxt-link>
@@ -13,8 +13,8 @@
 			<div class="cert-item">
 				<i class="i-phone"></i> 
 				<div class="cert-txt">
-					<div class="f18 cblack">手机认证</div>
-					<div class="cgray">机绑定后可用于登录、接收订单信息以及网站活动等</div>
+					<div class="f18 cblack fw">手机认证</div>
+					<div class="cgray">手机绑定后可用于登录、接收订单信息以及网站活动等</div>
 				</div> 
 				<span  class="btn-cert disabled"  v-if="personInfo.is_binding_mobile">已认证</span>
 				<nuxt-link to="/mine/mobile-bind"  class="btn-cert" v-else>去认证</nuxt-link>
@@ -25,7 +25,7 @@
 			<div class="cert-item">
 				<i class="i-realname"></i> 
 				<div class="cert-txt">
-					<div class="f18 cblack">实名认证</div>
+					<div class="f18 cblack fw">实名认证</div>
 					<div class="cgray">实名认证是开通接单工作的基本条件</div>
 				</div> 
 				<span class="btn-cert disabled"  v-if="[1,2].includes(personInfo.certification)">{{personInfo.certification==1?'已认证':'待审核'}}</span>

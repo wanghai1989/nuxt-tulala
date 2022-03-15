@@ -1,20 +1,31 @@
 'use strict';
 export default {
-  dataFormat:function(strDate) {
-    var date = new Date(strDate);
-    var seperator1 = "-";
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-        month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
-    }
-    var currentdate = year + seperator1 + month + seperator1 + strDate
-    return currentdate;
-},
+   dataFormat:function(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+   
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+   
+    return [year, month, day].join('-');
+  },
+//   dataFormat:function(strDate) {
+//     var date = new Date(strDate);
+//     var seperator1 = "-";
+//     var year = date.getFullYear();
+//     var month = date.getMonth() + 1;
+//     var strDate = date.getDate();
+//     if (month >= 1 && month <= 9) {
+//         month = "0" + month;
+//     }
+//     if (strDate >= 0 && strDate <= 9) {
+//         strDate = "0" + strDate;
+//     }
+//     var currentdate = year + seperator1 + month + seperator1 + strDate
+//     return currentdate;
+// },
   handleTel:function(tel){
     tel = "" + tel;
     var ary = tel.split("");
@@ -32,8 +43,6 @@ getEndDays:function(end_time){
    if(isNaN(end_time)&&!isNaN(Date.parse(end_time))){
      // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差
      var curTime = new Date();
-    //var timeDiff = curTime.getTime() - postTime.getTime();
-    //上面一行代码可以换成以下（兼容性的解决）
     var timeDiff = this.getTs(end_time) -curTime.getTime();
  
     var days=  Math.floor(timeDiff/24/60/60/1000); 

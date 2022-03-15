@@ -6,7 +6,7 @@
                 <img src="~/assets/images/banner07.png" />
         </div>
         <div class="vip-info">
-                <div class="cgray mt20">赞助账号：<span class="cblack">好小子</span>（ 普通会员 ）</div>
+                <div class="cgray mt20">赞助账号：<span class="cblack">{{personInfo.nickname}}</span>{{personInfo.is_vip?'（图啦会员）':'（普通账户）'}}</div>
                 <div class="vip-type">
                         <div class="item"  v-for="item in viptype" :key="item.id" @click="payVip(item.type,item.activity_price)" :class="{chose:item.type==nowid}">
                                 <em class="design" v-if="item.type==3">入驻设计师专享</em>
@@ -45,21 +45,25 @@
                 </div>
                 <div class="pay-limits">
                         <div class="item item01">
-                                <div class="title">天天上新</div>
-                                <div class="txt">元素+背景+UI+电商+平面素材</div>
+                                <div class="title">在线接单</div>
+                                <div class="txt">利用闲暇时间赚取外快</div>
                         </div>
                         <div class="item item02">
-                                <div class="title">无限下载</div>
-                                <div class="txt">无限下载提高工作效率</div>
+                                <div class="title">天天上新</div>
+                                <div class="txt">六大品类素材不断更新</div>
                         </div>
                         <div class="item item03">
+                                <div class="title">无限下载</div>
+                                <div class="txt">各个品类素材任意下载</div>
+                        </div>
+                        <div class="item item04">
                                 <div class="title">审核筛选</div>
                                 <div class="txt">专业审核把控作品质量</div>
                         </div>
-                        <div class="item item04">
+                        <!-- <div class="item item04">
                                 <div class="title">星级服务</div>
                                 <div class="txt">专业客服全天候在线</div>
-                        </div>
+                        </div> -->
                 </div>
         </div>
 </div>
