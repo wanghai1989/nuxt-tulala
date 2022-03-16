@@ -16,12 +16,12 @@
     </div>
     <div class="vam">
         <div>
-          <div>作者 {{productinfo.nickname}}</div>
-          <div>像素 {{productinfo.img_dpi}}</div>
+          <div>作者 <span class="cblack"> {{productinfo.nickname}}</span></div>
+          <div>像素 <span class="cblack">{{productinfo.img_dpi}}</span></div>
         </div>
         <div>
-          <div>格式 {{productinfo.file_formats}}</div>
-          <div>上传时间 {{productinfo.created_at}}</div>
+          <div>格式 <span class="cblack">{{productinfo.file_formats}}</span></div>
+          <div>上传时间 <span class="cblack">{{productinfo.created_at}}</span></div>
         </div>
     </div>
   </div>

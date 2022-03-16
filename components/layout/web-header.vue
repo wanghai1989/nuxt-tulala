@@ -296,6 +296,7 @@ fetchNoticeList:function(){
          ul { display: flex; justify-content: space-between; width: 100%; height: 60px; }
          ul li { flex: 1; }
          ul li a { display: block; color: #757575; font-size: 13px; text-align: center; margin: 0 auto; }
+         ul li a:hover,ul li a:hover i{color: var(--color);} 
           ul li a i{font-size: 22px;display: block;     margin: 0 auto 4px; color: #a7a7a7;}
         //  ul li a i { .bg-map(30px,35px,-749px, -120px);  display: block;     margin: 0 auto;}
         //  ul li a .ione { .bg-map(30px,35px,-665px, -125px); display: block; }

@@ -18,9 +18,21 @@ import webLogin from '~/components/layout/web-login.vue'
 import webBanner from '~/components/layout/web-banner.vue'
 import taskPublic from '~/components/task/task-public.vue'
 import taskRight from '~/components/task/task-right.vue'
+import {mapState,mapMutations} from 'vuex'
 export default {
    layout: 'web',
    components: {webBanner,taskPublic,taskRight,webLogin,taskRule},
+   mounted(){  
+	   if(!this.userToken){
+		   this.setShowLogin(1)
+	   }
+		},
+	computed:{
+	  ...mapState(['userToken'])
+  },
+  methods:{
+	  ...mapMutations(['setShowLogin']),
+  },
    head(){
 	   return {
 			title: '发布任务_91tula.com',
