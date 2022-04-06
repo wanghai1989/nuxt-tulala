@@ -27,7 +27,7 @@ data () {
   },
   mounted() {
 		this.setlayer()
-        this.SysSecond = this.GetDateDiff('2022-3-31 0:0:0'); //这里获取倒计时的起始时间
+        this.SysSecond = this.GetDateDiff('2022-05-01 0:0:0'); //这里获取倒计时的起始时间
         if(!this.getCookie("loanName"))
         {this.InterValObj = setInterval(this.SetRemainTime, 1000);} //间隔函数，1秒执行}
         
